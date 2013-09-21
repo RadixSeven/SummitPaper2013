@@ -31,7 +31,7 @@ Surprisingly, many authors do not mention their starting points \cite{Martin1994
 Gipson\cite{Gipson2006} makes his fitting convex by using binning to avoid peak shift and not altering peak
 width.
 
-\subsection{Fitting using metabolite database}
+\subsection{Fitting using a metabolite database}
 
 Most of the rest of the authors doing curve fitting start from a database of known metabolites and
 rely on this for their starting points. Poullet \textit{et. al.} start with all the metabolites unshifted at 
@@ -44,9 +44,41 @@ the database. The second phase uses the results of the first phase as its starti
 line-shape parameters and widths to vary and includes more terms to approximate the baseline.
 
 Possibly the most complex starting point among those using a metabolite database was reported by Mercier 
-\textit{et. al.} \cite{Mercier2011}
+\textit{et. al.}\cite{Mercier2011}. They use the term ``cluster'' to refer to multiplets or singlets that
+shift together. For each cluster in a metabolite, they shift it along its whole range, choosing the location
+with maximum cross-correlation as its initial location. As they translate, they also calculate the maximum 
+possible concentration of the metabolite where the cluster would still fit under the spectrum. Then they bound
+metabolite concentration above by the minimum of these concentrations over all clusters in the metabolite. Finally,
+they bin the spectrum and the metabolite with its clusters in its initial position and solve a linear equation
+to get initial concentration.
 
-\subsection{Fitting without metabolite database}
+Crockford \textit{et. al.}\cite{Crockford2005} do not use an entire metabolite database, preferring to use 
+``probes'' (individual peaks or multiplets that give good quality information about a particular metabolite).
+When the probe is a multiplet, they first find the least-squares best fit between the measured signal \(y(x)\) and
+\(B+y_{probe}(x+\Delta)\) where \(y_{probe}\) is the probe intensity, \(\Delta\) is its shift, and \(B\) is a
+local baseline correction and both the signal and probe have been scaled to have maximum height 1 in the region.
+After finding the best shift, they fix \(\Delta\) and solve the system of linear equations 
+\(y(x)=B+M y_{probe}(x+\Delta)\) on the unscaled spectrum in the least squares sense. When the probe is a singlet,
+they don't scale the spectrum or probe and find the best \(\Delta\) by maximizing \(\sum_x y(x) y_{probe}(x+\Delta)\) 
+over the potential probe locations. Then they proceed as for the multiplet case.
+
+\subsection{Fitting without a metabolite database}
+
+Of those who fit without a metabolite database, we only found two who mention their optimization starting point.
+Sima \textit{et. al.}\cite{Sima2006} are focused mainly on their statistical method. Thus they merely use a 
+uniformly distributed random initialization for peak height and location. Their test set had only equal-width
+peaks, so they did not have width as a parameter.
+
+Anderson \textit{et. al.}\cite{Anderson2012} fit Gauss-Lorentz peaks which have 4 parameters: height, 
+width-at-half-height (``width'' in what follows), location, and lorentzianness. They use a manually selected 
+initial peak location. Each peak is assigned a region bounded by the minimum intensities between it and its 
+adjacent peaks. For each peak, the initial height is the difference between the maximum and minimum intensities 
+in its region. The initial width is double the ppm distance from the maximum intensity in the region to where 
+the intensity has dropped by half.\footnote{
+The paper says ``double the distance (ppm) between the maximum intensity in the region and the
+location of the peak’s half height (i.e., initial height divided by 2)'' but the source code merely looks for
+the point closest to half of the maximum region intensity. We state the algorithm as implemented because that
+is what we compare against.} The initial lorentzianness is 0.5.
 
 \section{Methods}
 Here I will discuss my new method and my way of testing it
