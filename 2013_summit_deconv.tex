@@ -16,7 +16,7 @@ There will be an abstract here
 
 \section{Introduction}
 There will be an introduction here
-\section{Related work}
+\section{Previous work on starting points}
 Most nonlinear optimization methods work by using a current model and improving the model by making small changes.
 The optimization stops when no more small changes will improve the model. Because the problems being solved in
 NMR curve fitting are not convex, there are many local optima where small changes will not reduce the error but 
@@ -87,6 +87,23 @@ They also create constraints on the estimated parameters. Peak position is bound
 All other parameters are bounded below by 0. Width must be less than the width of the segment; height less
 than the maximum intensity in the segment; lorentzianness less than 1 and baseline must be less than the segment
 maximum.
+\section{Summit Focused Starting Point}
+In this article, we propose a new starting point for deconvolution performed without a pre-existing metabolite 
+database. We build off of the work presented by Anderson's team and present the algorithm with initial peak
+locations from an external source. This can be manual entry, a smoothed local-maximum peak picker, or a more
+complex peak picker like that used in \cite{Alm2009}.
+
+Because a peak is highest at its mode, the signal-to-noise ratio will be highest at the mode. This is true whether
+the ``noise'' is environmental static or overlapping adjacent peaks. Thus, it makes sense to derive initial 
+parameter estimates from the higher quality mode points and only later incorporate the other points when 
+information from the adjacent peaks can disambiguate the contribution of each peak to each intensity.
+
+All peaks start at 0 amplitude.
+
+The algorithm fits one peak at a time to the data points within 0.0052 ppm.\footnote{The fitting is not very sensitive 
+to this parameter, but it is important to have enough points that the 4 peak parameters can be estimated. 12 
+points seems to be a good minimum.} After fitting each peak, it subtracts that peak from the current sum.
+
 
 \section{Methods}
 Here I will discuss my new method and my way of testing it
