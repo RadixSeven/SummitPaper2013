@@ -17,9 +17,37 @@ There will be an abstract here
 \section{Introduction}
 There will be an introduction here
 \section{Related work}
-Spectrum analysis methods can be divided along several axes. The input data can be lightly preprocessed sensor readings in the time-domain or those readings can be passed through a Fourier transform yielding frequency domain data (usually expressed in ppm). The results can be modeled using Bayesian statistics or conventional regression. Baseline roll can be corrected in preprocessing or along with deconvolution. They can require human interaction or be fully automated.
+Most nonlinear optimization methods work by using a current model and improving the model by making small changes.
+The optimization stops when no more small changes will improve the model. Because the problems being solved in
+NMR curve fitting are not convex, there are many local optima where small changes will not reduce the error but 
+large changes can still bring about an improvement. If the algorithm finds one of these before it finds the best
+model, it will halt and return a sub-optimum model. The closer the initial model is to the global optimum, 
+the less likely the optimization algorithm is to run into an inferior local optimum. Further, if good constraints
+are chosen, many local optima can be eliminated from the search \textit{a-priori}, increasing the likelihood
+of finding the best model first. Thus, deconvolution performance can be greatly improved by choosing a model 
+closer to the global optimum and constraining the search to eliminate local optima.
 
-One important distinction has to do with what level of semantics are inserted at each level of the analysis. A. Weljie et. al. distinguish between chemometric and targeted profiling approaches\cite{Weljie2006}. 
+Surprisingly, many authors do not mention their starting points \cite{Martin1994,Romano2002,Vanhamme2000}. 
+Gipson\cite{Gipson2006} makes his fitting convex by using binning to avoid peak shift and not altering peak
+width.
+
+\subsection{Fitting using metabolite database}
+
+Most of the rest of the authors doing curve fitting start from a database of known metabolites and
+rely on this for their starting points. Poullet \textit{et. al.} start with all the metabolites unshifted at 
+some low initial intensity.\cite{Poullet2007} 
+
+Constrained total-line-shape fitting \cite{Laatikainen1996,Soininen2005} represents the metabolite database as 
+a list of peaks with location and other constraints. It uses a two pass approach. In the first pass, only a few
+baseline terms are used, all peaks are pure Lorentzians with equal width and initial values come directly from
+the database. The second phase uses the results of the first phase as its starting point, but allows the 
+line-shape parameters and widths to vary and includes more terms to approximate the baseline.
+
+Possibly the most complex starting point among those using a metabolite database was reported by Mercier 
+\textit{et. al.} \cite{Mercier2011}
+
+\subsection{Fitting without metabolite database}
+
 \section{Methods}
 Here I will discuss my new method and my way of testing it
 \section{Results}
