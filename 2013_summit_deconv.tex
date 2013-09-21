@@ -70,15 +70,23 @@ uniformly distributed random initialization for peak height and location. Their 
 peaks, so they did not have width as a parameter.
 
 Anderson \textit{et. al.}\cite{Anderson2012} fit Gauss-Lorentz peaks which have 4 parameters: height, 
-width-at-half-height (``width'' in what follows), location, and lorentzianness. They use a manually selected 
-initial peak location. Each peak is assigned a region bounded by the minimum intensities between it and its 
-adjacent peaks. For each peak, the initial height is the difference between the maximum and minimum intensities 
-in its region. The initial width is double the ppm distance from the maximum intensity in the region to where 
-the intensity has dropped by half.\footnote{
+width-at-half-height (``width'' in what follows), location, and lorentzianness. Before fitting an entire, 
+spectrum, they break the spectrum into a number of segments which are fit independently before being
+combined again to produce the fit for the entire spectrum. They use a manually selected 
+initial peak location. Within each segment, each peak is assigned a region bounded by the minimum intensities 
+between it and its adjacent peaks (or the segment boundaries). For each peak, the initial height is the 
+difference between the maximum and minimum intensities in its region. The initial width is double the ppm 
+distance from the maximum intensity in the region to where the intensity has dropped by half.\footnote{
 The paper says ``double the distance (ppm) between the maximum intensity in the region and the
 location of the peak’s half height (i.e., initial height divided by 2)'' but the source code merely looks for
 the point closest to half of the maximum region intensity. We state the algorithm as implemented because that
-is what we compare against.} The initial lorentzianness is 0.5.
+is what we compare against.} The initial lorentzianness is 0.5. The baseline starts as the minimum value in 
+the segment.
+
+They also create constraints on the estimated parameters. Peak position is bounded to lie within the peak's region.
+All other parameters are bounded below by 0. Width must be less than the width of the segment; height less
+than the maximum intensity in the segment; lorentzianness less than 1 and baseline must be less than the segment
+maximum.
 
 \section{Methods}
 Here I will discuss my new method and my way of testing it
