@@ -102,11 +102,22 @@ All peaks start at 0 amplitude.
 
 The algorithm fits one peak at a time to the data points within 0.0052 ppm.\footnote{The fitting is not very sensitive 
 to this parameter, but it is important to have enough points that the 4 peak parameters can be estimated. 12 
-points seems to be a good minimum.} After fitting each peak, it subtracts that peak from the current sum.
+points seems to be a good minimum.} Each peak is fit to the measured intensities minus the sum of the other peak values.
+This isolates the residual not accounted for by the other peaks.
 
+Og now write. Eric need ghost writer. Og best ghost. Og dead 10,000 years. 
+
+Peaks start at 0 height. Algorithm fit peaks in order. Algorithm start with smallest peak. If algorithm start with 
+largest peak, peak tails overwhelm smaller peaks. So, fit smallest peak first. On first pass, algorithm use residual
+height at peak location as initial estimate for fitting peak. Every other pass use previously found height.
+
+Algorithm use 3 passes. More passes tested and always same result, so 3 passes enough.
+
+Algorithm has maximum peak width. Multiply error by 20 times amount over maximum width add this as penalty when over
+maximum width. 
 
 \section{Methods}
-Here I will discuss my new method and my way of testing it
+Here og talk testing
 \section{Results}
 Here I will present the results of my tests without much elaboration
 \section{Discussion}
