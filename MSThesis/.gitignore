@@ -1,0 +1,6 @@
+# Ignore LaTeX generated files
+eric_thesis.aux
+eric_thesis.bbl
+eric_thesis.blg
+eric_thesis.log
+eric_thesis.pdf
