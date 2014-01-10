@@ -1,8 +1,25 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\author{Eric Moyer, Michael Raymer}
+\title{Improving local deconvolution using summit-focused starting points}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+There will be an abstract here
+\end{abstract}
+
+
 Vector-based lexical semantics is a powerful technique that still has many undiscovered applications. In this thesis I apply a skip-gram lexical-semantic model newly developed by Mikolov et. al. to the lexical hypothesis in personality psychology.
 
-Vector-based lexical semantics
+\section{Vector-based lexical semantics}
 
-LSA
+\subsection{LSA}
 
 Vector-based lexical semantics is the study of algorithms that assign vectors to words in a way that reflects the meaning of those words. The first vector-based lexical semantic algorithm was LSA (Lexical Semantic Analysis), invented in ____ by ___. LSA works off of a bag-of-words model of source documents. The training documents are turned into a matrix in which each row corresponds to a document, each column to one word in the vocabulary, and each entry counts the number of occurrences of a particular word in the document. It is important to recognize that a document can be a group of words of any length. Documents could consist of sentences, paragraphs, web-pages, 20 word sliding windows, bible chapters, or any other textual unit that is of interest in the application. This term-document matrix is then decomposed into its principal components and their loadings by SVD (singular value decomposition) and the most significant components are chosen. If the resulting reduced matrices are multiplied together, it produces a smoothed term-document matrix guaranteed to be the closest one can come to the original matrix (in the least-squares sense) with the chosen number of factors.
 
@@ -12,24 +29,26 @@ Any modern application of LSA is usually more complicated. For example, the raw 
 
 LSA came out of the document retrieval field and its first applications were in matching query strings to documents. It was very successful in finding documents that were semantically appropriate but which contained no words in common with the query. For example, with the right training set, "The legislature will meet in Columbus on Thursday for a special session." would be a good match for the query "Ohio capital" because Ohio and capital are both frequently in the same documents with Columbus, legislature, meet, and session.
 
-PLSA
+\subsection{PLSA}
 
-LDA
+\subsection{LDA}
 
-N-word context models
+\subsection{N-word context models}
 
-Prototype-based models
+\subsection{Prototype-based models}
 
+\subsection{Skip-gram Model}
 
-Applications of Vector-based lexical semantics
-
-
-
-Skip-gram Model
+\section{Applications of Vector-based lexical semantics}
 
 
-Lexical Hypothesis in Personality Psychology
-
+\section{Lexical Hypothesis in Personality Psychology}
 
 
 The lexical hypothesis in psychology can be summarized as: the aspects of personality that people find important will be reflected in people's way of describing others. This has mainly been
+
+
+\bibliographystyle{plain}
+\bibliography{Thesis}
+
+\end{document}
