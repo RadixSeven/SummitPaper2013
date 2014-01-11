@@ -1,3 +1,14 @@
+%% Initialization
+points_per_cluster = 10;
+
+%% Make stereotypical PCA data
+gauss_a = randn(2*points_per_cluster,1);
+gauss_b = randn(2*points_per_cluster,1)/20;
+stereotype = [gauss_a*sqrt(2)/2-gauss_b*sqrt(2)/2,gauss_a*sqrt(2)/2+gauss_b*sqrt(2)/2];
+
+%% Plot stereotypical PCA
+scatter(stereotype(:,1), stereotype(:,2));
+
 %% Make the original simple data
 %
 % For the simple dataset, the original data is points evenly angularly
@@ -5,7 +16,6 @@
 % separated by 30 degrees. Note that the maximum difference between two
 % points is less than 180 degrees, so the included angle is all that is
 % important for the cosine (no wierd wrap-around effects).
-points_per_cluster = 10;
 simple_angles = ...
     [linspace(0,2*pi/12,points_per_cluster),...
     linspace(4*pi/12, 6*pi/12, points_per_cluster)]';
