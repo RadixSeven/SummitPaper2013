@@ -14,15 +14,16 @@
 \maketitle
 
 \begin{abstract}
-There will be an abstract here
+Vector-based lexical semantics is a powerful technique that still has many undiscovered applications. In this thesis I apply a skip-gram lexical-semantic model newly developed by Mikolov et. al. to the lexical hypothesis in personality psychology.
 \end{abstract}
 
+\section{Introduction}
 
-Vector-based lexical semantics is a powerful technique that still has many undiscovered applications. In this thesis I apply a skip-gram lexical-semantic model newly developed by Mikolov et. al. to the lexical hypothesis in personality psychology.
+\section{Background}
 
-\section{Vector-based lexical semantics}
+\subsection{Vector-based lexical semantics}
 
-\subsection{LSA}
+\subsubsection{LSA}
 
 Vector-based lexical semantics is the study of algorithms that assign vectors to words in a way that reflects the meaning of those words. The first vector-based lexical semantic algorithm was LSA (Lexical Semantic Analysis), invented in \todo{some-year} by \todo{some-person}. LSA works off of a bag-of-words model of source documents. The training documents are turned into a matrix in which each row corresponds to a document, each column to one word in the vocabulary, and each entry counts the number of occurrences of a particular word in the document. It is important to recognize that a document can be a group of words of any length. Documents could consist of sentences, paragraphs, web-pages, 20 word sliding windows, bible chapters, or any other textual unit that is of interest in the application. This term-document matrix is then decomposed into its principal components and their loadings by SVD (singular value decomposition) and the most significant components are chosen. If the resulting reduced matrices are multiplied together, it produces a smoothed term-document matrix guaranteed to be the closest one can come to the original matrix (in the least-squares sense) with the chosen number of factors.
 
@@ -32,25 +33,112 @@ Any modern application of LSA is usually more complicated. For example, the raw 
 
 LSA came out of the document retrieval field and its first applications were in matching query strings to documents. It was very successful in finding documents that were semantically appropriate but which contained no words in common with the query. For example, with the right training set, "The legislature will meet in Columbus on Thursday for a special session." would be a good match for the query "Ohio capital" because Ohio and capital are both frequently in the same documents with Columbus, legislature, meet, and session.
 
-\subsection{PLSA}
+\subsubsection{PLSA}
 
-\subsection{LDA}
+\subsubsection{LDA}
 
-\subsection{N-word context models}
+\subsubsection{N-word context models}
 
-\subsection{Prototype-based models}
+\subsubsection{Prototype-based models}
 
-\subsection{Skip-gram Model}
+\subsubsection{Skip-gram Model}
 
-\section{Applications of Vector-based lexical semantics}
+\subsection{Applications of Vector-based lexical semantics}
 
 
-\section{Lexical Hypothesis in Personality Psychology}
+\subsection{Lexical Hypothesis in Personality Psychology}
 
 
 The lexical hypothesis in psychology can be summarized as: the aspects of personality that people find important will be reflected in people's way of describing others. This has mainly been
 
+\subsection{Part-of-speech tagging}
 
+\subsection{Multidimensional Scaling}
+
+\subsection{PCA and Factor analysis}
+
+\section{Related Work}
+
+\subsection{Skip gram model}
+
+\subsection{Finding personality dimensions}
+
+\section{Methods}
+
+\subsection{Corpus: WMT11}
+
+\subsection{Preprocessing}
+
+\subsubsection{Filter angle tags}
+
+\subsubsection{Part-of-speech tagging}
+
+\subsubsection{Reassemble corpus}
+
+\subsection{Number of Vector Dimensions}
+
+\subsection{Going from Cosine to Euclidean Topology}
+
+\subsection{Choosing Elbows}
+
+\subsection{Sorting words to identify components}
+
+\section{Results}
+
+\todo{Need to use correct number of words in each set rather than the approximate number.}
+
+\subsection{100 word set}
+
+\subsection{400 word set}
+
+\subsection{100 and 400 word sets combined}
+
+\section{Discussion}
+
+\subsection{Not what we expected}
+
+\subsection{Could it be the corpus?}
+
+WMT11 is a news corpus. Possibly its topic matter does not focus on people enough for those word senses to be properly represented. There are other, smaller, corpora with much broader language representation - for example, the brown corpus is a well known and freely available million word corpus. The British National Corpus is in the hundreds of millions of words and was created to be very broad-based. Additionally, there are spoken-language corpora like MICASE (Michigan Corpus of Academic Spoken English) and CPSA (Corpus of Spoken Professional American-English). These corpora could be used by themselves or potentially improved by using a model derived from a large news corpus like WMT11 or Gigaword as a starting point and then training on the smaller corpus.
+
+\subsection{Could it be polysemy?}
+
+\subsection{Could the dimensions be non-personality attributes?}
+
+\subsection{Could the number of dimensions in the lexical model be affecting things?}
+
+\section{Future Work}
+
+\subsection{Rerun on other corpora}
+
+\subsubsection{Gigaword}
+\subsubsection{Smaller corpora}
+\subsubsection{Small corpus from large starting point}
+
+\subsection{Examine technique for detecting word usage shift between corpora}
+
+\todo{Turn text summary of method below into more final version for future work}
+Train model 1 on corpus 1. Save model 1. Train model 2 on corpus 2 using model 1 as a starting point. Align the two models (using words common to the two corpora and a loss function that depends on how many different words you expect (for example, if you will use $L^p$ norms\footnote{An $L^p$ norm calculates the length of an n-dimensional vector $x$ as $\|x\|_p=\left(|x_1|^p+|x_2|^p+\dotsb+|x_n|^p\right)^{\frac{1}{p}}$} and subtraction to calculate distance, you can use a lower $p$ exponent for a lower porportion of expected differences).
+
+\subsection{Perform modeling in Euclidean distance space}
+
+\todo{Turn summary into final form}
+Because the vectors must be converted to use Euclidean distances before PCA will work correctly, the principal components are not components of the vectors in cosine distance space. Thus, we can only rank the personality words and it is impossible to look for dimensions whose meaning will not be obvious based on ranking the personality words.
+
+One approach would be to transform all the words. However the distance matrix alone would be enormous (5 hundred thousand words would require 250 billion distances). Since most modern MDS implementations use some form of gradient descent under the hood, I considered using stochastic gradient descent with the distance matrix being implicit in the original point values. The initial point for the descent could be the original point values since Euclidean and cosine distances are similar. However, that is a very special-purpose application of MDS. Since it could be hard to code due to the sizes of the data involved, and would only give an approximation of the best point locations, I don't think it is worth the effort at this time.
+
+I think it is better to rewrite the training section of the skip-gram to use Euclidean rather than cosine distance. This modification will increase training time by a constant factor, but I would hope that factor is small.
+
+\subsection{Do the big-5 etc. personality dimensions come out if you do a pseudo-personality test?}
+\todo{Turn summary into final form}
+What I mean is if you count the frequency for which different personality adjectives are used to describe different named person-entities in the corpus, do you get the same descriptive dimensions as you do for when you ask people to rate others on n dimensions.
+
+\subsection{What happens if you tag personality words when they are referring to a specific person?}
+
+\subsection{Use perplexity to calculate the number of personality dimensions}
+
+
+\section{Bibliography}
 \bibliographystyle{plain}
 \bibliography{Thesis}
 
