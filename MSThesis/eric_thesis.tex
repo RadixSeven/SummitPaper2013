@@ -1,23 +1,27 @@
-\documentclass[10pt,letterpaper]{article}
+\documentclass[10pt,letterpaper]{book}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{color}
+\usepackage{listings}
 
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
+\newcommand{\filename}[1]{\textit{#1}}
 
 \author{Eric Moyer}
 \title{Skip-gram Extraction of Personality Components from News Corpora}
 \begin{document}
-
+\frontmatter
 \maketitle
 
-\begin{abstract}
+\chapter{Abstract}
 Vector-based lexical semantics is a powerful technique that still has many undiscovered applications. In this thesis I apply a skip-gram lexical-semantic model newly developed by Mikolov et. al. to the lexical hypothesis in personality psychology.
-\end{abstract}
 
-\section{Introduction}
+\mainmatter
+\chapter{Introduction}
 
 When the ghost of Jacob Marley confronted Ebenezer Scrooge in ``A Christmas Carol,'' Scrooge tried to justify his former partner by saying ``But you were always a good man of business, Jacob!'' Marley responded with the anguished cry, ``Business! Mankind was my business. \ldots The dealings of my trade were but a drop of water in the comprehensive ocean of my business!'' To those who wish that their dealings this life would benefit not only the easily modeled \textit{homo economicus} but also the rest of our irrational species, it is necessary to understand people. This is the domain of the humanities and social sciences. Among its students are economists, political scientists, linguists, historians, sociologists, psychologists, and anthropologists. Of these, the ones who attempt to understand the mental functions of people are the psychologists.
 
@@ -29,11 +33,11 @@ In a completely different field, there is another way of turning words into vect
 
 Since we have a source for vectors indicating the meaning of different words. It seems reasonable that the most important components of the meaning of personality words would be the factors that make up personality as described by humans. So, I set up an experiment to look at the vectors for personality words in a skip-gram model. On setting it up, I believed that it was likely we would uncover the Five Factor Model (or one of its competitors) in the data. However, the results did not support that hypothesis.
 
-\section{Background}
+\chapter{Background}
 
-\subsection{Vector-based lexical semantics}
+\section{Vector-based lexical semantics}
 
-\subsubsection{LSA}
+\subsection{LSA}
 
 Vector-based lexical semantics is the study of algorithms that assign vectors to words in a way that reflects the meaning of those words. The first vector-based lexical semantic algorithm was LSA (Lexical Semantic Analysis), invented in \todo{some-year} by \todo{some-person}. LSA works off of a bag-of-words model of source documents. The training documents are turned into a matrix in which each row corresponds to a document, each column to one word in the vocabulary, and each entry counts the number of occurrences of a particular word in the document. It is important to recognize that a document can be a group of words of any length. Documents could consist of sentences, paragraphs, web-pages, 20 word sliding windows, bible chapters, or any other textual unit that is of interest in the application. This term-document matrix is then decomposed into its principal components and their loadings by SVD (singular value decomposition) and the most significant components are chosen. If the resulting reduced matrices are multiplied together, it produces a smoothed term-document matrix guaranteed to be the closest one can come to the original matrix (in the least-squares sense) with the chosen number of factors.
 
@@ -43,106 +47,108 @@ Any modern application of LSA is usually more complicated. For example, the raw 
 
 LSA came out of the document retrieval field and its first applications were in matching query strings to documents. It was very successful in finding documents that were semantically appropriate but which contained no words in common with the query. For example, with the right training set, "The legislature will meet in Columbus on Thursday for a special session." would be a good match for the query "Ohio capital" because Ohio and capital are both frequently in the same documents with Columbus, legislature, meet, and session.
 
-\subsubsection{PLSA}
+\subsection{PLSA}
 
-\subsubsection{LDA}
+\subsection{LDA}
 
-\subsubsection{N-word context models}
+\subsection{N-word context models}
 
-\subsubsection{Prototype-based models}
+\subsection{Prototype-based models}
 
-\subsubsection{Skip-gram Model}
+\subsection{Skip-gram Model}
 
-\subsection{Applications of Vector-based lexical semantics}
+\section{Applications of Vector-based lexical semantics}
 
 
-\subsection{Lexical Hypothesis in Personality Psychology}
+\section{Lexical Hypothesis in Personality Psychology}
 
 
 The lexical hypothesis in psychology can be summarized as: the aspects of personality that people find important will be reflected in people's way of describing others. This has mainly been
 
-\subsection{Part-of-speech tagging}
+\section{Part-of-speech tagging}
 
-\subsection{Multidimensional Scaling}
+\section{Multidimensional Scaling}
 
-\subsection{PCA and Factor analysis}
+\section{PCA and Factor analysis}
 
-\section{Related Work}
+\chapter{Related Work}
 
-\subsection{Skip gram model}
+\section{Skip gram model}
 
-\subsection{Finding personality dimensions}
+\section{Finding personality dimensions}
 
-\section{Methods}
+\chapter{Methods}
 
-\subsection{Corpus: WMT11}
+\section{Corpus: WMT11}
 
-For training, we used the English WMT11 corpus. This is a training set collected for an academic competition at the sixth workshop on statistical machine translation. It is composed of minutes of the European parliment, news commentary, and news articles collected by the common crawl in the years 2007-2011. The European parlimentary minutes are in readable order. The news articles have been broken into sentences and those sentences included in random order\footnote{I have not read the rationale for this, but I believe that it was done to preserve intellectual property rights.}. All of the WMT11 corpus is broken into single sentence lines. Enclitics have been separated so ``don't'' is written as two words ``don''' and the single letter ``t''.
+For training, we used the English WMT11 corpus. This is a training set collected for an academic competition at the sixth workshop on statistical machine translation. It is composed of minutes of the European parliment, news commentary, and news articles collected by the common crawl in the years 2007-2011. The European parlimentary minutes are in readable order. The news articles have been broken into sentences and those sentences included in random order\footnote{I have not read the rationale for this, but I believe that it was done to preserve intellectual property rights.}. All of the WMT11 corpus is broken into single sentence lines. Enclitics have been separated so ``don't'' is written as two words ``don'\phantom{}'' and the single letter ``t''.
 
 We chose to use the WMT11 corpus because it was both large (several billion words) and had already been used with the skip-gram model in \todo{the paper on language translation with the skip-gram}. Additionally, it had been originally compiled for a competition, this assured that much preprocessing had already been done.
 
-\subsection{Preprocessing}
+\section{Preprocessing}
 
+Despite some preprocessing having been done, as is customary in natural language processing, we still needed to do additional preprocessing to normalize the data for our purposes.
 
+\subsection{Filter angle tags}
 
-\subsubsection{Filter angle tags}
+The first step we took was to remove spurious HTML and SGML tags that had been accidentally left in the data by the common crawl aquisition software. Most of the data is plain text. However, sometimes the software downloading the news stories did not parse the HTML correctly or the source material had erroneous HTML that confused the parsing software. Thus the plain text files were corrupted by portions surrounded by angle brackets like <P>. There were also stock-ticker symbols and other miscelaneous garbage included. To remove this digital flotsam, we wrote the script \filename{filter\_angle\_tags.pl} listed in Appendix \ref{app:filterangletags}.
 
-\subsubsection{Part-of-speech tagging}
+\subsection{Part-of-speech tagging}
 
-\subsubsection{Reassemble corpus}
+\subsection{Reassemble corpus}
 
-\subsection{Number of Vector Dimensions}
+\section{Number of Vector Dimensions}
 
 \todo{Remember to discuss the affect of number of dimensions on LSA}
 
-\subsection{Going from Cosine to Euclidean Topology}
+\section{Going from Cosine to Euclidean Topology}
 
-\subsection{Choosing Elbows}
+\section{Choosing Elbows}
 
-\subsection{Sorting words to identify components}
+\section{Sorting words to identify components}
 
-\section{Results}
+\chapter{Results}
 
 \todo{Need to use correct number of words in each set rather than the approximate number.}
 
-\subsection{100 word set}
+\section{100 word set}
 
-\subsection{400 word set}
+\section{400 word set}
 
-\subsection{100 and 400 word sets combined}
+\section{100 and 400 word sets combined}
 
-\section{Discussion}
+\chapter{Discussion}
 
-\subsection{Not what we expected}
+\section{Not what we expected}
 
-\subsection{Could it be the corpus?}
+\section{Could it be the corpus?}
 
 WMT11 is a news corpus. Possibly its topic matter does not focus on people enough for those word senses to be properly represented. There are other, smaller, corpora with much broader language representation - for example, the brown corpus is a well known and freely available million word corpus. The British National Corpus is in the hundreds of millions of words and was created to be very broad-based. Additionally, there are spoken-language corpora like MICASE (Michigan Corpus of Academic Spoken English) and CPSA (Corpus of Spoken Professional American-English). These corpora could be used by themselves or potentially improved by using a model derived from a large news corpus like WMT11 or Gigaword as a starting point and then training on the smaller corpus.
 
-\subsection{Could it be polysemy?}
+\section{Could it be polysemy?}
 
-\subsection{Could the dimensions be non-personality attributes?}
+\section{Could the dimensions be non-personality attributes?}
 
-\subsection{Could the number of dimensions in the lexical model be affecting things?}
+\section{Could the number of dimensions in the lexical model be affecting things?}
 
-\subsection{Could the personality meanings not be being captured?}
+\section{Could the personality meanings not be being captured?}
 
 \todo{This may be part of the previous - too few or too many dimensions might elide the personality dimensions}
 
-\section{Future Work}
+\chapter{Future Work}
 
-\subsection{Rerun on other corpora}
+\section{Rerun on other corpora}
 
-\subsubsection{Gigaword}
-\subsubsection{Smaller corpora}
-\subsubsection{Small corpus from large starting point}
+\subsection{Gigaword}
+\subsection{Smaller corpora}
+\subsection{Small corpus from large starting point}
 
-\subsection{Examine technique for detecting word usage shift between corpora}
+\section{Examine technique for detecting word usage shift between corpora}
 
 \todo{Turn text summary of method below into more final version for future work}
 Train model 1 on corpus 1. Save model 1. Train model 2 on corpus 2 using model 1 as a starting point. Align the two models (using words common to the two corpora and a loss function that depends on how many different words you expect (for example, if you will use $L^p$ norms\footnote{An $L^p$ norm calculates the length of an n-dimensional vector $x$ as $\|x\|_p=\left(|x_1|^p+|x_2|^p+\dotsb+|x_n|^p\right)^{\frac{1}{p}}$} and subtraction to calculate distance, you can use a lower $p$ exponent for a lower porportion of expected differences).
 
-\subsection{Perform modeling in Euclidean distance space}
+\section{Perform modeling in Euclidean distance space}
 
 \todo{Turn summary into final form}
 Because the vectors must be converted to use Euclidean distances before PCA will work correctly, the principal components are not components of the vectors in cosine distance space. Thus, we can only rank the personality words and it is impossible to look for dimensions whose meaning will not be obvious based on ranking the personality words.
@@ -151,16 +157,61 @@ One approach would be to transform all the words. However the distance matrix al
 
 I think it is better to rewrite the training section of the skip-gram to use Euclidean rather than cosine distance. This modification will increase training time by a constant factor, but I would hope that factor is small.
 
-\subsection{Do the big-5 etc. personality dimensions come out if you do a pseudo-personality test?}
+\section{Do the big-5 etc. personality dimensions come out if you do a pseudo-personality test?}
 \todo{Turn summary into final form}
 What I mean is if you count the frequency for which different personality adjectives are used to describe different named person-entities in the corpus, do you get the same descriptive dimensions as you do for when you ask people to rate others on n dimensions.
 
-\subsection{What happens if you tag personality words when they are referring to a specific person?}
+\section{What happens if you tag personality words when they are referring to a specific person?}
 
-\subsection{Use perplexity to calculate the number of personality dimensions}
+\section{Use perplexity to calculate the number of personality dimensions}
+
+\appendix
+\chapter{Text of filter\_angle\_tags.pl}
+\label{app:filterangletags}
+
+\lstset{language=Perl}
+\begin{lstlisting}
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+####################333
+# Usage: filter_angle_tags.pl < source > dest
+# or:    filter_angle_tags.pl source1 source2 > filtered
+#
+# Remove stray html, urls and stock symbols to prepare for tagging
+my $has_bracket_pair = qr!<[A-z/][^<>]*>!;
+my $bracket_pair_split = qr!($has_bracket_pair)!;
+
+sub keep_segment{
+    my ($seg) = @_;
+    return !($seg =~ m!$has_bracket_pair!) or !(
+        $seg =~ m(http://) or
+        $seg =~ m(href) or
+        $seg =~ m(\.com\W|\.gov\W) or
+        $seg =~ m(<span |<strong>|</strong>|<em>|</em>|<[bauipq]>|</[pqbaui]>|<\s*br\s*/?>|<\s*/br\s*>|<p\s*/?>|</?h.>|</?blockquote|</?code>|<font[ >]|</font|</?acronym|</?strike|</?cite|</?q |</>|</?abbr |</?del |<javascript|</?itals>|</?script|</?center>|<SPEAKER ) or
+        $seg =~ m(<[A-z0-9]{0,9}[.=/][A-Z0-9]{0,6}>) or
+        $seg =~ m(<CF7[01]>) or
+        $seg =~ m(<ID:[A-z0-9]+>)
+        );
+}
+
+while(<>){
+    chomp;
+    if (m/$has_bracket_pair/) {
+        my @segments = split($bracket_pair_split, $_);
+        @segments = grep( &keep_segment($_), @segments);
+        print join(" ", @segments),"\n" if (@segments);
+    }else{
+        print "$_\n";
+    }
+
+}
+\end{lstlisting}
 
 
-\section{Bibliography}
+
+\chapter{Bibliography}
 \bibliographystyle{plain}
 \bibliography{Thesis}
 
