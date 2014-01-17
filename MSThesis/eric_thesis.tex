@@ -77,7 +77,13 @@ The lexical hypothesis in psychology can be summarized as: the aspects of person
 
 \subsection{Corpus: WMT11}
 
+For training, we used the English WMT11 corpus. This is a training set collected for an academic competition at the sixth workshop on statistical machine translation. It is composed of minutes of the European parliment, news commentary, and news articles collected by the common crawl in the years 2007-2011. The European parlimentary minutes are in readable order. The news articles have been broken into sentences and those sentences included in random order\footnote{I have not read the rationale for this, but I believe that it was done to preserve intellectual property rights.}. All of the WMT11 corpus is broken into single sentence lines. Enclitics have been separated so ``don't'' is written as two words ``don''' and the single letter ``t''.
+
+We chose to use the WMT11 corpus because it was both large (several billion words) and had already been used with the skip-gram model in \todo{the paper on language translation with the skip-gram}. Additionally, it had been originally compiled for a competition, this assured that much preprocessing had already been done.
+
 \subsection{Preprocessing}
+
+
 
 \subsubsection{Filter angle tags}
 
