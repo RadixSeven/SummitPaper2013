@@ -97,13 +97,23 @@ We developed the script by first listing all the unique strings that began with 
 
 \subsection{Part-of-speech tagging}
 
+An important limitation of vector based lexical semantics is its way of dealing with polysemy. Since each word gets only one meaning vector, if the word has more than one meaning, its associated vector is some sort of compromise between the all of the meanings used. In the case of personality words, polysemy is very common. For example, consider the word ``kind''. If used in the utterance, ``What a jerk? Of course, John is kind.'', kind carries the meaning you expect on a personality survey. But if used in ``What course? John is kind of a jerk.'' it forms part of an adverbial phrase. And if used in ``What? Jerk John is a kind of course.'', kind is a noun that is a synonym of species. Fully distinguishing the uses is a significant task. However, just marking the part of speech deals with a great deal of the polysemy. In the example above, only the adjective is a genuine personality word. Part of speech marking misses some subtle distinctions, such as when someone says, ``If <person> would be so kind.'' (a common phrase in the parlimentary notes). 
 
+We looked at the 439 words used in \todo{ref whatever paper the 439 words come from}. In the vast majority of cases, Wordnet had only one definition that 
+
+\todo{Mention that had to split up corpus into 14 files to do tagging.}
 
 \subsection{Reassemble corpus}
+
+\subsection{Case folding}
+
+\todo{mention that proper nouns not marked - so God and god become intermixed and Jimmy (noun) and jimmy (verb) are undistinguished however, it was more important to remove the ``words that can appear at the beginning of sentences'' problem}
 
 \section{Number of Vector Dimensions}
 
 \todo{Remember to discuss the affect of number of dimensions on LSA}
+
+\section{Select words to PCA}
 
 \section{Going from Cosine to Euclidean Topology}
 
