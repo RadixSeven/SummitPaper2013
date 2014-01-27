@@ -97,13 +97,17 @@ We developed the script by first listing all the unique strings that began with 
 
 \subsection{Part-of-speech tagging}
 
-An important limitation of vector based lexical semantics is its way of dealing with polysemy. Since each word gets only one meaning vector, if the word has more than one meaning, its associated vector is some sort of compromise between the all of the meanings used. In the case of personality words, polysemy is very common. For example, consider the word ``kind''. If used in the utterance, ``What a jerk? Of course, John is kind.'', kind carries the meaning you expect on a personality survey. But if used in ``What course? John is kind of a jerk.'' it forms part of an adverbial phrase. And if used in ``What? Jerk John is a kind of course.'', kind is a noun that is a synonym of species. Fully distinguishing the uses is a significant task. However, just marking the part of speech deals with a great deal of the polysemy. In the example above, only the adjective is a genuine personality word. Part of speech marking misses some subtle distinctions, such as when someone says, ``If <person> would be so kind.'' (a common phrase in the parlimentary notes). 
+An important limitation of vector based lexical semantics is its way of dealing with polysemy (absent mitigation techniques such as those in \todo{ref some mitigation techniques}). Since each word gets only one meaning vector, if the word has more than one meaning, its associated vector is some sort of compromise between all of the meanings used. In the case of personality words, polysemy is very common. For example, consider the word ``kind''. If used in the utterance, ``What a jerk? Of course, John is kind.'', kind carries the meaning you expect on a personality survey. But if used in ``What course? John is kind of a jerk.'' it forms part of an adverbial phrase indicating an incomplete matching to a description. And if used in ``What? Jerk John is a kind of course.'', kind is a noun that is a synonym of species. Fully distinguishing the uses is a significant task. However, just marking the part of speech deals with a great deal of the polysemy. In the example above, only the adjective is a genuine personality word. 
 
-We looked at the 439 words used in \todo{ref whatever paper the 439 words come from}. In the vast majority of cases, Wordnet had only one definition that 
+Part of speech marking misses some subtle distinctions, such as when someone says, ``If <person> would be so kind.'' (a common phrase in the parlimentary notes). However, it is very good at broader meaning differentiation. We looked at the 439 words used in \todo{ref whatever paper the 439 words come from}. In the vast majority of cases, Wordnet had only one definition that had to do with personality and that definition was distinguished from the others by determining whether the part-of-speech was an adjective or not. For 6 words (cunning, daring, faultfinding, quiet, self-pitying, and understanding) both the adjective and non-adjective categories had a personality meaning. So, being an adjective correctly distinguished personality word semantics 98.6\% of the time.
 
-\todo{Mention that had to split up corpus into 14 files to do tagging.}
+After consulting with Dr.\ Katrin Erk, \todo{ref private communication with Dr. Erk} we used TreeTagger \todo{ref tree tagger paper} as our basic part-of-speech tagging engine. Because TreeTagger must load all sentences to be tagged into memory, it cannot deal with the entire corpus at once. So, we split the corpus into 14 files of 10,000,000 lines each (the last being smaller). TreeTagger (using the \filename{tree-tagger-english-utf8} script) processed these into 14 files which had a single tagged symbol on each line. The splitting and tagging process was automated by our \filename{tag\_corpus.sh} script incuded in Appendix \ref{app:tagcorpus}.
 
 \subsection{Reassemble corpus}
+
+The 14 files were not in the single-sentence-per-line format needed by our model generation software. So, we wrote another script (\filename{reassemble\_tags.pl} Appendix \ref{app:reassembletags}) which took the 14 files, used the sentence ending tags to detect line ends and output only the original words except in the case of adjectives. Adjectives were output with an underscore and the tag JJ (which is the tag for an adjective used in the Penn Treebank \todo{ref penn treebank paper and paper giving the penn treebank tags if it is different}). So the word ``kind'' was output as ``kind\_JJ'' if it was an adjective.
+
+Late in the research, we realized that \filename{reassemble\_tags.pl} did not put a newline at the end of the last sentence in its input file. Thus when the files were concatenated into the adjective-tagged corpus file, the 13 sentences ending the first 13 input files were concatenated with the 13 sentences starting the last 13 input files. Since this only affected 26 sentences out of more than 1 billion, we decided it would not have a significant effect on the results. However, the version of \filename{reassemble\_tags.pl} in Appendix \ref{app:reassembletags} has this error corrected.
 
 \subsection{Case folding}
 
@@ -180,9 +184,9 @@ What I mean is if you count the frequency for which different personality adject
 \section{Use perplexity to calculate the number of personality dimensions}
 
 \appendix
-\chapter{Text of filter\_angle\_tags.pl}
+\chapter{Scripts used in preprocessing}
+\section{Text of filter\_angle\_tags.pl}
 \label{app:filterangletags}
-
 \lstset{language=Perl}
 \begin{lstlisting}
 #!/usr/bin/perl
@@ -223,6 +227,91 @@ while(<>){
 }
 \end{lstlisting}
 
+\section{Text of tag\_corpus.sh}
+\label{app:tagcorpus}
+\lstset{language=sh}
+\begin{lstlisting}
+#!/bin/bash
+
+############
+# Script I used to tag the WMT11 corpus - it needed to be split
+# because the TreeTagger tokenizer reads everything into memory.
+
+# The data file for the cleaned data
+WMT11=/mnt/linux_data/wmt11_no_angle_tags.txt
+
+# The prefix used for split files
+SPLIT_FILENAME=/mnt/linux_data/wmt11_no_angle_split
+
+# Data file for the tagged data
+TAGGED_WMT11=/mnt/linux_data/wmt11_tagged.txt
+
+# Put treetagger on path
+PATH=$PATH:/home/eric/SW/TreeTagger/cmd:/home/eric/SW/TreeTagger/bin:.
+
+# Split into 10,000,000 lines per file (about 1.5GiB per)
+if [ -f ${SPLIT_FILENAME}aa ]; then 
+    echo "Not splitting again. Split already exists"
+else
+    split -l10000000 "$WMT11" "$SPLIT_FILENAME"
+fi
+
+# Tag the split files
+if [ -f "$TAGGED_WMT11" ]; then 
+    echo "Not tagging again. Tagged file already exists"
+else
+    for i in ${SPLIT_FILENAME}*; do
+        echo "Tagging $i"
+        tree-tagger-english-utf8 $i | reassemble_tags.pl >> "$TAGGED_WMT11"
+    done
+fi
+\end{lstlisting}
+
+\section{Text of reassemble\_tags.pl}
+\label{app:reassembletags}
+\lstset{language=Perl}
+\begin{lstlisting}
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+################
+# Usage: reassemble_tags.pl < tagged.txt
+#
+# Takes tagged text from treetagger and reassembles it into 1 sentence
+# per line (multiple sentence ending tags are kept on the same line)
+
+# Tracks whether the previous tag was a sentence-ender in order to
+# tell where to end the lines.
+my $last_tag_was_sentence=(1==0);
+
+# Combine words and sentences
+while(<>){
+    my ($word, $tag) = split('\t');
+    if(defined($tag)){
+        # End the line if transitioning from "SENT" to another tag
+        my $tag_is_sentence = $tag eq "SENT";
+        if ($last_tag_was_sentence && !$tag_is_sentence){
+            print "\n";
+        }
+
+        # Output the word with its tag
+        if(defined($word)){
+            print "${word}_${tag} ";
+        }else{
+            print "${word}_unknown_tag ";
+        }
+
+        # Update last tag state variable
+        $last_tag_was_sentence = $tag_is_sentence;
+    }
+}
+
+# If the last tag in the file was a sentence tag, output a newline
+if ($last_tag_was_sentence){
+    print "\n";
+}
+\end{lstlisting}
 
 
 \chapter{Bibliography}
