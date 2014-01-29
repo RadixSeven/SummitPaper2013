@@ -119,7 +119,7 @@ A disadvantage of case-folding is that some information is lost. For example: Go
 
 \section{Number of Vector Dimensions}
 
-\todo{Remember to discuss the affect of number of dimensions on LSA}
+Once we had the preprocessing done, the next step was to choose the number of dimensions in the vectors. The the vector dimensionality is an important parameter for any vector-based lexical semantics algorithm. For LSA, the number of vectors has a curvilinear relationship to meaning captured. In \todo{ref landauer and dumais 1987 see also handbook of LSA p.59}, performance on the synonym section of the TOEFL \todo{ref toefl} increased with number of dimensions up to about 300 and then decreased as more dimensions were added. In our case, we chose 800 dimensions because that was the best number of dimensions found for converting English to the similar language Spanish \todo{ref skip-gram translation paper} on the assumption that sufficient meaning to convert between those two languages would also be sufficient for capturing the most important personality dimensions.
 
 \section{Select words to PCA}
 
