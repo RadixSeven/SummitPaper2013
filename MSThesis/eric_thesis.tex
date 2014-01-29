@@ -111,7 +111,11 @@ Late in the research, we realized that \filename{reassemble\_tags.pl} did not pu
 
 \subsection{Case folding}
 
-\todo{mention that proper nouns not marked - so God and god become intermixed and Jimmy (noun) and jimmy (verb) are undistinguished however, it was more important to remove the ``words that can appear at the beginning of sentences'' problem}
+For most words in English, capitalization does not affect their meaning very much. Much capitalization is just a marker of ``first word in the sentence.'' So, it is better to convert all words to lower-case. After reassembling the corpus, we converted all upper-case letters to lower-case. We did not convert at the beginning of preprocessing because capitalization is an important clue for part-of-speech tagging.
+
+In a test run, we did not convert to lower-case. When we analyzed the resulting word-vectors, the most important component was capital versus lower-case. This is reasonable because the structure of the beginning of an English sentence is different from the structure of the rest of the sentence. For example, the beginning is usually the subject of the sentence. Thus, different words will appear at the beginning than at the end, and since capitalization frequently signals the beginning of the sentence, words in the subject are more likely. However, for the kind of meaning we want, whether a word begins a sentence is surplus information. So, we removed capitalization to suppress this kind of noise.
+
+A disadvantage of case-folding is that some information is lost. For example: God and god become intermixed and Jimmy (noun) and jimmy (verb) are undistinguished. Almost the entire problem could be mitigated by including markers for proper nouns. However, it did not seem to be causing much problem, so we left that for later work.
 
 \section{Number of Vector Dimensions}
 
