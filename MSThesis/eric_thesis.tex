@@ -7,6 +7,7 @@
 \usepackage{amssymb}
 \usepackage{color}
 \usepackage{listings}
+\usepackage{graphicx}
 
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 \newcommand{\filename}[1]{\textit{#1}}
@@ -128,6 +129,13 @@ Once we had the preprocessing done, the next step was to choose the number of di
 \section{Choosing Elbows}
 
 \todo{use shifted 1 dataset for a demonstration}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[trim=1.0in 3in 1.0in 2.7in,clip,width=0.8\textwidth]{shift_1_pca_example/shifted_1_image_example}
+  \caption{A noisy shifted-one image like those used for the example of choosing elbows in PCA eigenvalue plots}
+  \label{fig:shifted_1_image_example}
+\end{figure}
 
 \section{Sorting words to identify components}
 
