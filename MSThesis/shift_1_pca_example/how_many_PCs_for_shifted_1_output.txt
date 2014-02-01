@@ -1,6 +1,11 @@
+Overview
+--------
 This is the output for my experiment on how many principal components are actually not fitting noise in the shifted_1 dataset. I found the number of components from which the reconstruction of a noisy signal had the closest approximation to the original noiseless one. I used two reconstruction methods, one which rounded to match the domain of the original signal and one which did not.
 
 Still open question - what happens when we don't just take the first n components but select features in general. Can we do better?
+
+Bit-flip results
+----------------
 
 Either way, the number of components was significantly more than ANY of the methods for selecting the number of components from the scree plot gave.
 
@@ -11,26 +16,15 @@ Optimal number of PCs with rounding: 91. Without rounding: 82
 Generating test dataset
 Test data gave errors of 5.42217668469038359e-05 with rounding and 0.000100639766852514414 without
 
-I repeated the experiment using gaussian noise rather than bit flip. I
-tried to keep the amount of noise the same by ensuring that bits would
-flip in the rounded version with the same frequency as I used for
-bit-flipping in the first experiment. The results gave a very
-different shape for the error curves. And they gave significantly
-different optimal numbers of PCs.
-
-Generating coefficients
-Generating selection dataset
-Testing error for pc:  20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400
-Optimal number of PCs with rounding: 108. Without rounding: 58
-Generating test dataset
-Test data gave errors of 5.33080669317505796e-05 with rounding and 0.000113008920880063488 without
-
+Estimation methods applied to bit-flip
+--------------------------------------
 My estimation methods didn't work well on this data.
+
 
 Method: Eyeball ("Catell's Scree Plot")
 =======================================
 Even knowing the right answer, I couldn't identify any difference
-around 58 or 108 that justified calling that the right number of
+around 82 or 91 that justified calling that the right number of
 components. If I had had to guess, I would have guessed between 15 and
 35 components.
 
@@ -65,5 +59,69 @@ Method: Get the eigenvectors that capture 95% of the variance
  find(eigen_cdf >= 0.95, 1, 'first');
  ans = 355
 
- Note: fraction of variance accounted for by 108 factors is 61% and 58
- factors accounts for 50%
+ Note: fraction of variance accounted for by 91 factors is 58% and 82
+ factors accounts for 56% 
+
+Gaussian noise experiment results
+---------------------------------
+
+I repeated the experiment using gaussian noise rather than bit flip. I
+tried to keep the amount of noise the same by ensuring that bits would
+flip in the rounded version with the same frequency as I used for
+bit-flipping in the first experiment. The results gave a very
+different shape for the error curves. And they gave significantly
+different optimal numbers of PCs.
+
+Generating coefficients
+Generating selection dataset
+Testing error for pc:  20 40 60 80 100 120 140 160 180 200 220 240 260 280 300 320 340 360 380 400
+Optimal number of PCs with rounding: 108. Without rounding: 58
+Generating test dataset
+Test data gave errors of 5.33080669317505796e-05 with rounding and 0.000113008920880063488 without
+
+Estimation methods applied to Gaussian noise
+--------------------------------------
+My estimation methods didn't work well on this data.
+
+
+Method: Eyeball ("Catell's Scree Plot")
+=======================================
+Even knowing the right answer, I couldn't identify any difference
+around 58 or 108 that justified calling that the right number of
+components. If I had had to guess, I would have again guessed between 15 and
+35 components.
+
+Method: Raw elbow point
+=======================
+ elbow_point(eigen)
+ ans = 34
+
+Method: Flex end elbow point
+=======================
+ flex_end_elbow_point(eigen)
+ ans = 34
+
+Method: Log scree elbow point
+=======================
+ log_scree_elbow(eigen)
+ ans = 181
+
+Method: Robust fit scree elbow point
+===================================
+ scree_elbow_using_robust_fit(eigen)
+ ans = 181
+
+Method: Drop all eigenvectors less than 1. ("Kaiser criterion")
+====================================
+ find(eigen <= 1, 1,'first')
+ ans = 6
+
+Method: Get the eigenvectors that capture 95% of the variance
+=============================================================
+ eigen_cdf=cumsum(eigen)./sum(eigen);
+ find(eigen_cdf >= 0.95, 1, 'first');
+ ans = 363
+
+ Note: fraction of variance accounted for by 58 factors is 42% and 108
+ factors account for 54% 
+
