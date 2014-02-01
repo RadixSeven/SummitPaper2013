@@ -1,4 +1,4 @@
-function [shifted_1_vector, shifted_1_noiseless_vector, shifted_1_matrix] = shifted_1( row_offset, column_offset, host_matrix_size, fraction_noise)
+function [shifted_1_vector, shifted_1_noiseless_vector, shifted_1_matrix] = shifted_1( row_offset, column_offset, host_matrix_size, fraction_noise, noise_type)
 % Creates a noisy matrix with the number 1 located somewhere within.
 %
 % At row_offset, column_offset copies an image of the number 1 (composed of 
@@ -33,7 +33,15 @@ function [shifted_1_vector, shifted_1_noiseless_vector, shifted_1_matrix] = shif
 % fraction_noise - (real number between 0 and 1 inclusive) the fraction of
 %     the bits in the final matrix that will be flipped prior to its being
 %     returned. 0 is noiseless. 1 is the inverse. 0.3 means each bit has a
-%     30% chance of being flipped.
+%     30% chance of being flipped. (See noise_type for more details.)
+%
+% noise_type - ('gaussian' or 'bit-flip') default 'bit-flip'. Determines
+%     whether bit-flip noise or gaussian noise is used. If bit-flip is
+%     used, the fraction_noise is as written. If gaussian noise is used,
+%     independent samples from a Gaussian distribution with a 1 tail
+%     probability of exceeding 0.5 equal to fraction_noise are added. This
+%     means that a bit will be flipped (in a rounding environment) with 
+%     probability fraction_noise. 
 %
 % ------------------------------------------------------------------------
 % Outputs
@@ -89,12 +97,19 @@ function [shifted_1_vector, shifted_1_noiseless_vector, shifted_1_matrix] = shif
 %      0     0
 %      0     0
 
+% Set default for noise_type
+if ~exist('noise_type','var')
+    noise_type = 'bit flip';
+end
+
+% Check arguments
 assert(row_offset == round(row_offset));
 assert(column_offset == round(column_offset));
 assert(host_matrix_size == round(host_matrix_size));
 assert(host_matrix_size > 0);
 assert(fraction_noise >= 0);
 assert(fraction_noise <= 1);
+assert(strcmp(noise_type, 'bit flip') || strcmp(noise_type, 'gaussian'));
 
 % Create the 1
 
@@ -128,10 +143,14 @@ end
 % Save the noiseless bits as a vector
 shifted_1_noiseless_vector = reshape(shifted_1_matrix, [], 1);
 
-% Flip the bits
-
-should_flip = rand(size(shifted_1_matrix)) <= fraction_noise;
-shifted_1_matrix(should_flip) = 1-shifted_1_matrix(should_flip);
+% Add noise
+if strcmp(noise_type,'bit flip')
+    should_flip = rand(size(shifted_1_matrix)) <= fraction_noise;
+    shifted_1_matrix(should_flip) = 1-shifted_1_matrix(should_flip);
+else
+    standev = 0.5/(sqrt(2)*erfinv(1-2*fraction_noise));
+    shifted_1_matrix = shifted_1_matrix + randn(size(shifted_1_matrix))*standev;
+end
 
 % Reshape into a vector
 shifted_1_vector = reshape(shifted_1_matrix, [], 1);
