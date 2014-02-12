@@ -197,7 +197,7 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \todo{Turn text summary of method below into more final version for future work}
 Train model 1 on corpus 1. Save model 1. Train model 2 on corpus 2 using model 1 as a starting point. Align the two models (using words common to the two corpora and a loss function that depends on how many different words you expect (for example, if you will use $L^p$ norms\footnote{An $L^p$ norm calculates the length of an n-dimensional vector $x$ as $\|x\|_p=\left(|x_1|^p+|x_2|^p+\dotsb+|x_n|^p\right)^{\frac{1}{p}}$} and subtraction to calculate distance, you can use a lower $p$ exponent for a lower proportion of expected differences).
 
-\section{Perform modeling in Euclidean distance space}
+\section{Perform modeling in Euclidean topology}
 
 \todo{Turn summary into final form}
 Because the vectors must be converted to use Euclidean distances before PCA will work correctly, the principal components are not components of the vectors in cosine distance space. Thus, we can only rank the personality words and it is impossible to look for dimensions whose meaning will not be obvious based on ranking the personality words.
@@ -206,7 +206,7 @@ One approach would be to transform all the words. However the distance matrix al
 
 I think it is better to rewrite the training section of the skip-gram to use Euclidean rather than cosine distance. This modification will increase training time by a constant factor, but I would hope that factor is small.
 
-\section{Do the big-5 etc. personality dimensions come out if you do a pseudo-personality test?}
+\section{Do the big-5 etc. personality dimensions come out of a pseudo-personality test?}
 \todo{Turn summary into final form}
 What I mean is if you count the frequency for which different personality adjectives are used to describe different named person-entities in the corpus, do you get the same descriptive dimensions as you do for when you ask people to rate others on n dimensions.
 
@@ -224,13 +224,22 @@ What I mean is if you count the frequency for which different personality adject
 use strict;
 use warnings;
 
-####################333
+#######################
 # Usage: filter_angle_tags.pl < source > dest
 # or:    filter_angle_tags.pl source1 source2 > filtered
 #
-# Remove stray html, urls and stock symbols to prepare for tagging
+# Remove stray html, urls and stock symbols to prepare
+# for tagging
+
 my $has_bracket_pair = qr!<[A-z/][^<>]*>!;
 my $bracket_pair_split = qr!($has_bracket_pair)!;
+my $html_string = q(<span |<strong>|</strong>|).
+    q(<em>|</em>|<[bauipq]>|</[pqbaui]>|<\s*br\s*/?>|).
+    q(<\s*/br\s*>|<p\s*/?>|</?h.>|</?blockquote|).
+    q(</?code>|<font[ >]|</font|</?acronym|</?strike|).
+    q(</?cite|</?q |</>|</?abbr |</?del |<javascript|).
+    q(</?itals>|</?script|</?center>|<SPEAKER );
+my $html_regex = qr(${html_string});
 
 sub keep_segment{
     my ($seg) = @_;
@@ -238,7 +247,7 @@ sub keep_segment{
         $seg =~ m(http://) or
         $seg =~ m(href) or
         $seg =~ m(\.com\W|\.gov\W) or
-        $seg =~ m(<span |<strong>|</strong>|<em>|</em>|<[bauipq]>|</[pqbaui]>|<\s*br\s*/?>|<\s*/br\s*>|<p\s*/?>|</?h.>|</?blockquote|</?code>|<font[ >]|</font|</?acronym|</?strike|</?cite|</?q |</>|</?abbr |</?del |<javascript|</?itals>|</?script|</?center>|<SPEAKER ) or
+        $seg =~ m(${html_regex}) or
         $seg =~ m(<[A-z0-9]{0,9}[.=/][A-Z0-9]{0,6}>) or
         $seg =~ m(<CF7[01]>) or
         $seg =~ m(<ID:[A-z0-9]+>)
@@ -249,8 +258,10 @@ while(<>){
     chomp;
     if (m/$has_bracket_pair/) {
         my @segments = split($bracket_pair_split, $_);
-        @segments = grep( &keep_segment($_), @segments);
-        print join(" ", @segments),"\n" if (@segments);
+        @segments = grep( &keep_segment($_), 
+                          @segments);
+        print join(" ", @segments),"\n" 
+            if (@segments);
     }else{
         print "$_\n";
     }
