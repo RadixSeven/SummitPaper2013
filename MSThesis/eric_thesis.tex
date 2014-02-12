@@ -265,8 +265,9 @@ while(<>){
 #!/bin/bash
 
 ############
-# Script I used to tag the WMT11 corpus - it needed to be split
-# because the TreeTagger tokenizer reads everything into memory.
+# Script I used to tag the WMT11 corpus - it needed to
+# be split because the TreeTagger tokenizer reads
+# everything into memory.
 
 # The data file for the cleaned data
 WMT11=/mnt/linux_data/wmt11_no_angle_tags.txt
@@ -278,9 +279,11 @@ SPLIT_FILENAME=/mnt/linux_data/wmt11_no_angle_split
 TAGGED_WMT11=/mnt/linux_data/wmt11_tagged.txt
 
 # Put treetagger on path
-PATH=$PATH:/home/eric/SW/TreeTagger/cmd:/home/eric/SW/TreeTagger/bin:.
+PATH="$PATH:/home/eric/SW/TreeTagger/cmd:"\
+"/home/eric/SW/TreeTagger/bin:."
 
-# Split into 10,000,000 lines per file (about 1.5GiB per)
+# Split into 10,000,000 lines per file (about 1.5GiB
+# per)
 if [ -f ${SPLIT_FILENAME}aa ]; then 
     echo "Not splitting again. Split already exists"
 else
@@ -289,11 +292,13 @@ fi
 
 # Tag the split files
 if [ -f "$TAGGED_WMT11" ]; then 
-    echo "Not tagging again. Tagged file already exists"
+    echo "Not tagging again. Tagged file "\
+         "already exists"
 else
     for i in ${SPLIT_FILENAME}*; do
         echo "Tagging $i"
-        tree-tagger-english-utf8 $i | reassemble_tags.pl >> "$TAGGED_WMT11"
+        tree-tagger-english-utf8 $i | \
+            reassemble_tags.pl >> "$TAGGED_WMT11"
     done
 fi
 \end{lstlisting}
