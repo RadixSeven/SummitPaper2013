@@ -100,7 +100,7 @@ We developed the script by first listing all the unique strings that began with 
 
 An important limitation of vector based lexical semantics is its way of dealing with polysemy (absent mitigation techniques such as those in \todo{ref some mitigation techniques}). Since each word gets only one meaning vector, if the word has more than one meaning, its associated vector is some sort of compromise between all of the meanings used. In the case of personality words, polysemy is very common. For example, consider the word ``kind''. If used in the utterance, ``What a jerk? Of course, John is kind.'', kind carries the meaning you expect on a personality survey. But if used in ``What course? John is kind of a jerk.'' it forms part of an adverbial phrase indicating an incomplete matching to a description. And if used in ``What? Jerk John is a kind of course.'', kind is a noun that is a synonym of species. Fully distinguishing the uses is a significant task. However, just marking the part of speech deals with a great deal of the polysemy. In the example above, only the adjective is a genuine personality word. 
 
-Part of speech marking misses some subtle distinctions, such as when someone says, ``If <person> would be so kind.'' (a common phrase in the parliamentary notes). However, it is very good at broader meaning differentiation. We looked at the 439 words used in \todo{ref whatever paper the 439 words come from}. In the vast majority of cases, Wordnet had only one definition that had to do with personality and that definition was distinguished from the others by determining whether the part-of-speech was an adjective or not. For 6 words (cunning, daring, faultfinding, quiet, self-pitying, and understanding) both the adjective and non-adjective categories had a personality meaning. So, being an adjective correctly distinguished personality word semantics 98.6\% of the time.
+Part of speech marking misses some subtle distinctions, such as when someone says, ``If <person> would be so kind.'' (a common phrase in the parliamentary notes). However, it is very good at broader meaning differentiation. We looked at the 438 words used in \todo{ref whatever paper the 438 words come from}. In the vast majority of cases, Wordnet had only one definition that had to do with personality and that definition was distinguished from the others by determining whether the part-of-speech was an adjective or not. For 6 words (cunning, daring, faultfinding, quiet, self-pitying, and understanding) both the adjective and non-adjective categories had a personality meaning. So, being an adjective correctly distinguished personality word semantics 98.6\% of the time.
 
 After consulting with Dr.\ Katrin Erk, \todo{ref private communication with Dr. Erk} we used TreeTagger \todo{ref tree tagger paper} as our basic part-of-speech tagging engine. Because TreeTagger must load all sentences to be tagged into memory, it cannot deal with the entire corpus at once. So, we split the corpus into 14 files of 10,000,000 lines each (the last being smaller). TreeTagger (using the \filename{tree-tagger-english-utf8} script) processed these into 14 files which had a single tagged symbol on each line. The splitting and tagging process was automated by our \filename{tag\_corpus.sh} script included in Appendix \ref{app:tagcorpus}.
 
@@ -153,16 +153,16 @@ With an upper-bound on how many components might be significant, the next step i
 
 \todo{Need to use correct number of words in each set rather than the approximate number.}
 
-\section{100 word set}
+\section{101 word set}
 
 \todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
 
-\section{400 word set}
+\section{438 word set}
 
 \todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
 
 
-\section{100 and 400 word sets combined}
+\section{101 and 438 word sets combined}
 
 \chapter{Discussion}
 
