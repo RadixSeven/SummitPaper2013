@@ -125,6 +125,8 @@ Once we had the preprocessing done, the next step was to choose the number of di
 
 \section{Create vectors and select words to PCA}
 
+\todo{Add part about choosing a frequency cut-off to fit all the skip-gram vectors in memory}
+
 Number of dimensions in hand, we generated the meaning vectors using the skip-gram implementation in gensim. \todo{ref gensim} Then we selected the meaning vectors (model.syn0) for our wordlists from the generated model using the script included as \filename{extract\_vectors.py} from \ref{app:extractvectors}. The lists of words were taken from two sets of personality words \todo{change if we do three sets}. The first, containing 101 words was taken from the list of 100 words in the paper \todo{cite paper from which the hundred words come}. To this, we added the variant spelling ``extroverted'' because the spelling ``extaverted'', which was in the original list, did not appear in the WMT11 corpus. The second set had 438 words and was taken from \todo{ref cite paper from which the 439 words come}. There were 439 entries in the list in \todo{cite paper}, however, the word ``cunning'' appeared twice. Because there were some words in the 101 word list that were absent in the 438 words list, we did another run with the two lists combined.
 
 \section{Going from Cosine to Euclidean Topology}
@@ -158,11 +160,44 @@ With an upper-bound on how many components might be significant, the next step i
 
 \chapter{Results}
 
-\todo{Need to use correct number of words in each set rather than the approximate number.}
-
 \section{101 word set}
 
-\todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
+\subsection{Tagging and vector extraction}
+
+The 101 word set contained only adjectives. Of these 90 were present in sufficient frequency to generate vectors within the memory constraints of the hardware on which we ran the skip-gram model. These words are listed in table \ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further processing was performed. 
+
+\begin{table}[h]
+    \begin{tabular}{| lllll |}
+	\hline
+	active & agreeable & anxious & artistic & assertive \\
+	bashful & bold & bright & careful & careless \\
+	cold & complex & conscientious & considerate & cooperative \\
+	creative & daring & deep & demanding & distrustful \\
+	efficient & emotional & energetic & envious & extroverted \\
+	fearful & fretful & generous & haphazard & harsh \\
+	helpful & high-strung & imaginative & imperturbable & impractical \\
+	inconsistent & inefficient & innovative & insecure & intellectual \\
+	introspective & irritable & jealous & kind & moody \\
+	neat & negligent & nervous & organized & philosophical \\
+	pleasant & practical & prompt & quiet & reserved \\
+	rude & selfish & self-pitying & shallow & shy \\
+	simple & sloppy & steady & sympathetic & systematic \\
+	talkative & temperamental & thorough & timid & touchy \\
+	trustful & unadventurous & uncharitable & uncooperative & undemanding \\
+	undependable & unemotional & unexcitable & unimaginative & unintelligent \\
+	unkind & unreflective & unrestrained & unsophisticated & unsympathetic \\
+	unsystematic & verbal & vigorous & warm & withdrawn \\
+	\hline
+    \end{tabular}
+    \caption{The 90 words from the 101 word list which were above the frequency cut-off for building vectors in the WMT11 corpus.}
+    \label{tab:101wordsthatbecamevectors}
+\end{table}
+
+\subsection{Unnormalized PCA}
+
+\subsection{Normalized PCA}
+
+\subsection{MDS}
 
 \section{438 word set}
 
