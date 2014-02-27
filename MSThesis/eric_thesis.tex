@@ -156,7 +156,19 @@ A significant risk of extracting factors in this way is the underlying assumptio
 
 \section{Sorting words to identify components}
 
-With an upper-bound on how many components might be significant, the next step is to identify the meaning associated with that component if we can. This step is necessary to test our hypothesis that the same dimensions show up in word meaning as show up in describing individual personality. For each principal component, we sorted the words by each word's score on that component. Then we listed, in order, the 30 highest and lowest scoring words for each dimension. The intuition is that if a semantic dimension corresponds to some known personality dimension, words positively associated with that dimension will have a high rating and thus appear near the top of the list. On the other hand, words negatively associated with that dimension will appear near the bottom of the list. Words with no association will appear in the middle. Thus, if a dimension corresponds to conscientiousness, we expect ``punctual'' and ``orderly'' to appear near the top and ``inefficient'' to appear near the bottom.
+With an upper-bound on how many components might be significant, the next 
+step is to identify the meaning associated with that component if we can. This 
+step is necessary to test our hypothesis that the same dimensions show up in 
+word meaning as show up in describing individual personality. For each principal 
+component, we sorted the words by each word's score on that component. Then we 
+listed, in order, the 30 highest and lowest scoring words for each dimension. 
+The intuition is that if a semantic dimension corresponds to some known 
+personality dimension, words positively associated with that dimension will have 
+a high rating and thus appear near the top of the list. On the other hand, words 
+negatively associated with that dimension will appear near the bottom of the 
+list. Words with no association will appear in the middle. Thus, if a dimension 
+corresponds to conscientiousness, we expect ``punctual'' and ``orderly'' to 
+appear near the top and ``inefficient'' to appear near the bottom.
 
 \chapter{Results}
 
@@ -164,30 +176,34 @@ With an upper-bound on how many components might be significant, the next step i
 
 \subsection{Tagging and vector extraction}
 
-The 101 word set contained only adjectives. Of these 90 were present in sufficient frequency to generate vectors within the memory constraints of the hardware on which we ran the skip-gram model. These words are listed in table \ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further processing was performed. 
+The 101 word set contained only adjectives. Of these 90 were present in 
+sufficient frequency to generate vectors within the memory constraints of the 
+hardware on which we ran the skip-gram model. These words are listed in table 
+\ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further 
+processing was performed. 
 
 \begin{table}[h]
     \begin{tabular}{| lllll |}
-	\hline
-	active & agreeable & anxious & artistic & assertive \\
-	bashful & bold & bright & careful & careless \\
-	cold & complex & conscientious & considerate & cooperative \\
-	creative & daring & deep & demanding & distrustful \\
-	efficient & emotional & energetic & envious & extroverted \\
-	fearful & fretful & generous & haphazard & harsh \\
-	helpful & high-strung & imaginative & imperturbable & impractical \\
-	inconsistent & inefficient & innovative & insecure & intellectual \\
-	introspective & irritable & jealous & kind & moody \\
-	neat & negligent & nervous & organized & philosophical \\
-	pleasant & practical & prompt & quiet & reserved \\
-	rude & selfish & self-pitying & shallow & shy \\
-	simple & sloppy & steady & sympathetic & systematic \\
-	talkative & temperamental & thorough & timid & touchy \\
-	trustful & unadventurous & uncharitable & uncooperative & undemanding \\
-	undependable & unemotional & unexcitable & unimaginative & unintelligent \\
-	unkind & unreflective & unrestrained & unsophisticated & unsympathetic \\
-	unsystematic & verbal & vigorous & warm & withdrawn \\
-	\hline
+        \hline
+        active & agreeable & anxious & artistic & assertive \\
+        bashful & bold & bright & careful & careless \\
+        cold & complex & conscientious & considerate & cooperative \\
+        creative & daring & deep & demanding & distrustful \\
+        efficient & emotional & energetic & envious & extroverted \\
+        fearful & fretful & generous & haphazard & harsh \\
+        helpful & high-strung & imaginative & imperturbable & impractical \\
+        inconsistent & inefficient & innovative & insecure & intellectual \\
+        introspective & irritable & jealous & kind & moody \\
+        neat & negligent & nervous & organized & philosophical \\
+        pleasant & practical & prompt & quiet & reserved \\
+        rude & selfish & self-pitying & shallow & shy \\
+        simple & sloppy & steady & sympathetic & systematic \\
+        talkative & temperamental & thorough & timid & touchy \\
+        trustful & unadventurous & uncharitable & uncooperative & undemanding \\
+        undependable & unemotional & unexcitable & unimaginative & unintelligent \\
+        unkind & unreflective & unrestrained & unsophisticated & unsympathetic \\
+        unsystematic & verbal & vigorous & warm & withdrawn \\
+        \hline
     \end{tabular}
     \caption{The 90 words from the 101 word list which were above the frequency cut-off for building vectors in the WMT11 corpus.}
     \label{tab:101wordsthatbecamevectors}
@@ -195,16 +211,338 @@ The 101 word set contained only adjectives. Of these 90 were present in sufficie
 
 \subsection{Unnormalized PCA}
 
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 & irritable & uncooperative & imperturbable & considerate\\
+        2 & self-pitying & negligent & negligent & negligent\\
+        3 & extroverted & prompt & uncooperative & kind\\
+        4 & talkative & distrustful & selfish & conscientious\\
+        5 & unintelligent & insecure & careless & talkative\\
+        6 & uncooperative & inconsistent & unreflective & thorough\\
+        7 & rude & rude & self-pitying & cooperative\\
+        \hline
+        84 & negligent & extroverted & energetic & irritable\\
+        85 & simple & imaginative & extroverted & unreflective\\
+        86 & innovative & artistic & talkative & harsh \\
+        87 & systematic & introspective & pleasant & neat\\
+        88 & efficient & energetic & kind & deep\\
+        89 & prompt & considerate & warm & warm\\
+        90 & thorough & imperturbable & considerate & cold\\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from unnormalized PCA of the 90 word vectors.}
+    \label{tab:101wordsRankingsUnnormalizedPCA}
+\end{table}
+
+Table \ref{tab:101wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:unnormalized}.
+
+
 \subsection{Normalized PCA}
 
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from normalized PCA of the 90 word vectors.}
+    \label{tab:101wordsRankingsNormalizedPCA}
+\end{table}
+
+Table \ref{tab:101wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:normalized}.
+
+
 \subsection{MDS}
+
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from performaing MDS on the 90 word vectors.}
+    \label{tab:101wordsRankingsMDS}
+\end{table}
+
+Table \ref{tab:101wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 90 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:mds}.
+
 
 \section{438 word set}
 
 \todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
 
+\subsection{Unnormalized PCA}
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from unnormalized PCA of the 90 word vectors.}
+    \label{tab:438wordsRankingsUnnormalizedPCA}
+\end{table}
+
+Table \ref{tab:438wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:unnormalized}.
+
+
+\subsection{Normalized PCA}
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from normalized PCA of the 90 word vectors.}
+    \label{tab:438wordsRankingsNormalizedPCA}
+\end{table}
+
+Table \ref{tab:438wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:normalized}.
+
+
+\subsection{MDS}
+
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from performaing MDS on the 90 word vectors.}
+    \label{tab:438wordsRankingsMDS}
+\end{table}
+
+Table \ref{tab:438wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 90 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:mds}.
 
 \section{101 and 438 word sets combined}
+
+\todo{remember to mention how many and which words actually appeared in the corpus - and thus had a vector representation}
+\todo{check for copy-paste errors on the tables, their captions, and the references}
+
+\subsection{Unnormalized PCA}
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from unnormalized PCA of the 90 word vectors.}
+    \label{tab:438and101wordsRankingsUnnormalizedPCA}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and438and101words:unnormalized}.
+
+
+\subsection{Normalized PCA}
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from normalized PCA of the 90 word vectors.}
+    \label{tab:438and101wordsRankingsNormalizedPCA}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and101words:normalized}.
+
+
+\subsection{MDS}
+
+
+\begin{table}[h]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from performaing MDS on the 90 word vectors.}
+    \label{tab:438and101wordsRankingsMDS}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 90 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and101words:mds}.
+
 
 \chapter{Discussion}
 
@@ -1016,6 +1354,47 @@ end
 end
 \end{lstlisting}
 
+\chapter{Ranked word lists}
+\label{app:rankedwordlists}
+For each list of word vectors, the derived principal components can be used to 
+give a numerical score to each word in the list. The following sections list
+the most important components derived from each method of analyzing each list.
+The number of components listed has been chosen conservatively so that if a
+linear model is appropriate, more components are listed than are actually used
+in the model.
+
+\section{101 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:101words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:101words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:101words:mds}
+\todo{Include data}
+
+\section{438 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:438words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:438words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:438words:mds}
+\todo{Include data}
+
+\section{Combined 101 and 438 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:438and101words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:438and101words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:438and101words:mds}
+\todo{Include data}
 
 
 \chapter{Bibliography}
