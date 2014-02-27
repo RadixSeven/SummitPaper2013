@@ -9,6 +9,8 @@
 \usepackage{listings}
 \usepackage{graphicx}
 
+\graphicspath{ {images/} }
+
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
 \newcommand{\filename}[1]{\textit{#1}}
@@ -182,7 +184,7 @@ hardware on which we ran the skip-gram model. These words are listed in table
 \ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further 
 processing was performed. 
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| lllll |}
         \hline
         active & agreeable & anxious & artistic & assertive \\
@@ -211,7 +213,7 @@ processing was performed.
 
 \subsection{Unnormalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -239,35 +241,46 @@ processing was performed.
     \label{tab:101wordsRankingsUnnormalizedPCA}
 \end{table}
 
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list.}
+    \label{fig:101wordsunnormalizedpcaeigenvalues}
+\end{figure}
+
+
 Table \ref{tab:101wordsRankingsUnnormalizedPCA} gives the highest and lowest
 ranking words on the first 4 principal components of the unnormalized 90 word 
 vectors. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:101words:unnormalized}.
+\ref{app:rankedwordlists:101words:unnormalized}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsunnormalizedpcaeigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
 
 
 \subsection{Normalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
         \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
         \hline
-        1 &  &  &  &  \\
-        2 &  &  &  &  \\
-        3 &  &  &  &  \\
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 &  &  &  &  \\
-        7 &  &  &  &  \\
+        1 & irritable & uncooperative & negligent & cold \\
+        2 & uncooperative & prompt & uncooperative & unreflective \\
+        3 & self-pitying  & negligent & imperturbable & neat \\
+        4 & extroverted & systematic & selfish & self-pitying \\
+        5 & unintelligent & distrustful & careless & deep \\
+        6 & talkative & inconsistent & prompt & warm \\
+        7 & rude & insecure & unreflective & shallow \\
         \hline
-        84 &  &  &  &  \\
-        85 &  &  &  &  \\
-        86 &  &  &  &  \\
-        87 &  &  &  &  \\
-        88 &  &  &  &  \\
-        89 &  &  &  &  \\
-        90 &  &  &  &  \\
+        84 & steady & uncharitable & energetic & thorough \\
+        85 & simple & talkative & extroverted & cooperative \\
+        86 & systematic & extroverted & talkative & talkative \\
+        87 & innovative & introspective & pleasant & kind \\
+        88 & efficient & energetic & kind & negligent \\
+        89 & prompt & considerate & warm & uncooperative \\
+        90 & thorough & imperturbable & considerate & considerate \\
         \hline
     \end{tabular}
     \caption{The highest and lowest ranking words on the first 4 components 
@@ -275,36 +288,46 @@ vectors. A more complete list can be found in Appendix
     \label{tab:101wordsRankingsNormalizedPCA}
 \end{table}
 
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-zscore_transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list after transforming to z-scores.}
+    \label{fig:101wordsnormalizedpcaeigenvalues}
+\end{figure}
+
 Table \ref{tab:101wordsRankingsNormalizedPCA} gives the highest and lowest
 ranking words on the first 4 principal components of the normalized 90 word 
 vectors. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:101words:normalized}.
+\ref{app:rankedwordlists:101words:normalized}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsnormalizedpcaeigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
 
 
 \subsection{MDS}
 
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
         \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
         \hline
-        1 &  &  &  &  \\
-        2 &  &  &  &  \\
-        3 &  &  &  &  \\
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 &  &  &  &  \\
-        7 &  &  &  &  \\
+        1 & envious & energetic & imaginative & active \\
+        2 & jealous & considerate & artistic & cooperative \\
+        3 & self-pitying & introspective  & innovative & efficient \\
+        4 & unkind & pleasant & unreflective & sympathetic \\
+        5 & bashful & creative & unadventurous & assertive \\
+        6 & fretful & imaginative & unimaginative & unsympathetic \\
+        7 & uncharitable & extroverted & creative & distrustful \\
         \hline
-        84 &  &  &  &  \\
-        85 &  &  &  &  \\
-        86 &  &  &  &  \\
-        87 &  &  &  &  \\
-        88 &  &  &  &  \\
-        89 &  &  &  &  \\
-        90 &  &  &  &  \\
+        84 & systematic & uncooperative & careful & bright \\
+        85 & thorough & inefficient & quiet & steady \\
+        86 & efficient & systematic & warm & shallow \\
+        87 & complex & sloppy & cold & warm \\
+        88 & simple & inconsistent & fearful & neat \\
+        89 & practical & unsystematic & anxious & deep \\
+        90 & innovative & negligent & nervous & cold \\
         \hline
     \end{tabular}
     \caption{The highest and lowest ranking words on the first 4 components 
@@ -312,10 +335,20 @@ vectors. A more complete list can be found in Appendix
     \label{tab:101wordsRankingsMDS}
 \end{table}
 
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-mds_transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list after multidimensional scaling.}
+    \label{fig:101wordsmdseigenvalues}
+\end{figure}
+
 Table \ref{tab:101wordsRankingsMDS} gives the highest and lowest
 ranking words on the first 4 principal components of the 90 word 
 vectors after MDS. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:101words:mds}.
+\ref{app:rankedwordlists:101words:mds}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsmdseigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
 
 
 \section{438 word set}
@@ -324,7 +357,7 @@ vectors after MDS. A more complete list can be found in Appendix
 
 \subsection{Unnormalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -360,7 +393,7 @@ vectors. A more complete list can be found in Appendix
 
 \subsection{Normalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -397,7 +430,7 @@ vectors. A more complete list can be found in Appendix
 \subsection{MDS}
 
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -437,7 +470,7 @@ vectors after MDS. A more complete list can be found in Appendix
 
 \subsection{Unnormalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -468,12 +501,12 @@ vectors after MDS. A more complete list can be found in Appendix
 Table \ref{tab:438and101wordsRankingsUnnormalizedPCA} gives the highest and lowest
 ranking words on the first 4 principal components of the unnormalized 90 word 
 vectors. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:438and438and101words:unnormalized}.
+\ref{app:rankedwordlists:438and101words:unnormalized}.
 
 
 \subsection{Normalized PCA}
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -510,7 +543,7 @@ vectors. A more complete list can be found in Appendix
 \subsection{MDS}
 
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| rllll | }
         \hline
          & \multicolumn{4}{c|}{\textbf{Component}} \\
@@ -555,6 +588,9 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \section{Could it be polysemy?}
 
 \section{Could the dimensions be non-personality attributes?}
+\section{Could the dimensions not be scaled on personality-ness?}
+
+\todo{What I mean here is that the dimensions could be things like ``suitability to describe warmth'' both cold and warm would score highly but organized would score low.}
 
 \section{Could the number of dimensions in the lexical model be affecting things?}
 
