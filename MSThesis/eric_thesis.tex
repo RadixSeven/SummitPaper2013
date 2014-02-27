@@ -12,6 +12,7 @@
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
 \newcommand{\filename}[1]{\textit{#1}}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}}
 
 \author{Eric Moyer}
 \title{Skip-gram Extraction of Personality Components from News Corpora}
@@ -194,6 +195,1857 @@ The 101 word set contained only adjectives. Of these 90 were present in sufficie
 \end{table}
 
 \subsection{Unnormalized PCA}
+
+
+
+\subsubsection{Component \#1: 4.628846.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & irritable\_jj & -1.59 \\
+        2 & self-pitying\_jj & -1.57 \\
+        3 & extroverted\_jj & -1.5 \\
+        4 & talkative\_jj & -1.41 \\
+        5 & unintelligent\_jj & -1.38 \\
+        6 & uncooperative\_jj & -1.29 \\
+        7 & rude\_jj & -1.26 \\
+        8 & unkind\_jj & -1.17 \\
+        9 & bashful\_jj & -1.15 \\
+        10 & uncharitable\_jj & -1.08 \\
+        11 & envious\_jj & -1.08 \\
+        12 & introspective\_jj & -1.07 \\
+        13 & selfish\_jj & -1.05 \\
+        14 & considerate\_jj & -1.05 \\
+        15 & withdrawn\_jj & -1.02 \\
+        16 & high-strung\_jj & -1.02 \\
+        17 & jealous\_jj & -0.999 \\
+        18 & insecure\_jj & -0.908 \\
+        19 & distrustful\_jj & -0.871 \\
+        20 & unsympathetic\_jj & -0.848 \\
+        21 & kind\_jj & -0.835 \\
+        22 & unemotional\_jj & -0.809 \\
+        23 & unsophisticated\_jj & -0.692 \\
+        24 & fretful\_jj & -0.684 \\
+        25 & unreflective\_jj & -0.616 \\
+        26 & moody\_jj & -0.608 \\
+        27 & temperamental\_jj & -0.543 \\
+        28 & unadventurous\_jj & -0.504 \\
+        29 & unimaginative\_jj & -0.408 \\
+        30 & agreeable\_jj & -0.356 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & harsh\_jj & 0.526 \\
+        62 & shallow\_jj & 0.532 \\
+        63 & active\_jj & 0.536 \\
+        64 & artistic\_jj & 0.545 \\
+        65 & inefficient\_jj & 0.57 \\
+        66 & haphazard\_jj & 0.584 \\
+        67 & cold\_jj & 0.594 \\
+        68 & inconsistent\_jj & 0.645 \\
+        69 & intellectual\_jj & 0.683 \\
+        70 & sloppy\_jj & 0.702 \\
+        71 & deep\_jj & 0.773 \\
+        72 & cooperative\_jj & 0.783 \\
+        73 & bold\_jj & 0.817 \\
+        74 & creative\_jj & 0.827 \\
+        75 & careful\_jj & 0.858 \\
+        76 & warm\_jj & 0.861 \\
+        77 & helpful\_jj & 0.873 \\
+        78 & neat\_jj & 0.899 \\
+        79 & complex\_jj & 0.979 \\
+        80 & steady\_jj & 0.995 \\
+        81 & organized\_jj & 1.01 \\
+        82 & practical\_jj & 1.03 \\
+        83 & vigorous\_jj & 1.04 \\
+        84 & negligent\_jj & 1.06 \\
+        85 & simple\_jj & 1.1 \\
+        86 & innovative\_jj & 1.16 \\
+        87 & systematic\_jj & 1.26 \\
+        88 & efficient\_jj & 1.34 \\
+        89 & prompt\_jj & 1.56 \\
+        90 & thorough\_jj & 1.57 \\
+\end{tabular}
+\subsubsection{Component \#2: 4.440028.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & uncooperative\_jj & -1.95 \\
+        2 & negligent\_jj & -1.29 \\
+        3 & prompt\_jj & -0.91 \\
+        4 & distrustful\_jj & -0.793 \\
+        5 & insecure\_jj & -0.72 \\
+        6 & inconsistent\_jj & -0.704 \\
+        7 & rude\_jj & -0.621 \\
+        8 & systematic\_jj & -0.606 \\
+        9 & fearful\_jj & -0.573 \\
+        10 & impractical\_jj & -0.571 \\
+        11 & inefficient\_jj & -0.555 \\
+        12 & unsophisticated\_jj & -0.549 \\
+        13 & selfish\_jj & -0.487 \\
+        14 & unsympathetic\_jj & -0.486 \\
+        15 & unintelligent\_jj & -0.484 \\
+        16 & careless\_jj & -0.473 \\
+        17 & sloppy\_jj & -0.42 \\
+        18 & cooperative\_jj & -0.37 \\
+        19 & touchy\_jj & -0.361 \\
+        20 & withdrawn\_jj & -0.354 \\
+        21 & jealous\_jj & -0.347 \\
+        22 & irritable\_jj & -0.345 \\
+        23 & helpful\_jj & -0.325 \\
+        24 & harsh\_jj & -0.303 \\
+        25 & undependable\_jj & -0.28 \\
+        26 & thorough\_jj & -0.269 \\
+        27 & unsystematic\_jj & -0.253 \\
+        28 & timid\_jj & -0.252 \\
+        29 & unrestrained\_jj & -0.252 \\
+        30 & haphazard\_jj & -0.244 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & bashful\_jj & 0.184 \\
+        62 & intellectual\_jj & 0.184 \\
+        63 & self-pitying\_jj & 0.186 \\
+        64 & envious\_jj & 0.195 \\
+        65 & bright\_jj & 0.209 \\
+        66 & temperamental\_jj & 0.231 \\
+        67 & philosophical\_jj & 0.233 \\
+        68 & unreflective\_jj & 0.235 \\
+        69 & reserved\_jj & 0.24 \\
+        70 & uncharitable\_jj & 0.243 \\
+        71 & daring\_jj & 0.251 \\
+        72 & shy\_jj & 0.257 \\
+        73 & steady\_jj & 0.258 \\
+        74 & kind\_jj & 0.284 \\
+        75 & bold\_jj & 0.293 \\
+        76 & vigorous\_jj & 0.312 \\
+        77 & high-strung\_jj & 0.323 \\
+        78 & neat\_jj & 0.324 \\
+        79 & moody\_jj & 0.357 \\
+        80 & warm\_jj & 0.381 \\
+        81 & talkative\_jj & 0.411 \\
+        82 & pleasant\_jj & 0.421 \\
+        83 & quiet\_jj & 0.424 \\
+        84 & extroverted\_jj & 0.432 \\
+        85 & imaginative\_jj & 0.447 \\
+        86 & artistic\_jj & 0.484 \\
+        87 & introspective\_jj & 0.611 \\
+        88 & energetic\_jj & 0.8 \\
+        89 & considerate\_jj & 0.839 \\
+        90 & imperturbable\_jj & 6.39 \\
+\end{tabular}
+\subsubsection{Component \#3: 4.087923.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & imperturbable\_jj & -3 \\
+        2 & negligent\_jj & -2.56 \\
+        3 & uncooperative\_jj & -2.23 \\
+        4 & selfish\_jj & -1.21 \\
+        5 & careless\_jj & -1.18 \\
+        6 & unreflective\_jj & -1.01 \\
+        7 & self-pitying\_jj & -0.977 \\
+        8 & prompt\_jj & -0.97 \\
+        9 & sloppy\_jj & -0.888 \\
+        10 & inefficient\_jj & -0.872 \\
+        11 & unrestrained\_jj & -0.856 \\
+        12 & verbal\_jj & -0.689 \\
+        13 & uncharitable\_jj & -0.681 \\
+        14 & inconsistent\_jj & -0.67 \\
+        15 & systematic\_jj & -0.605 \\
+        16 & unimaginative\_jj & -0.544 \\
+        17 & rude\_jj & -0.536 \\
+        18 & haphazard\_jj & -0.447 \\
+        19 & unintelligent\_jj & -0.434 \\
+        20 & unsophisticated\_jj & -0.429 \\
+        21 & unsystematic\_jj & -0.417 \\
+        22 & unsympathetic\_jj & -0.397 \\
+        23 & unkind\_jj & -0.36 \\
+        24 & impractical\_jj & -0.324 \\
+        25 & harsh\_jj & -0.228 \\
+        26 & fretful\_jj & -0.208 \\
+        27 & distrustful\_jj & -0.186 \\
+        28 & unexcitable\_jj & -0.162 \\
+        29 & unemotional\_jj & -0.148 \\
+        30 & intellectual\_jj & -0.145 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & artistic\_jj & 0.238 \\
+        62 & envious\_jj & 0.258 \\
+        63 & cooperative\_jj & 0.284 \\
+        64 & careful\_jj & 0.329 \\
+        65 & helpful\_jj & 0.353 \\
+        66 & practical\_jj & 0.358 \\
+        67 & high-strung\_jj & 0.381 \\
+        68 & efficient\_jj & 0.382 \\
+        69 & moody\_jj & 0.407 \\
+        70 & active\_jj & 0.464 \\
+        71 & steady\_jj & 0.476 \\
+        72 & agreeable\_jj & 0.476 \\
+        73 & shy\_jj & 0.481 \\
+        74 & cold\_jj & 0.542 \\
+        75 & creative\_jj & 0.585 \\
+        76 & bashful\_jj & 0.594 \\
+        77 & introspective\_jj & 0.6 \\
+        78 & neat\_jj & 0.643 \\
+        79 & conscientious\_jj & 0.656 \\
+        80 & reserved\_jj & 0.679 \\
+        81 & quiet\_jj & 0.728 \\
+        82 & bright\_jj & 0.748 \\
+        83 & generous\_jj & 0.751 \\
+        84 & energetic\_jj & 0.853 \\
+        85 & extroverted\_jj & 0.861 \\
+        86 & talkative\_jj & 1.03 \\
+        87 & pleasant\_jj & 1.03 \\
+        88 & kind\_jj & 1.49 \\
+        89 & warm\_jj & 1.97 \\
+        90 & considerate\_jj & 2.08 \\
+\end{tabular}
+\subsubsection{Component \#4: 2.989130.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & considerate\_jj & -3.02 \\
+        2 & negligent\_jj & -1.99 \\
+        3 & kind\_jj & -1.39 \\
+        4 & conscientious\_jj & -1.23 \\
+        5 & talkative\_jj & -1.09 \\
+        6 & thorough\_jj & -1 \\
+        7 & cooperative\_jj & -0.943 \\
+        8 & uncooperative\_jj & -0.879 \\
+        9 & energetic\_jj & -0.827 \\
+        10 & prompt\_jj & -0.801 \\
+        11 & efficient\_jj & -0.78 \\
+        12 & selfish\_jj & -0.569 \\
+        13 & systematic\_jj & -0.445 \\
+        14 & generous\_jj & -0.439 \\
+        15 & imperturbable\_jj & -0.37 \\
+        16 & extroverted\_jj & -0.359 \\
+        17 & agreeable\_jj & -0.357 \\
+        18 & careful\_jj & -0.353 \\
+        19 & innovative\_jj & -0.34 \\
+        20 & demanding\_jj & -0.307 \\
+        21 & unsympathetic\_jj & -0.293 \\
+        22 & helpful\_jj & -0.289 \\
+        23 & inefficient\_jj & -0.263 \\
+        24 & creative\_jj & -0.26 \\
+        25 & assertive\_jj & -0.257 \\
+        26 & active\_jj & -0.255 \\
+        27 & imaginative\_jj & -0.243 \\
+        28 & reserved\_jj & -0.208 \\
+        29 & shy\_jj & -0.205 \\
+        30 & timid\_jj & -0.172 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & unadventurous\_jj & 0.278 \\
+        62 & insecure\_jj & 0.298 \\
+        63 & envious\_jj & 0.3 \\
+        64 & emotional\_jj & 0.313 \\
+        65 & bashful\_jj & 0.315 \\
+        66 & unexcitable\_jj & 0.322 \\
+        67 & unintelligent\_jj & 0.337 \\
+        68 & nervous\_jj & 0.354 \\
+        69 & simple\_jj & 0.36 \\
+        70 & fearful\_jj & 0.362 \\
+        71 & unkind\_jj & 0.365 \\
+        72 & uncharitable\_jj & 0.376 \\
+        73 & moody\_jj & 0.382 \\
+        74 & philosophical\_jj & 0.388 \\
+        75 & sloppy\_jj & 0.431 \\
+        76 & fretful\_jj & 0.483 \\
+        77 & touchy\_jj & 0.493 \\
+        78 & bright\_jj & 0.516 \\
+        79 & undemanding\_jj & 0.603 \\
+        80 & verbal\_jj & 0.663 \\
+        81 & steady\_jj & 0.672 \\
+        82 & self-pitying\_jj & 0.777 \\
+        83 & shallow\_jj & 0.796 \\
+        84 & irritable\_jj & 0.834 \\
+        85 & unreflective\_jj & 0.849 \\
+        86 & harsh\_jj & 0.924 \\
+        87 & neat\_jj & 0.984 \\
+        88 & deep\_jj & 0.997 \\
+        89 & warm\_jj & 1.39 \\
+        90 & cold\_jj & 1.63 \\
+\end{tabular}
+\subsubsection{Component \#5: 2.903135.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & unreflective\_jj & -1.46 \\
+        2 & selfish\_jj & -1.33 \\
+        3 & artistic\_jj & -1.19 \\
+        4 & neat\_jj & -1.12 \\
+        5 & unintelligent\_jj & -1.06 \\
+        6 & creative\_jj & -0.971 \\
+        7 & self-pitying\_jj & -0.942 \\
+        8 & imaginative\_jj & -0.823 \\
+        9 & intellectual\_jj & -0.82 \\
+        10 & careless\_jj & -0.662 \\
+        11 & unimaginative\_jj & -0.642 \\
+        12 & philosophical\_jj & -0.555 \\
+        13 & uncharitable\_jj & -0.535 \\
+        14 & unadventurous\_jj & -0.533 \\
+        15 & unsophisticated\_jj & -0.512 \\
+        16 & innovative\_jj & -0.486 \\
+        17 & negligent\_jj & -0.463 \\
+        18 & daring\_jj & -0.455 \\
+        19 & practical\_jj & -0.416 \\
+        20 & jealous\_jj & -0.374 \\
+        21 & simple\_jj & -0.32 \\
+        22 & bold\_jj & -0.319 \\
+        23 & haphazard\_jj & -0.314 \\
+        24 & temperamental\_jj & -0.299 \\
+        25 & conscientious\_jj & -0.287 \\
+        26 & energetic\_jj & -0.276 \\
+        27 & envious\_jj & -0.269 \\
+        28 & high-strung\_jj & -0.255 \\
+        29 & unrestrained\_jj & -0.238 \\
+        30 & introspective\_jj & -0.229 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & kind\_jj & 0.168 \\
+        62 & insecure\_jj & 0.188 \\
+        63 & unsympathetic\_jj & 0.239 \\
+        64 & distrustful\_jj & 0.271 \\
+        65 & careful\_jj & 0.273 \\
+        66 & inconsistent\_jj & 0.279 \\
+        67 & verbal\_jj & 0.297 \\
+        68 & prompt\_jj & 0.319 \\
+        69 & reserved\_jj & 0.345 \\
+        70 & helpful\_jj & 0.347 \\
+        71 & vigorous\_jj & 0.357 \\
+        72 & pleasant\_jj & 0.37 \\
+        73 & quiet\_jj & 0.432 \\
+        74 & sympathetic\_jj & 0.454 \\
+        75 & organized\_jj & 0.459 \\
+        76 & fearful\_jj & 0.459 \\
+        77 & steady\_jj & 0.467 \\
+        78 & touchy\_jj & 0.488 \\
+        79 & cooperative\_jj & 0.528 \\
+        80 & active\_jj & 0.531 \\
+        81 & assertive\_jj & 0.562 \\
+        82 & talkative\_jj & 0.751 \\
+        83 & anxious\_jj & 0.756 \\
+        84 & harsh\_jj & 0.865 \\
+        85 & nervous\_jj & 0.954 \\
+        86 & cold\_jj & 0.969 \\
+        87 & imperturbable\_jj & 1.25 \\
+        88 & irritable\_jj & 1.3 \\
+        89 & warm\_jj & 1.61 \\
+        90 & uncooperative\_jj & 3.15 \\
+\end{tabular}
+\subsubsection{Component \#6: 2.773726.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & uncooperative\_jj & -2.17 \\
+        2 & efficient\_jj & -1.35 \\
+        3 & innovative\_jj & -1.05 \\
+        4 & complex\_jj & -0.812 \\
+        5 & inefficient\_jj & -0.774 \\
+        6 & unimaginative\_jj & -0.766 \\
+        7 & extroverted\_jj & -0.708 \\
+        8 & imaginative\_jj & -0.686 \\
+        9 & unsophisticated\_jj & -0.649 \\
+        10 & assertive\_jj & -0.621 \\
+        11 & impractical\_jj & -0.61 \\
+        12 & artistic\_jj & -0.569 \\
+        13 & creative\_jj & -0.539 \\
+        14 & practical\_jj & -0.512 \\
+        15 & undemanding\_jj & -0.482 \\
+        16 & introspective\_jj & -0.466 \\
+        17 & cooperative\_jj & -0.447 \\
+        18 & demanding\_jj & -0.44 \\
+        19 & intellectual\_jj & -0.42 \\
+        20 & trustful\_jj & -0.408 \\
+        21 & daring\_jj & -0.4 \\
+        22 & agreeable\_jj & -0.399 \\
+        23 & active\_jj & -0.393 \\
+        24 & organized\_jj & -0.368 \\
+        25 & undependable\_jj & -0.352 \\
+        26 & touchy\_jj & -0.351 \\
+        27 & unadventurous\_jj & -0.345 \\
+        28 & unrestrained\_jj & -0.326 \\
+        29 & bold\_jj & -0.316 \\
+        30 & philosophical\_jj & -0.313 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & timid\_jj & 0.188 \\
+        62 & deep\_jj & 0.19 \\
+        63 & shallow\_jj & 0.214 \\
+        64 & bashful\_jj & 0.223 \\
+        65 & withdrawn\_jj & 0.28 \\
+        66 & pleasant\_jj & 0.281 \\
+        67 & envious\_jj & 0.291 \\
+        68 & sloppy\_jj & 0.292 \\
+        69 & unkind\_jj & 0.332 \\
+        70 & careful\_jj & 0.341 \\
+        71 & irritable\_jj & 0.347 \\
+        72 & harsh\_jj & 0.399 \\
+        73 & fearful\_jj & 0.412 \\
+        74 & bright\_jj & 0.496 \\
+        75 & quiet\_jj & 0.503 \\
+        76 & anxious\_jj & 0.543 \\
+        77 & uncharitable\_jj & 0.612 \\
+        78 & nervous\_jj & 0.616 \\
+        79 & jealous\_jj & 0.619 \\
+        80 & rude\_jj & 0.637 \\
+        81 & steady\_jj & 0.674 \\
+        82 & selfish\_jj & 0.738 \\
+        83 & shy\_jj & 0.774 \\
+        84 & considerate\_jj & 0.803 \\
+        85 & cold\_jj & 0.884 \\
+        86 & kind\_jj & 0.92 \\
+        87 & warm\_jj & 1.41 \\
+        88 & careless\_jj & 1.45 \\
+        89 & prompt\_jj & 1.78 \\
+        90 & negligent\_jj & 2.42 \\
+\end{tabular}
+\subsubsection{Component \#7: 2.624921.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & prompt\_jj & -3.73 \\
+        2 & irritable\_jj & -0.948 \\
+        3 & thorough\_jj & -0.798 \\
+        4 & unemotional\_jj & -0.763 \\
+        5 & vigorous\_jj & -0.715 \\
+        6 & assertive\_jj & -0.703 \\
+        7 & distrustful\_jj & -0.683 \\
+        8 & verbal\_jj & -0.657 \\
+        9 & withdrawn\_jj & -0.635 \\
+        10 & extroverted\_jj & -0.618 \\
+        11 & fearful\_jj & -0.49 \\
+        12 & anxious\_jj & -0.382 \\
+        13 & introspective\_jj & -0.362 \\
+        14 & emotional\_jj & -0.338 \\
+        15 & nervous\_jj & -0.336 \\
+        16 & philosophical\_jj & -0.323 \\
+        17 & self-pitying\_jj & -0.317 \\
+        18 & systematic\_jj & -0.316 \\
+        19 & demanding\_jj & -0.313 \\
+        20 & daring\_jj & -0.307 \\
+        21 & conscientious\_jj & -0.291 \\
+        22 & unsympathetic\_jj & -0.284 \\
+        23 & fretful\_jj & -0.269 \\
+        24 & uncharitable\_jj & -0.267 \\
+        25 & unrestrained\_jj & -0.261 \\
+        26 & sympathetic\_jj & -0.232 \\
+        27 & imaginative\_jj & -0.232 \\
+        28 & steady\_jj & -0.221 \\
+        29 & bashful\_jj & -0.212 \\
+        30 & bold\_jj & -0.211 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & reserved\_jj & 0.182 \\
+        62 & considerate\_jj & 0.188 \\
+        63 & creative\_jj & 0.195 \\
+        64 & helpful\_jj & 0.234 \\
+        65 & simple\_jj & 0.243 \\
+        66 & efficient\_jj & 0.248 \\
+        67 & unsophisticated\_jj & 0.283 \\
+        68 & haphazard\_jj & 0.297 \\
+        69 & inconsistent\_jj & 0.313 \\
+        70 & sloppy\_jj & 0.314 \\
+        71 & generous\_jj & 0.33 \\
+        72 & rude\_jj & 0.363 \\
+        73 & quiet\_jj & 0.406 \\
+        74 & shy\_jj & 0.422 \\
+        75 & selfish\_jj & 0.452 \\
+        76 & undemanding\_jj & 0.457 \\
+        77 & talkative\_jj & 0.474 \\
+        78 & unimaginative\_jj & 0.519 \\
+        79 & impractical\_jj & 0.536 \\
+        80 & kind\_jj & 0.546 \\
+        81 & cold\_jj & 0.62 \\
+        82 & bright\_jj & 0.683 \\
+        83 & inefficient\_jj & 0.713 \\
+        84 & careless\_jj & 0.721 \\
+        85 & pleasant\_jj & 0.744 \\
+        86 & shallow\_jj & 0.754 \\
+        87 & neat\_jj & 0.992 \\
+        88 & warm\_jj & 1.15 \\
+        89 & uncooperative\_jj & 1.15 \\
+        90 & negligent\_jj & 1.96 \\
+\end{tabular}
+\subsubsection{Component \#8: 2.556804.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & distrustful\_jj & -1.41 \\
+        2 & anxious\_jj & -1.21 \\
+        3 & nervous\_jj & -1.16 \\
+        4 & fearful\_jj & -1.11 \\
+        5 & assertive\_jj & -1.02 \\
+        6 & irritable\_jj & -0.939 \\
+        7 & insecure\_jj & -0.86 \\
+        8 & active\_jj & -0.824 \\
+        9 & organized\_jj & -0.75 \\
+        10 & careful\_jj & -0.65 \\
+        11 & fretful\_jj & -0.649 \\
+        12 & envious\_jj & -0.596 \\
+        13 & jealous\_jj & -0.585 \\
+        14 & unsympathetic\_jj & -0.549 \\
+        15 & negligent\_jj & -0.529 \\
+        16 & shy\_jj & -0.491 \\
+        17 & timid\_jj & -0.49 \\
+        18 & touchy\_jj & -0.469 \\
+        19 & emotional\_jj & -0.425 \\
+        20 & conscientious\_jj & -0.42 \\
+        21 & helpful\_jj & -0.395 \\
+        22 & sympathetic\_jj & -0.364 \\
+        23 & intellectual\_jj & -0.349 \\
+        24 & demanding\_jj & -0.335 \\
+        25 & generous\_jj & -0.328 \\
+        26 & uncharitable\_jj & -0.32 \\
+        27 & kind\_jj & -0.302 \\
+        28 & imperturbable\_jj & -0.246 \\
+        29 & inefficient\_jj & -0.217 \\
+        30 & undependable\_jj & -0.216 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & cold\_jj & 0.219 \\
+        62 & bold\_jj & 0.227 \\
+        63 & unkind\_jj & 0.229 \\
+        64 & practical\_jj & 0.24 \\
+        65 & simple\_jj & 0.245 \\
+        66 & agreeable\_jj & 0.246 \\
+        67 & selfish\_jj & 0.254 \\
+        68 & bright\_jj & 0.29 \\
+        69 & extroverted\_jj & 0.298 \\
+        70 & daring\_jj & 0.301 \\
+        71 & moody\_jj & 0.303 \\
+        72 & rude\_jj & 0.326 \\
+        73 & introspective\_jj & 0.34 \\
+        74 & withdrawn\_jj & 0.386 \\
+        75 & thorough\_jj & 0.399 \\
+        76 & undemanding\_jj & 0.436 \\
+        77 & pleasant\_jj & 0.446 \\
+        78 & shallow\_jj & 0.452 \\
+        79 & talkative\_jj & 0.455 \\
+        80 & unreflective\_jj & 0.515 \\
+        81 & considerate\_jj & 0.614 \\
+        82 & reserved\_jj & 0.615 \\
+        83 & neat\_jj & 0.676 \\
+        84 & self-pitying\_jj & 0.792 \\
+        85 & unintelligent\_jj & 0.848 \\
+        86 & high-strung\_jj & 1.06 \\
+        87 & unemotional\_jj & 1.21 \\
+        88 & uncooperative\_jj & 1.84 \\
+        89 & warm\_jj & 1.85 \\
+        90 & prompt\_jj & 2.1 \\
+\end{tabular}
+\subsubsection{Component \#9: 2.325431.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & negligent\_jj & -2.37 \\
+        2 & irritable\_jj & -1.15 \\
+        3 & high-strung\_jj & -0.977 \\
+        4 & artistic\_jj & -0.965 \\
+        5 & verbal\_jj & -0.94 \\
+        6 & unemotional\_jj & -0.755 \\
+        7 & introspective\_jj & -0.753 \\
+        8 & emotional\_jj & -0.737 \\
+        9 & extroverted\_jj & -0.696 \\
+        10 & intellectual\_jj & -0.667 \\
+        11 & creative\_jj & -0.643 \\
+        12 & imaginative\_jj & -0.58 \\
+        13 & moody\_jj & -0.493 \\
+        14 & vigorous\_jj & -0.485 \\
+        15 & daring\_jj & -0.481 \\
+        16 & fretful\_jj & -0.451 \\
+        17 & unreflective\_jj & -0.434 \\
+        18 & uncooperative\_jj & -0.393 \\
+        19 & energetic\_jj & -0.383 \\
+        20 & temperamental\_jj & -0.338 \\
+        21 & talkative\_jj & -0.33 \\
+        22 & bashful\_jj & -0.329 \\
+        23 & demanding\_jj & -0.318 \\
+        24 & philosophical\_jj & -0.312 \\
+        25 & withdrawn\_jj & -0.307 \\
+        26 & innovative\_jj & -0.289 \\
+        27 & unadventurous\_jj & -0.274 \\
+        28 & reserved\_jj & -0.253 \\
+        29 & anxious\_jj & -0.222 \\
+        30 & cooperative\_jj & -0.189 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & bold\_jj & 0.207 \\
+        62 & inconsistent\_jj & 0.228 \\
+        63 & neat\_jj & 0.231 \\
+        64 & shy\_jj & 0.262 \\
+        65 & harsh\_jj & 0.268 \\
+        66 & warm\_jj & 0.276 \\
+        67 & unkind\_jj & 0.314 \\
+        68 & undependable\_jj & 0.316 \\
+        69 & jealous\_jj & 0.328 \\
+        70 & unsympathetic\_jj & 0.335 \\
+        71 & fearful\_jj & 0.368 \\
+        72 & timid\_jj & 0.399 \\
+        73 & insecure\_jj & 0.427 \\
+        74 & helpful\_jj & 0.478 \\
+        75 & shallow\_jj & 0.484 \\
+        76 & considerate\_jj & 0.506 \\
+        77 & unsophisticated\_jj & 0.543 \\
+        78 & haphazard\_jj & 0.608 \\
+        79 & rude\_jj & 0.612 \\
+        80 & efficient\_jj & 0.627 \\
+        81 & impractical\_jj & 0.63 \\
+        82 & imperturbable\_jj & 0.687 \\
+        83 & unimaginative\_jj & 0.737 \\
+        84 & generous\_jj & 0.771 \\
+        85 & kind\_jj & 0.854 \\
+        86 & unintelligent\_jj & 0.977 \\
+        87 & distrustful\_jj & 1.11 \\
+        88 & prompt\_jj & 1.12 \\
+        89 & selfish\_jj & 1.47 \\
+        90 & inefficient\_jj & 1.65 \\
+\end{tabular}
+\subsubsection{Component \#10: 2.223889.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & irritable\_jj & -2.72 \\
+        2 & efficient\_jj & -1.33 \\
+        3 & inefficient\_jj & -1.24 \\
+        4 & unimaginative\_jj & -0.855 \\
+        5 & withdrawn\_jj & -0.774 \\
+        6 & negligent\_jj & -0.711 \\
+        7 & unsophisticated\_jj & -0.702 \\
+        8 & prompt\_jj & -0.657 \\
+        9 & haphazard\_jj & -0.603 \\
+        10 & undemanding\_jj & -0.598 \\
+        11 & sloppy\_jj & -0.577 \\
+        12 & talkative\_jj & -0.547 \\
+        13 & innovative\_jj & -0.543 \\
+        14 & impractical\_jj & -0.531 \\
+        15 & neat\_jj & -0.484 \\
+        16 & moody\_jj & -0.476 \\
+        17 & bright\_jj & -0.472 \\
+        18 & high-strung\_jj & -0.426 \\
+        19 & extroverted\_jj & -0.361 \\
+        20 & undependable\_jj & -0.356 \\
+        21 & insecure\_jj & -0.347 \\
+        22 & nervous\_jj & -0.302 \\
+        23 & organized\_jj & -0.289 \\
+        24 & complex\_jj & -0.257 \\
+        25 & unintelligent\_jj & -0.197 \\
+        26 & generous\_jj & -0.188 \\
+        27 & cold\_jj & -0.169 \\
+        28 & imaginative\_jj & -0.152 \\
+        29 & demanding\_jj & -0.14 \\
+        30 & energetic\_jj & -0.136 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & cooperative\_jj & 0.185 \\
+        62 & shallow\_jj & 0.19 \\
+        63 & agreeable\_jj & 0.218 \\
+        64 & sympathetic\_jj & 0.222 \\
+        65 & harsh\_jj & 0.23 \\
+        66 & warm\_jj & 0.231 \\
+        67 & fearful\_jj & 0.237 \\
+        68 & unemotional\_jj & 0.264 \\
+        69 & thorough\_jj & 0.274 \\
+        70 & emotional\_jj & 0.279 \\
+        71 & practical\_jj & 0.285 \\
+        72 & shy\_jj & 0.35 \\
+        73 & reserved\_jj & 0.359 \\
+        74 & intellectual\_jj & 0.428 \\
+        75 & systematic\_jj & 0.429 \\
+        76 & selfish\_jj & 0.436 \\
+        77 & quiet\_jj & 0.459 \\
+        78 & deep\_jj & 0.532 \\
+        79 & unrestrained\_jj & 0.559 \\
+        80 & unkind\_jj & 0.58 \\
+        81 & jealous\_jj & 0.592 \\
+        82 & verbal\_jj & 0.63 \\
+        83 & artistic\_jj & 0.709 \\
+        84 & unreflective\_jj & 0.727 \\
+        85 & careful\_jj & 0.793 \\
+        86 & distrustful\_jj & 0.938 \\
+        87 & philosophical\_jj & 1.02 \\
+        88 & uncooperative\_jj & 1.03 \\
+        89 & conscientious\_jj & 1.18 \\
+        90 & touchy\_jj & 1.5 \\
+\end{tabular}
+\subsubsection{Component \#11: 2.002781.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & warm\_jj & -1.59 \\
+        2 & selfish\_jj & -1.11 \\
+        3 & artistic\_jj & -1.09 \\
+        4 & intellectual\_jj & -0.899 \\
+        5 & irritable\_jj & -0.834 \\
+        6 & unreflective\_jj & -0.759 \\
+        7 & innovative\_jj & -0.732 \\
+        8 & prompt\_jj & -0.723 \\
+        9 & creative\_jj & -0.701 \\
+        10 & negligent\_jj & -0.654 \\
+        11 & agreeable\_jj & -0.596 \\
+        12 & cold\_jj & -0.522 \\
+        13 & impractical\_jj & -0.503 \\
+        14 & conscientious\_jj & -0.491 \\
+        15 & active\_jj & -0.466 \\
+        16 & distrustful\_jj & -0.444 \\
+        17 & organized\_jj & -0.431 \\
+        18 & emotional\_jj & -0.419 \\
+        19 & trustful\_jj & -0.407 \\
+        20 & undependable\_jj & -0.358 \\
+        21 & practical\_jj & -0.339 \\
+        22 & helpful\_jj & -0.328 \\
+        23 & uncharitable\_jj & -0.312 \\
+        24 & efficient\_jj & -0.301 \\
+        25 & unintelligent\_jj & -0.276 \\
+        26 & unsympathetic\_jj & -0.269 \\
+        27 & imaginative\_jj & -0.242 \\
+        28 & unkind\_jj & -0.224 \\
+        29 & imperturbable\_jj & -0.203 \\
+        30 & assertive\_jj & -0.192 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & reserved\_jj & 0.163 \\
+        62 & introspective\_jj & 0.19 \\
+        63 & nervous\_jj & 0.193 \\
+        64 & withdrawn\_jj & 0.212 \\
+        65 & cooperative\_jj & 0.238 \\
+        66 & kind\_jj & 0.252 \\
+        67 & jealous\_jj & 0.264 \\
+        68 & unimaginative\_jj & 0.297 \\
+        69 & inconsistent\_jj & 0.306 \\
+        70 & unemotional\_jj & 0.332 \\
+        71 & touchy\_jj & 0.348 \\
+        72 & quiet\_jj & 0.433 \\
+        73 & rude\_jj & 0.433 \\
+        74 & careless\_jj & 0.466 \\
+        75 & timid\_jj & 0.518 \\
+        76 & careful\_jj & 0.536 \\
+        77 & self-pitying\_jj & 0.591 \\
+        78 & unsophisticated\_jj & 0.597 \\
+        79 & verbal\_jj & 0.628 \\
+        80 & high-strung\_jj & 0.645 \\
+        81 & shy\_jj & 0.675 \\
+        82 & talkative\_jj & 0.678 \\
+        83 & vigorous\_jj & 0.68 \\
+        84 & systematic\_jj & 0.711 \\
+        85 & bashful\_jj & 0.817 \\
+        86 & neat\_jj & 0.913 \\
+        87 & haphazard\_jj & 1.09 \\
+        88 & sloppy\_jj & 1.16 \\
+        89 & steady\_jj & 1.22 \\
+        90 & thorough\_jj & 1.73 \\
+\end{tabular}
+\subsubsection{Component \#12: 1.940850.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & rude\_jj & -1.79 \\
+        2 & helpful\_jj & -0.992 \\
+        3 & artistic\_jj & -0.821 \\
+        4 & verbal\_jj & -0.779 \\
+        5 & careful\_jj & -0.723 \\
+        6 & irritable\_jj & -0.707 \\
+        7 & selfish\_jj & -0.705 \\
+        8 & practical\_jj & -0.684 \\
+        9 & creative\_jj & -0.676 \\
+        10 & careless\_jj & -0.664 \\
+        11 & nervous\_jj & -0.66 \\
+        12 & unkind\_jj & -0.639 \\
+        13 & uncooperative\_jj & -0.615 \\
+        14 & emotional\_jj & -0.576 \\
+        15 & touchy\_jj & -0.551 \\
+        16 & simple\_jj & -0.542 \\
+        17 & shy\_jj & -0.536 \\
+        18 & innovative\_jj & -0.508 \\
+        19 & uncharitable\_jj & -0.469 \\
+        20 & prompt\_jj & -0.363 \\
+        21 & pleasant\_jj & -0.359 \\
+        22 & imaginative\_jj & -0.343 \\
+        23 & intellectual\_jj & -0.337 \\
+        24 & bashful\_jj & -0.337 \\
+        25 & anxious\_jj & -0.307 \\
+        26 & philosophical\_jj & -0.284 \\
+        27 & kind\_jj & -0.277 \\
+        28 & jealous\_jj & -0.237 \\
+        29 & efficient\_jj & -0.23 \\
+        30 & impractical\_jj & -0.186 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & shallow\_jj & 0.15 \\
+        62 & unsystematic\_jj & 0.173 \\
+        63 & agreeable\_jj & 0.174 \\
+        64 & deep\_jj & 0.27 \\
+        65 & steady\_jj & 0.302 \\
+        66 & vigorous\_jj & 0.322 \\
+        67 & active\_jj & 0.363 \\
+        68 & trustful\_jj & 0.37 \\
+        69 & cold\_jj & 0.374 \\
+        70 & unsympathetic\_jj & 0.383 \\
+        71 & thorough\_jj & 0.4 \\
+        72 & reserved\_jj & 0.411 \\
+        73 & high-strung\_jj & 0.433 \\
+        74 & unemotional\_jj & 0.475 \\
+        75 & unsophisticated\_jj & 0.504 \\
+        76 & fretful\_jj & 0.51 \\
+        77 & unrestrained\_jj & 0.52 \\
+        78 & undependable\_jj & 0.537 \\
+        79 & systematic\_jj & 0.544 \\
+        80 & haphazard\_jj & 0.572 \\
+        81 & withdrawn\_jj & 0.586 \\
+        82 & inefficient\_jj & 0.587 \\
+        83 & assertive\_jj & 0.607 \\
+        84 & negligent\_jj & 0.662 \\
+        85 & self-pitying\_jj & 0.741 \\
+        86 & organized\_jj & 0.794 \\
+        87 & conscientious\_jj & 1.08 \\
+        88 & warm\_jj & 1.14 \\
+        89 & unreflective\_jj & 1.32 \\
+        90 & distrustful\_jj & 1.58 \\
+\end{tabular}
+\subsubsection{Component \#13: 1.852797.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & prompt\_jj & -1.34 \\
+        2 & neat\_jj & -1.1 \\
+        3 & fretful\_jj & -0.87 \\
+        4 & unreflective\_jj & -0.743 \\
+        5 & bashful\_jj & -0.732 \\
+        6 & unsophisticated\_jj & -0.716 \\
+        7 & high-strung\_jj & -0.689 \\
+        8 & quiet\_jj & -0.663 \\
+        9 & pleasant\_jj & -0.557 \\
+        10 & rude\_jj & -0.54 \\
+        11 & bright\_jj & -0.494 \\
+        12 & conscientious\_jj & -0.482 \\
+        13 & uncooperative\_jj & -0.452 \\
+        14 & distrustful\_jj & -0.452 \\
+        15 & unadventurous\_jj & -0.449 \\
+        16 & careless\_jj & -0.439 \\
+        17 & negligent\_jj & -0.413 \\
+        18 & touchy\_jj & -0.372 \\
+        19 & envious\_jj & -0.364 \\
+        20 & reserved\_jj & -0.359 \\
+        21 & helpful\_jj & -0.358 \\
+        22 & efficient\_jj & -0.345 \\
+        23 & simple\_jj & -0.33 \\
+        24 & agreeable\_jj & -0.319 \\
+        25 & impractical\_jj & -0.305 \\
+        26 & innovative\_jj & -0.292 \\
+        27 & generous\_jj & -0.269 \\
+        28 & undemanding\_jj & -0.269 \\
+        29 & moody\_jj & -0.266 \\
+        30 & anxious\_jj & -0.258 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & energetic\_jj & 0.105 \\
+        62 & complex\_jj & 0.149 \\
+        63 & philosophical\_jj & 0.153 \\
+        64 & creative\_jj & 0.239 \\
+        65 & self-pitying\_jj & 0.279 \\
+        66 & extroverted\_jj & 0.305 \\
+        67 & careful\_jj & 0.309 \\
+        68 & cooperative\_jj & 0.346 \\
+        69 & kind\_jj & 0.363 \\
+        70 & unimaginative\_jj & 0.37 \\
+        71 & deep\_jj & 0.381 \\
+        72 & sloppy\_jj & 0.386 \\
+        73 & inconsistent\_jj & 0.392 \\
+        74 & cold\_jj & 0.409 \\
+        75 & organized\_jj & 0.431 \\
+        76 & harsh\_jj & 0.434 \\
+        77 & considerate\_jj & 0.451 \\
+        78 & vigorous\_jj & 0.46 \\
+        79 & intellectual\_jj & 0.505 \\
+        80 & emotional\_jj & 0.629 \\
+        81 & warm\_jj & 0.631 \\
+        82 & haphazard\_jj & 0.652 \\
+        83 & shallow\_jj & 0.742 \\
+        84 & systematic\_jj & 0.818 \\
+        85 & verbal\_jj & 1 \\
+        86 & irritable\_jj & 1.05 \\
+        87 & thorough\_jj & 1.09 \\
+        88 & unemotional\_jj & 1.17 \\
+        89 & unintelligent\_jj & 1.43 \\
+        90 & selfish\_jj & 1.57 \\
+\end{tabular}
+\subsubsection{Component \#14: 1.711446.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & rude\_jj & -1.87 \\
+        2 & intellectual\_jj & -0.937 \\
+        3 & unsophisticated\_jj & -0.929 \\
+        4 & efficient\_jj & -0.918 \\
+        5 & verbal\_jj & -0.645 \\
+        6 & unintelligent\_jj & -0.599 \\
+        7 & self-pitying\_jj & -0.574 \\
+        8 & cold\_jj & -0.557 \\
+        9 & uncharitable\_jj & -0.55 \\
+        10 & generous\_jj & -0.542 \\
+        11 & undependable\_jj & -0.534 \\
+        12 & envious\_jj & -0.49 \\
+        13 & unreflective\_jj & -0.489 \\
+        14 & innovative\_jj & -0.407 \\
+        15 & considerate\_jj & -0.368 \\
+        16 & harsh\_jj & -0.362 \\
+        17 & organized\_jj & -0.35 \\
+        18 & kind\_jj & -0.347 \\
+        19 & thorough\_jj & -0.326 \\
+        20 & systematic\_jj & -0.309 \\
+        21 & emotional\_jj & -0.303 \\
+        22 & warm\_jj & -0.233 \\
+        23 & shy\_jj & -0.229 \\
+        24 & unemotional\_jj & -0.227 \\
+        25 & jealous\_jj & -0.196 \\
+        26 & negligent\_jj & -0.196 \\
+        27 & anxious\_jj & -0.184 \\
+        28 & unexcitable\_jj & -0.183 \\
+        29 & inefficient\_jj & -0.177 \\
+        30 & daring\_jj & -0.153 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & helpful\_jj & 0.131 \\
+        62 & demanding\_jj & 0.133 \\
+        63 & fretful\_jj & 0.137 \\
+        64 & agreeable\_jj & 0.148 \\
+        65 & sympathetic\_jj & 0.167 \\
+        66 & introspective\_jj & 0.198 \\
+        67 & prompt\_jj & 0.205 \\
+        68 & uncooperative\_jj & 0.216 \\
+        69 & simple\_jj & 0.225 \\
+        70 & trustful\_jj & 0.234 \\
+        71 & artistic\_jj & 0.261 \\
+        72 & bashful\_jj & 0.293 \\
+        73 & shallow\_jj & 0.311 \\
+        74 & cooperative\_jj & 0.311 \\
+        75 & vigorous\_jj & 0.328 \\
+        76 & moody\_jj & 0.364 \\
+        77 & inconsistent\_jj & 0.369 \\
+        78 & philosophical\_jj & 0.42 \\
+        79 & high-strung\_jj & 0.452 \\
+        80 & conscientious\_jj & 0.539 \\
+        81 & reserved\_jj & 0.542 \\
+        82 & haphazard\_jj & 0.545 \\
+        83 & unimaginative\_jj & 0.563 \\
+        84 & timid\_jj & 0.607 \\
+        85 & assertive\_jj & 0.623 \\
+        86 & careless\_jj & 0.783 \\
+        87 & touchy\_jj & 0.847 \\
+        88 & irritable\_jj & 1.13 \\
+        89 & neat\_jj & 1.44 \\
+        90 & selfish\_jj & 1.94 \\
+\end{tabular}
+\subsubsection{Component \#15: 1.681448.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & rude\_jj & -1.57 \\
+        2 & unemotional\_jj & -1.13 \\
+        3 & assertive\_jj & -1.04 \\
+        4 & selfish\_jj & -0.775 \\
+        5 & high-strung\_jj & -0.759 \\
+        6 & bold\_jj & -0.751 \\
+        7 & moody\_jj & -0.722 \\
+        8 & demanding\_jj & -0.707 \\
+        9 & distrustful\_jj & -0.653 \\
+        10 & withdrawn\_jj & -0.586 \\
+        11 & timid\_jj & -0.555 \\
+        12 & reserved\_jj & -0.534 \\
+        13 & daring\_jj & -0.532 \\
+        14 & bright\_jj & -0.482 \\
+        15 & energetic\_jj & -0.458 \\
+        16 & introspective\_jj & -0.441 \\
+        17 & anxious\_jj & -0.37 \\
+        18 & harsh\_jj & -0.343 \\
+        19 & negligent\_jj & -0.292 \\
+        20 & temperamental\_jj & -0.284 \\
+        21 & warm\_jj & -0.265 \\
+        22 & self-pitying\_jj & -0.256 \\
+        23 & quiet\_jj & -0.252 \\
+        24 & complex\_jj & -0.25 \\
+        25 & insecure\_jj & -0.24 \\
+        26 & cold\_jj & -0.219 \\
+        27 & fretful\_jj & -0.202 \\
+        28 & inefficient\_jj & -0.198 \\
+        29 & impractical\_jj & -0.198 \\
+        30 & unsophisticated\_jj & -0.183 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & innovative\_jj & 0.183 \\
+        62 & prompt\_jj & 0.202 \\
+        63 & unexcitable\_jj & 0.212 \\
+        64 & undemanding\_jj & 0.224 \\
+        65 & touchy\_jj & 0.245 \\
+        66 & jealous\_jj & 0.285 \\
+        67 & systematic\_jj & 0.309 \\
+        68 & pleasant\_jj & 0.312 \\
+        69 & unsystematic\_jj & 0.377 \\
+        70 & unadventurous\_jj & 0.389 \\
+        71 & extroverted\_jj & 0.392 \\
+        72 & talkative\_jj & 0.418 \\
+        73 & trustful\_jj & 0.437 \\
+        74 & helpful\_jj & 0.447 \\
+        75 & kind\_jj & 0.458 \\
+        76 & thorough\_jj & 0.476 \\
+        77 & uncooperative\_jj & 0.481 \\
+        78 & bashful\_jj & 0.532 \\
+        79 & careless\_jj & 0.538 \\
+        80 & neat\_jj & 0.562 \\
+        81 & unrestrained\_jj & 0.622 \\
+        82 & unintelligent\_jj & 0.625 \\
+        83 & considerate\_jj & 0.692 \\
+        84 & organized\_jj & 0.697 \\
+        85 & envious\_jj & 0.739 \\
+        86 & uncharitable\_jj & 0.814 \\
+        87 & unkind\_jj & 0.997 \\
+        88 & irritable\_jj & 1.02 \\
+        89 & steady\_jj & 1.09 \\
+        90 & unreflective\_jj & 1.21 \\
+\end{tabular}
+\subsubsection{Component \#16: 1.650753.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & uncooperative\_jj & -1.23 \\
+        2 & artistic\_jj & -1.02 \\
+        3 & shy\_jj & -0.929 \\
+        4 & energetic\_jj & -0.856 \\
+        5 & steady\_jj & -0.778 \\
+        6 & neat\_jj & -0.747 \\
+        7 & unrestrained\_jj & -0.736 \\
+        8 & moody\_jj & -0.722 \\
+        9 & jealous\_jj & -0.69 \\
+        10 & fearful\_jj & -0.628 \\
+        11 & bright\_jj & -0.611 \\
+        12 & distrustful\_jj & -0.593 \\
+        13 & nervous\_jj & -0.513 \\
+        14 & selfish\_jj & -0.479 \\
+        15 & creative\_jj & -0.468 \\
+        16 & kind\_jj & -0.445 \\
+        17 & anxious\_jj & -0.442 \\
+        18 & systematic\_jj & -0.44 \\
+        19 & withdrawn\_jj & -0.44 \\
+        20 & envious\_jj & -0.43 \\
+        21 & innovative\_jj & -0.426 \\
+        22 & insecure\_jj & -0.376 \\
+        23 & intellectual\_jj & -0.349 \\
+        24 & quiet\_jj & -0.306 \\
+        25 & considerate\_jj & -0.217 \\
+        26 & active\_jj & -0.206 \\
+        27 & deep\_jj & -0.205 \\
+        28 & bold\_jj & -0.181 \\
+        29 & fretful\_jj & -0.181 \\
+        30 & organized\_jj & -0.181 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & sloppy\_jj & 0.201 \\
+        62 & harsh\_jj & 0.202 \\
+        63 & impractical\_jj & 0.221 \\
+        64 & cooperative\_jj & 0.23 \\
+        65 & undemanding\_jj & 0.232 \\
+        66 & efficient\_jj & 0.267 \\
+        67 & generous\_jj & 0.27 \\
+        68 & simple\_jj & 0.277 \\
+        69 & demanding\_jj & 0.287 \\
+        70 & unkind\_jj & 0.309 \\
+        71 & sympathetic\_jj & 0.323 \\
+        72 & complex\_jj & 0.331 \\
+        73 & talkative\_jj & 0.357 \\
+        74 & philosophical\_jj & 0.364 \\
+        75 & practical\_jj & 0.367 \\
+        76 & trustful\_jj & 0.377 \\
+        77 & cold\_jj & 0.384 \\
+        78 & unintelligent\_jj & 0.391 \\
+        79 & conscientious\_jj & 0.429 \\
+        80 & pleasant\_jj & 0.463 \\
+        81 & rude\_jj & 0.497 \\
+        82 & careful\_jj & 0.512 \\
+        83 & unsympathetic\_jj & 0.532 \\
+        84 & uncharitable\_jj & 0.579 \\
+        85 & agreeable\_jj & 0.582 \\
+        86 & helpful\_jj & 0.599 \\
+        87 & negligent\_jj & 0.623 \\
+        88 & assertive\_jj & 0.692 \\
+        89 & extroverted\_jj & 0.887 \\
+        90 & touchy\_jj & 2.24 \\
+\end{tabular}
+\subsubsection{Component \#17: 1.599062.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & conscientious\_jj & -1.52 \\
+        2 & unrestrained\_jj & -0.849 \\
+        3 & efficient\_jj & -0.804 \\
+        4 & steady\_jj & -0.765 \\
+        5 & selfish\_jj & -0.726 \\
+        6 & careless\_jj & -0.647 \\
+        7 & careful\_jj & -0.624 \\
+        8 & harsh\_jj & -0.607 \\
+        9 & thorough\_jj & -0.533 \\
+        10 & fretful\_jj & -0.506 \\
+        11 & unimaginative\_jj & -0.476 \\
+        12 & cold\_jj & -0.474 \\
+        13 & unreflective\_jj & -0.456 \\
+        14 & warm\_jj & -0.443 \\
+        15 & timid\_jj & -0.433 \\
+        16 & bashful\_jj & -0.42 \\
+        17 & sloppy\_jj & -0.39 \\
+        18 & high-strung\_jj & -0.384 \\
+        19 & uncharitable\_jj & -0.364 \\
+        20 & impractical\_jj & -0.331 \\
+        21 & pleasant\_jj & -0.328 \\
+        22 & demanding\_jj & -0.327 \\
+        23 & assertive\_jj & -0.323 \\
+        24 & inconsistent\_jj & -0.286 \\
+        25 & energetic\_jj & -0.257 \\
+        26 & vigorous\_jj & -0.251 \\
+        27 & unadventurous\_jj & -0.218 \\
+        28 & active\_jj & -0.205 \\
+        29 & unsympathetic\_jj & -0.204 \\
+        30 & unkind\_jj & -0.175 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & trustful\_jj & 0.131 \\
+        62 & self-pitying\_jj & 0.139 \\
+        63 & unintelligent\_jj & 0.149 \\
+        64 & generous\_jj & 0.161 \\
+        65 & moody\_jj & 0.168 \\
+        66 & undemanding\_jj & 0.188 \\
+        67 & cooperative\_jj & 0.198 \\
+        68 & verbal\_jj & 0.22 \\
+        69 & irritable\_jj & 0.258 \\
+        70 & talkative\_jj & 0.258 \\
+        71 & simple\_jj & 0.26 \\
+        72 & imperturbable\_jj & 0.27 \\
+        73 & withdrawn\_jj & 0.324 \\
+        74 & prompt\_jj & 0.35 \\
+        75 & unsophisticated\_jj & 0.382 \\
+        76 & organized\_jj & 0.44 \\
+        77 & deep\_jj & 0.46 \\
+        78 & systematic\_jj & 0.477 \\
+        79 & complex\_jj & 0.487 \\
+        80 & emotional\_jj & 0.509 \\
+        81 & considerate\_jj & 0.529 \\
+        82 & philosophical\_jj & 0.555 \\
+        83 & unemotional\_jj & 0.575 \\
+        84 & negligent\_jj & 0.629 \\
+        85 & intellectual\_jj & 0.652 \\
+        86 & kind\_jj & 0.725 \\
+        87 & shallow\_jj & 0.81 \\
+        88 & touchy\_jj & 1.31 \\
+        89 & neat\_jj & 1.54 \\
+        90 & distrustful\_jj & 1.6 \\
+\end{tabular}
+\subsubsection{Component \#18: 1.565639.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & unemotional\_jj & -1.78 \\
+        2 & efficient\_jj & -1.28 \\
+        3 & withdrawn\_jj & -0.877 \\
+        4 & envious\_jj & -0.673 \\
+        5 & jealous\_jj & -0.613 \\
+        6 & anxious\_jj & -0.587 \\
+        7 & agreeable\_jj & -0.563 \\
+        8 & temperamental\_jj & -0.544 \\
+        9 & trustful\_jj & -0.529 \\
+        10 & nervous\_jj & -0.522 \\
+        11 & cooperative\_jj & -0.496 \\
+        12 & sympathetic\_jj & -0.433 \\
+        13 & innovative\_jj & -0.428 \\
+        14 & generous\_jj & -0.408 \\
+        15 & helpful\_jj & -0.408 \\
+        16 & thorough\_jj & -0.385 \\
+        17 & undependable\_jj & -0.378 \\
+        18 & careful\_jj & -0.361 \\
+        19 & steady\_jj & -0.36 \\
+        20 & unkind\_jj & -0.325 \\
+        21 & unsympathetic\_jj & -0.311 \\
+        22 & inefficient\_jj & -0.302 \\
+        23 & selfish\_jj & -0.297 \\
+        24 & unsystematic\_jj & -0.28 \\
+        25 & uncharitable\_jj & -0.268 \\
+        26 & distrustful\_jj & -0.252 \\
+        27 & high-strung\_jj & -0.249 \\
+        28 & complex\_jj & -0.245 \\
+        29 & bashful\_jj & -0.238 \\
+        30 & unreflective\_jj & -0.232 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & moody\_jj & 0.198 \\
+        62 & reserved\_jj & 0.218 \\
+        63 & unintelligent\_jj & 0.225 \\
+        64 & touchy\_jj & 0.235 \\
+        65 & bright\_jj & 0.237 \\
+        66 & philosophical\_jj & 0.255 \\
+        67 & insecure\_jj & 0.268 \\
+        68 & verbal\_jj & 0.276 \\
+        69 & imaginative\_jj & 0.281 \\
+        70 & quiet\_jj & 0.295 \\
+        71 & shallow\_jj & 0.306 \\
+        72 & introspective\_jj & 0.331 \\
+        73 & irritable\_jj & 0.331 \\
+        74 & conscientious\_jj & 0.346 \\
+        75 & careless\_jj & 0.36 \\
+        76 & timid\_jj & 0.413 \\
+        77 & prompt\_jj & 0.451 \\
+        78 & considerate\_jj & 0.465 \\
+        79 & kind\_jj & 0.487 \\
+        80 & systematic\_jj & 0.493 \\
+        81 & vigorous\_jj & 0.52 \\
+        82 & harsh\_jj & 0.55 \\
+        83 & rude\_jj & 0.639 \\
+        84 & unimaginative\_jj & 0.694 \\
+        85 & extroverted\_jj & 0.73 \\
+        86 & energetic\_jj & 0.736 \\
+        87 & assertive\_jj & 0.798 \\
+        88 & organized\_jj & 0.932 \\
+        89 & unrestrained\_jj & 1.04 \\
+        90 & unsophisticated\_jj & 1.48 \\
+\end{tabular}
+\subsubsection{Component \#19: 1.554308.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & touchy\_jj & -0.931 \\
+        2 & warm\_jj & -0.905 \\
+        3 & unintelligent\_jj & -0.885 \\
+        4 & unsophisticated\_jj & -0.841 \\
+        5 & insecure\_jj & -0.763 \\
+        6 & bashful\_jj & -0.674 \\
+        7 & jealous\_jj & -0.671 \\
+        8 & negligent\_jj & -0.605 \\
+        9 & demanding\_jj & -0.548 \\
+        10 & artistic\_jj & -0.529 \\
+        11 & envious\_jj & -0.52 \\
+        12 & thorough\_jj & -0.518 \\
+        13 & high-strung\_jj & -0.479 \\
+        14 & fretful\_jj & -0.476 \\
+        15 & prompt\_jj & -0.465 \\
+        16 & extroverted\_jj & -0.383 \\
+        17 & self-pitying\_jj & -0.37 \\
+        18 & shallow\_jj & -0.351 \\
+        19 & nervous\_jj & -0.337 \\
+        20 & creative\_jj & -0.325 \\
+        21 & unadventurous\_jj & -0.304 \\
+        22 & sloppy\_jj & -0.291 \\
+        23 & efficient\_jj & -0.281 \\
+        24 & moody\_jj & -0.28 \\
+        25 & undemanding\_jj & -0.272 \\
+        26 & intellectual\_jj & -0.254 \\
+        27 & imperturbable\_jj & -0.229 \\
+        28 & uncharitable\_jj & -0.221 \\
+        29 & shy\_jj & -0.212 \\
+        30 & complex\_jj & -0.211 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & reserved\_jj & 0.172 \\
+        62 & simple\_jj & 0.179 \\
+        63 & daring\_jj & 0.19 \\
+        64 & distrustful\_jj & 0.203 \\
+        65 & timid\_jj & 0.21 \\
+        66 & practical\_jj & 0.213 \\
+        67 & sympathetic\_jj & 0.218 \\
+        68 & quiet\_jj & 0.224 \\
+        69 & systematic\_jj & 0.229 \\
+        70 & inconsistent\_jj & 0.233 \\
+        71 & unrestrained\_jj & 0.287 \\
+        72 & cold\_jj & 0.29 \\
+        73 & considerate\_jj & 0.298 \\
+        74 & talkative\_jj & 0.305 \\
+        75 & impractical\_jj & 0.306 \\
+        76 & cooperative\_jj & 0.369 \\
+        77 & haphazard\_jj & 0.375 \\
+        78 & organized\_jj & 0.396 \\
+        79 & careless\_jj & 0.425 \\
+        80 & pleasant\_jj & 0.484 \\
+        81 & vigorous\_jj & 0.495 \\
+        82 & unsympathetic\_jj & 0.515 \\
+        83 & kind\_jj & 0.532 \\
+        84 & harsh\_jj & 0.616 \\
+        85 & neat\_jj & 0.656 \\
+        86 & bold\_jj & 0.691 \\
+        87 & irritable\_jj & 0.887 \\
+        88 & unemotional\_jj & 0.944 \\
+        89 & rude\_jj & 1.41 \\
+        90 & unreflective\_jj & 2.07 \\
+\end{tabular}
+\subsubsection{Component \#20: 1.485036.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & unkind\_jj & -1.29 \\
+        2 & unemotional\_jj & -1.19 \\
+        3 & unsympathetic\_jj & -1.15 \\
+        4 & unimaginative\_jj & -1.11 \\
+        5 & timid\_jj & -0.759 \\
+        6 & envious\_jj & -0.624 \\
+        7 & artistic\_jj & -0.613 \\
+        8 & assertive\_jj & -0.581 \\
+        9 & inconsistent\_jj & -0.554 \\
+        10 & sloppy\_jj & -0.531 \\
+        11 & haphazard\_jj & -0.512 \\
+        12 & harsh\_jj & -0.509 \\
+        13 & warm\_jj & -0.503 \\
+        14 & imaginative\_jj & -0.467 \\
+        15 & organized\_jj & -0.453 \\
+        16 & bold\_jj & -0.417 \\
+        17 & creative\_jj & -0.386 \\
+        18 & kind\_jj & -0.357 \\
+        19 & undemanding\_jj & -0.355 \\
+        20 & daring\_jj & -0.295 \\
+        21 & uncharitable\_jj & -0.289 \\
+        22 & jealous\_jj & -0.237 \\
+        23 & sympathetic\_jj & -0.213 \\
+        24 & prompt\_jj & -0.213 \\
+        25 & bashful\_jj & -0.201 \\
+        26 & negligent\_jj & -0.187 \\
+        27 & unsophisticated\_jj & -0.183 \\
+        28 & agreeable\_jj & -0.176 \\
+        29 & careful\_jj & -0.167 \\
+        30 & neat\_jj & -0.159 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & cooperative\_jj & 0.175 \\
+        62 & touchy\_jj & 0.189 \\
+        63 & extroverted\_jj & 0.193 \\
+        64 & uncooperative\_jj & 0.201 \\
+        65 & generous\_jj & 0.206 \\
+        66 & inefficient\_jj & 0.235 \\
+        67 & fearful\_jj & 0.245 \\
+        68 & unrestrained\_jj & 0.245 \\
+        69 & complex\_jj & 0.251 \\
+        70 & practical\_jj & 0.256 \\
+        71 & nervous\_jj & 0.276 \\
+        72 & insecure\_jj & 0.276 \\
+        73 & simple\_jj & 0.289 \\
+        74 & emotional\_jj & 0.349 \\
+        75 & active\_jj & 0.4 \\
+        76 & reserved\_jj & 0.487 \\
+        77 & demanding\_jj & 0.499 \\
+        78 & pleasant\_jj & 0.547 \\
+        79 & rude\_jj & 0.557 \\
+        80 & quiet\_jj & 0.58 \\
+        81 & conscientious\_jj & 0.587 \\
+        82 & efficient\_jj & 0.614 \\
+        83 & withdrawn\_jj & 0.634 \\
+        84 & unreflective\_jj & 0.635 \\
+        85 & irritable\_jj & 0.637 \\
+        86 & thorough\_jj & 0.726 \\
+        87 & deep\_jj & 0.741 \\
+        88 & shallow\_jj & 0.838 \\
+        89 & selfish\_jj & 0.956 \\
+        90 & self-pitying\_jj & 1.35 \\
+\end{tabular}
+\subsubsection{Component \#21: 1.437947.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & shallow\_jj & -1.49 \\
+        2 & unemotional\_jj & -1.44 \\
+        3 & unsophisticated\_jj & -1.19 \\
+        4 & conscientious\_jj & -1.06 \\
+        5 & steady\_jj & -1.01 \\
+        6 & uncharitable\_jj & -0.852 \\
+        7 & insecure\_jj & -0.782 \\
+        8 & fretful\_jj & -0.418 \\
+        9 & reserved\_jj & -0.412 \\
+        10 & simple\_jj & -0.402 \\
+        11 & quiet\_jj & -0.358 \\
+        12 & deep\_jj & -0.313 \\
+        13 & helpful\_jj & -0.313 \\
+        14 & unintelligent\_jj & -0.306 \\
+        15 & inconsistent\_jj & -0.298 \\
+        16 & undemanding\_jj & -0.273 \\
+        17 & intellectual\_jj & -0.273 \\
+        18 & sloppy\_jj & -0.268 \\
+        19 & careful\_jj & -0.259 \\
+        20 & demanding\_jj & -0.197 \\
+        21 & impractical\_jj & -0.184 \\
+        22 & imperturbable\_jj & -0.18 \\
+        23 & artistic\_jj & -0.179 \\
+        24 & withdrawn\_jj & -0.173 \\
+        25 & extroverted\_jj & -0.146 \\
+        26 & practical\_jj & -0.136 \\
+        27 & uncooperative\_jj & -0.116 \\
+        28 & nervous\_jj & -0.116 \\
+        29 & anxious\_jj & -0.108 \\
+        30 & careless\_jj & -0.0957 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & neat\_jj & 0.111 \\
+        62 & pleasant\_jj & 0.114 \\
+        63 & shy\_jj & 0.146 \\
+        64 & energetic\_jj & 0.177 \\
+        65 & vigorous\_jj & 0.195 \\
+        66 & rude\_jj & 0.206 \\
+        67 & cooperative\_jj & 0.218 \\
+        68 & sympathetic\_jj & 0.265 \\
+        69 & temperamental\_jj & 0.287 \\
+        70 & systematic\_jj & 0.294 \\
+        71 & unkind\_jj & 0.3 \\
+        72 & assertive\_jj & 0.341 \\
+        73 & daring\_jj & 0.352 \\
+        74 & moody\_jj & 0.359 \\
+        75 & high-strung\_jj & 0.367 \\
+        76 & distrustful\_jj & 0.37 \\
+        77 & verbal\_jj & 0.403 \\
+        78 & bold\_jj & 0.422 \\
+        79 & jealous\_jj & 0.44 \\
+        80 & efficient\_jj & 0.468 \\
+        81 & warm\_jj & 0.514 \\
+        82 & bashful\_jj & 0.578 \\
+        83 & selfish\_jj & 0.591 \\
+        84 & harsh\_jj & 0.592 \\
+        85 & touchy\_jj & 0.621 \\
+        86 & bright\_jj & 0.662 \\
+        87 & thorough\_jj & 0.771 \\
+        88 & envious\_jj & 0.779 \\
+        89 & organized\_jj & 0.992 \\
+        90 & self-pitying\_jj & 1.26 \\
+\end{tabular}
+\subsubsection{Component \#22: 1.435248.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & withdrawn\_jj & -1.23 \\
+        2 & organized\_jj & -1.06 \\
+        3 & verbal\_jj & -1.05 \\
+        4 & uncharitable\_jj & -1.03 \\
+        5 & conscientious\_jj & -0.882 \\
+        6 & talkative\_jj & -0.757 \\
+        7 & self-pitying\_jj & -0.756 \\
+        8 & unrestrained\_jj & -0.62 \\
+        9 & generous\_jj & -0.569 \\
+        10 & neat\_jj & -0.509 \\
+        11 & systematic\_jj & -0.491 \\
+        12 & selfish\_jj & -0.476 \\
+        13 & unsympathetic\_jj & -0.434 \\
+        14 & quiet\_jj & -0.427 \\
+        15 & reserved\_jj & -0.415 \\
+        16 & pleasant\_jj & -0.382 \\
+        17 & bashful\_jj & -0.347 \\
+        18 & unsophisticated\_jj & -0.322 \\
+        19 & cooperative\_jj & -0.286 \\
+        20 & trustful\_jj & -0.265 \\
+        21 & simple\_jj & -0.26 \\
+        22 & unsystematic\_jj & -0.256 \\
+        23 & emotional\_jj & -0.239 \\
+        24 & undependable\_jj & -0.205 \\
+        25 & careless\_jj & -0.2 \\
+        26 & innovative\_jj & -0.198 \\
+        27 & steady\_jj & -0.197 \\
+        28 & agreeable\_jj & -0.196 \\
+        29 & unexcitable\_jj & -0.151 \\
+        30 & artistic\_jj & -0.146 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & nervous\_jj & 0.174 \\
+        62 & prompt\_jj & 0.201 \\
+        63 & fearful\_jj & 0.211 \\
+        64 & bold\_jj & 0.214 \\
+        65 & anxious\_jj & 0.23 \\
+        66 & negligent\_jj & 0.243 \\
+        67 & jealous\_jj & 0.259 \\
+        68 & complex\_jj & 0.262 \\
+        69 & philosophical\_jj & 0.274 \\
+        70 & sloppy\_jj & 0.275 \\
+        71 & bright\_jj & 0.29 \\
+        72 & considerate\_jj & 0.291 \\
+        73 & moody\_jj & 0.294 \\
+        74 & uncooperative\_jj & 0.296 \\
+        75 & assertive\_jj & 0.311 \\
+        76 & touchy\_jj & 0.32 \\
+        77 & envious\_jj & 0.323 \\
+        78 & energetic\_jj & 0.341 \\
+        79 & fretful\_jj & 0.402 \\
+        80 & careful\_jj & 0.455 \\
+        81 & irritable\_jj & 0.473 \\
+        82 & demanding\_jj & 0.479 \\
+        83 & kind\_jj & 0.495 \\
+        84 & unintelligent\_jj & 0.543 \\
+        85 & shy\_jj & 0.572 \\
+        86 & insecure\_jj & 0.579 \\
+        87 & shallow\_jj & 0.706 \\
+        88 & high-strung\_jj & 0.777 \\
+        89 & thorough\_jj & 1.21 \\
+        90 & unreflective\_jj & 1.7 \\
+\end{tabular}
+\subsubsection{Component \#23: 1.393766.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & careless\_jj & -1.35 \\
+        2 & unrestrained\_jj & -1.07 \\
+        3 & inefficient\_jj & -1.02 \\
+        4 & talkative\_jj & -1.02 \\
+        5 & touchy\_jj & -0.927 \\
+        6 & unemotional\_jj & -0.592 \\
+        7 & efficient\_jj & -0.571 \\
+        8 & high-strung\_jj & -0.54 \\
+        9 & philosophical\_jj & -0.535 \\
+        10 & insecure\_jj & -0.458 \\
+        11 & inconsistent\_jj & -0.447 \\
+        12 & cold\_jj & -0.429 \\
+        13 & temperamental\_jj & -0.421 \\
+        14 & considerate\_jj & -0.419 \\
+        15 & shy\_jj & -0.361 \\
+        16 & emotional\_jj & -0.312 \\
+        17 & unreflective\_jj & -0.275 \\
+        18 & steady\_jj & -0.275 \\
+        19 & organized\_jj & -0.272 \\
+        20 & energetic\_jj & -0.261 \\
+        21 & prompt\_jj & -0.256 \\
+        22 & timid\_jj & -0.256 \\
+        23 & introspective\_jj & -0.24 \\
+        24 & innovative\_jj & -0.223 \\
+        25 & intellectual\_jj & -0.181 \\
+        26 & bashful\_jj & -0.18 \\
+        27 & cooperative\_jj & -0.172 \\
+        28 & haphazard\_jj & -0.167 \\
+        29 & sloppy\_jj & -0.152 \\
+        30 & unexcitable\_jj & -0.134 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & vigorous\_jj & 0.144 \\
+        62 & warm\_jj & 0.158 \\
+        63 & unsophisticated\_jj & 0.193 \\
+        64 & imperturbable\_jj & 0.2 \\
+        65 & bold\_jj & 0.201 \\
+        66 & bright\_jj & 0.201 \\
+        67 & moody\_jj & 0.211 \\
+        68 & sympathetic\_jj & 0.222 \\
+        69 & simple\_jj & 0.223 \\
+        70 & withdrawn\_jj & 0.224 \\
+        71 & unkind\_jj & 0.265 \\
+        72 & uncooperative\_jj & 0.293 \\
+        73 & systematic\_jj & 0.307 \\
+        74 & agreeable\_jj & 0.333 \\
+        75 & envious\_jj & 0.361 \\
+        76 & negligent\_jj & 0.38 \\
+        77 & unintelligent\_jj & 0.388 \\
+        78 & distrustful\_jj & 0.414 \\
+        79 & careful\_jj & 0.444 \\
+        80 & pleasant\_jj & 0.494 \\
+        81 & unimaginative\_jj & 0.504 \\
+        82 & irritable\_jj & 0.506 \\
+        83 & helpful\_jj & 0.517 \\
+        84 & unsympathetic\_jj & 0.524 \\
+        85 & uncharitable\_jj & 0.59 \\
+        86 & rude\_jj & 0.672 \\
+        87 & undemanding\_jj & 0.76 \\
+        88 & neat\_jj & 0.956 \\
+        89 & conscientious\_jj & 1.16 \\
+        90 & thorough\_jj & 1.57 \\
+\end{tabular}
+\subsubsection{Component \#24: 1.313113.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & uncharitable\_jj & -0.939 \\
+        2 & unsophisticated\_jj & -0.923 \\
+        3 & bold\_jj & -0.905 \\
+        4 & organized\_jj & -0.882 \\
+        5 & selfish\_jj & -0.804 \\
+        6 & bashful\_jj & -0.775 \\
+        7 & bright\_jj & -0.735 \\
+        8 & talkative\_jj & -0.602 \\
+        9 & daring\_jj & -0.563 \\
+        10 & pleasant\_jj & -0.497 \\
+        11 & unreflective\_jj & -0.494 \\
+        12 & unemotional\_jj & -0.49 \\
+        13 & envious\_jj & -0.488 \\
+        14 & unintelligent\_jj & -0.483 \\
+        15 & touchy\_jj & -0.426 \\
+        16 & cooperative\_jj & -0.407 \\
+        17 & energetic\_jj & -0.39 \\
+        18 & quiet\_jj & -0.346 \\
+        19 & undependable\_jj & -0.334 \\
+        20 & jealous\_jj & -0.297 \\
+        21 & moody\_jj & -0.287 \\
+        22 & simple\_jj & -0.222 \\
+        23 & negligent\_jj & -0.207 \\
+        24 & haphazard\_jj & -0.203 \\
+        25 & agreeable\_jj & -0.168 \\
+        26 & warm\_jj & -0.163 \\
+        27 & steady\_jj & -0.149 \\
+        28 & timid\_jj & -0.142 \\
+        29 & vigorous\_jj & -0.137 \\
+        30 & shy\_jj & -0.127 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & anxious\_jj & 0.125 \\
+        62 & practical\_jj & 0.128 \\
+        63 & assertive\_jj & 0.13 \\
+        64 & introspective\_jj & 0.135 \\
+        65 & inconsistent\_jj & 0.155 \\
+        66 & artistic\_jj & 0.16 \\
+        67 & unsympathetic\_jj & 0.196 \\
+        68 & trustful\_jj & 0.196 \\
+        69 & shallow\_jj & 0.205 \\
+        70 & generous\_jj & 0.217 \\
+        71 & efficient\_jj & 0.255 \\
+        72 & demanding\_jj & 0.272 \\
+        73 & inefficient\_jj & 0.386 \\
+        74 & emotional\_jj & 0.398 \\
+        75 & distrustful\_jj & 0.405 \\
+        76 & cold\_jj & 0.468 \\
+        77 & neat\_jj & 0.471 \\
+        78 & withdrawn\_jj & 0.523 \\
+        79 & considerate\_jj & 0.549 \\
+        80 & conscientious\_jj & 0.617 \\
+        81 & unimaginative\_jj & 0.646 \\
+        82 & intellectual\_jj & 0.649 \\
+        83 & kind\_jj & 0.652 \\
+        84 & verbal\_jj & 0.708 \\
+        85 & self-pitying\_jj & 0.711 \\
+        86 & harsh\_jj & 0.742 \\
+        87 & high-strung\_jj & 0.804 \\
+        88 & careless\_jj & 0.889 \\
+        89 & unkind\_jj & 1.05 \\
+        90 & undemanding\_jj & 1.06 \\
+\end{tabular}
+\subsubsection{Component \#25: 1.285328.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & self-pitying\_jj & -1.68 \\
+        2 & uncharitable\_jj & -0.845 \\
+        3 & touchy\_jj & -0.59 \\
+        4 & steady\_jj & -0.558 \\
+        5 & quiet\_jj & -0.494 \\
+        6 & undemanding\_jj & -0.491 \\
+        7 & unintelligent\_jj & -0.479 \\
+        8 & creative\_jj & -0.465 \\
+        9 & daring\_jj & -0.453 \\
+        10 & shy\_jj & -0.451 \\
+        11 & bold\_jj & -0.444 \\
+        12 & unkind\_jj & -0.426 \\
+        13 & inefficient\_jj & -0.414 \\
+        14 & harsh\_jj & -0.403 \\
+        15 & undependable\_jj & -0.387 \\
+        16 & kind\_jj & -0.371 \\
+        17 & unemotional\_jj & -0.365 \\
+        18 & bright\_jj & -0.338 \\
+        19 & energetic\_jj & -0.333 \\
+        20 & introspective\_jj & -0.316 \\
+        21 & vigorous\_jj & -0.307 \\
+        22 & moody\_jj & -0.297 \\
+        23 & uncooperative\_jj & -0.278 \\
+        24 & organized\_jj & -0.266 \\
+        25 & pleasant\_jj & -0.261 \\
+        26 & unimaginative\_jj & -0.26 \\
+        27 & simple\_jj & -0.255 \\
+        28 & negligent\_jj & -0.242 \\
+        29 & helpful\_jj & -0.239 \\
+        30 & careful\_jj & -0.22 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & unrestrained\_jj & 0.183 \\
+        62 & unsystematic\_jj & 0.197 \\
+        63 & deep\_jj & 0.202 \\
+        64 & emotional\_jj & 0.228 \\
+        65 & philosophical\_jj & 0.229 \\
+        66 & imperturbable\_jj & 0.236 \\
+        67 & temperamental\_jj & 0.247 \\
+        68 & unsympathetic\_jj & 0.253 \\
+        69 & systematic\_jj & 0.254 \\
+        70 & unreflective\_jj & 0.268 \\
+        71 & inconsistent\_jj & 0.271 \\
+        72 & haphazard\_jj & 0.281 \\
+        73 & trustful\_jj & 0.29 \\
+        74 & thorough\_jj & 0.326 \\
+        75 & reserved\_jj & 0.338 \\
+        76 & intellectual\_jj & 0.348 \\
+        77 & cooperative\_jj & 0.353 \\
+        78 & selfish\_jj & 0.472 \\
+        79 & careless\_jj & 0.49 \\
+        80 & neat\_jj & 0.521 \\
+        81 & high-strung\_jj & 0.573 \\
+        82 & efficient\_jj & 0.581 \\
+        83 & rude\_jj & 0.644 \\
+        84 & warm\_jj & 0.657 \\
+        85 & extroverted\_jj & 0.666 \\
+        86 & jealous\_jj & 0.754 \\
+        87 & agreeable\_jj & 0.839 \\
+        88 & envious\_jj & 0.958 \\
+        89 & unsophisticated\_jj & 1.13 \\
+        90 & verbal\_jj & 1.14 \\
+\end{tabular}
+\subsubsection{Component \#26: 1.268058.3\% of variance}
+
+The highest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        1 & undemanding\_jj & -1.15 \\
+        2 & withdrawn\_jj & -1.11 \\
+        3 & shallow\_jj & -0.754 \\
+        4 & high-strung\_jj & -0.696 \\
+        5 & unimaginative\_jj & -0.668 \\
+        6 & temperamental\_jj & -0.584 \\
+        7 & unadventurous\_jj & -0.54 \\
+        8 & demanding\_jj & -0.538 \\
+        9 & organized\_jj & -0.518 \\
+        10 & jealous\_jj & -0.49 \\
+        11 & touchy\_jj & -0.487 \\
+        12 & haphazard\_jj & -0.449 \\
+        13 & systematic\_jj & -0.435 \\
+        14 & uncharitable\_jj & -0.374 \\
+        15 & philosophical\_jj & -0.342 \\
+        16 & considerate\_jj & -0.324 \\
+        17 & trustful\_jj & -0.319 \\
+        18 & selfish\_jj & -0.318 \\
+        19 & rude\_jj & -0.303 \\
+        20 & envious\_jj & -0.289 \\
+        21 & unreflective\_jj & -0.282 \\
+        22 & reserved\_jj & -0.265 \\
+        23 & harsh\_jj & -0.256 \\
+        24 & undependable\_jj & -0.251 \\
+        25 & creative\_jj & -0.226 \\
+        26 & kind\_jj & -0.218 \\
+        27 & generous\_jj & -0.186 \\
+        28 & unsystematic\_jj & -0.15 \\
+        29 & unexcitable\_jj & -0.142 \\
+        30 & fretful\_jj & -0.135 \\
+\end{tabular}
+
+The lowest scores were:
+\begin{tabular}{ l l l }
+        \textbf{Rank} & \textbf{Word} & \textbf{Score} \\
+        61 & thorough\_jj & 0.111 \\
+        62 & cooperative\_jj & 0.122 \\
+        63 & uncooperative\_jj & 0.122 \\
+        64 & negligent\_jj & 0.125 \\
+        65 & conscientious\_jj & 0.137 \\
+        66 & unsympathetic\_jj & 0.148 \\
+        67 & unkind\_jj & 0.159 \\
+        68 & simple\_jj & 0.163 \\
+        69 & unrestrained\_jj & 0.175 \\
+        70 & moody\_jj & 0.192 \\
+        71 & anxious\_jj & 0.196 \\
+        72 & sympathetic\_jj & 0.204 \\
+        73 & bold\_jj & 0.212 \\
+        74 & introspective\_jj & 0.235 \\
+        75 & emotional\_jj & 0.275 \\
+        76 & unsophisticated\_jj & 0.294 \\
+        77 & helpful\_jj & 0.319 \\
+        78 & imaginative\_jj & 0.32 \\
+        79 & unemotional\_jj & 0.526 \\
+        80 & careful\_jj & 0.529 \\
+        81 & distrustful\_jj & 0.537 \\
+        82 & warm\_jj & 0.577 \\
+        83 & efficient\_jj & 0.682 \\
+        84 & assertive\_jj & 0.694 \\
+        85 & insecure\_jj & 0.726 \\
+        86 & extroverted\_jj & 0.883 \\
+        87 & unintelligent\_jj & 0.972 \\
+        88 & self-pitying\_jj & 0.993 \\
+        89 & careless\_jj & 1.1 \\
+        90 & neat\_jj & 1.29 \\
+\end{tabular}
+
+
 
 \subsection{Normalized PCA}
 
