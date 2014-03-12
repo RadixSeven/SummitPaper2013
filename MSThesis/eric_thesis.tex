@@ -183,7 +183,8 @@ The 101 word set contained only adjectives. Of these 90 were present in
 sufficient frequency to generate vectors within the memory constraints of the 
 hardware on which we ran the skip-gram model. These words are listed in table 
 \ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further 
-processing was performed. 
+processing was performed. In the main data-tables, the words carry a \_jj suffix
+because JJ is the standard markup for an adjective in the Penn Treebank\todo{ref cite penn treebank}.
 
 \begin{table}[!htbp]
     \begin{tabular}{| lllll |}
@@ -277,7 +278,15 @@ proportional to the fraction of variance explained by that component.
 
 \section{438 word set}
 
-\todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
+The 438 word set contained both adjectives and non-adjectives. Of these, 421 
+were present in sufficient frequency to generate vectors within the memory 
+constraints of the hardware on which we ran the skip-gram model. These words are 
+listed in table \ref{tab:438wordsthatbecamevectors}. This produced 421 vectors 
+on which further processing was performed. The adjectives carry the \_jj suffix 
+from the Penn Treebank \todo{ref cite penn treebank} and the non-adjectives have 
+no suffix.
+
+
 \todo{remember to plot eigenvalues}
 
 \subsection{Unnormalized PCA}
