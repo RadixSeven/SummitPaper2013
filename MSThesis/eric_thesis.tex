@@ -237,33 +237,7 @@ proportional to the fraction of variance explained by that component.
 
 \subsection{Normalized PCA}
 
-\begin{table}[!htbp]
-    \begin{tabular}{| rllll | }
-        \hline
-         & \multicolumn{4}{c|}{\textbf{Component}} \\
-        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-        \hline
-        1 & irritable & uncooperative & negligent & cold \\
-        2 & uncooperative & prompt & uncooperative & unreflective \\
-        3 & self-pitying  & negligent & imperturbable & neat \\
-        4 & extroverted & systematic & selfish & self-pitying \\
-        5 & unintelligent & distrustful & careless & deep \\
-        6 & talkative & inconsistent & prompt & warm \\
-        7 & rude & insecure & unreflective & shallow \\
-        \hline
-        84 & steady & uncharitable & energetic & thorough \\
-        85 & simple & talkative & extroverted & cooperative \\
-        86 & systematic & extroverted & talkative & talkative \\
-        87 & innovative & introspective & pleasant & kind \\
-        88 & efficient & energetic & kind & negligent \\
-        89 & prompt & considerate & warm & uncooperative \\
-        90 & thorough & imperturbable & considerate & considerate \\
-        \hline
-    \end{tabular}
-    \caption{The highest and lowest ranking words on the first 4 components 
-    derived from normalized PCA of the 90 word vectors.}
-    \label{tab:101wordsRankingsNormalizedPCA}
-\end{table}
+\input{results_tables/100words-adj-800dim-lowercase_wmt_model-zscore_transformed-summary_table.tex}
 
 \begin{figure}[!htbp]
     \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-zscore_transformed-flex_end_elbow}
