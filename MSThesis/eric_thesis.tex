@@ -323,7 +323,23 @@ vectors after MDS. A more complete list can be found in Appendix
 
 \section{101 and 438 word sets combined}
 
-\todo{remember to mention how many and which words actually appeared in the corpus - and thus had a vector representation}
+There were a few words in the 101 word list that were not also in the 438 word list. So, for completeness, we also ran the same analysis with the two lists combined. In the combined list, 430 words were frequent enough to be assigned vectors given our memory constraints. To save space, we only list the 9 words not used in the 438 word list analysis in Table \ref{tab:additionalwordsincombined}.
+
+\begin{table}[!htbp]
+    \begin{tabular}{| llll | }
+        \hline
+        bold\_jj & conscientious\_jj & high-strung\_jj & imperturbable\_jj \\
+        neat\_jj & practical\_jj & uncharitable\_jj & uncooperative\_jj \\
+        unsophisticated\_jj & & &\\
+        \hline
+    \end{tabular}
+    \caption{The 9 words present in the 90 word vectors from the 101 word 
+    analysis that were not present in the 421 word vector list in the 438 
+    word analysis}
+    \label{tab:additionalwordsincombined}
+\end{table}
+
+
 \todo{check for copy-paste errors on the tables, their captions, and the references}
 \todo{remember to plot eigenvalues}
 
