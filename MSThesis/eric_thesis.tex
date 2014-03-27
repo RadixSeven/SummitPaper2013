@@ -469,7 +469,8 @@ themselves and not as much characteristics of what the word describes.
 \subsection{2797 Word with MDS}
 
 I think more than 14 components might be interpretable, however, I only did 14. 
-One, I really didn't know at all and several others need some improvement. 
+Of those components I could not interpret one at all and several others need 
+some improvement. 
 
 The first dimension needs a bit of explanation. In the corpus, the 10 highest 
 ranked words appear in 526515/117296559 sentences (0.4\%), the 10 lowest 
@@ -480,6 +481,14 @@ minutes of the European parliament where the highly ranked words appear in
 sly_jj - the highest ranked word among the lowest 10). Thus, it may not be just 
 that these words are more common, but that they are more common in political 
 speech.
+
+I looked at the Spearman correlation between number of occurrences of the words 
+in the entire corpus and the values in on the first dimension. It was 0.5739 
+(which gives a p value of $1.9120 \times 10^{-163}$ against the null hypothesis 
+that there is no relationship). There is no other component which is so 
+strongly correlated with word frequency. However, the correlation is not 
+perfect. For example, the most frequent word in the list has a rank of 204 when 
+you look at its score on the first dimension.
 
 \begin{enumerate}
  \item Uncommon (low) \ldots common (high)
