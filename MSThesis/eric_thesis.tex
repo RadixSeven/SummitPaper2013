@@ -454,6 +454,85 @@ vectors after MDS. A more complete list can be found in Appendix
 
 \chapter{Discussion}
 
+\section{Interpretation of the dimensions}
+
+For many of the input datasets, the extracted meaning dimensions are hard to 
+interpret. However for the larger word-lists (2797 and all word-lists 
+combined), some examination reveals commonalities. 
+
+\todo{the following are just typed versions of my notes and need to be 
+seriously cleaned up}
+
+It seems that a lot of the dimensions are characteristics of the words 
+themselves and not as much characteristics of what the word describes.
+
+\subsection{2797 Word with MDS}
+
+I think more than 14 components might be interpretable, however, I only did 14. 
+Two I really didn't know at all and several others need some improvement.
+
+\begin{enumerate}
+ \item Unknown
+ \item Positive-negative view
+ \item Applies to non-humans too/human by analogy
+ \item formality
+ \item conflict (low) \ldots peace (high)
+ \item power/authority situations
+ \item Unknown
+ \item Words used when making appeal: to reason (low) \ldots to emotion (high)
+ \item social ostentation (low) vs private (high) - (but against this 
+       interpretation, fuddy-duddy gets in the low end) - another note is that 
+       one word that doesn't fit well ``cackler'' is very common in news 
+       stories about a particular police officer in Dallas whose discipline 
+       hearing exposed a scandal in the police force.
+ \item ?business/practicality? vs religion/family/clan
+ \item words used in describing people in: violent situations (low) \ldots 
+       non-violent situations (high)
+ \item unknown vs restaurant and food (high). Maybe: world falls apart vs world 
+       holds together. (You never see dispiriting, bleak, nagging in a 
+       restaurant review or recipe.)
+ \item again I see some of the restaurant review - this time on the low side 
+       \ldots ways people present themselves/words used in describing new 
+       people ``Wavy, mousy brown hair ''
+ \item words that can describe both politicians or speeches and food \ldots 
+       unknown
+\end{enumerate}
+
+\subsection{All combined with MDS}
+
+Here the categories look similar to the 2797 word list. \todo{I'd like to do a 
+correlation between the positions of the words in common, and match the 
+components as best as I can}
+
+\begin{enumerate}
+ \item Unknown
+ \item Same
+ \item Same
+ \item Same
+ \item Reversed from 2797
+ \item Unknown
+ \item Words that describe statements and people who make them thereby 
+       affecting our interpretation thereof vs unknown
+\end{enumerate}
+
+\subsection{2797 with z-score}
+
+These were much harder to interpret and there are more exceptions to each rule. 
+This is to be expected from the difference between the dot-product space in 
+which the similarity actually is measured and the euclidean space in which the 
+z-score and PCA combination operates.
+
+\begin{enumerate}
+ \item business (low) \ldots fashion (high)
+ \item socially pleasant (low) \ldots socially unpleasant (high) - mostly 
+adjectives at the extremes.
+ \item leadership qualities (low) vs ?words used in other contexts (words with 
+less focus on personality)?
+ \item things involving commitment/loyalty/disloyalty vs words that can 
+describe art - but against this: ``lucky'' having to do with personality?
+\end{enumerate}
+
+
 \section{Not what we expected}
 
 \section{Could it be the corpus?}
@@ -478,6 +557,31 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \section{Could the problem be the nonlinear transformation from cosine to Euclidean topology?}
 
 \chapter{Future Work}
+
+\section{Remove non-human words}
+
+\todo{stub}
+
+One of the dimensions in the 2797 word MDS analysis is a human-nonhuman 
+dimension. It may measure to some extent the degree of polysemy of the words. A 
+nice analysis would be to just extract the words that scored well on the human 
+side of this scale and see what their most important dimensions are. It might 
+reduce the noise significantly.
+
+\section{Use directional statistics}
+
+\todo{stub}
+
+One problem with the MDS approach is that we can't standardize the range and 
+mean beforehand because taking the z-scores of the dimensions changes the 
+angles involved in the dot-products. However, we can map the word vectors to 
+the unit sphere without changing the cosine distances. Then directional 
+statistics give us analogous measures to the mean and standard deviation. 
+Applying MDS to the distances in these standardized points should give us 
+something much closer to the factor analysis normally used in psychology.
+
+\todo{If I finish all sections but the discussion, I can try using directional 
+stats to normalize the vectors before applying MDS}
 
 \section{Rerun on other corpora}
 
