@@ -472,15 +472,17 @@ I think more than 14 components might be interpretable, however, I only did 14.
 Of those components I could not interpret one at all and several others need 
 some improvement. 
 
+\subsubsection{Component 1}
+
 The first dimension needs a bit of explanation. In the corpus, the 10 highest 
 ranked words appear in 526515/117296559 sentences (0.4\%), the 10 lowest 
 ranked words appear in only 5871 (0.005\%). This is even more pronounced in the 
 minutes of the European parliament where the highly ranked words appear in 
-19523/2015440 sentences (1\%) but the lowest ranked words appear in 14 
+19196/2015440 sentences (1\%) but the lowest ranked words appear in 14 
 (0.0006\%) (And, in all of those sentences, the only word appearing is 
-sly_jj - the highest ranked word among the lowest 10). Thus, it may not be just 
-that these words are more common, but that they are more common in political 
-speech.
+sly\_jj - the highest ranked word among the lowest 10). Thus, it may not be 
+just that these words are more common, but that they are more common in 
+political speech.
 
 I looked at the Spearman correlation between number of occurrences of the words 
 in the entire corpus and the values in on the first dimension. It was 0.5739 
@@ -490,8 +492,20 @@ strongly correlated with word frequency. However, the correlation is not
 perfect. For example, the most frequent word in the list has a rank of 204 when 
 you look at its score on the first dimension.
 
+To investigate the hypothesis that these words are not just more common but 
+more common in political speech, I also looked at the correlation with 
+frequency in the European parliament records. The correlation goes up to 0.6881 
+(p=3.8268e-261) and up to 0.7027 when looking at only words that appear in the 
+parliamentary records. That it is not a perfect correlation indicates that 
+there are still things I am overlooking. However, describing this dimension as 
+``uncommon in parliament vs common'' seems to have some explanatory power.
+
+\subsubsection{More components}
+
+Below, I give possible interpretations to the first 14 components.
+
 \begin{enumerate}
- \item Uncommon (low) \ldots common (high)
+ \item Uncommon in parliament (low) \ldots common in parliament (high)
  \item Positive-negative view
  \item Applies to non-humans too/human by analogy
  \item formality
