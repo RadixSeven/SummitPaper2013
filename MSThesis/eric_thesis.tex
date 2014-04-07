@@ -8,6 +8,9 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{longtable}
+
+\graphicspath{ {images/} }
 
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 \newcommand{\comment}[1]{\textcolor{red}{#1}}
@@ -157,7 +160,19 @@ A significant risk of extracting factors in this way is the underlying assumptio
 
 \section{Sorting words to identify components}
 
-With an upper-bound on how many components might be significant, the next step is to identify the meaning associated with that component if we can. This step is necessary to test our hypothesis that the same dimensions show up in word meaning as show up in describing individual personality. For each principal component, we sorted the words by each word's score on that component. Then we listed, in order, the 30 highest and lowest scoring words for each dimension. The intuition is that if a semantic dimension corresponds to some known personality dimension, words positively associated with that dimension will have a high rating and thus appear near the top of the list. On the other hand, words negatively associated with that dimension will appear near the bottom of the list. Words with no association will appear in the middle. Thus, if a dimension corresponds to conscientiousness, we expect ``punctual'' and ``orderly'' to appear near the top and ``inefficient'' to appear near the bottom.
+With an upper-bound on how many components might be significant, the next 
+step is to identify the meaning associated with that component if we can. This 
+step is necessary to test our hypothesis that the same dimensions show up in 
+word meaning as show up in describing individual personality. For each principal 
+component, we sorted the words by each word's score on that component. Then we 
+listed, in order, the 30 highest and lowest scoring words for each dimension. 
+The intuition is that if a semantic dimension corresponds to some known 
+personality dimension, words positively associated with that dimension will have 
+a high rating and thus appear near the top of the list. On the other hand, words 
+negatively associated with that dimension will appear near the bottom of the 
+list. Words with no association will appear in the middle. Thus, if a dimension 
+corresponds to conscientiousness, we expect ``punctual'' and ``orderly'' to 
+appear near the top and ``inefficient'' to appear near the bottom.
 
 \chapter{Results}
 
@@ -165,9 +180,14 @@ With an upper-bound on how many components might be significant, the next step i
 
 \subsection{Tagging and vector extraction}
 
-The 101 word set contained only adjectives. Of these 90 were present in sufficient frequency to generate vectors within the memory constraints of the hardware on which we ran the skip-gram model. These words are listed in table \ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further processing was performed. 
+The 101 word set contained only adjectives. Of these 90 were present in 
+sufficient frequency to generate vectors within the memory constraints of the 
+hardware on which we ran the skip-gram model. These words are listed in table 
+\ref{tab:101wordsthatbecamevectors}. This produced 90 vectors on which further 
+processing was performed. In the main data-tables, the words carry a \_jj suffix
+because JJ is the standard markup for an adjective in the Penn Treebank\todo{ref cite penn treebank}.
 
-\begin{table}[h]
+\begin{table}[!htbp]
     \begin{tabular}{| lllll |}
         \hline
         active & agreeable & anxious & artistic & assertive \\
@@ -2047,18 +2067,356 @@ The lowest scores were:
 
 
 
+\input{results_tables/100words-adj-800dim-lowercase_wmt_model-original-summary_table.tex}
+
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list.}
+    \label{fig:101wordsunnormalizedpcaeigenvalues}
+\end{figure}
+
+\todo{switch the lambda plots in the results section to something properly labeled and scaled for easy comparison and without the elbow drawing}
+
+\todo{make summary table plots into table rather than longtable environments so that they don't split across pages}
+
+Table \ref{tab:101wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:unnormalized}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsunnormalizedpcaeigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
+
+
 \subsection{Normalized PCA}
+
+\input{results_tables/100words-adj-800dim-lowercase_wmt_model-zscore_transformed-summary_table.tex}
+
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-zscore_transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list after transforming to z-scores.}
+    \label{fig:101wordsnormalizedpcaeigenvalues}
+\end{figure}
+
+Table \ref{tab:101wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:normalized}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsnormalizedpcaeigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
+
 
 \subsection{MDS}
 
+\input{results_tables/100words-adj-800dim-lowercase_wmt_model-mds_transformed-summary_table.tex}
+
+\begin{figure}[!htbp]
+    \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase_wmt_model-mds_transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 90 word vectors
+    produced from the 101 word list after multidimensional scaling.}
+    \label{fig:101wordsmdseigenvalues}
+\end{figure}
+
+Table \ref{tab:101wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 90 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:101words:mds}. The eigenvalues associated 
+with each component are plotted in Figure 
+\ref{fig:101wordsmdseigenvalues}. The eigenvalue for a component is
+proportional to the fraction of variance explained by that component.
+
+
 \section{438 word set}
 
-\todo{remember to mention how many and which words of the hundred actually appeared in the corpus - and thus had a vector representation}
+The 438 word set contained both adjectives and non-adjectives. Of these, 421 
+were present in sufficient frequency to generate vectors within the memory 
+constraints of the hardware on which we ran the skip-gram model. These words are 
+listed in table \ref{tab:438wordsthatbecamevectors}. This produced 421 vectors 
+on which further processing was performed. The adjectives carry the \_jj suffix 
+from the Penn Treebank \todo{ref cite penn treebank} and the non-adjectives have 
+no suffix.
 
+\input{results_tables/439words-adj-800dim-lowercase_wmt_model-original-word_list.tex}
+
+\todo{remember to plot eigenvalues}
+
+\subsection{Unnormalized PCA}
+
+\input{results_tables/439words-adj-800dim-lowercase_wmt_model-original-summary_table.tex}
+
+Table \ref{tab:438wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:unnormalized}.
+
+
+\subsection{Normalized PCA}
+
+\input{results_tables/439words-adj-800dim-lowercase_wmt_model-zscore_transformed-summary_table.tex}
+
+Table \ref{tab:438wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:normalized}.
+
+\todo{Find out why the normalized PCA table gets cut off - does using a normal table/tabular environment fix it?}
+
+\subsection{MDS}
+
+\input{results_tables/439words-adj-800dim-lowercase_wmt_model-mds_transformed-summary_table.tex}
+
+Table \ref{tab:438wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 421 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:mds}.
 
 \section{101 and 438 word sets combined}
 
+There were a few words in the 101 word list that were not also in the 438 word list. So, for completeness, we also ran the same analysis with the two lists combined. In the combined list, 430 words were frequent enough to be assigned vectors given our memory constraints. To save space, we only list the 9 words not used in the 438 word list analysis in Table \ref{tab:additionalwordsincombined}.
+
+\begin{table}[!htbp]
+    \begin{tabular}{| llll | }
+        \hline
+        bold\_jj & conscientious\_jj & high-strung\_jj & imperturbable\_jj \\
+        neat\_jj & practical\_jj & uncharitable\_jj & uncooperative\_jj \\
+        unsophisticated\_jj & & &\\
+        \hline
+    \end{tabular}
+    \caption{The 9 words present in the 90 word vectors from the 101 word 
+    analysis that were not present in the 421 word vector list in the 438 
+    word analysis}
+    \label{tab:additionalwordsincombined}
+\end{table}
+
+
+\todo{check for copy-paste errors on the tables, their captions, and the references}
+\todo{remember to plot eigenvalues}
+
+\subsection{Unnormalized PCA}
+
+\begin{table}[!htbp]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from unnormalized PCA of the 90 word vectors.}
+    \label{tab:438and101wordsRankingsUnnormalizedPCA}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and101words:unnormalized}.
+
+
+\subsection{Normalized PCA}
+
+\begin{table}[!htbp]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from normalized PCA of the 90 word vectors.}
+    \label{tab:438and101wordsRankingsNormalizedPCA}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the normalized 90 word 
+vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and101words:normalized}.
+
+
+\subsection{MDS}
+
+
+\begin{table}[!htbp]
+    \begin{tabular}{| rllll | }
+        \hline
+         & \multicolumn{4}{c|}{\textbf{Component}} \\
+        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
+        \hline
+        1 &  &  &  &  \\
+        2 &  &  &  &  \\
+        3 &  &  &  &  \\
+        4 &  &  &  &  \\
+        5 &  &  &  &  \\
+        6 &  &  &  &  \\
+        7 &  &  &  &  \\
+        \hline
+        84 &  &  &  &  \\
+        85 &  &  &  &  \\
+        86 &  &  &  &  \\
+        87 &  &  &  &  \\
+        88 &  &  &  &  \\
+        89 &  &  &  &  \\
+        90 &  &  &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The highest and lowest ranking words on the first 4 components 
+    derived from performaing MDS on the 90 word vectors.}
+    \label{tab:438and101wordsRankingsMDS}
+\end{table}
+
+Table \ref{tab:438and101wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 90 word 
+vectors after MDS. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438and101words:mds}.
+
+
 \chapter{Discussion}
+
+\section{Interpretation of the dimensions}
+
+For many of the input datasets, the extracted meaning dimensions are hard to 
+interpret. However for the larger word-lists (2797 and all word-lists 
+combined), some examination reveals commonalities. 
+
+\todo{the following are just typed versions of my notes and need to be 
+seriously cleaned up}
+
+It seems that a lot of the dimensions are characteristics of the words 
+themselves and not as much characteristics of what the word describes.
+
+\subsection{2797 Word with MDS}
+
+I think more than 14 components might be interpretable, however, I only did 14. 
+Of those components I could not interpret one at all and several others need 
+some improvement. 
+
+\subsubsection{Component 1}
+
+The first dimension needs a bit of explanation. In the corpus, the 10 highest 
+ranked words appear in 526515/117296559 sentences (0.4\%), the 10 lowest 
+ranked words appear in only 5871 (0.005\%). This is even more pronounced in the 
+minutes of the European parliament where the highly ranked words appear in 
+19196/2015440 sentences (1\%) but the lowest ranked words appear in 14 
+(0.0006\%) (And, in all of those sentences, the only word appearing is 
+sly\_jj - the highest ranked word among the lowest 10). Thus, it may not be 
+just that these words are more common, but that they are more common in 
+political speech.
+
+I looked at the Spearman correlation between number of occurrences of the words 
+in the entire corpus and the values in on the first dimension. It was 0.5739 
+(which gives a p value of $1.9120 \times 10^{-163}$ against the null hypothesis 
+that there is no relationship). There is no other component which is so 
+strongly correlated with word frequency. However, the correlation is not 
+perfect. For example, the most frequent word in the list has a rank of 204 when 
+you look at its score on the first dimension.
+
+To investigate the hypothesis that these words are not just more common but 
+more common in political speech, I also looked at the correlation with 
+frequency in the European parliament records. The correlation goes up to 0.6881 
+(p=3.8268e-261) and up to 0.7027 when looking at only words that appear in the 
+parliamentary records. That it is not a perfect correlation indicates that 
+there are still things I am overlooking. However, describing this dimension as 
+``uncommon in parliament vs common'' seems to have some explanatory power.
+
+\subsubsection{More components}
+
+Below, I give possible interpretations to the first 14 components.
+
+\begin{enumerate}
+ \item Uncommon in parliament (low) \ldots common in parliament (high)
+ \item Positive-negative view
+ \item Applies to non-humans too/human by analogy
+ \item formality
+ \item conflict (low) \ldots peace (high)
+ \item power/authority situations
+ \item Unknown
+ \item Words used when making appeal: to reason (low) \ldots to emotion (high)
+ \item social ostentation (low) vs private (high) - (but against this 
+       interpretation, fuddy-duddy gets in the low end) - another note is that 
+       one word that doesn't fit well ``cackler'' is very common in news 
+       stories about a particular police officer in Dallas whose discipline 
+       hearing exposed a scandal in the police force.
+ \item ?business/practicality? vs religion/family/clan
+ \item words used in describing people in: violent situations (low) \ldots 
+       non-violent situations (high)
+ \item unknown vs restaurant and food (high). Maybe: world falls apart vs world 
+       holds together. (You never see dispiriting, bleak, nagging in a 
+       restaurant review or recipe.)
+ \item again I see some of the restaurant review - this time on the low side 
+       \ldots ways people present themselves/words used in describing new 
+       people ``Wavy, mousy brown hair ''
+ \item words that can describe both politicians or speeches and food \ldots 
+       unknown
+\end{enumerate}
+
+\subsection{All combined with MDS}
+
+Here the categories look similar to the 2797 word list. \todo{I'd like to do a 
+correlation between the positions of the words in common, and match the 
+components as best as I can}
+
+\begin{enumerate}
+ \item Unknown
+ \item Same
+ \item Same
+ \item Same
+ \item Reversed from 2797
+ \item Unknown
+ \item Words that describe statements and people who make them thereby 
+       affecting our interpretation thereof vs unknown
+\end{enumerate}
+
+\subsection{2797 with z-score}
+
+These were much harder to interpret and there are more exceptions to each rule. 
+This is to be expected from the difference between the dot-product space in 
+which the similarity actually is measured and the euclidean space in which the 
+z-score and PCA combination operates.
+
+\begin{enumerate}
+ \item business (low) \ldots fashion (high)
+ \item socially pleasant (low) \ldots socially unpleasant (high) - mostly 
+adjectives at the extremes.
+ \item leadership qualities (low) vs ?words used in other contexts (words with 
+less focus on personality)?
+ \item things involving commitment/loyalty/disloyalty vs words that can 
+describe art - but against this: ``lucky'' having to do with personality?
+\end{enumerate}
+
 
 \section{Not what we expected}
 
@@ -2069,6 +2427,9 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \section{Could it be polysemy?}
 
 \section{Could the dimensions be non-personality attributes?}
+\section{Could the dimensions not be scaled on personality-ness?}
+
+\todo{What I mean here is that the dimensions could be things like ``suitability to describe warmth'' both cold and warm would score highly but organized would score low.}
 
 \section{Could the number of dimensions in the lexical model be affecting things?}
 
@@ -2081,6 +2442,31 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \section{Could the problem be the nonlinear transformation from cosine to Euclidean topology?}
 
 \chapter{Future Work}
+
+\section{Remove non-human words}
+
+\todo{stub}
+
+One of the dimensions in the 2797 word MDS analysis is a human-nonhuman 
+dimension. It may measure to some extent the degree of polysemy of the words. A 
+nice analysis would be to just extract the words that scored well on the human 
+side of this scale and see what their most important dimensions are. It might 
+reduce the noise significantly.
+
+\section{Use directional statistics}
+
+\todo{stub}
+
+One problem with the MDS approach is that we can't standardize the range and 
+mean beforehand because taking the z-scores of the dimensions changes the 
+angles involved in the dot-products. However, we can map the word vectors to 
+the unit sphere without changing the cosine distances. Then directional 
+statistics give us analogous measures to the mean and standard deviation. 
+Applying MDS to the distances in these standardized points should give us 
+something much closer to the factor analysis normally used in psychology.
+
+\todo{If I finish all sections but the discussion, I can try using directional 
+stats to normalize the vectors before applying MDS}
 
 \section{Rerun on other corpora}
 
@@ -2868,6 +3254,47 @@ end
 end
 \end{lstlisting}
 
+\chapter{Ranked word lists}
+\label{app:rankedwordlists}
+For each list of word vectors, the derived principal components can be used to 
+give a numerical score to each word in the list. The following sections list
+the most important components derived from each method of analyzing each list.
+The number of components listed has been chosen conservatively so that if a
+linear model is appropriate, more components are listed than are actually used
+in the model.
+
+\section{101 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:101words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:101words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:101words:mds}
+\todo{Include data}
+
+\section{438 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:438words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:438words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:438words:mds}
+\todo{Include data}
+
+\section{Combined 101 and 438 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:438and101words:unnormalized}
+\todo{Include data}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:438and101words:normalized}
+\todo{Include data}
+\subsection{MDS}
+\label{app:rankedwordlists:438and101words:mds}
+\todo{Include data}
 
 
 \chapter{Bibliography}
