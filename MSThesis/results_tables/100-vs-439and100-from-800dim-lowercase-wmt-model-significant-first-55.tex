@@ -1,20 +1,23 @@
-\begin{longtable}[!htbp]{| ll |}
-    \hline
-    \textbf{100-wordlist-mds dim} & \textbf{439-and-100-wordlists-combined-mds -- dim(correlation)}\\
-    1 & 1 (0.871457), 3 (0.46181), 4 (-0.470107)\\
-    2 & 2 (0.869482), 3 (-0.562711)\\
-    3 & 4 (0.619097), 5 (0.599078)\\
-    4 & 6 (0.464675), 7 (-0.503083), 8 (-0.483574)\\
-    5 & 11 (-0.517817), 13 (-0.564407)\\
-    7 & 10 (0.511676)\\
-    8 & 7 (0.541853)\\
-    9 & 6 (0.637107)\\
-    11 & 36 (-0.456065)\\
-    12 & 10 (-0.461234)\\
-    14 & 21 (0.484562), 39 (-0.517257)\\
-    16 & 22 (0.490225)\\
-    29 & 42 (-0.471638)\\
-    30 & 52 (0.469976)\\
-    \hline
-    \caption{Dimensions from dataset 100-wordlist-mds which had a significant correlation with a dimension from dataset 439-and-100-wordlists-combined-mds when only the first 55 dimensions were considered as potential matches for one another with FDR controlled at 1\%. Each entry gives the matching dimension and the correlation between them.} \label{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55.tex}\\
-\end{longtable}
+\begin{table}[!tbp]
+    \begin{tabular}{| ll |}
+        \hline
+        \textbf{100-wordlist-mds dim} & \textbf{439-and-100-wordlists-combined-mds -- dim(correlation)}\\
+        1 & 1(0.87), 3(0.46), 4(-0.47)\\
+        2 & 2(0.87), 3(-0.56)\\
+        3 & 4(0.62), 5(0.6)\\
+        4 & 6(0.46), 7(-0.5), 8(-0.48)\\
+        5 & 11(-0.52), 13(-0.56)\\
+        7 & 10(0.51)\\
+        8 & 7(0.54)\\
+        9 & 6(0.64)\\
+        11 & 36(-0.46)\\
+        12 & 10(-0.46)\\
+        14 & 21(0.48), 39(-0.52)\\
+        16 & 22(0.49)\\
+        29 & 42(-0.47)\\
+        30 & 52(0.47)\\
+        \hline
+    \end{tabular}
+    \caption{Dimensions from dataset 100-wordlist-mds which had a significant correlation with a dimension from dataset 439-and-100-wordlists-combined-mds when only the first 55 dimensions were considered as potential matches for one another with FDR controlled at 1\%. Each entry gives the matching dimension and the correlation between them.}
+    \label{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55.tex}
+\end{table}
