@@ -463,24 +463,63 @@ discovered in the different wordlists as a validation as to whether the same
 semantics were being covered and as an indication of how many dimensions might 
 be significant.
 
-\subsection{First 55 dimensions of 100 vs 439 and 100}
+\subsection{439 and 100 vs 2797}
 
-Because of the previous plot, we eliminate all but the first 55 dimensions in
+We began our comparison of the various dimensions with a comparison of all 
+components of the combined 439 and 100 word datasets with all of the components
+of the 2797 word dataset. There is a pretty dense collection of matches at
+dimension less than 52 in the 2797 word list. See Figure 
+\ref{fig:439and100vs2797} and Table
+\ref{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex}. 
+
+\input{results_tables/439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex}
+
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant}
+    \caption{Results from Table 
+    \ref{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex} 
+    displayed as an image. Colors (except black) give correlation for matching 
+    dimensions.}
+    \label{fig:439and100vs2797}
+\end{figure}
+
+\subsection{First 52 dimensions of 100 vs 439 and 100}
+
+Because of the previous plot, we eliminate all but the first 52 dimensions in
 looking at the components of 100 words that also appear in the combined 439
 and 100 word list. This gives a relatively dense set of correspondences for the
 first 22 dimensions of the combined lists (and the first 16 of the 100 word
-list). See Figure \ref{fig:100vs439And100First55} and Table 
-\ref{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55.tex}.
+list). See Figure \ref{fig:100vs439And100First52} and Table 
+\ref{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52.tex}.
 
-\input{results_tables/100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55.tex}
+\input{results_tables/100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52.tex}
 
 \begin{figure}[!tbp]
-    \includegraphics[width=0.9\linewidth]{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55}
+    \includegraphics[width=0.9\linewidth]{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52}
     \caption{Results from Table 
-    \ref{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-55.tex} 
+    \ref{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52.tex} 
     displayed as an image. Colors (except black) give correlation for matching 
     dimensions.}
-    \label{fig:100vs439And100First55}
+    \label{fig:100vs439And100First52}
+\end{figure}
+
+\subsection{First 22 dimensions of 100 vs 2797}
+
+Finally, we look at only the matches between the first 22 dimensions of the
+100 words and 2797 word datasets. See Figure \ref{fig:100vs2797First22} and
+Table 
+%\ref{100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22.tex}.
+
+
+\input{results_tables/100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22.tex}
+
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22}
+    \caption{Results from Table 
+    \ref{100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22.tex} 
+    displayed as an image. Colors (except black) give correlation for matching 
+    dimensions.}
+    \label{fig:100vs2797First22}
 \end{figure}
 
 
