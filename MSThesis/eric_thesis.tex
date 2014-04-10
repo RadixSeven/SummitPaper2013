@@ -187,7 +187,7 @@ hardware on which we ran the skip-gram model. These words are listed in table
 processing was performed. In the main data-tables, the words carry a \_jj suffix
 because JJ is the standard markup for an adjective in the Penn Treebank\todo{ref cite penn treebank}.
 
-\begin{table}[!htbp]
+\begin{table}[!tbp]
     \begin{tabular}{| lllll |}
         \hline
         active & agreeable & anxious & artistic & assertive \\
@@ -218,7 +218,7 @@ because JJ is the standard markup for an adjective in the Penn Treebank\todo{ref
 
 \input{results_tables/100words-adj-800dim-lowercase-wmt-model-original-summary-table.tex}
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbp]
     \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 90 word vectors
     produced from the 101 word list.}
@@ -242,7 +242,7 @@ proportional to the fraction of variance explained by that component.
 
 \input{results_tables/100words-adj-800dim-lowercase-wmt-model-zscore-transformed-summary-table.tex}
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbp]
     \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase-wmt-model-zscore-transformed-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 90 word vectors
     produced from the 101 word list after transforming to z-scores.}
@@ -262,7 +262,7 @@ proportional to the fraction of variance explained by that component.
 
 \input{results_tables/100words-adj-800dim-lowercase-wmt-model-mds-transformed-summary-table.tex}
 
-\begin{figure}[!htbp]
+\begin{figure}[!tbp]
     \includegraphics[width=0.9\linewidth]{100words-adj-800dim-lowercase-wmt-model-mds-transformed-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 90 word vectors
     produced from the 101 word list after multidimensional scaling.}
@@ -290,14 +290,20 @@ no suffix.
 
 \input{results_tables/439words-adj-800dim-lowercase-wmt-model-original-word-list.tex}
 
-\todo{remember to plot eigenvalues}
 
 \subsection{Unnormalized PCA}
 
 \input{results_tables/439words-adj-800dim-lowercase-wmt-model-original-summary-table.tex}
 
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 word vectors
+    produced from the 438 word list.}
+    \label{fig:438wordsunnormalizedpcaeigenvalues}
+\end{figure}
+
 Table \ref{tab:438wordsRankingsUnnormalizedPCA} gives the highest and lowest
-ranking words on the first 4 principal components of the unnormalized 90 word 
+ranking words on the first 4 principal components of the unnormalized 421 word 
 vectors. A more complete list can be found in Appendix 
 \ref{app:rankedwordlists:438words:unnormalized}.
 
@@ -306,9 +312,16 @@ vectors. A more complete list can be found in Appendix
 
 \input{results_tables/439words-adj-800dim-lowercase-wmt-model-zscore-transformed-summary-table.tex}
 
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 z-score 
+    normalized word vectors produced from the 438 word list.}
+    \label{fig:438wordsnormalizedpcaeigenvalues}
+\end{figure}
+
 Table \ref{tab:438wordsRankingsNormalizedPCA} gives the highest and lowest
-ranking words on the first 4 principal components of the normalized 90 word 
-vectors. A more complete list can be found in Appendix 
+ranking words on the first 4 principal components of the z-score normalized 421 
+word vectors. A more complete list can be found in Appendix 
 \ref{app:rankedwordlists:438words:normalized}.
 
 \todo{Find out why the normalized PCA table gets cut off - does using a normal table/tabular environment fix it?}
@@ -321,6 +334,14 @@ Table \ref{tab:438wordsRankingsMDS} gives the highest and lowest
 ranking words on the first 4 principal components of the 421 word 
 vectors after MDS. A more complete list can be found in Appendix 
 \ref{app:rankedwordlists:438words:mds}.
+
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-mds-transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 word vectors
+    produced from the 438 word list after multidimensional scaling.}
+    \label{fig:438wordsmdseigenvalues}
+\end{figure}
+
 
 \section{101 and 438 word sets combined}
 
@@ -665,6 +686,20 @@ WMT11 is a news corpus. Possibly its topic matter does not focus on people enoug
 \section{Could the problem be the nonlinear transformation from cosine to Euclidean topology?}
 
 \chapter{Future Work}
+
+\section{Normalize vectors to unit length}
+
+\todo{stub}
+
+Since the cosine distance is the only one with direct semantic weight, we can 
+get rid of noise that may be confusing PCA under the other transformations by
+normalizing all score vectors to unit length. This leaves the cosine distance
+unchanged but should make the Euclidean distance closer to the cosine distance
+in those places where it diverges.
+
+Why didn't I do it now? Because I would have had to reinterpret the dimensions.
+(Though a dimension mapping from the already interpreted 2797-word list would
+work.)
 
 \section{Remove non-human words}
 
@@ -1488,36 +1523,61 @@ in the model.
 
 \section{101 word list}
 \subsection{Unnormalized PCA}
+\todo{fix what happens with negative scores and ensure that the first digit is correct}
+\todo{make the tables two columns so they fit on one page and I don't need to use longtable}
+\todo{allow regeneration of tex tables without regenerating PCA/MDS coefficients}
 \label{app:rankedwordlists:101words:unnormalized}
 \input{results_tables/100words-adj-800dim-lowercase-wmt-model-mds-transformed-appendix-table.tex}
 \subsection{Normalized PCA}
 \label{app:rankedwordlists:101words:normalized}
-\todo{Include data}
+\input{results_tables/100words-adj-800dim-lowercase-wmt-model-original-appendix-table.tex}
 \subsection{MDS}
 \label{app:rankedwordlists:101words:mds}
-\todo{Include data}
+\input{results_tables/100words-adj-800dim-lowercase-wmt-model-zscore-transformed-appendix-table.tex}
 
 \section{438 word list}
 \subsection{Unnormalized PCA}
 \label{app:rankedwordlists:438words:unnormalized}
-\todo{Include data}
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-mds-transformed-appendix-table.tex}
 \subsection{Normalized PCA}
 \label{app:rankedwordlists:438words:normalized}
-\todo{Include data}
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-original-appendix-table.tex}
 \subsection{MDS}
 \label{app:rankedwordlists:438words:mds}
-\todo{Include data}
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-zscore-transformed-appendix-table.tex}
+
+\section{2797 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:2797words:unnormalized}
+\input{results_tables/2797words-adj-800dim-lowercase-wmt-model-mds-transformed-appendix-table.tex}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:2797words:normalized}
+\input{results_tables/2797words-adj-800dim-lowercase-wmt-model-original-appendix-table.tex}
+\subsection{MDS}
+\label{app:rankedwordlists:2797words:mds}
+\input{results_tables/2797words-adj-800dim-lowercase-wmt-model-zscore-transformed-appendix-table.tex}
 
 \section{Combined 101 and 438 word list}
 \subsection{Unnormalized PCA}
 \label{app:rankedwordlists:438and101words:unnormalized}
-\todo{Include data}
+\input{results_tables/100and439words-adj-800dim-lowercase-wmt-model-mds-transformed-appendix-table.tex}
 \subsection{Normalized PCA}
 \label{app:rankedwordlists:438and101words:normalized}
-\todo{Include data}
+\input{results_tables/100and439words-adj-800dim-lowercase-wmt-model-original-appendix-table.tex}
 \subsection{MDS}
 \label{app:rankedwordlists:438and101words:mds}
-\todo{Include data}
+\input{results_tables/100and439words-adj-800dim-lowercase-wmt-model-zscore-transformed-appendix-table.tex}
+
+\section{Combined 101 and 438 and 2797 word list}
+\subsection{Unnormalized PCA}
+\label{app:rankedwordlists:2797and438and101words:unnormalized}
+\input{results_tables/100and439and2797words-adj-800dim-lowercase-wmt-model-mds-transformed-appendix-table.tex}
+\subsection{Normalized PCA}
+\label{app:rankedwordlists:2797and438and101words:normalized}
+\input{results_tables/100and439and2797words-adj-800dim-lowercase-wmt-model-original-appendix-table.tex}
+\subsection{MDS}
+\label{app:rankedwordlists:2797and438and101words:mds}
+\input{results_tables/100and439and2797words-adj-800dim-lowercase-wmt-model-zscore-transformed-appendix-table.tex}
 
 
 \chapter{Bibliography}
