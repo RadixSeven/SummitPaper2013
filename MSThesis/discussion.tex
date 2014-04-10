@@ -1,0 +1,209 @@
+\documentclass[eric_thesis.tex]{subfiles}
+\begin{document}
+\chapter{Discussion}
+
+\section{Interpretation of the dimensions}
+
+For many of the input datasets, the extracted meaning dimensions are hard to 
+interpret. However for the larger word-lists (2797 and all word-lists 
+combined), some examination reveals commonalities. 
+
+\todo{the following are just typed versions of my notes and need to be 
+seriously cleaned up}
+
+It seems that a lot of the dimensions are characteristics of the words 
+themselves and not as much characteristics of what the word describes.
+
+\subsection{2797 Word with MDS}
+
+I think more than 14 components might be interpretable, however, I only did 14. 
+Of those components I could not interpret one at all and several others need 
+some improvement. 
+
+\subsubsection{Component 1}
+
+The first dimension needs a bit of explanation. In the corpus, the 10 highest 
+ranked words appear in 526515/117296559 sentences (0.4\%), the 10 lowest 
+ranked words appear in only 5871 (0.005\%). This is even more pronounced in the 
+minutes of the European parliament where the highly ranked words appear in 
+19196/2015440 sentences (1\%) but the lowest ranked words appear in 14 
+(0.0006\%) (And, in all of those sentences, the only word appearing is 
+sly\_jj - the highest ranked word among the lowest 10). Thus, it may not be 
+just that these words are more common, but that they are more common in 
+political speech.
+
+I looked at the Spearman correlation between number of occurrences of the words 
+in the entire corpus and the values in on the first dimension. It was 0.5739 
+(which gives a p value of $1.9120 \times 10^{-163}$ against the null hypothesis 
+that there is no relationship). There is no other component which is so 
+strongly correlated with word frequency. However, the correlation is not 
+perfect. For example, the most frequent word in the list has a rank of 204 when 
+you look at its score on the first dimension.
+
+To investigate the hypothesis that these words are not just more common but 
+more common in political speech, I also looked at the correlation with 
+frequency in the European parliament records. The correlation goes up to 0.6881 
+(p=3.8268e-261) and up to 0.7027 when looking at only words that appear in the 
+parliamentary records. That it is not a perfect correlation indicates that 
+there are still things I am overlooking. However, describing this dimension as 
+``uncommon in parliament vs common'' seems to have some explanatory power.
+
+\subsubsection{More components}
+
+Below, I give possible interpretations to the first 14 components.
+
+\begin{enumerate}
+ \item Uncommon in parliament (low) \ldots common in parliament (high)
+ \item Positive-negative view
+ \item Applies to non-humans too/human by analogy
+ \item formality
+ \item Words used in conflict (low) \ldots peace (high)
+ \item power/authority situations
+ \item Unknown
+ \item Words used when making appeal: to reason (low) \ldots to emotion (high)
+ \item social ostentation (low) vs private (high) - (but against this 
+       interpretation, fuddy-duddy gets in the low end) - another note is that 
+       one word that doesn't fit well ``cackler'' is very common in news 
+       stories about a particular police officer in Dallas whose discipline 
+       hearing exposed a scandal in the police force.
+ \item ?business/practicality? vs religion/family/clan
+ \item words used in describing people in: violent situations (low) \ldots 
+       non-violent situations (high)
+ \item unknown vs restaurant and food (high). Maybe: world falls apart vs world 
+       holds together. (You never see dispiriting, bleak, nagging in a 
+       restaurant review or recipe.)
+ \item again I see some of the restaurant review - this time on the low side 
+       \ldots ways people present themselves/words used in describing new 
+       people ``Wavy, mousy brown hair ''
+ \item words that can describe both politicians or speeches and food \ldots 
+       unknown
+\end{enumerate}
+
+\subsection{All combined with MDS}
+
+Here the categories look similar to the 2797 word list. \todo{I'd like to do a 
+correlation between the positions of the words in common, and match the 
+components as best as I can}
+
+\begin{enumerate}
+ \item Unknown
+ \item Same
+ \item Same
+ \item Same
+ \item Reversed from 2797
+ \item Unknown
+ \item Words that describe statements and people who make them thereby 
+       affecting our interpretation thereof vs unknown
+\end{enumerate}
+
+\subsection{2797 with z-score}
+
+These were much harder to interpret and there are more exceptions to each rule. 
+This is to be expected from the difference between the dot-product space in 
+which the similarity actually is measured and the euclidean space in which the 
+z-score and PCA combination operates.
+
+\begin{enumerate}
+ \item business (low) \ldots fashion (high)
+ \item socially pleasant (low) \ldots socially unpleasant (high) - mostly 
+adjectives at the extremes.
+ \item leadership qualities (low) vs ?words used in other contexts (words with 
+less focus on personality)?
+ \item things involving commitment/loyalty/disloyalty vs words that can 
+describe art - but against this: ``lucky'' having to do with personality?
+\end{enumerate}
+
+
+\section{Not what we expected}
+
+\section{Could it be the corpus?}
+
+WMT11 is a news corpus. Possibly its topic matter does not focus on people enough for those word senses to be properly represented. There are other, smaller, corpora with much broader language representation - for example, the brown corpus is a well known and freely available million word corpus. The British National Corpus is in the hundreds of millions of words and was created to be very broad-based. Additionally, there are spoken-language corpora like MICASE (Michigan Corpus of Academic Spoken English) and CPSA (Corpus of Spoken Professional American-English). These corpora could be used by themselves or potentially improved by using a model derived from a large news corpus like WMT11 or Gigaword as a starting point and then training on the smaller corpus.
+
+\section{Could it be polysemy?}
+
+\section{Could the dimensions be non-personality attributes?}
+\section{Could the dimensions not be scaled on personality-ness?}
+
+\todo{What I mean here is that the dimensions could be things like ``suitability to describe warmth'' both cold and warm would score highly but organized would score low.}
+
+\section{Could the number of dimensions in the lexical model be affecting things?}
+
+\section{Could the personality meanings not be being captured?}
+
+\todo{This may be part of the previous - too few or too many dimensions might elide the personality dimensions}
+
+\section{Could the problem be an underlying nonlinear structure?}
+
+\section{Could the problem be the nonlinear transformation from cosine to Euclidean topology?}
+
+\chapter{Future Work}
+
+\section{Normalize vectors to unit length}
+
+\todo{stub}
+
+Since the cosine distance is the only one with direct semantic weight, we can 
+get rid of noise that may be confusing PCA under the other transformations by
+normalizing all score vectors to unit length. This leaves the cosine distance
+unchanged but should make the Euclidean distance closer to the cosine distance
+in those places where it diverges.
+
+Why didn't I do it now? Because I would have had to reinterpret the dimensions.
+(Though a dimension mapping from the already interpreted 2797-word list would
+work.)
+
+\section{Remove non-human words}
+
+\todo{stub}
+
+One of the dimensions in the 2797 word MDS analysis is a human-nonhuman 
+dimension. It may measure to some extent the degree of polysemy of the words. A 
+nice analysis would be to just extract the words that scored well on the human 
+side of this scale and see what their most important dimensions are. It might 
+reduce the noise significantly.
+
+\section{Use directional statistics}
+
+\todo{stub}
+
+One problem with the MDS approach is that we can't standardize the range and 
+mean beforehand because taking the z-scores of the dimensions changes the 
+angles involved in the dot-products. However, we can map the word vectors to 
+the unit sphere without changing the cosine distances. Then directional 
+statistics give us analogous measures to the mean and standard deviation. 
+Applying MDS to the distances in these standardized points should give us 
+something much closer to the factor analysis normally used in psychology.
+
+\todo{If I finish all sections but the discussion, I can try using directional 
+stats to normalize the vectors before applying MDS}
+
+\section{Rerun on other corpora}
+
+\subsection{Gigaword}
+\subsection{Smaller corpora}
+\subsection{Small corpus from large starting point}
+
+\section{Examine technique for detecting word usage shift between corpora}
+
+\todo{Turn text summary of method below into more final version for future work}
+Train model 1 on corpus 1. Save model 1. Train model 2 on corpus 2 using model 1 as a starting point. Align the two models (using words common to the two corpora and a loss function that depends on how many different words you expect (for example, if you will use $L^p$ norms\footnote{An $L^p$ norm calculates the length of an n-dimensional vector $x$ as $\|x\|_p=\left(|x_1|^p+|x_2|^p+\dotsb+|x_n|^p\right)^{\frac{1}{p}}$} and subtraction to calculate distance, you can use a lower $p$ exponent for a lower proportion of expected differences).
+
+\section{Perform modeling in Euclidean topology}
+
+\todo{Turn summary into final form}
+Because the vectors must be converted to use Euclidean distances before PCA will work correctly, the principal components are not components of the vectors in cosine distance space. Thus, we can only rank the personality words and it is impossible to look for dimensions whose meaning will not be obvious based on ranking the personality words.
+
+One approach would be to transform all the words. However the distance matrix alone would be enormous (5 hundred thousand words would require 250 billion distances). Since most modern MDS implementations use some form of gradient descent under the hood, I considered using stochastic gradient descent with the distance matrix being implicit in the original point values. The initial point for the descent could be the original point values since Euclidean and cosine distances are similar. However, that is a very special-purpose application of MDS. Since it could be hard to code due to the sizes of the data involved, and would only give an approximation of the best point locations, I don't think it is worth the effort at this time.
+
+I think it is better to rewrite the training section of the skip-gram to use Euclidean rather than cosine distance. This modification will increase training time by a constant factor, but I would hope that factor is small.
+
+\section{Do the big-5 etc. personality dimensions come out of a pseudo-personality test?}
+\todo{Turn summary into final form}
+What I mean is if you count the frequency for which different personality adjectives are used to describe different named person-entities in the corpus, do you get the same descriptive dimensions as you do for when you ask people to rate others on n dimensions.
+
+\section{What happens if you tag personality words when they are referring to a specific person?}
+
+\section{Use perplexity to calculate the number of personality dimensions}
+
+\end{document}
