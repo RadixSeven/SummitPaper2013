@@ -9,11 +9,12 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{subfiles}
 
 \graphicspath{ {images/} }
 
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
-\newcommand{\comment}[1]{\textcolor{red}{#1}}
+\newcommand{\reviewercomment}[1]{\textcolor{blue}{#1}}
 \newcommand{\filename}[1]{\textit{#1}}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
 
@@ -323,8 +324,6 @@ Table \ref{tab:438wordsRankingsNormalizedPCA} gives the highest and lowest
 ranking words on the first 4 principal components of the z-score normalized 421 
 word vectors. A more complete list can be found in Appendix 
 \ref{app:rankedwordlists:438words:normalized}.
-
-\todo{Find out why the normalized PCA table gets cut off - does using a normal table/tabular environment fix it?}
 
 \subsection{MDS}
 
