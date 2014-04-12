@@ -169,9 +169,14 @@ vectors after MDS. A more complete list can be found in Appendix
 
 \section{101 and 438 word sets combined}
 
-There were a few words in the 101 word list that were not also in the 438 word list. So, for completeness, we also ran the same analysis with the two lists combined. In the combined list, 430 words were frequent enough to be assigned vectors given our memory constraints. To save space, we only list the 9 words not used in the 438 word list analysis in Table \ref{tab:additionalwordsincombined}.
+There were a few words in the 101 word list that were not also in the 438 word 
+list. So, for completeness, we also ran the same analysis with the two lists 
+combined. In the combined list, 430 words were frequent enough to be assigned 
+vectors given our memory constraints. To save space, we only list the 9 words 
+not used in the 438 word list analysis in 
+Table \ref{tab:additionalwordsincombined}.
 
-\begin{table}[!htbp]
+\begin{table}[tbp]
     \begin{tabular}{| llll |}
         \hline
         bold\_jj & conscientious\_jj & high-strung\_jj & imperturbable\_jj \\
@@ -185,11 +190,14 @@ There were a few words in the 101 word list that were not also in the 438 word l
     \label{tab:additionalwordsincombined}
 \end{table}
 
-As can be seen from \ref{fig:439vs439and100} the most significant components
+These 9 words represent 2\% of the 430 vectors in the resulting list. As can be 
+seen from \ref{fig:439vs439and100} the most significant components
 of the combined word-list are almost identical to those of the 439 word-list
-alone. Thus, we do not show them here. See the appendices for details.
+alone. The first noticeable difference is at dimension 7 or 10 depending on how
+you want to define noticeable. Thus, we do not show them here. See Appendix 
+\ref{app:rankedwordlists:438and101words} for details.
 
-\begin{figure}[!tbp]
+\begin{figure}[bp]
     \includegraphics[width=0.9\linewidth]{439-vs-439and100-from-800dim-lowercase-wmt-model-correlations}
     \caption{Correlations between the first 52 MDS vectors generated from the 
     439 word list alone and first 52 the vectors generated from the combined
@@ -208,7 +216,7 @@ variants, there were 2810 words before tagging. After tagging, there were
 
 \input{results_tables/2797words-adj-800dim-lowercase-wmt-model-original-summary-table.tex}
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{2797words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 1860 word vectors
     produced from the 2797 word list.}
@@ -225,7 +233,7 @@ vectors. A more complete list can be found in Appendix
 
 \input{results_tables/2797words-adj-800dim-lowercase-wmt-model-zscore-transformed-summary-table.tex}
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{2797words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 1860 z-score 
     normalized word vectors produced from the 2797 word list.}
@@ -246,7 +254,7 @@ ranking words on the first 4 principal components of the 1860 word
 vectors after MDS. A more complete list can be found in Appendix 
 \ref{app:rankedwordlists:2797words:mds}.
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{2797words-adj-800dim-lowercase-wmt-model-mds-transformed-flex_end_elbow}
     \caption{Eigenvalues for each principal component of the 1860 word vectors
     produced from the 2797 word list after multidimensional scaling.}
@@ -262,11 +270,12 @@ total. The additional words are listed in Table
 list, these have more effect on the resulting
 components than adding 9 vectors to the 421 vectors from the 439 word list.
 However, as Figure \ref{fig:2797vs2797and439and100} shows, they are still
-extremely close. See Appendix \ref{app:rankedwordlists:2797and438and101words}
+extremely close - it is not until dimension 6 that the first noticeable
+difference appears. See Appendix \ref{app:rankedwordlists:2797and438and101words}
 the ranked word lists.
 
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{2797-vs-2797and439and1100-from-800dim-lowercase-wmt-model-correlations}
     \caption{Correlations between the first 52 MDS vectors generated from the 
     2797 word list alone and the first 52 vectors generated from the combined
@@ -339,7 +348,7 @@ dimension less than 52 in the 2797 word list. See Figure
 
 \input{results_tables/439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex}
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant}
     \caption{Results from Table 
     \ref{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex} 
@@ -359,7 +368,7 @@ list). See Figure \ref{fig:100vs439And100First52} and Table
 
 \input{results_tables/100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52.tex}
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52}
     \caption{Results from Table 
     \ref{100-vs-439and100-from-800dim-lowercase-wmt-model-significant-first-52.tex} 
@@ -382,7 +391,7 @@ Table
 
 \input{results_tables/100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22.tex}
 
-\begin{figure}[!tbp]
+\begin{figure}[tbp]
     \includegraphics[width=0.9\linewidth]{100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22}
     \caption{Results from Table 
     \ref{100-vs-2797-from-800dim-lowercase-wmt-model-significant-first-22.tex} 
