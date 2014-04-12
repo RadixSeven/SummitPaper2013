@@ -49,11 +49,80 @@ Once we had the preprocessing done, the next step was to choose the number of di
 
 \todo{Add part about choosing a frequency cut-off to fit all the skip-gram vectors in memory}
 
-Number of dimensions in hand, we generated the meaning vectors using the skip-gram implementation in gensim. \todo{ref gensim} Then we selected the meaning vectors (model.syn0) for our wordlists from the generated model using the script included as \filename{extract\_vectors.py} from \ref{app:extractvectors}. The lists of words were taken from two sets of personality words \todo{change if we do three sets}. The first, containing 101 words was taken from the list of 100 words in the paper \todo{cite paper from which the hundred words come}. To this, we added the variant spelling ``extroverted'' because the spelling ``extaverted'', which was in the original list, did not appear in the WMT11 corpus. The second set had 438 words and was taken from \todo{ref cite paper from which the 439 words come}. There were 439 entries in the list in \todo{cite paper}, however, the word ``cunning'' appeared twice. Because there were some words in the 101 word list that were absent in the 438 words list, we did another run with the two lists combined.
+Number of dimensions in hand, we generated the meaning vectors using the 
+skip-gram implementation in gensim. \todo{ref gensim} Then we selected the 
+meaning vectors (model.syn0) for our wordlists from the generated model using 
+the script included as \filename{extract\_vectors.py} from 
+\ref{app:extractvectors}. The lists of words were taken from three sets of 
+personality words. 
+
+\subsection{101 word list}
+
+The first, containing 
+101 words was taken from the list of 100 words in the paper \todo{cite paper 
+from which the hundred words come}. To this, we added the variant spelling 
+``extroverted'' because the spelling ``extaverted'', which was in the original 
+list, did not appear in the WMT11 corpus. To match the words in the tagged
+corpus, all of the words had the characters ``\_jj'' appended because the list
+was intended as a list of adjectives and JJ is the standard suffix for adjective
+used in the Penn Treebank \todo{ref cite penn treebank} and thus is the suffix
+used by our part-of-speech tagging software.
+
+\subsection{438 word list}
+
+The second set had 438 words and was 
+taken from \todo{ref cite paper from which the 439 words come}. There were 439 
+entries in the list in \todo{cite paper}, however, the word ``cunning'' 
+appeared twice. Because there were some words in the 101 word list that were 
+absent in the 438 words list, we did another run with the two lists combined.
+
+
+\subsection{Norman's 2797 word list}
+
+\subsection{Semi-automated tagging}
+
+Like the 101 word list, the 438 word and 2797 word lists had to be tagged to 
+match the tagging in the corpus. Because part-of-speech taggers rely on context 
+to tag words, we could not use the tagger we used for the corpus. Instead we 
+used a home-grown semi-automated tagging method. The source code for the 
+program used in this tagging is given in 
+\ref{app:source:SemiAutomatedTagging}. 
+\todo{reformat and import the source for semi-automated tagging}
+
+For each word, if it appeared in Wordnet \todo{ref cite wordnet} and, after
+removing verb and adverb senses, it had only one part of speech listed and if 
+that part of speech was adjective or noun, the word was automatically tagged. 
+If the unique part of speech was ``adjective'' then the word was tagged JJ. 
+Otherwise the part of speech was noun and the word was left without a suffix.
+
+In any other case, the tagging of the word was left up to human judgment. If the
+word was present in Wordnet, the Wordnet page was automatically opened in a 
+browser for convenience. Then the human was asked two questions:
+``Is <word> a valid personality adjective? (yes/no/quit)'' and ``Is <word> a 
+valid personality quality or type of person (`His characteristic <word>' or 
+`The <word> is characterized by <word>-ness')? Only accept for type of person 
+if the word is not an adjective or a much more common usage than the adjective. 
+(braggart, for example, has an archaic adjectival use but is much more commonly 
+used as a category)(yes/no/quit)''\footnote{The 438 word list was tagged with an
+earlier version of this question: ``Is <word> a valid personality quality 
+(`His characteristic <word>')? (yes/no/quit)'' this was changed for the 2797 
+word list because it included nouns like ``zealot'' that represent categories
+not qualities (``zeal'' would be the quality corresponding to ``zealot'').}. A 
+``yes'' answer to the first question includes a JJ tagged word in the final list
+and a ``yes'' answer to the second question includes the word itself in the
+final list. Answering ``no'' to both questions was not permitted though a 
+``yes'' answer was permitted. (Allowing two ``yes'' answers enabled correct 
+tagging of words like ``cunning'' which is a personality word as both an 
+adjective and as a noun. Subjectively, we feel that the noun tagging in the 2797
+word list was less careful than the tagging for the 439 word list both because
+of the larger number of words and because of the larger number of words that
+had to be examined in dictionaries other than Wordnet. (We used the on-line
+versions of the Merriam Webster and Oxford English Dictionary - preferring the
+American sense in the latter when there was a difference in usage.)
 
 \section{Going from Cosine to Euclidean Topology}
 
-The meaning vectors are generated so that the semantic distance between two words (the probability of their being used in the same context) is related to their cosine distance - that is, their dot product. However, many analysis algorithms depend on distance being measured through Euclidean space. Principal components analysis (PCA), the algorithm we use, is one of those. It aligns the extracted principal components with the directions of the most variability. The only directions PCA considers is those along straight lines in Euclidean space. So, to use PCA, we need to convert the vectors to make the Euclidean distances have semantic signficance. 
+The meaning vectors are generated so that the semantic distance between two words (the probability of their being used in the same context) is related to their cosine distance - that is, their dot product. However, many analysis algorithms depend on distance being measured through Euclidean space. Principal components analysis (PCA), the algorithm we use, is one of those. It aligns the extracted principal components with the directions of the most variability. The only directions PCA considers is those along straight lines in Euclidean space. So, to use PCA, we need to convert the vectors to make the Euclidean distances have semantic significance. 
 
 The tool we used to convert the vectors was multidimensional scaling (MDS). MDS takes a set of distances between points and outputs a set of points in a given number of dimensions for which the distances are as close as possible to the original specifications. See figure \todo{figure: distance matrix on one side -> set of points on the other. This can be seen in the mds\_example png files}. To perform MDS, we used the Matlab command mdscale using the metricstress criterion\footnote{The metricstress criterion minimizes the squared error between the resulting distances and the desired distances} and using the solution to classical MDS as the starting point for optimization and as the source for the number of dimensions produced.\todo{ref cite matlab}
 
