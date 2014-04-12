@@ -185,117 +185,73 @@ There were a few words in the 101 word list that were not also in the 438 word l
     \label{tab:additionalwordsincombined}
 \end{table}
 
+As can be seen from \ref{fig:439and100vs2797} the most significant components
+of the combined word-list are almost identical to those of the 439 word-list
+alone. Thus, we do not show them here. See the appendices for details.
 
-\todo{check for copy-paste errors on the tables, their captions, and the references}
-\todo{remember to plot eigenvalues}
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439-vs-439and100-from-800dim-lowercase-wmt-model-significant}
+    \caption{Correlations between the MDS vectors generated from the combined
+    439 word and 101 word lists.}
+    \label{fig:439vs439and100}
+\end{figure}
+
+\section{2797 word set}
+
+The 2797 word list contained adjectives and nouns. The nouns were not merely
+qualities but also categories of people. With the spelling corrections and 
+variants, there were 2810 words before tagging. After tagging, there were
+1860 vectors generated from this list.
 
 \subsection{Unnormalized PCA}
 
-\begin{table}[!htbp]
-    \begin{tabular}{| rllll | }
-        \hline
-         & \multicolumn{4}{c|}{\textbf{Component}} \\
-        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-        \hline
-        1 &  &  &  &  \\
-        2 &  &  &  &  \\
-        3 &  &  &  &  \\
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 &  &  &  &  \\
-        7 &  &  &  &  \\
-        \hline
-        84 &  &  &  &  \\
-        85 &  &  &  &  \\
-        86 &  &  &  &  \\
-        87 &  &  &  &  \\
-        88 &  &  &  &  \\
-        89 &  &  &  &  \\
-        90 &  &  &  &  \\
-        \hline
-    \end{tabular}
-    \caption{The highest and lowest ranking words on the first 4 components 
-    derived from unnormalized PCA of the 90 word vectors.}
-    \label{tab:438and101wordsRankingsUnnormalizedPCA}
-\end{table}
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-original-summary-table.tex}
 
-Table \ref{tab:438and101wordsRankingsUnnormalizedPCA} gives the highest and lowest
-ranking words on the first 4 principal components of the unnormalized 90 word 
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 word vectors
+    produced from the 438 word list.}
+    \label{fig:438wordsunnormalizedpcaeigenvalues}
+\end{figure}
+
+Table \ref{tab:438wordsRankingsUnnormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the unnormalized 421 word 
 vectors. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:438and101words:unnormalized}.
+\ref{app:rankedwordlists:438words:unnormalized}.
 
 
 \subsection{Normalized PCA}
 
-\begin{table}[!htbp]
-    \begin{tabular}{| rllll | }
-        \hline
-         & \multicolumn{4}{c|}{\textbf{Component}} \\
-        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-        \hline
-        1 &  &  &  &  \\
-        2 &  &  &  &  \\
-        3 &  &  &  &  \\
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 &  &  &  &  \\
-        7 &  &  &  &  \\
-        \hline
-        84 &  &  &  &  \\
-        85 &  &  &  &  \\
-        86 &  &  &  &  \\
-        87 &  &  &  &  \\
-        88 &  &  &  &  \\
-        89 &  &  &  &  \\
-        90 &  &  &  &  \\
-        \hline
-    \end{tabular}
-    \caption{The highest and lowest ranking words on the first 4 components 
-    derived from normalized PCA of the 90 word vectors.}
-    \label{tab:438and101wordsRankingsNormalizedPCA}
-\end{table}
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-zscore-transformed-summary-table.tex}
 
-Table \ref{tab:438and101wordsRankingsNormalizedPCA} gives the highest and lowest
-ranking words on the first 4 principal components of the normalized 90 word 
-vectors. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:438and101words:normalized}.
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-original-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 z-score 
+    normalized word vectors produced from the 438 word list.}
+    \label{fig:438wordsnormalizedpcaeigenvalues}
+\end{figure}
 
+Table \ref{tab:438wordsRankingsNormalizedPCA} gives the highest and lowest
+ranking words on the first 4 principal components of the z-score normalized 421 
+word vectors. A more complete list can be found in Appendix 
+\ref{app:rankedwordlists:438words:normalized}.
 
 \subsection{MDS}
 
+\input{results_tables/439words-adj-800dim-lowercase-wmt-model-mds-transformed-summary-table.tex}
 
-\begin{table}[!htbp]
-    \begin{tabular}{| rllll | }
-        \hline
-         & \multicolumn{4}{c|}{\textbf{Component}} \\
-        \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-        \hline
-        1 &  &  &  &  \\
-        2 &  &  &  &  \\
-        3 &  &  &  &  \\
-        4 &  &  &  &  \\
-        5 &  &  &  &  \\
-        6 &  &  &  &  \\
-        7 &  &  &  &  \\
-        \hline
-        84 &  &  &  &  \\
-        85 &  &  &  &  \\
-        86 &  &  &  &  \\
-        87 &  &  &  &  \\
-        88 &  &  &  &  \\
-        89 &  &  &  &  \\
-        90 &  &  &  &  \\
-        \hline
-    \end{tabular}
-    \caption{The highest and lowest ranking words on the first 4 components 
-    derived from performaing MDS on the 90 word vectors.}
-    \label{tab:438and101wordsRankingsMDS}
-\end{table}
-
-Table \ref{tab:438and101wordsRankingsMDS} gives the highest and lowest
-ranking words on the first 4 principal components of the 90 word 
+Table \ref{tab:438wordsRankingsMDS} gives the highest and lowest
+ranking words on the first 4 principal components of the 421 word 
 vectors after MDS. A more complete list can be found in Appendix 
-\ref{app:rankedwordlists:438and101words:mds}.
+\ref{app:rankedwordlists:438words:mds}.
+
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{439words-adj-800dim-lowercase-wmt-model-mds-transformed-flex_end_elbow}
+    \caption{Eigenvalues for each principal component of the 421 word vectors
+    produced from the 438 word list after multidimensional scaling.}
+    \label{fig:438wordsmdseigenvalues}
+\end{figure}
+
 
 
 \section{Dimension Matching}
