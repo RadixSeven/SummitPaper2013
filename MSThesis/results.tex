@@ -172,7 +172,7 @@ vectors after MDS. A more complete list can be found in Appendix
 There were a few words in the 101 word list that were not also in the 438 word list. So, for completeness, we also ran the same analysis with the two lists combined. In the combined list, 430 words were frequent enough to be assigned vectors given our memory constraints. To save space, we only list the 9 words not used in the 438 word list analysis in Table \ref{tab:additionalwordsincombined}.
 
 \begin{table}[!htbp]
-    \begin{tabular}{| llll | }
+    \begin{tabular}{| llll |}
         \hline
         bold\_jj & conscientious\_jj & high-strung\_jj & imperturbable\_jj \\
         neat\_jj & practical\_jj & uncharitable\_jj & uncooperative\_jj \\
@@ -185,13 +185,14 @@ There were a few words in the 101 word list that were not also in the 438 word l
     \label{tab:additionalwordsincombined}
 \end{table}
 
-As can be seen from \ref{fig:439and100vs2797} the most significant components
+As can be seen from \ref{fig:439vs439and100} the most significant components
 of the combined word-list are almost identical to those of the 439 word-list
 alone. Thus, we do not show them here. See the appendices for details.
 
 \begin{figure}[!tbp]
     \includegraphics[width=0.9\linewidth]{439-vs-439and100-from-800dim-lowercase-wmt-model-correlations}
-    \caption{Correlations between the MDS vectors generated from the combined
+    \caption{Correlations between the MDS vectors generated from the 439 word
+    list alone and the vectors generated from the combined
     439 word and 101 word lists.}
     \label{fig:439vs439and100}
 \end{figure}
@@ -251,6 +252,69 @@ vectors after MDS. A more complete list can be found in Appendix
     produced from the 2797 word list after multidimensional scaling.}
     \label{fig:2797wordsmdseigenvalues}
 \end{figure}
+
+
+\section{Combined 2797, 438, and 101 word sets}
+
+When the three word-lists are combined, it adds another 118 words, for 1978
+total. The additional words are listed in Table 
+\ref{additionalwordsin2797combined}. Since they make up 6\% of the resulting
+list, these have more effect on the resulting
+components than adding 9 vectors to the 421 vectors from the 439 word list.
+However, as Figure \ref{fig:2797vs2797and439and100} shows, they are still
+extremely close. See Appendix \ref{app:rankedwordlists:2797and438and101words}
+the ranked word lists.
+
+
+\begin{figure}[!tbp]
+    \includegraphics[width=0.9\linewidth]{2797-vs-2797and439and1100-from-800dim-lowercase-wmt-model-correlations}
+    \caption{Correlations between the MDS vectors generated from the 2797 word
+    list alone and the vectors generated from the combined
+    2797 word, 439 word and 101 word lists.}
+    \label{fig:2797vs2797and439and100}
+\end{figure}
+
+
+\begin{table}[tbp]
+    \begin{tabular}{| llll |}
+        \hline
+        aimlessness & aloofness & ambition & amiability \\
+        animation & anxious\_jj & assertion & belligerence \\
+        bossiness & callousness & candor & caution \\
+        conceit & conventionality & cooperation & courage \\
+        courtesy & creativity & cruelty & curiosity \\
+        deceit & decisiveness & defensive\_jj & demanding\_jj \\
+        dependability & depth & dignity & disorganization \\
+        distrust & dominant\_jj & dull\_jj & earthiness \\
+        easygoing\_jj & efficiency & egotistical\_jj & emotionality \\
+        empathy & enthusiastic\_jj & envious\_jj & envy \\
+        erratic\_jj & exhibitionistic\_jj & expressiveness & fear \\
+        fearful\_jj & flexibility & forgetfulness & frivolity \\
+        generosity & gregariousness & gullibility & humor \\
+        humorous\_jj & inconsistency & indecisiveness & independence \\
+        inhibition & insecurity & insight & instability \\
+        intellectuality & intelligence & intrusiveness & irritability \\
+        leniency & lethargy & logic & modest\_jj \\
+        modesty & morality & naïve\_jj & natural\_jj \\
+        naturalness & negligence & nonconformity & opportunistic\_jj \\
+        optimism & organization & organized\_jj & passivity \\
+        persistence & pessimism & placidity & playfulness \\
+        pomposity & precision & predictability & prejudice \\
+        prejudiced\_jj & punctuality & quiet & recklessness \\
+        reserve & rudeness & self-esteem & selfishness \\
+        shallowness & shyness & silence & simple\_jj \\
+        sloth & smart\_jj & sophistication & spirit \\
+        spontaneity & stinginess & stubbornness & stupidity \\
+        surliness & talkativeness & thoughtlessness & thrift \\
+        underhanded\_jj & understanding & unfriendliness & volatility \\
+        warmth & neat\_jj &  &  \\
+        \hline
+    \end{tabular}
+    \caption{The 181 words not present in the 1860 word vectors derived from
+    the tagged 2797 word list}
+    \label{tab:additionalwordsin2797combined}
+
+\end{table}
 
 
 
