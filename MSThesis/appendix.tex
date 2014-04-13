@@ -100,6 +100,159 @@ else
 fi
 \end{lstlisting}
 
+\section{Text of tag\_word\_list.pl}
+\label{app:tagwordlist}
+\lstset{language=Perl}
+\begin{lstlisting}
+#!/usr/bin/perl
+use strict;
+use warnings;
+use HotKey;
+use URI::Escape;
+use File::Fetch;
+
+#
+# Reads a word-list from a file (DON'T USE STDIN, it
+# mistakes it for keyboard input). For each word,
+# displays the word-net entry web-page in firefox and
+# then asks if it is a valid as a personality
+# adjective. Next it asks if it is valid as a
+# personality non-adjective. If it was a valid
+# adjective, it writes word_jj to stdout. If it was a
+# valid non-adjective, it writes word to stdout.  If
+# you type q at any prompt, it exits, writing "THERE
+# WAS A PROBLEM" to stdout.
+#
+# Using the assumption that every word in the file is a
+# personality word, does the disambiguation itself if
+# the word has only one part of speech. (However, this
+# code depends on the format of the html returned and
+# so is fragile.)
+#
+# Prompts are written to stderr (which is fine on
+# Linux, but probably a mess under Windows)
+
+sub getynq {
+    my $key = readkey();
+    while($key =~ m/^[^ynq]$/){
+        print STDERR "\nPlease enter y,n, or q.";
+        $key = readkey();
+    }
+    return $key;
+}
+
+WORD: while(<>){
+    chomp;
+
+    my $query_uri =
+        'http://wordnetweb.princeton.edu/perl/webwn?s='.
+        uri_escape($_).
+        '&sub=Search+WordNet&o2=&o0=1'.
+        '&o7=&o5=&o1=1&o6=&o4=&o3=&h=';
+    # Try automatic determination - if there is only
+    # one level three header (used to contain the part
+    # of speech) then if it is "Adjective" the word is
+    # a personality adjective. Otherwise, the word is a
+    # personality non-adjective. Ignore verb and adverb
+    # meanings because I am looking for words about
+    # personal qualities. I want "The brave man" or "he
+    # had courage" and not "He will brave the elements"
+    # or "Home of the brave".
+    #
+    # With the 2797 word list, I have decided to accept
+    # words that are categories - like "the home of the
+    # brave."
+    my $contents;
+    my $fetcher = File::Fetch->new(uri => $query_uri);
+    $fetcher->fetch(to => \$contents);
+
+    my @level_3_headers = ($contents =~
+                         m:<h3>[^<]+</h3>:gi);
+
+    @level_3_headers = # Remove verbs
+        grep{!m:<h3>Verb</h3>:} @level_3_headers; 
+    @level_3_headers = # Remove adverbs
+        grep{!m:<h3>Adverb</h3>:} @level_3_headers; 
+
+    my $autotag_successful = 0;
+    if (@level_3_headers == 1){
+        # If the only part of speech is adjective tag
+        # as such, otherwise if the only part of speech
+        # is noun, tag as non-adjective. If the part of
+        # speech is something else (an unknown part of
+        # speech or an error message) don't tag and
+        # leave it to the humans.
+        if($level_3_headers[0] =~ 
+              m:<h3>Adjective</h3>:i){
+            print STDOUT "${_}_jj\n";
+            $autotag_successful = 1;
+        }elsif($level_3_headers[0] =~ 
+              m:<h3>Noun</h3>:i){
+            print STDOUT "${_}\n";
+            $autotag_successful = 1;
+        }else{
+            $autotag_successful = 0;
+        }
+    }
+    if ($autotag_successful){
+        # We've tagged the word. Read the next word
+        print STDERR "Automatically ",
+                     "determined ${_}.\n";
+        next WORD;
+    }
+
+
+    # Manual determination - open firefox (ignoring
+    # error messages) and ask the user
+
+    system("firefox \"".
+           "$query_uri\" > /dev/null 2>&1 &");
+
+    my $had_to_do_with_personality=0;
+    print STDERR "\nIs $_ a valid personality ".
+        "adjective? (yes/no/quit)";
+    my $key = getynq();
+    if($key =~ m/y/i){
+        print STDOUT "${_}_jj\n";
+        $had_to_do_with_personality = 1;
+    }elsif($key =~ m/q/i){
+        print STDOUT "THERE WAS A PROBLEM\n";
+        exit(-1);
+    }
+
+    print STDERR "\nIs $_ a valid personality ",
+        "quality or type of person ('His ",
+        "characteristic $_' or 'The $_ is ",
+        "characterized ",
+        "by $_-ness')? Only accept for type of ",
+        "person if ",
+        "the word is not an adjective or a much more ",
+        "common usage than the adjective. (braggart, ",
+        "for ",
+        "example, has an archaic adjectival use but ",
+        "is ",
+        "much more commonly used as a ",
+        "category)(yes/no/quit)"; 
+    $key = getynq();
+    if($key =~ m/y/i){ 
+        print STDOUT "${_}\n";
+        $had_to_do_with_personality = 1; 
+    }elsif($key =~ m/q/i){ 
+        print STDOUT "THERE WAS A PROBLEM\n";
+        exit(-1); 
+    }
+
+    unless($had_to_do_with_personality){
+        print STDERR "\n$_ must have something to ",
+             "do with personality. You can't ",
+             "answer n on both questions.\n";
+        print STDOUT "THERE WAS A PROBLEM\n";
+        exit(-1);
+    }
+} 
+\end{lstlisting}
+
+
 \section{Text of reassemble\_tags.pl}
 \label{app:reassembletags}
 \lstset{language=Perl}
