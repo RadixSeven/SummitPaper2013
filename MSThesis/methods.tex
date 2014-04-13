@@ -76,18 +76,75 @@ entries in the list in \todo{cite paper}, however, the word ``cunning''
 appeared twice. Because there were some words in the 101 word list that were 
 absent in the 438 words list, we did another run with the two lists combined.
 
-
 \subsection{Norman's 2797 word list}
+
+The third set had 2797 words\footnote{The paper is entitled 2800 words, but mentions
+that three of the words are unintentional duplicates leaving 2797 words.}
+taken from \todo{ref cite Norman 1967}. This paper
+was available only as data automatically recognized from a scan of a low-quality
+original. So there were many errors. Since it was infeasible to re-enter all the
+words again, we cleaned up the list in a number of stages. 
+
+First we looked at
+punctuation and symbols not in the original, removing spaces around hyphens, 
+then focusing on underscore (which is not in the original) and on apostrophes, 
+periods, and zeros which were also 
+introduced through optical character recognition (OCR) errors. Each time we
+fixed an error we also examined its neighborhood for other errors, manually
+comparing the extracted text with the original. 
+
+Next, we used a program to separate the input into space-separated tokens and
+determine whether they matched the format number(1-3), number(1-14), word. Any
+any place this format failed to hold, the program stopped for a human to inspect 
+and fix the error. Once it could get through the whole list without finding a
+discrepancy, it wrote the corrected list out as tab-separated text with one
+entry per line.
+
+Next, we used a standard spell-checker to highlight
+possible typos up to the word ``debarbarized.'' However, that had a high 
+false-positive rate. So, we downloaded
+a dictionary based the largest list (size 95) in Kevin Atkinson's Spell 
+Checking Oriented Word Lists project \todo{ref cite Atkinson's SCOWL}. We 
+manually checked every word not present in that dictionary.
+
+Finally, to test our work, we chose one column of the original (excluding the 
+first and the last) at random (the 121 words from level-headed to miserabilist) 
+and manually entered it. This revealed one OCR error in the form numbers and 
+none in the words. The lack of errors in the words gave confidence that the 
+word list was now substantially correct. (The form number error was not a 
+problem because the form numbers had been corrected only incidentally and would 
+have no effect on final word vectors.)
+
+During this process, we encountered several words for which variant spellings
+are common today. We added them to the list with their form number set to ``na''
+for not applicable. The words added in this way are listed in Table 
+\ref{tab:2797variantspellings}.
+
+\begin{table}[tbp]
+    \begin{tabular}{| llll |}
+        \hline
+        beau brummell & daredevil & highfalutin & milquetoast \\
+        monoideistic & overperemptory & persnickety & risqué \\
+        scandalmongering & smart-alecky & snivelly & staunch \\
+        tender-minded & unforeseeing & & \\
+     \hline
+    \end{tabular}
+    \caption{Variant spellings added to Norman's 2797 word list}
+    \label{tab:2797variantspellings}
+\end{table}
+
+
+After cleaning the word-list, the words that appeared in the corpus were 
+extracted to prepare for semi-automated tagging.
 
 \subsection{Semi-automated tagging}
 
 Like the 101 word list, the 438 word and 2797 word lists had to be tagged to 
 match the tagging in the corpus. Because part-of-speech taggers rely on context 
-to tag words, we could not use the tagger we used for the corpus. Instead we 
-used a home-grown semi-automated tagging method. The source code for the 
-program used in this tagging is given in 
-\ref{app:source:SemiAutomatedTagging}. 
-\todo{reformat and import the source for semi-automated tagging}
+to disambiguate word senses, we could not use the tagger we used for the 
+corpus. Instead we used a home-grown semi-automated tagging method. The source 
+code for the program used in this tagging is given in 
+Appendix \ref{app:tagwordlist}. 
 
 For each word, if it appeared in Wordnet \todo{ref cite wordnet} and, after
 removing verb and adverb senses, it had only one part of speech listed and if 
