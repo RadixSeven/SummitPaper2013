@@ -431,6 +431,55 @@ words
 negatively associated with that dimension will appear near the bottom of the 
 list. Words with no association will appear in the middle. Thus, if a dimension 
 corresponds to conscientiousness, we expect ``punctual'' and ``orderly'' to 
-appear near the top and ``inefficient'' to appear near the bottom.
+appear near the top and ``irresponsible'' to appear near the bottom.
+
+\section{Matching components}
+
+Since some of the smaller datasets were not easy to interpret by themselves, I
+wanted to check whether the components in the more-interpretable larger datasets
+matched the components extracted in the smaller datasets or if the two sets
+of word-lists were extracting entirely different facets of meaning as
+significant.
+
+To compare two components from two different word-lists, I first reduced the
+word-lists to only the common words. Then I looked at the correlation between
+the scores assigned to words in one list and the words assigned to the other.
+Because I do not know the distribution of word scores, it was safer to use
+Spearman correlation to determine significance.
+
+Once I had the correlations and the associated p-values between all pairs of
+components, I controlled the false discovery rate at 1\% using the procedure
+from \todo{ref cite Benjamini, Y. \& Yekutieli, D. (2001) The control of 
+the false discoveryrate in multiple testing under dependency. 
+The Annals of Statistics. 29(4), 1165-1188}. I chose to control false discovery 
+rate rather than
+family-wise error rate because decisions about this data depend mainly on the
+individual component pair matches rather than on the whole collection being 
+right or wrong. I used Benjamini and Yekutieli rather than the more common
+Benjamini and Hochberg because it is possible that my data violates the 
+positive dependence assumption in 
+\todo{ref cite Benjamini, Y. \& Hochberg, Y. (1995) Controlling the false 
+discovery rate: A practical and powerful approach to multiple testing. Journal
+of the Royal Statistical Society, Series B (Methodological). 57(1),
+289-300.}. Benjamini and Yekutieli does not have this restriction, thus it was
+more appropriate.
+
+Multiple test correction trades off Type I error (false matches in this case) 
+for Type II error (missed matches). Because I anticipated that most matches
+would be in the first components and because I wanted to have as few missed
+matches as possible, I used a sequential procedure to choose which dimensions
+to compare based on matches in other datasets.
+
+I started by comparing all components of the 2797 word set with all 
+components from the combined 101 and 438 word sets. I then chose a number of
+dimensions that got the vast majority of matches (possibly excluding a few
+outliers). For the MDS transformed data, this was the first 52 components. 
+Then, I compared the 101 and 438 word sets on only these dimensions. Again I
+selected the number of components that best captured the matches. Finally,
+I compared the 101 and 2797 word sets on the number of dimensions derived from
+the 101 and 438 word comparison. 
+
+This procedure makes the test less likely to miss matches in the region most
+likely to contain them by ignoring potential matches in the other regions.
 
 \end{document}
