@@ -5,7 +5,7 @@
 
 \section{Corpus: WMT11}
 
-For training, we used the English WMT11 corpus. This is a training set collected 
+For training, I used the English WMT11 corpus. This is a training set collected 
 for an academic competition at the sixth workshop on statistical machine 
 translation. It is composed of minutes of the European parliament, news 
 commentary, and news articles collected by the common crawl in the years 
@@ -18,7 +18,7 @@ All of the WMT11 corpus is broken into single sentence lines. Enclitics have
 been separated so ``don't'' is written as two words ``don'\phantom{}'' and the 
 single letter ``t''.
 
-We chose to use the WMT11 corpus because it was both large (several billion 
+I chose to use the WMT11 corpus because it was both large (several billion 
 words) and had already been used with the skip-gram model in \todo{the paper on 
 language translation with the skip-gram}. Additionally, it had been originally 
 compiled for a competition, this assured that much preprocessing had already 
@@ -27,12 +27,12 @@ been done.
 \section{Preprocessing}
 
 Despite some preprocessing having been done, as is customary in natural language 
-processing, we still needed to do additional preprocessing to normalize the data 
-for our purposes.
+processing, I still needed to do additional preprocessing to normalize the data 
+for my purposes.
 
 \subsection{Filter angle tags}
 
-The first step we took was to remove spurious HTML and SGML tags that had been 
+The first step I took was to remove spurious HTML and SGML tags that had been 
 accidentally left in the data by the common crawl acquisition software. Most of 
 the data is plain text. However, sometimes the software downloading the news 
 stories did not parse the HTML correctly or the source material had erroneous 
@@ -41,10 +41,10 @@ corrupted by portions surrounded by angle brackets like <P>. There were also
 stock-ticker symbols and other miscellaneous garbage included. These symbols 
 would show up as words, but they are not English words and, being remnants of 
 the download algorithms, are used inconsistently. To remove this digital 
-flotsam, we wrote the script \filename{filter\_angle\_tags.pl} listed in 
+flotsam, I wrote the script \filename{filter\_angle\_tags.pl} listed in 
 Appendix \ref{app:filterangletags}.
 
-We developed the script by first listing all the unique strings that began with 
+I developed the script by first listing all the unique strings that began with 
 < and ended with >, call each of these a tag. The function of some tags was 
 obvious. For example, some were part of HTML. For each non-obvious tag, we found 
 it in the corpus to determine its use from context. Then we appended it to a 
