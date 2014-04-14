@@ -375,8 +375,7 @@ a result of experimental manipulation is significantly greater than the
 variation from other sources, we can identify the components associated with 
 experimental variation by looking at those which capture a much larger portion 
 of the total variation than their fellows\footnote{Assuming a roughly linear 
-response of measured components to the underlying variables. See the discussion 
-of nonlinearity later}. In general, an effective way of detecting these 
+response of measured components to the underlying variables.}. In general, an effective way of detecting these 
 components is hand-analysis of a scree-plot\footnote{A scree plot plots the 
 component index in the horizontal axis and the corresponding eigenvalue 
 (corresponding to the proportion of variance accounted for) on the vertical 
@@ -400,18 +399,9 @@ left-most point where the graph ceases to appear as an exponential decay.
 
 By choosing numbers of components that match human intuition and also examining 
 points suggested by the heuristic algorithms, we can come up with a good guess 
-as to how many components we might need to examine. If we had come up with a set 
-of identifiable components it would be good practice to repeat the experiment 
-with more rigorous component selection methods like Horn's Parallel Analysis and 
-its descents \todo{cite Horn 1965, Ruscio and Roche 2012} or Raiche et. al.'s 
-tests \todo{cite Raiche, Roipel, and Blais} and then do confirmatory analysis on 
-a different dataset. However, not having identified a set of good factors we 
-were content with possibly overextracting factors.
+as to how many components we might need to examine. 
 
-A significant risk of extracting factors in this way is the underlying 
-assumption of approximately linear behavior. If the underlying system has 
-significantly nonlinear responses, the extracted factors may not be very 
-interpretable in themselves. We entered this experiment assuming a basically 
+We entered this experiment assuming a basically 
 linear underlying structure because such a structure exists in the normal 
 personality assay manner of determining personality components. However, the 
 scree plots we generated bear a broad resemblance to those in \todo{cite my blog 
@@ -419,9 +409,10 @@ post on the shifted 1's problem} where a nonlinear structure made the basic
 elbow method and the other heuristics we used perform poorly in determining the 
 number of components.
 
-\todo{Revise to reflect that nonlinear structure determined that the main 
-limitation on the number of components examined would be human time rather
-than known significance.}
+Because of the strong possibility of nonlinear structure, the number of 
+components we examined depended mostly on our time rather than criteria in the 
+data. In general we only examined the first 15 principal components of any
+transformed dataset.
 
 \section{Sorting words to identify components}
 
