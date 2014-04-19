@@ -157,6 +157,8 @@ documents with Columbus, legislature, meet, and session.
 
 \subsection{Skip-gram Model}
 
+\todo{Write how the model works.}
+
 \section{Applications of Vector-based lexical semantics}
 
 \section{PCA and Factor analysis}
@@ -331,7 +333,40 @@ p.284}
 
 \section{Skip gram model}
 
-\section{Studies using topic models for personality investigation}
+\todo{Write just a discussion of the different work that has occurred since
+the model was published, not the details of how the model itself works.}
+
+\section{Studies involving both topic models and personality}
+
+To my knowledge, no one has yet attempted to derive the structure of personality
+words by looking at the components of a vector-space model. And as shown
+by the exhaustive look at papers using Mikolov's work, I am certain no one
+has attempted it with vectors from his skip-gram model. However, that does not
+mean that the subjects of vector-space lexical semantics and personality are
+completely disjoint. I located a number of articles where both played a role.
+Most were attempts to predict personality or some aspect thereof from some body 
+of text like emails or tweets. There was also one paper that used topic
+models as an exploratory tool, attempting to discover more about personality.
+A final paper, in deriving results about the structure of language,
+found three dimensions that were consistent across different
+languages and different source corpora. Of these three, at least two and 
+possibly all are personality-relevant.
+
+\subsection{Personality predictive models}
+
+The majority of papers looking at both vector-space language models and 
+personality are attempts to predict personality or some aspect thereof from a 
+body of text.
+
+\todo{cite Shen Brdiczka Liu 2013} build a classifier to predict three levels
+(high, medium, and low) of each of the Big Five personality dimensions from
+individual emails using hand-selected features. One of the underlying 
+probabilistic models they reject is an LDA variant. Their final classifier
+achieves around 70\% accuracy.
+
+\todo{cite Hill, Song, Dong 2001} use LSA on a collection of design documents
+to produce vectors which they separate into components one coming from 
+the author's, speaking personality and the other from the topic of the document.
 
 In \todo{cite Gill and French 2007} the authors attempted to predict personality
 using three different vector space lexical semantic models including LSA. These
@@ -350,14 +385,36 @@ models created in a different domain to examine poorly selected features in
 a very small list of documents as an alternate explanation for their failure.
 
 In \todo{cite Arvidsson Sikstrom and Werbart 2011} they use LSA to show that 
-psychotherapy causes changes in a self-report based personality index based 
+psychotherapy causes changes in a self-report-based personality index based 
 on a patient's description of himself, his mother and his father.
 \footnote{I was unable to access the full text of this article before I
 had to submit the thesis but I still felt that the article was likely 
 relevant.}
 
+\todo{cite Pennacchoiotti2011} uses a large number of features including topics
+from different LDA models to predict various features of Twitter users including
+political orientation, which may be considered a correlate of the openness
+personality dimension.
+
+\subsection{Questions in the study of personality}
+
+Besides these predictive studies, one article used vector-space lexical 
+semantics as a tool to explore personality. \todo{cite Schwartz2013a} use a 
+database of 14.3 million posts from 75,000 
+Facebook users who took a Five Factor questionnaire and analyzed their Facebook 
+posts to gain insight into gender, age, and personality. One of the features 
+they examine is topics from an LDA model. Their personality-sorted results
+mainly looked at N-grams (which produced the novel observation that introverts
+like Japanese culture). Their insights from the LDA were mainly about lifespan
+issues. For example, social
+topics increase with age and antisocial topics decrease.
+
+\subsection{Serendipitously discovered personality factors}
+
 Possibly the most relevant work is \todo{cite Samsonovich2010} (which is an
-expansion of \todo{cite Samsonovich2007}) where the authors
+expansion of \todo{cite Samsonovich2007}). In this work the authors are not
+intending to discover anything about personality, rather they are investigating 
+the semantic structure of language. They
 analyze synonyms and antonyms in English, French, and German. In all three
 languages, they discovered that the first three principal components could be
 summarized as measuring positive/negative (valence), strong/weak 
@@ -365,7 +422,7 @@ summarized as measuring positive/negative (valence), strong/weak
 to Mikolov for constructing the space in that they minimized a cosine distance
 for close words. But because of the presence antonym information, they were
 also able to specify that antonyms should have maximum cosine distance.
-The resulting vector assignments had a strong 4 solution set of principal
+The resulting vector assignments had 4 obvious and strong principal
 components, of which 3 were replicated across languages. Because of the
 underlying human-generated synonym-antonym classification, the generated
 categories better reflect the way humans divide up the world. Additionally,
@@ -381,6 +438,7 @@ factors comes in part from the fact that humans, the main measuring instrument,
 classify \textit{everything} along these two dimensions. It would be a very
 interesting follow-up to look at the portion of semantic space generated
 from these thesauri inhabited by personality words and see what other 
-dimensions are present.
+dimensions are present when the noise of multiple, overlapping topic-areas
+is removed.
 
 \end{document}
