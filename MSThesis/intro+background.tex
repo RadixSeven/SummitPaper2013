@@ -244,7 +244,8 @@ factors} manually reviewed the list and chose 35 trait variables he felt
 summarized the words in Allport's first category trait list. This list is
 notable because Cattell used it to produce his influential 16 factor model
 and an independent analysis by Tupes and Christal in 1961 \todo{cite ref Tupes 
-and Christal 1992} is the first known recognition of the five factor model.
+and Christal 1992} is an the first clear recognition of the five factor 
+model.
 
 The last of the massive dictionary derived trait-lists was published by W. T. 
 Norman in 1967 \todo{cite ref Norman1967}. He started with all 4 categories of
@@ -330,6 +331,56 @@ p.284}
 
 \section{Skip gram model}
 
-\section{Finding personality dimensions}
+\section{Studies using topic models for personality investigation}
+
+In \todo{cite Gill and French 2007} the authors attempted to predict personality
+using three different vector space lexical semantic models including LSA. These
+models were trained on several standard news and academic corpora. They
+had emails from students who had taken the Eysenck Personality Questionnaire and
+tried to predict their extroversion and neuroticism by looking at the similarity
+of their emails to 10 prototypical words ``defining a trait'' from \todo{cite ref 
+Goldberg 1992 Development of markers for the Big-Five factor structure} and
+by looking at the 7 words that were most frequent in emails from the people who
+were most extreme on the given traits. The semantic models failed on both
+counts while human raters were able to reliably predict both extroversion and
+neuroticism from the same texts. They concluded that topic models do not
+extract the right kind of information to classify personality. An external
+observer, however, might note their unsophisticated use of pre-made topic
+models created in a different domain to examine poorly selected features in 
+a very small list of documents as an alternate explanation for their failure.
+
+In \todo{cite Arvidsson Sikstrom and Werbart 2011} they use LSA to show that 
+psychotherapy causes changes in a self-report based personality index based 
+on a patient's description of himself, his mother and his father.
+\footnote{I was unable to access the full text of this article before I
+had to submit the thesis but I still felt that the article was likely 
+relevant.}
+
+Possibly the most relevant work is \todo{cite Samsonovich2010} (which is an
+expansion of \todo{cite Samsonovich2007}) where the authors
+analyze synonyms and antonyms in English, French, and German. In all three
+languages, they discovered that the first three principal components could be
+summarized as measuring positive/negative (valence), strong/weak 
+(dominance,arousal), and open/closed (freedom). They used a similar criterion
+to Mikolov for constructing the space in that they minimized a cosine distance
+for close words. But because of the presence antonym information, they were
+also able to specify that antonyms should have maximum cosine distance.
+The resulting vector assignments had a strong 4 solution set of principal
+components, of which 3 were replicated across languages. Because of the
+underlying human-generated synonym-antonym classification, the generated
+categories better reflect the way humans divide up the world. Additionally,
+the first two categories are similar to several two-factor personality models:
+Morality/Dynamism \todo{ref cite Saucier, Georgiades, Tsaousis, and Goldberg 2005}
+or Virtue/Dynamism \todo{ref cite De Raad and Barelds 2008}. The authors also
+see a similarity between their factors and Communion/Power from the 
+interpersonal Circumplex of Leary \todo{ref cite Leary T (1957) 
+Interpersonal diagnosis of personality. New York: Ronald Press}. This suggests
+the 
+interesting possibility that the great cross-cultural similarity in personality
+factors comes in part from the fact that humans, the main measuring instrument,
+classify \textit{everything} along these two dimensions. It would be a very
+interesting follow-up to look at the portion of semantic space generated
+from these thesauri inhabited by personality words and see what other 
+dimensions are present.
 
 \end{document}
