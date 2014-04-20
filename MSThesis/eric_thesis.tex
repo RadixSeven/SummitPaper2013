@@ -10,6 +10,9 @@
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{subfiles}
+\usepackage[round]{natbib}
+
+\bibliographystyle{plainnat}
 
 \graphicspath{ {images/} }
 
@@ -18,6 +21,8 @@
 \newcommand{\filename}[1]{\textit{#1}}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
 
+
+
 \author{Eric Moyer}
 \title{Skip-gram Extraction of Personality Components from News Corpora}
 \begin{document}
@@ -25,5 +30,9 @@
 \subfile{methods.tex}
 \subfile{results.tex}
 \subfile{discussion.tex}
+
+\bibliography{Thesis}
+
 \subfile{appendix.tex}
+
 \end{document}
