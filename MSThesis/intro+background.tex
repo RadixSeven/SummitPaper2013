@@ -109,8 +109,9 @@ appear, the factors that did were still of interest themselves.
 
 Vector-based lexical semantics is the study of algorithms that assign vectors to 
 words in a way that reflects the meaning of those words. The first vector-based 
-lexical semantic algorithm was LSA (Lexical Semantic Analysis), invented in 
-\todo{some-year} by \todo{some-person}. LSA works off of a bag-of-words model of 
+lexical semantic algorithm was LSA (Latent Semantic Analysis), invented in 
+1988 by a team lead by Thomas Landauer \citep{Dumais1988}. LSA works off of a 
+bag-of-words model of 
 source documents. The training documents are turned into a matrix in which each 
 row corresponds to a document, each column to one word in the vocabulary, and 
 each entry counts the number of occurrences of a particular word in the 
@@ -122,18 +123,25 @@ its principal components and their loadings by SVD (singular value
 decomposition) and the most significant components are chosen. If the resulting 
 reduced matrices are multiplied together, it produces a smoothed term-document 
 matrix guaranteed to be the closest one can come to the original matrix (in the 
-least-squares sense) with the chosen number of factors.
+least-squares sense) with the chosen number of factors. The reduced matrices
+can be used to measure distance between two documents, two terms, or a term and
+a document.
 
-\todo{include section on how to use LSA for document-query similarity and 
-word-word similarity}
-
-Any modern application of LSA is usually more complicated. For example, the raw 
+Any modern application of LSA is usually more complicated than the simple 
+procedure outlined above. For example, the raw 
 counts are usually transformed by the TF/IDF (term-frequency/inverse document 
 frequency) transformation where the counts are replaced by the log of the count 
-in that document divided by the mean count. \todo{ref and check procedure, esp 
-what happens at 0}. This procedure was originally justified on the heuristic 
-grounds that it emphasized words that better distinguished between documents. 
-\todo{ref} Later, a probabilistic justification was discovered. \todo{ref} There 
+in that document divided by the mean count. 
+
+$$tfidf(c,d,n)=\left(\log_2{c+1}\right) \log_2{\frac{n}{d+1}}$$
+
+Where $c$ is the number of occurrences of the term in a document, $n$ is the 
+number of documents, and $d$ is the number of documents in which the term 
+appears at least once. The above formula is one of many minor variations 
+all referred to as TF/IDF. This procedure was originally justified on the 
+heuristic grounds that it emphasized words that better distinguished 
+between documents. 
+Later, a probabilistic justification was discovered \citep{Hiemstra2000}. There 
 are also methods for choosing which words to include in the vocabulary 
 \todo{ref}, modifying the words for better retrieval (stemming) \todo{ref}, 
 choosing the number of dimensions to keep \todo{ref}, and many other refinements 
@@ -149,17 +157,62 @@ documents with Columbus, legislature, meet, and session.
 
 \subsection{PLSA}
 
+The next step after LSA was Probabilistic Latent Semantic Analysis (PLSA) 
+\citep{Hofmann1999}. Rather than just a 
+procedure to generate distances between textual elements of interest, PLSA 
+provided a generative model which allowed interpretation of the document 
+structure and of the results from the analysis. It also allowed for a principled
+choice of such hyperparameters as the number of dimensions in the latent space.
+
+PLSA derives from the term-document matrix in a simple way. If you divide the
+entries in the term document matrix by the total of the entries in the matrix
+(that is, divide by the number of words in the corpus represented by the matrix)
+you get a joint probability distribution over terms and documents: $P(t,d)$.
+\footnote{Technically, this procedure is an MLE for the joint distribution 
+not the distribution itself} The definition of conditional probability means 
+that we can write this distribution as $P(d)P(t|d)$. We then make the 
+assumption that there is a latent structure of 
+classes\footnote{In \citep{Hofmann1999} they are referred to as 
+aspects''} underlying this distribution. These classes determine the 
+probability that a document will generate a word. 
+$P(t|d)=\sum_{c\in C}P(t|c)P(c|d)$. So, each document has a certain probability
+of generating each class and each class has a certain probability of generating
+each word. This simple model has an efficient Expectation Maximization (EM) 
+algorithm for computing it starting with the term-document matrix.
+
+In PLSA, each class has an associated distribution of terms $P(t|c)$. If for 
+each term, we look at its probability under the class in some ordering of the 
+classes, we get a vector for that term $t_i = P(t|c_i)$. Unlike in LSA, these
+vectors have a clear interpretation. And the probabilistic substructure makes
+it easy to combine PLSA with other models of other parts of language (like 
+Probabilistic Context Free Grammars) to create complex and expressive language
+models for use in machine translation and text understanding tasks.
+
 \subsection{LDA}
 
-\subsection{N-word context models}
+From PLSA, it was only a short step to LDA which allows sharing parameters over
+documents. In PLSA, documents appear as a set of class-generating probabilities.
+Since the number of parameters grows with the number of documents in the corpus,
+there is a danger of overfitting. \citep{Hofmann1999} addressed the problem of
+overfitting with a Tempered EM model. But it was still a problem.
 
-\subsection{Prototype-based models}
+LDA addressed this by eliminating the document as an entity from the training
+set and instead assumed that documents are chosen at random by first choosing
+their length n (from a Poisson distribution, though that is not essential) and
+then choosing their topic-probabilities from a Dirichlet distribution and
+finally choosing n topics and generating n words from them. (Each topic is
+associated with a vector of word probabilities like in PLSA. In LDA, these are
+all combined into a single matrix called $\beta$.)
+\citep{Blei2003} The LDA model is too complex to estimate exactly. Instead, 
+approximate methods like Markov Chain Monte-Carlo and Variational Bayes 
+inference are used. Though LDA has many, many applications as a model that
+produces a vector space embedding of words, like PLSA before it, it produces
+a matrix giving the conditional probabilities of terms given topics\footnote{analogous to the aspects/classes of the PLSA}
 
-\subsection{Skip-gram Model}
+\subsection{\modelname{}}
 
 \todo{Write how the model works.}
 
-\section{Applications of Vector-based lexical semantics}
 
 \section{PCA and Factor analysis}
 
