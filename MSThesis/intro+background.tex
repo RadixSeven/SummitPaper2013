@@ -331,27 +331,28 @@ p.284}
 
 \chapter{Related Work}
 
-\section{Continuous skip-gram model}
+\section{\modelname{} model}
 
 There has not been a lot of time since the publication of the \modelname{} model. 
-However, it has seen research in three main categories:
-algorithm and vector improvements, applications within Natural Language 
-Processing (NLP) and applications outside NLP. It has also seen use as a 
+However, in that period, researchers have attempted to improve its algorithms
+and vector quality, and also created applications, both within and outside 
+Natural Language Processing (NLP). It has also seen use as a 
 standard reference to which the performance of other algorithms is compared.
 
 \subsection{Algorithm and Vector Improvements}
 
-\citep{Mikolov2013c} tested an alternative training procedures. They tested an 
+\citep{Mikolov2013c} tested alternative training procedures. They tested an 
 alternative to the hierarchical softmax used in the \modelname{} model called 
 negative 
 sampling. The also tested a way of giving less weight to frequent words
-which speeds up training. When the weight adjustment improved training better
-than the negative sampling change. They also demonstrated a simple method
+which speeds up training. The weight adjustment improved the resulting vectors
+more than negative sampling. They also demonstrated a simple method
 of extracting phrases whose meanings were not simple compositions of their
 component part meanings and extended their semantic test suite to use some
 of these phrases.
 
-\citep{Faruqui2014} created a method using CCA to take vectors generated on
+\citep{Faruqui2014} created a method using CCA (Canonical Correlation Analysis) 
+to take vectors generated on
 monolingual corpora for different languages and combine them to create new sets
 of vectors utilizing the semantic information from both. They then compared the
 semantic distance mappings thus obtained to several sets of human-labeled 
@@ -380,12 +381,13 @@ matched opposite language word. So, for example, the word
 \footnote{Because their Hebrew-English parallel text pairs the 
 Hebrew Bible with its King James translation, one of their tests involves 
 synonyms taken from Strong's 1890 
-concordance. They are probably unaware that many people believe that they can
-pick and choose glosses from this dictionary to give other nuances held by the 
-original Greek or Hebrew that do not make it into English because all the senses 
-are expressions of some ``root meaning'' of the word (they also do similar
-things with the etymology entries in the same dictionary). This makes 
-his work an ironically appropriate choice for this study 
+concordance. Many people believe that
+all the senses of a word are expressions of some ``root meaning'' of that word 
+and so
+pick and choose glosses from Strong's dictionary to give other nuances they 
+believe were held by the 
+original Greek or Hebrew that did not make it into English. This makes 
+Strong's work an ironically appropriate choice for this study 
 since this ``root meaning'' assumption is almost the same as the assumption that 
 vector-space language models impose by assuming a single point for each word 
 and which the authors are trying to overcome by using multiple languages.}
@@ -401,16 +403,15 @@ several more expressive models by the same authors on both Freebase and
 WordNet datasets. And even when the link predictions do not contain the best
 answer, they reflect common sense.
 
-\subsection{Applications within NLP}
+\subsection{Applications}
 
 \citep{Mikolov2013a} creates a method of generating phrase tables and 
 dictionaries from two languages with only a small amount of bilingual data.
 They first train the \modelname{} model on two independent monolingual corpora 
-and then align the vector spaces with linear transformation derived from a small 
-number of matched word pairs. The resulting translations had the correct word 
-within the top 5 candidates (which were usually synonyms) 90\% of the time.
-
-\subsection{Applications outside NLP}
+and then align the vector spaces with a linear transformation derived from a 
+small number of matched word pairs. The resulting translations had the 
+correct word within the top 5 candidates (which were usually synonyms) 90\% of 
+the time.
 
 \citep{Frome2013} used \modelname{} vectors as the targets in a second round
 of training a state-of-the-art image recognition convolutional neural network.
@@ -422,6 +423,11 @@ published \citep{Norouzi2013} which
 generalized the method to allow use of any n-way image classifier and to 
 remove the requirement that the classifier had to be retrained using the 
 new output structure. 
+
+\citep{Osendorfer2013} proposed using \modelname{} vectors in an information
+retrieval setting for computing similarity between musical pieces. Looking at 
+music as a language, they intend to use the sparse translation technique from
+\citep{Mikolov2013a} to translate between normal language and music.
 
 \section{Studies involving both topic models and personality}
 
