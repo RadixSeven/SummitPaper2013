@@ -353,15 +353,24 @@ implementations of \modelname{} follow \citep{Mikolov2013c} in using a binary
 Huffman tree because its assignment of short codes to frequent words speeds
 up training.
 
-\subsubsection{Importance Sampling}
-
-\todo{Talk about the nonuniform sampling due to closer items being more relevant}
-
 \subsubsection{Training}
+
+
 \todo{Talk about training proceeding word-wise with a linearly decreasing
 learning rate. How the people with the Hebrew multilanguage training set used
 batch updates and the social network path people spoke of using a fixed learning 
 rate to allow for online updating of the model}
+
+\subsubsection{Importance Sampling}
+
+The size of the context used in the Skip-gram matters. Increasing context tends
+to increase the quality of the model. However, increasing context also increases
+training time. Further, the more distant words are less relevant to the current
+word. So, instead of uniformly sampling the space of skip-grams when training,
+a subset focusing on the words near the center is used. In particular, For each
+target word, the algorithm selects a random integer $R$ in the range 
+$[1\ldots{}C]$ where $C$ is the maximum context size. Then the context words 
+at distances less than $R$ are used to train that target. 
 
 \section{PCA and Factor analysis}
 
