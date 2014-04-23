@@ -355,11 +355,23 @@ up training.
 
 \subsubsection{Training}
 
+Training begins with all of the inner node vectors initialized to 0 and the 
+leaf node vectors initialized randomly on the $[-0.5\ldots0.5]$ hypercube. Then
+for each pair of context and target words, the gradient is calculated and the 
+vectors are moved to reduce the error. The size of these moves is controlled 
+by a learning rate parameter that starts large at the beginning of training and
+decreases linearly so that the iteration after the last training sample would
+have a learning rate of 0. This causes the model to make big moves when the 
+vectors are mostly random and, as it converges on a good solution, to make finer
+adjustments.
 
-\todo{Talk about training proceeding word-wise with a linearly decreasing
-learning rate. How the people with the Hebrew multilanguage training set used
-batch updates and the social network path people spoke of using a fixed learning 
-rate to allow for online updating of the model}
+There have been a few variants to this training procedure reported. 
+\citep{Wolf} used batch updates to speed up training - accumulating the gradient
+for each training sample but waiting until a certain, small number of training 
+samples had been observed before updating the vectors. \citep{Perozzi2014}
+proposed using the method in an on-line, streaming context which would require
+removing the linearly decreasing learning rate because the number of training
+samples would not be known in advance.
 
 \subsubsection{Importance Sampling}
 
