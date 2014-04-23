@@ -30,16 +30,29 @@ predicting the world as a gestalt, we use abstraction to break the world
 into pieces whose individual predictions can be combined to make larger-scale
 inferences.
 
-One of the most important abstractions we use is the concept of person.
-Even at 3 months old, human infants have begun to use their knowledge of 
-people to make inferences about unperceived properties of their surroundings. 
-\todo{cite ref Spelke 1994 Cognition ``Initial knowledge: six suggestions''}
-The concept of person divides the the world into things that are people and
-things that are not. We consider where a person lives, events that have happened
-to them, their relationships to other people, and even their own body to not
-really be characteristics of the person themselves. On the other hand, we 
-consider a person's mind
+\reviewercomment{This is very clever and also unorthodox.  I like it, but will leave it up to the rest of the committee as to whether it should be kept.}
+
+One of the most important abstractions we use is the concept of
+person.  Even at 3 months old, human infants have begun to use their
+knowledge of people to make inferences about unperceived properties of
+their surroundings.  \todo{cite ref Spelke 1994 Cognition ``Initial
+  knowledge: six suggestions''} The concept of person is integral to
+the human condition; it allows us to divide the the world into things
+that are people and things that are not. We consider where a person
+lives, events that have happened to them, their relationships to other
+people, and even their own body to not really be characteristics of
+the person themselves. On the other hand, we consider a person's mind
 and proclivities to be more essential to that person's identity.
+
+\reviewercomment{If you have time, it might be worthwhile to include a
+  reference here to Dawkins' idea that it is highly beneficial, from
+  an evolutionary perspective, to be able to model and predict the
+  behavior of other individuals.  Being able to do this gives us a
+  distinct advantage in social behavior and is probably an
+  evolutionary advantage.  As such, a great deal of our mind is linked
+  to this behavior, and we often apply it to non-persons with
+  interesting results, such as deciding that our car is out to get us
+  when it won't start, or that our knee doesn't like rainy days.}
 
 \section{Personality Models from Vectors}
 \label{sec:personalitymodelsfromvectors}
@@ -47,40 +60,43 @@ Personality is a set of internal, relatively enduring psychological
 characteristics and processes that predict a person's behavior. Producing good
 models of personality is an important endeavor in psychology.
 
-There are many sources for such models. In the first half of the 
-20\textsuperscript{th} century, psychologists created theories based on the
-professional and life experience of their originators 
-\todo{ref cite Monte 1977}. These theories frequently included models of
-personality: Freud's id, ego, and superego or Fromm's five character types based 
-on individual strategies to cope with alienation.
+There are many sources for such models. In the first half of the
+20\textsuperscript{th} century, psychologists created theories based
+on the professional and life experience of their originators \todo{ref
+  cite Monte 1977}. These theories frequently included models of
+personality: Freud's id, ego, and superego or Fromm's five character
+types based on individual strategies to cope with alienation.
 
-Various experiments and other observations can also suggest models and theories
-themselves. Since the 1980's, many personality psychologists have begun using 
-trait models derived from factor analysis of people's usage of language in 
-describing others. The most famous of these is the Five Factor Model measured by 
-McCrae and Costa's NEO inventory. It measures personality along the five 
-dimensions of Openness to experience, Conscientiousness, Extraversion, 
-Agreeableness, and Neuroticism (which form the mnemonic OCEAN). Personality 
-trait models like the Five Factor Model are used in a wide variety of contexts. 
-They are used in dating sites, career counseling, management, clinical 
+Various experiments and other observations can also suggest models and
+theories themselves. Since the 1980's, many personality psychologists
+have begun using trait models derived from factor analysis of people's
+use of language in describing others. The most famous of these is
+the Five Factor Model measured by McCrae and Costa's NEO inventory. It
+measures personality along the five dimensions of Openness to
+experience, Conscientiousness, Extraversion, Agreeableness, and
+Neuroticism (which form the mnemonic OCEAN). Personality trait models
+like the Five Factor Model are used in a wide variety of contexts.
+They are used in dating sites, career counseling, management, clinical
 psychology and school adjustment.
 
-These personality factors come out of turning people's descriptions of others 
-into vectors using questionnaires. Each vector dimension corresponds to rating 
-the person on one aspect of personality. People's descriptions on hundreds of 
-adjectives can be predicted well by their ratings on only the 5 OCEAN 
-dimensions. For each adjective, there are 5 values that, when multiplied by the 
-5 model dimensions, give the prediction of a person's rating for that dimension. 
-These 5 values are a vector. So the 5 factor model turns adjectives into 
-vectors. The components of the vectors are the semantic contributions of each of 
-the model dimensions to that vector's adjective.
+These personality factors are developed by transforming people's
+descriptions of others into numeric vectors using questionnaires. Each
+vector dimension corresponds to rating the person on one aspect of
+personality. People's descriptions on hundreds of adjectives can be
+predicted well by their ratings on only the 5 OCEAN dimensions. For
+each adjective, there are 5 values that, when multiplied by the 5
+model dimensions, give the prediction of a person's rating for that
+dimension.  These 5 values are a vector. So the 5 factor model turns
+adjectives into vectors. The components of the vectors are the
+semantic contributions of each of the model dimensions to that
+vector's adjective.
 
 \section{Vectors from Text}
 
 In a completely different field, there is another way of turning words into 
 vectors. In the 1990's, techniques like Latent Semantic Analysis (LSA) were 
 developed to turn bodies of text into vectors that in some sense approximated 
-the meaning of words - and do it with very little \textit{a-priori} knowledge. 
+the meaning of words -- and do it with very little \textit{a-priori} knowledge. 
 The early techniques only captured a small part of word meaning but even that
 small portion greatly enhanced search technology and was sufficient to give
 non-native speaker levels of performance in identifying word synonyms. Today, 
@@ -92,14 +108,16 @@ captured but its meaning as well.
 
 \section{What Personality from Text?}
 
-Since there is a source for vectors indicating the meaning of different words. 
-It seems reasonable that the most important components of the meaning of 
-personality words would be the factors that make up personality as described by 
-humans. So, I set up an experiment to look at the vectors for personality words 
-in a skip-gram model to see what personality factors would be found. On setting 
-it up, I believed that it was likely I would uncover the Five Factor Model (or 
-one of its competitors) in the data. Though the Five Factor Model did not 
-appear, the factors that did were still of interest themselves.
+Since there is a source for vectors indicating the meaning of
+different words.  It seems reasonable that the most important
+components of the meaning of personality words would be the factors
+that make up personality as described by humans. To evaluate this
+hypothesis, I designed an experiment to look at the vectors for
+personality words in a skip-gram model to see what personality factors
+would be found. I believed that it was likely I would uncover the Five
+Factor Model (or one of its competitors) in the data. Though the Five
+Factor Model did not in fact manifest directly, the factors that did
+were nonetheless of interest themselves.
 
 \chapter{Background}
 
@@ -114,9 +132,8 @@ analysis.
 Vector-based lexical semantics is the study of algorithms that assign vectors to 
 words in a way that reflects the meaning of those words. The first vector-based 
 lexical semantic algorithm was LSA (Latent Semantic Analysis), invented in 
-1988 by a team led by Thomas Landauer \citep{Dumais1988}. LSA works off of a 
-bag-of-words model of 
-source documents. The training documents are turned into a matrix in which each 
+1988 by a team led by Thomas Landauer \citep{Dumais1988}. LSA employs a bag-of-words model of 
+the source documents. The training documents are tallied to produce a matrix in which each 
 row corresponds to a document, each column to one word in the vocabulary, and 
 each entry counts the number of occurrences of a particular word in the 
 document. It is important to recognize that a document can be a group of words 
@@ -151,7 +168,7 @@ are also methods for choosing which words to include in the vocabulary
 choosing the number of dimensions to keep \todo{ref}, and many other refinements 
 to the technique.
 
-LSA came out of the document retrieval field and its first applications were in 
+LSA emerged from within the document retrieval field and its first applications were in 
 matching query strings to documents. It was very successful in finding documents 
 that were semantically appropriate but which contained no words in common with 
 the query. For example, with the right training set, "The legislature will meet 
@@ -365,7 +382,7 @@ order to interpret them.}
 \section{Lexical Hypothesis in Personality Psychology}
 
 As mentioned in Section \ref{sec:personalitymodelsfromvectors} there are many
-places to get personality models. One approach is to attempt to extract the 
+methods for formulating personality models. One approach is to attempt to extract the 
 intuitive personality model held by most people. It can be assumed that this
 model is reasonably good because our species, being very social, needs to 
 interact with and model others as a condition of survival. 
@@ -378,7 +395,7 @@ people's lives will eventually become encoded into their language''
 in the language of personality''} This approach was initially proposed by 
 Galton in 1884 \todo{cite Galton 1884 p. 181 ``Measurement of Character''
 Fortnightly Review} and was pursued by psychologists for the following century
-but it really took off after an influential seminar
+but it made its most significant gains in popularity after an influential seminar
 by Goldberg in 1983. \todo{cite Ian J Deary ``The trait approach to personality'' 
 p.90 chapter in ``Cambridge Handbook of Personality Psychology''} 
 
@@ -392,7 +409,7 @@ as well, spending time with Roget's Thesaurus and coming back with an estimate
 of 1,000 applicable words. \todo{cite Galton 1884 p. 181 
 ``Measurement of Character'' Fortnightly Review} 
 
-The next notable advance in word lists was by Allport and Odbert \todo{ref cite
+The next notable advance in word lists was reported by Allport and Odbert \todo{ref cite
 Allport and Odbert} who tabulated 
 all the trait names in the
 Webster's unabridged New International Dictionary. By their count, there were
@@ -403,7 +420,7 @@ mainly attempting to create a list in which the entries could be rough proxies
 for traits, they attempted to reduce redundancy by avoiding nominative and
 adverbial forms and including multiple words from clusters where they judged 
 that the different forms arose because of arbitrary morphological development 
-rather than reflecting semantic distinction. Thus 18K terms, frequently taken to 
+rather than reflecting semantic distinction. Thus \textasciitilde 18,000 terms, frequently taken to 
 be an approximation
 of the number of personality terms in the English language is actually an
 underestimate.
@@ -428,10 +445,10 @@ factors} manually reviewed the list and chose 35 trait variables he felt
 summarized the words in Allport's first category trait list. This list is
 notable because Cattell used it to produce his influential 16 factor model
 and an independent analysis by Tupes and Christal in 1961 \todo{cite ref Tupes 
-and Christal 1992} is an the first clear recognition of the five factor 
+and Christal 1992} is the first clear recognition of the five factor 
 model.
 
-The last of the massive dictionary derived trait-lists was published by W. T. 
+The last of the massive dictionary-derived trait lists was published by W. T. 
 Norman in 1967 \todo{cite ref Norman1967}. He started with all 4 categories of
 Allport and Odbert's list and added all words that ``pertained in any
 manner to attributed of persons or their behavior but which were not included 
@@ -450,7 +467,7 @@ that did not refer to social constructs as his list of 2800 trait words. His
 list did not restrict itself to adjectives.
 
 After Norman, people continued to produce word lists for trait evaluation. But
-many of them were much smaller - designed for use in direct personality 
+many of them were much smaller \textendash designed for use in direct personality 
 assessment and they are frequently dependent on one of the earlier lists. We
 use two such lists from Goldberg in our later analysis. \todo{cite ref Saucier
 and Goldberg 1996 (for 435 words) and Goldberg 1990}
