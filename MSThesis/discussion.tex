@@ -4,21 +4,31 @@
 
 \section{Interpretation of the dimensions}
 
-For many of the input datasets, the extracted meaning dimensions are hard to 
-interpret. However for the larger word-lists (2797 and all word-lists 
-combined), some examination reveals commonalities. 
-
-\todo{the following are just typed versions of my notes and need to be 
-seriously cleaned up}
-
-It seems that a lot of the dimensions are characteristics of the words 
-themselves and not as much characteristics of what the word describes.
+As I performed the component extractions, I examined the sorted word-lists, 
+which meant that I saw them in approximate numerical order according to the size 
+of the list. As I examined the components for the smaller word lists, I had 
+trouble coming up with coherent explanations. Some of the first few components 
+seemed related to a good/bad trait listing but the rest of the components will 
+be difficult to figure out. For example, components 1 and 2 of the unnormalized 
+101 word set seem to be more-or-less good/bad. This is a rough characterization. 
+Component 1 includes both extroverted and bashful on the ``bad'' side and 
+component 2 includes prompt on its bad side. But the rest of the components are 
+hard to describe. Even in the smaller lists, the MDS transform makes them much 
+more interpretable. In the first two components, there are many fewer strange 
+entries at the ends than when using the other two normalization methods. The 
+rest of the components are still hard to interpret though this is more from a 
+lack of vocabulary than from no sense in the ordering. In hindsight, having seen 
+the larger MDS set, it is clear that the third component is sorted on formality 
+and the fourth is related to how often the word is used to describe nonhuman 
+versus human characteristics. 
 
 \subsection{2797 Word with MDS}
 
-I think more than 14 components might be interpretable, however, I only did 14. 
-Of those components I could not interpret one at all and several others need 
-some improvement. 
+Once I reached the 2797 word list based on \citep{Norman1967}, interpretation 
+became much easier. I think more than 14 components might be interpretable, 
+however, I only had time for 14. Several of those need some improvement. 
+My interpretations are in Table
+\ref{tab:2797mdsinterp}.
 
 \subsubsection{Component 1}
 
@@ -48,36 +58,40 @@ parliamentary records. That it is not a perfect correlation indicates that
 there are still things I am overlooking. However, describing this dimension as 
 ``uncommon in parliament vs common'' seems to have some explanatory power.
 
-\subsubsection{More components}
-
-Below, I give possible interpretations to the first 14 components.
-
-\begin{enumerate}
- \item Uncommon in parliament (low) \ldots common in parliament (high)
- \item Positive-negative view
- \item Applies to non-humans too/human by analogy
- \item formality
- \item Words used in conflict (low) \ldots peace (high)
- \item power/authority situations
- \item Unknown
- \item Words used when making appeal: to reason (low) \ldots to emotion (high)
- \item social ostentation (low) vs private (high) - (but against this 
-       interpretation, fuddy-duddy gets in the low end) - another note is that 
-       one word that doesn't fit well ``cackler'' is very common in news 
+\begin{table}[tbp]
+\begin{tabular}{ | l |p{1.1in}|p{1.1in}|p{1.8in} |}
+ \hline
+ C & Low & High & Comment \\
+ \hline
+ 1 & Uncommon in parliament & common in parliament & \\
+ 2 & Negative & Positive & \\
+ 3 & Mainly describes humans & Describes non-humans also & \\
+ 4 & Informal & Formal & \\
+ 5 & Used in conflict & in peace & \\
+ 6 & Unrelated & Related to patriotism or authority-group loyalty & \\
+ 7 & Rebellious intellectual stereotype & Stereotypical opponent of 
+     rebellious intellectual & \\
+ 8 & Less emotional words & Emotionally charged words & Some of the low end 
+   may be words describing those with less emotion rather than words that 
+   stir up less emotion in the hearer\\
+ 9 & social ostentation & private  & But against this 
+       interpretation, fuddy-duddy gets in the low end. Another word
+       that doesn't fit well ``cackler'' is very common in news 
        stories about a particular police officer in Dallas whose discipline 
-       hearing exposed a scandal in the police force.
- \item ?business/practicality? vs religion/family/clan
- \item words used in describing people in: violent situations (low) \ldots 
-       non-violent situations (high)
- \item unknown vs restaurant and food (high). Maybe: world falls apart vs world 
+       hearing exposed a scandal in the police force. \\
+ 10 & business / practicality? & religion / family / clan & \\
+ 11 & Used to describe people in violent situations & Used to describe people in 
+       non-violent situations & \\
+ 12 & Unknown & restaurant and food (high) & Maybe: world falls apart vs world 
        holds together. (You never see dispiriting, bleak, nagging in a 
-       restaurant review or recipe.)
- \item again I see some of the restaurant review - this time on the low side 
-       \ldots ways people present themselves/words used in describing new 
-       people ``Wavy, mousy brown hair ''
- \item words that can describe both politicians or speeches and food \ldots 
-       unknown
-\end{enumerate}
+       restaurant review or recipe.) \\
+ 13 & restaurant review & ways people present themselves/words used in describing new 
+       people ``Wavy, mousy brown hair '' & \\
+ 14 & words that can describe both politicians or speeches and food  &  Unknown & \\
+ \hline
+ \label{tab:2797mdsinterp}
+\end{tabular}
+\end{table}
 
 \subsection{All combined with MDS}
 
@@ -110,6 +124,15 @@ less focus on personality)?
  \item things involving commitment/loyalty/disloyalty vs words that can 
 describe art - but against this: ``lucky'' having to do with personality?
 \end{enumerate}
+
+\section{Thoughts on interpretations}
+
+It seems that a lot of the dimensions are characteristics of the words 
+themselves and not as much characteristics of what the word describes.
+
+MDS is easier to interpret.
+
+
 
 
 \section{Not what I expected}
