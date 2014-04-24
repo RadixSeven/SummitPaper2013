@@ -1,8 +1,6 @@
 \documentclass[eric_thesis.tex]{subfiles}
 \begin{document}
-\chapter{Discussion}
-
-\section{Interpretation of the dimensions}
+\chapter{Factor Interpretation}
 
 As I performed the component extractions, I examined the sorted word-lists, 
 which meant that I saw them in approximate numerical order according to the size 
@@ -20,7 +18,13 @@ rest of the components are still hard to interpret though this is more from a
 lack of vocabulary than from no sense in the ordering. In hindsight, having seen 
 the larger MDS set, it is clear that the third component is sorted on formality 
 and the fourth is related to how often the word is used to describe nonhuman 
-versus human characteristics. 
+versus human characteristics. Based on Figure 
+\ref{fig:100vs2797First22} I believe that dimensions 6, 7, 8, 9 and 11
+would also be interpretable in hindsight.
+
+Factor interpretation is very time consuming so I was unable to look at all of 
+the word-list/transformation combinations however, I made an attempt to 
+interpret the factors arising out of some of the larger lists.
 
 \subsection{2797 Word with MDS}
 
@@ -44,7 +48,7 @@ political speech.
 
 I looked at the Spearman correlation between number of occurrences of the words 
 in the entire corpus and the values on the first dimension. It was 0.5739 
-(which gives a p value of $1.9120 \times 10^{-163}$ against the null hypothesis 
+(which gives a $p$ value of $1.9120 \times 10^{-163}$ against the null hypothesis 
 that there is no relationship). There is no other component which is so 
 strongly correlated with word frequency. However, the correlation is not 
 perfect. For example, the most frequent word in the list has a rank of 204 when 
@@ -52,8 +56,10 @@ you look at its score on the first dimension.
 
 To investigate the hypothesis that these words are not just more common but 
 more common in political speech, I also looked at the correlation with 
-frequency in the European parliament records. The correlation goes up to 0.6881 
-(p=3.8268e-261) and up to 0.7027 when looking at only words that appear in the 
+frequency in the European parliament records. The correlation between this 
+component and parliamentary frequency is 0.6881 
+($p=3.8268 \times 10^{-261}$).  It rises even farther to 0.7027 when looking 
+at only words that appear in the 
 parliamentary records. That it is not a perfect correlation indicates that 
 there are still things I am overlooking. However, describing this dimension as 
 ``uncommon in parliament vs common'' seems to have some explanatory power.
@@ -89,37 +95,60 @@ there are still things I am overlooking. However, describing this dimension as
 
 \subsection{All combined with MDS}
 
-Here the categories look similar to the 2797 word list. 
+When I combine all the word lists and apply MDS, the factors look similar to 
+the 2797 word list by itself. See Table \ref{tab:2797and438and101mdsinterp}. 
+There is a bit of variation in factors 5, 6, and 9 but not enough to really 
+change the interpretation that much.
 
-\begin{enumerate}
- \item Same
- \item Same
- \item Same
- \item Same
- \item Reversed from 2797
- \item Unknown
- \item Words that describe statements and people who make them thereby 
-       affecting our interpretation thereof vs unknown
-\end{enumerate}
+\begin{table}[tbp]
+\begin{tabular}{ | l |p{2in}|p{2in}|}
+ \hline
+ C & Low & High \\
+ \hline
+ 1* & Uncommon in parliament & Common in parliament\\
+ 2* & Negative & Positive\\
+ 3* & Mainly describes humans & Describes non-humans also \\
+ 4* & Informal & Formal \\
+ 5* & Used in peace & Used in conflict \\
+ 6 & Unrelated to group devotion & Group devotion \\
+ 7* & Stereotypical rebellious intellectual & Stereotypical opponent of 
+     rebellious intellectual \\
+ 8* & Less emotional words & Emotionally charged words \\
+ 9* & Social / ostentation & Private  \\
+ \hline
+\end{tabular}
+ \caption{Interpretations of the different components identified from the combining
+ all three word lists after MDS. * means the same as the 2797 interpretation.}
+ \label{tab:2797and438and101mdsinterp}
+\end{table}
+
 
 \subsection{2797 with z-score}
 
-These were much harder to interpret and there are more exceptions to each rule. 
-This is to be expected from the difference between the dot-product space in 
-which the similarity actually is measured and the euclidean space in which the 
-z-score and PCA combination operates.
+The z-score normalized factors, even in the 2797 word list were much harder to 
+interpret than the MDS normalized ones. There are also more exceptions to each 
+rule. This is to be expected from the difference between the dot-product 
+space in which the similarity actually is measured and the euclidean space in 
+which the z-score and PCA combination operates. The rough interpretation of 
+the first four factors is in Table \ref{tab:2797zscoreinterp}.
 
-\begin{enumerate}
- \item business (low) \ldots fashion (high)
- \item socially pleasant (low) \ldots socially unpleasant (high) - mostly 
-adjectives at the extremes.
- \item leadership qualities (low) vs ?words used in other contexts (words with 
-less focus on personality)?
- \item things involving commitment/loyalty/disloyalty vs words that can 
-describe art - but against this: ``lucky'' having to do with personality?
-\end{enumerate}
+\begin{table}[tbp]
+\begin{tabular}{ | l |p{2in}|p{2in}|}
+ \hline
+ C & Low & High \\
+ \hline
+ 1 & Business & Fashion \\
+ 2 & socially pleasant & Socially unpleasant \\
+ 3 & Leadership qualities & Words unrelated to leadership \\
+ 4 & Irrational commitment & Words that describe art \\
+ \hline
+\end{tabular}
+ \caption{Interpretations of the different components identified from the 
+ 2797 word list after z-score normalization.}
+ \label{tab:2797zscoreinterp}
+\end{table}
 
-\section{Thoughts on interpretations}
+\chapter{Discussion}
 
 It seems that a lot of the dimensions are characteristics of the words 
 themselves and not as much characteristics of what the word describes.
