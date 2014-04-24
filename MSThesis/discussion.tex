@@ -33,17 +33,17 @@ My interpretations are in Table
 \subsubsection{Component 1}
 
 The first dimension needs a bit of explanation. In the corpus, the 10 highest 
-ranked words appear in 526515/117296559 sentences (0.4\%), the 10 lowest 
-ranked words appear in only 5871 (0.005\%). This is even more pronounced in the 
+ranked words appear in 526,515/117,296,559 sentences (0.4\%), the 10 lowest 
+ranked words appear in only 5,871 (0.005\%). This is even more pronounced in the 
 minutes of the European parliament where the highly ranked words appear in 
-19196/2015440 sentences (1\%) but the lowest ranked words appear in 14 
+19,196/2,015,440 sentences (1\%) but the lowest ranked words appear in 14 
 (0.0006\%) (And, in all of those sentences, the only word appearing is 
 sly\_jj - the highest ranked word among the lowest 10). Thus, it may not be 
 just that these words are more common, but that they are more common in 
 political speech.
 
 I looked at the Spearman correlation between number of occurrences of the words 
-in the entire corpus and the values in on the first dimension. It was 0.5739 
+in the entire corpus and the values on the first dimension. It was 0.5739 
 (which gives a p value of $1.9120 \times 10^{-163}$ against the null hypothesis 
 that there is no relationship). There is no other component which is so 
 strongly correlated with word frequency. However, the correlation is not 
@@ -59,38 +59,32 @@ there are still things I am overlooking. However, describing this dimension as
 ``uncommon in parliament vs common'' seems to have some explanatory power.
 
 \begin{table}[tbp]
-\begin{tabular}{ | l |p{1.1in}|p{1.1in}|p{1.8in} |}
+\begin{tabular}{ | l |p{2in}|p{2in}|}
  \hline
- C & Low & High & Comment \\
+ C & Low & High \\
  \hline
- 1 & Uncommon in parliament & common in parliament & \\
- 2 & Negative & Positive & \\
- 3 & Mainly describes humans & Describes non-humans also & \\
- 4 & Informal & Formal & \\
- 5 & Used in conflict & in peace & \\
- 6 & Unrelated & Related to patriotism or authority-group loyalty & \\
- 7 & Rebellious intellectual stereotype & Stereotypical opponent of 
-     rebellious intellectual & \\
- 8 & Less emotional words & Emotionally charged words & Some of the low end 
-   may be words describing those with less emotion rather than words that 
-   stir up less emotion in the hearer\\
- 9 & social ostentation & private  & But against this 
-       interpretation, fuddy-duddy gets in the low end. Another word
-       that doesn't fit well ``cackler'' is very common in news 
-       stories about a particular police officer in Dallas whose discipline 
-       hearing exposed a scandal in the police force. \\
- 10 & business / practicality? & religion / family / clan & \\
- 11 & Used to describe people in violent situations & Used to describe people in 
-       non-violent situations & \\
- 12 & Unknown & restaurant and food (high) & Maybe: world falls apart vs world 
-       holds together. (You never see dispiriting, bleak, nagging in a 
-       restaurant review or recipe.) \\
- 13 & restaurant review & ways people present themselves/words used in describing new 
-       people ``Wavy, mousy brown hair '' & \\
- 14 & words that can describe both politicians or speeches and food  &  Unknown & \\
+ 1 & Uncommon in parliament & Common in parliament\\
+ 2 & Negative & Positive\\
+ 3 & Mainly describes humans & Describes non-humans also \\
+ 4 & Informal & Formal \\
+ 5 & Used in conflict & Used in peace \\
+ 6 & Unrelated to patriotism or authority-group loyalty & Related to 
+     patriotism or authority-group loyalty \\
+ 7 & Stereotypical rebellious intellectual & Stereotypical opponent of 
+     rebellious intellectual \\
+ 8 & Less emotional words & Emotionally charged words \\
+ 9 & Social / ostentation & Private  \\
+ 10 & Business context & Religion / family / clan context \\
+ 11 & Qualities relevant to violent situations & Qualities relevant to 
+       non-violent situations \\
+ 12 & Unsettled exploration & Restaurant and food \\
+ 13 & Travel words & Interview words \\
+ 14 & Words that can describe both food and politicians &  Unknown \\
  \hline
- \label{tab:2797mdsinterp}
 \end{tabular}
+ \caption{Interpretations of the different components identified from the 2797
+ word list after MDS}
+ \label{tab:2797mdsinterp}
 \end{table}
 
 \subsection{All combined with MDS}
@@ -98,7 +92,7 @@ there are still things I am overlooking. However, describing this dimension as
 Here the categories look similar to the 2797 word list. 
 
 \begin{enumerate}
- \item Unknown
+ \item Same
  \item Same
  \item Same
  \item Same
