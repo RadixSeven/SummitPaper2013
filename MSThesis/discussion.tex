@@ -301,30 +301,28 @@ than to the way in which it is described.
 
 \section{Consistency across different word-sets}
 
-Before doing this experiment, it would have been conceivable that
+Before doing this experiment, it would have been conceivable that each word list
+would produce a different set of factors. You quadruple the size of the 101
+word list to get the 438 word list and you more than quintuple the 438 word list
+to get the 2797 word list. Even after attrition due to having to select only 
+words in the vocabulary, each step up in size more than trebles the quantity of
+words. If the new words' vectors were not related to the old words the factors
+due to the new words would swamp the existing words and become the new principal
+components. However, Section \ref{sec:dimensionmapping} demonstrates 
+that most of the first 20 dimensions are shared between all of the sets. 
+Additionally, the comparison between the 438 and 2797 word sets in Table 
+\ref{439and100-vs-2797-from-800dim-lowercase-wmt-model-significant.tex} makes
+me believe that many of the first 60-70 dimensions are also shared.
 
-\section{Not what I expected}
+Because of possible non-linearity, I could not automatically determine the 
+number of significant dimensions. However, since the 438 word set shares 37 of
+its dimensions with the 2797 word sets, up to 37 significant dimensions seems 
+possible. To really know how many are significant and how many are an artifact
+of the particular training set, one would need to repeat the experiment with 
+a different training set. The more different the training set is from WMT11, 
+the more confidence you can have that any common dimensions are due to real,
+underlying factors rather than accidental corpus peculiarities.
 
-\section{Could it be the corpus?}
-
-WMT11 is a news corpus. Possibly its topic matter does not focus on people enough for those word senses to be properly represented. There are other, smaller, corpora with much broader language representation - for example, the brown corpus is a well known and freely available million word corpus. The British National Corpus is in the hundreds of millions of words and was created to be very broad-based. Additionally, there are spoken-language corpora like MICASE (Michigan Corpus of Academic Spoken English) and CPSA (Corpus of Spoken Professional American-English). These corpora could be used by themselves or potentially improved by using a model derived from a large news corpus like WMT11 or Gigaword as a starting point and then training on the smaller corpus.
-
-\section{Could it be polysemy?}
-
-\section{Could the dimensions be non-personality attributes?}
-\section{Could the dimensions not be scaled on personality-ness?}
-
-\todo{What I mean here is that the dimensions could be things like ``suitability to describe warmth'' both cold and warm would score highly but organized would score low.}
-
-\section{Could the number of dimensions in the lexical model be affecting things?}
-
-\section{Could the personality meanings not be being captured?}
-
-\todo{This may be part of the previous - too few or too many dimensions might elide the personality dimensions}
-
-\section{Could the problem be an underlying nonlinear structure?}
-
-\section{Could the problem be the nonlinear transformation from cosine to Euclidean topology?}
 
 \chapter{Future Work}
 
