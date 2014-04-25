@@ -326,85 +326,77 @@ underlying factors rather than accidental corpus peculiarities.
 
 \chapter{Future Work}
 
-\section{Normalize vectors to unit length}
 
-\todo{stub}
+There are myriad options that can be pursued to improve and extend this work.
+I think that three would be first steps: utilize the human-nonhuman dimension,
+re-do the experiment with improved procedure, and see what dimensions come
+out of \cite{Samsonovich2010}'s embedding.
 
-Since the cosine distance is the only one with direct semantic weight, I can 
-get rid of noise that may be confusing PCA under the other transformations by
-normalizing all score vectors to unit length. This leaves the cosine distance
-unchanged but should make the Euclidean distance closer to the cosine distance
-in those places where it diverges.
+\section{Utilize the human-nonhuman dimension}
 
-Why didn't I do it now? Because I would have had to reinterpret the dimensions.
-(Though a dimension mapping from the already interpreted 2797-word list would
-work.)
+Using the third MDS component, I can separate the low-polysemy words from the 
+rest. Then, I can analyze these words as another word-list. It is possible
+that this will eliminate some of the odder dimensions like ``restaurant'' and
+``travel'' and make some of the rest more interpretable.
 
-\section{Remove non-human words}
+\section{Redo with improved procedure}
 
-\todo{stub}
+There are a number of minor problems with this work that I did not have time to
+fix: no clear number of personality factors, no good way of choosing how many 
+dimensions the original model should have, the parliament dimension, the 
+MDS analysis lacks any analog to z-score scaling, the covariance PCA is not
+preceded by normalizing the vectors to unit length, and the dimensions might
+be more interpretable with varimax rotation.
 
-One of the dimensions in the 2797 word MDS analysis is a human-nonhuman 
-dimension. It may measure to some extent the degree of polysemy of the words. A 
-nice analysis would be to just extract the words that scored well on the human 
-side of this scale and see what their most important dimensions are. It might 
-reduce the noise significantly.
+So, it would be nice to enact the following procedure:
+\begin{enumerate}
+ \item Train on small datasets and extrapolate to the number of dimensions 
+ needed for the large dataset
+ \begin{enumerate}
+    \item Choose a starting subset size $s$ (say 5000 sentences) and a starting
+    dimensionality $d$ (say 10)
+    \item \label{itm:dotimewarpagain} Select a random subset of $s$ sentences 
+    from the Gigaword corpus and also from the WMT11 corpus
+    \item \label{itm:innerloop} Train two models of dimension $d$ and calculate
+    how many dimensions they have in common using Canonical Correlations Analysis.
+    \item Adjust $d$ and go back to \ref{itm:innerloop} to maximize the number 
+    of common dimensions.
+    \item Record $s$ and $d$.
+    \item $s = s\times 1.1$ and go back to \ref{itm:dotimewarpagain} until
+    the outer loop takes longer than a threshold
+    \item Finally, fit a function to the $(s,d)$ pairs and extrapolate to the 
+    number of sentences in the smaller of the Gigaword and WMT11 corpus to find
+    out the best number of dimensions.
+ \end{enumerate}
+ \item Preprocess and shuffle the lines of the two corpora.
+ \item Train two models, one on each corpus and extract the vectors for each.
+ \item Use a randomly selected list of 5000 words from the vocabulary common 
+ to both models to rotate the models so that they align.
+ \item Unitize the vectors and use directional statistics to reduce the angles
+ to have mean 0 and unit standard deviation.
+ \item Perform MDS on both sets of vectors
+ \item Use CCA to extract factors until we fail a to reject the hypothesis that
+ the factor is random (and use sequential multiple test correction to ensure
+ that we control the family-wise error rate)
+ \item Take the factors extracted from one of the datasets and make a new matrix
+ then take the transpose of that matrix (so we have a matrix in which the 
+ columns are the words and the rows are the \modelname{} dimensions)
+ \item Perform PCA on that matrix. 
+ \item Take the loadings matrix (which will be factors x items) and performe
+ varimax rotation to enhance interpretability
+ \item Look at the words with $|\text{loading}| \ge 0.4$ on a particular 
+ dimension to characterize that dimension.
+\end{enumerate}
 
-\section{Use directional statistics}
 
-\todo{stub}
+\section{Look at embedding from \citep{Samsonovich2010}}
 
-One problem with the MDS approach is that I can't standardize the range and 
-mean beforehand because taking the z-scores of the dimensions changes the 
-angles involved in the dot-products. However, I can map the word vectors to 
-the unit sphere without changing the cosine distances. Then directional 
-statistics give me analogous measures to the mean and standard deviation. 
-Applying MDS to the distances in these standardized points should give me 
-something much closer to the factor analysis normally used in psychology.
-
-\todo{If I finish all sections but the discussion, I can try using directional 
-stats to normalize the vectors before applying MDS}
-
-\section{Rerun on other corpora or different random subsets of the same corpus}
-
-\todo{Those factors that are stable can be assumed to be represent actual characteristics of language in general and not noise fitted by the algorithm in the particular corpus}
-
-\subsection{Gigaword}
-\subsection{Project Gutenberg}
-\subsection{Smaller corpora}
-\subsection{Small corpus from large starting point}
-
-\section{Examine technique for detecting word usage shift between corpora}
-
-\todo{Turn text summary of method below into more final version for future work}
-Train model 1 on corpus 1. Save model 1. Train model 2 on corpus 2 using model 1 as a starting point. Align the two models (using words common to the two corpora and a loss function that depends on how many different words you expect (for example, if you will use $L^p$ norms\footnote{An $L^p$ norm calculates the length of an n-dimensional vector $x$ as $\|x\|_p=\left(|x_1|^p+|x_2|^p+\dotsb+|x_n|^p\right)^{\frac{1}{p}}$} and subtraction to calculate distance, you can use a lower $p$ exponent for a lower proportion of expected differences).
-
-\section{Perform modeling in Euclidean topology}
-
-\todo{Turn summary into final form}
-Because the vectors must be converted to use Euclidean distances before PCA will work correctly, the principal components are not components of the vectors in cosine distance space. Thus, I can only rank the personality words and it is impossible to look for dimensions whose meaning will not be obvious based on ranking the personality words.
-
-One approach would be to transform all the words. However the distance matrix alone would be enormous (5 hundred thousand words would require 250 billion distances). Since most modern MDS implementations use some form of gradient descent under the hood, I considered using stochastic gradient descent with the distance matrix being implicit in the original point values. The initial point for the descent could be the original point values since Euclidean and cosine distances are similar. However, that is a very special-purpose application of MDS. Since it could be hard to code due to the sizes of the data involved, and would only give an approximation of the best point locations, I don't think it is worth the effort at this time.
-
-I think it is better to rewrite the training section of the skip-gram to use Euclidean rather than cosine distance. This modification will increase training time by a constant factor, but I would hope that factor is small.
-
-\section{Do the big-5 etc. personality dimensions come out of a pseudo-personality test?}
-\todo{Turn summary into final form}
-What I mean is if you count the frequency for which different personality adjectives are used to describe different named person-entities in the corpus, do you get the same descriptive dimensions as you do for when you ask people to rate others on n dimensions.
-
-\section{What happens if you tag personality words when they are referring to a specific person?}
-
-\section{Use perplexity to calculate the number of personality dimensions}
-
-\section{Use varimax rotation}
-
-\todo{turn summary into final form} 
-
-This might or might not be worthwhile. On the one hand, maybe the way
-psychologists do it will produce the same result. On the other hand,
-Goldberg \todo{cite ref goldberg 1990 An alternative ``Description of
-  Personality''} found the same 5 factors using both common factor
-analysis and principal components and both orthogonal and oblique
-rotation.
+Samsonovich only found 4 dimensions. However, I think that may have been 
+because he had too many semantic categories in his model. I would like to
+write to him and ask for his trained vectors to see if more dimensions come out
+when only a semantically coherent subset of the words are used. Because his
+data are based on direct human meaning assertions (synonym and antonym 
+relations) it should better reflect the human concept of meaning. I am 
+curious whether it thus will reflect the human concept of personality.
 
 \end{document}
