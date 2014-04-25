@@ -9,18 +9,17 @@ For training, I used the English WMT11 corpus. This is a training set collected
 for an academic competition at the sixth workshop on statistical machine 
 translation. It is composed of minutes of the European parliament, news 
 commentary, and news articles collected by the common crawl in the years 
-2007-2011\todo{ref wmt web page, wmt citation (if any), and common crawl 
-citations for appropriate years}. The European parliamentary minutes are in 
-readable order. The news articles have been broken into sentences and those 
-sentences included in random order\footnote{I have not read the rationale for 
-this, but I believe that it was done to preserve intellectual property rights.}. 
-All of the WMT11 corpus is broken into single sentence lines. Enclitics have 
-been separated so ``don't'' is written as two words ``don'\phantom{}'' and the 
-single letter ``t''.
+2007-2011\footnote{http://www.statmt.org/wmt11/}. The European parliamentary 
+minutes are in readable order. The news articles have been broken into sentences 
+and those sentences included in random order\footnote{I have not read the 
+rationale for this, but I believe that it was done to preserve intellectual 
+property rights.}. All of the WMT11 corpus is broken into single sentence lines. 
+Enclitics have been separated so ``don't'' is written as two words 
+``don'\phantom{}'' and the single letter ``t''.
 
 I chose to use the WMT11 corpus because it was both large (several billion 
-words) and had already been used with the skip-gram model in \todo{the paper on 
-language translation with the skip-gram}. Additionally, it had been originally 
+words) and had already been used with the skip-gram model in 
+\citep{Mikolov2013a}. Additionally, it had been originally 
 compiled for a competition, this assured that much preprocessing had already 
 been done.
 
@@ -61,8 +60,8 @@ empty after being passed through \filename{check\_angle\_filter.pl}.
 \subsection{Part-of-speech tagging}
 
 An important limitation of vector based lexical semantics is its way of dealing 
-with polysemy (absent mitigation techniques such as those in \todo{ref some 
-mitigation techniques}). Since each word gets only one meaning vector, if the 
+with polysemy (absent mitigation techniques such as those in \citep{Erk2012}). 
+Since each word gets only one meaning vector, if the 
 word has more than one meaning, its associated vector is some sort of compromise 
 between all of the meanings used. In the case of personality words, polysemy is 
 very common. For example, consider the word ``kind''. If used in the utterance, 
@@ -78,8 +77,8 @@ personality word.
 Part of speech marking misses some subtle distinctions, such as when someone 
 says, ``If <person> would be so kind.'' (a common phrase in the parliamentary 
 notes). However, it is very good at broader meaning differentiation. I looked 
-at the 438 words used in \todo{ref whatever paper the 438 words come from}. In 
-the vast majority of cases, Wordnet had only one definition that had to do with 
+at the 438 words used in \citep{Saucler1996}. In 
+the vast majority of cases, WordNet had only one definition that had to do with 
 personality and that definition was distinguished from the others by determining 
 whether the part-of-speech was an adjective or not. For 6 words (cunning, 
 daring, faultfinding, quiet, self-pitying, and understanding) both the adjective 
@@ -159,8 +158,14 @@ personality dimensions.
 
 \section{Create vectors and select words to PCA}
 
-\todo{Add part about choosing a frequency cut-off to fit all the skip-gram 
-vectors in memory}
+The number of vectors dimensions forced another trade-off. The machine available
+for processing had only 8 GB of RAM. Thus, at 800 dimensions per vector, it 
+could hold vectors for only 450,000 (after other overhead) since both the 
+gensim and word2vec software keep the word vectors in RAM during training. 
+I modified the gensim software to increase its frequency cut-off until it had removed enough
+vectors so that the table fit in main memory. Thus, all words with less than 
+23 appearances in the corpus were removed, leaving 449,790 different words in
+the vocabulary.
 
 Number of dimensions in hand, I generated the meaning vectors using the 
 skip-gram implementation in gensim. \todo{ref gensim} Then I selected the 
@@ -171,21 +176,24 @@ personality words.
 
 \subsection{101 word list}
 
-The first, containing 
-101 words was taken from the list of 100 words in the paper \todo{cite paper 
-from which the hundred words come}. To this, I added the variant spelling 
-``extroverted'' because the spelling ``extaverted'', which was in the original 
-list, did not appear in the WMT11 corpus. To match the words in the tagged
-corpus, all of the words had the characters ``\_jj'' appended because the list
-was intended as a list of adjectives and JJ is the standard suffix for adjective
-used in the Penn Treebank \todo{ref cite penn treebank} and thus is the suffix
-used by my part-of-speech tagging software.
+The first, containing 101 words was taken from the list of 100 words in the 
+paper \citep{Goldberg1990}. To this, I added the variant spelling ``extroverted'' 
+because the spelling ``extaverted'', which was in the original list, did not 
+appear in the WMT11 corpus. To match the words in the tagged corpus, all of the 
+words had the characters ``\_jj'' appended because the list was intended as a 
+list of adjectives and JJ is the standard suffix for adjective used in the Penn 
+Treebank \todo{ref cite penn treebank} and thus is the suffix used by my 
+part-of-speech tagging software.
 
 \subsection{438 word list}
 
 The second set had 438 words and was 
-taken from \todo{ref cite paper from which the 439 words come}. There were 439 
-entries in the list in \todo{cite paper}, however, the word ``cunning'' 
+taken from \citep{Saucler1996}\footnote{This paper is what I have down as 
+the source for this list. However, on inspection, it has 435 words not either
+439 or 438. It also lacks the word cunning twice. Thus, I believe it is the 
+wrong paper. However, I reference it because it is the closest thing I have
+to the correct one.}. There were 439 
+entries in the list in \citep{Saucler1996}, however, the word ``cunning'' 
 appeared twice. Because there were some words in the 101 word list that were 
 absent in the 438 words list, I did another run with the two lists combined.
 
@@ -194,7 +202,7 @@ absent in the 438 words list, I did another run with the two lists combined.
 The third set had 2797 words\footnote{The paper is entitled 2800 words, but 
 mentions
 that three of the words are unintentional duplicates leaving 2797 words.}
-taken from \todo{ref cite Norman 1967}. This paper
+taken from \citep{Norman 1967}. This paper
 was available only as data automatically recognized from a scan of a low-quality
 original. So there were many errors. Since it was infeasible to re-enter all the
 words again, I cleaned up the list in a number of stages. 
@@ -261,14 +269,14 @@ corpus. Instead I used a home-grown semi-automated tagging method. The source
 code for the program used in this tagging is given in 
 Appendix \ref{app:tagwordlist}. 
 
-For each word, if it appeared in Wordnet \todo{ref cite wordnet} and, after
-removing verb and adverb senses, it had only one part of speech listed and if 
-that part of speech was adjective or noun, the word was automatically tagged. 
+For each word, if it appeared in WordNet \citep{PrincetonUniversity2010} and, 
+after removing verb and adverb senses, it had only one part of speech listed and 
+if that part of speech was adjective or noun, the word was automatically tagged. 
 If the unique part of speech was ``adjective'' then the word was tagged JJ. 
 Otherwise the part of speech was noun and the word was left without a suffix.
 
 In any other case, the tagging of the word was left up to human judgment. If the
-word was present in Wordnet, the Wordnet page was automatically opened in a 
+word was present in WordNet, the WordNet page was automatically opened in a 
 browser for convenience. Then the human was asked two questions:
 ``Is <word> a valid personality adjective? (yes/no/quit)'' and ``Is <word> a 
 valid personality quality or type of person (`His characteristic <word>' or 
@@ -288,7 +296,7 @@ tagging of words like ``cunning'' which is a personality word as both an
 adjective and as a noun. Subjectively, I feel that the noun tagging in the 2797
 word list was less careful than the tagging for the 439 word list both because
 of the larger number of words and because of the larger number of words that
-had to be examined in dictionaries other than Wordnet. (I used the on-line
+had to be examined in dictionaries other than WordNet. (I used the on-line
 versions of the Merriam Webster and Oxford English Dictionary - preferring the
 American sense in the latter when there was a difference in usage.)
 
@@ -307,21 +315,37 @@ have semantic significance.
 The tool I used to convert the vectors was multidimensional scaling (MDS). MDS 
 takes a set of distances between points and outputs a set of points in a given 
 number of dimensions for which the distances are as close as possible to the 
-original specifications. See figure \todo{figure: distance matrix on one side -> 
-set of points on the other. This can be seen in the mds\_example png files}. To 
+original specifications. (See Figure \ref{fig:mdsexample} for an example.) To 
 perform MDS, I used the Matlab command mdscale using the metricstress 
 criterion\footnote{The metricstress criterion minimizes the squared error 
 between the resulting distances and the desired distances} and using the 
 solution to classical MDS as the starting point for optimization and as the 
 source for the number of dimensions produced.\todo{ref cite matlab}
 
-The paper \todo{insert paper name} by \todo{ref cite the paper talking about 
-cosine and euclidean distances being equivalent} may seem to imply that this 
+\begin{figure}[tbp]
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{mds_example_input_matrix}
+        \caption{Distance matrix input to MDS}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{mds_example_output_plot}
+        \caption{Output of MDS}
+    \end{subfigure}
+
+    \caption{An example of multidimensional scaling showing the input distance
+    matrix and the resulting points}
+    \label{fig:mdsexample}
+\end{figure}
+
+
+The paper \citep{Qian2004} may seem to imply that this 
 transformation is unnecessary since their conclusion is that in high-dimensional 
-spaces, the cosine and Euclidean distances can be used interchangably with 
+spaces, the cosine and Euclidean distances can be used interchangeably with 
 little difference. However, they note that the similarity of the two measures 
-peaks near \todo{get the right number of dimensions here} and then starts slowly 
-descending. The highest number of dimensions they examine in their paper is 100. 
+peaks near 32 and then starts slowly 
+descending. The highest number of dimensions they examine in their paper is 128. 
 However, the vectors generated by my skip-gram model are 800-dimensional 
 vectors. Even with a slow descent there is room for the two measures to have 
 diverged significantly in a span 8 times the range of the original study. I 
@@ -329,8 +353,7 @@ confirmed my suspicions by manually examining 10 randomly chosen words. When
 using the 20 nearest neighbors under the Euclidean distance, the closest 2 or 3 
 seemed highly relevant. However, when using the cosine distance, 5-10 seemed 
 highly relevant. Thus, for my data set, the difference between the cosine and 
-Euclidean distance seems important. \todo{Should I repeat this and put the 
-results in the paper in an appendix?}
+Euclidean distance seems important. 
 
 \section{PCA}
 
@@ -347,20 +370,11 @@ I used two approaches because they will bring out components based on different
 criteria and both criteria might be relevant in my domain. The mean-centered 
 version attaches importance to the scale of a variable. If variable x is always 
 10 times greater than y, a principal component will align more with x than with 
-y. \todo{figure first principal component when x >> y. Caption: When one 
-variable has a much larger range than the other, the principal component will 
-align much more with it} When the variables are divided by their standard 
-deviation, the variability in an individual variable is cancelled out. Then the 
+y. When the variables are divided by their standard 
+deviation, the variability in an individual variable is canceled out. Then the 
 principal components reflect the correlation structure of the system. If x and y 
 covary strongly, a principal component will tend to align with the axis of their 
-common variability.  \todo{figure: first principal component when x and y are 
-strongly correlated - Caption: when the axes are scaled, but two variables are 
-correlated, the principal components will align along the axis of their joint 
-variation. (This diagram is just the first figure scaled)} Note that in 
-\todo{put in fig ref} the first figure, x has a 4 times higher loading than y, 
-indicating that it is more important to that portion of the variability of the 
-system. In \todo{put in fig ref} the second figure, x and y have equal weight in 
-the first PC.
+common variability.
 
 \section{Choosing Elbows}
 
@@ -456,7 +470,7 @@ Spearman correlation to determine significance.
 Once I had the correlations and the associated p-values between all pairs of
 components, I controlled the false discovery rate at 1\% using the procedure
 from \todo{ref cite Benjamini, Y. \& Yekutieli, D. (2001) The control of 
-the false discoveryrate in multiple testing under dependency. 
+the false discovery rate in multiple testing under dependency. 
 The Annals of Statistics. 29(4), 1165-1188}. I chose to control false discovery 
 rate rather than
 family-wise error rate because decisions about this data depend mainly on the
