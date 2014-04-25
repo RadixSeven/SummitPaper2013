@@ -26,7 +26,7 @@ Factor interpretation is very time consuming so I was unable to look at all of
 the word-list/transformation combinations however, I made an attempt to 
 interpret the factors arising out of some of the larger lists.
 
-\subsection{2797 Word with MDS}
+\section{2797 Word with MDS}
 
 Once I reached the 2797 word list based on \citep{Norman1967}, interpretation 
 became much easier. I think more than 14 components might be interpretable, 
@@ -34,7 +34,7 @@ however, I only had time for 14. Several of those need some improvement.
 My interpretations are in Table
 \ref{tab:2797mdsinterp}.
 
-\subsubsection{Component 1}
+\subsection{Component 1}
 
 The first dimension needs a bit of explanation. In the corpus, the 10 highest 
 ranked words appear in 526,515/117,296,559 sentences (0.4\%), the 10 lowest 
@@ -93,7 +93,7 @@ there are still things I am overlooking. However, describing this dimension as
  \label{tab:2797mdsinterp}
 \end{table}
 
-\subsection{All combined with MDS}
+\section{All combined with MDS}
 
 When I combine all the word lists and apply MDS, the factors look similar to 
 the 2797 word list by itself. See Table \ref{tab:2797and438and101mdsinterp}. 
@@ -123,7 +123,7 @@ change the interpretation that much.
 \end{table}
 
 
-\subsection{2797 with z-score}
+\section{2797 with z-score}
 
 The z-score normalized factors, even in the 2797 word list were much harder to 
 interpret than the MDS normalized ones. There are also more exceptions to each 
@@ -138,7 +138,7 @@ the first four factors is in Table \ref{tab:2797zscoreinterp}.
  C & Low & High \\
  \hline
  1 & Business & Fashion \\
- 2 & socially pleasant & Socially unpleasant \\
+ 2 & Socially pleasant & Socially unpleasant \\
  3 & Leadership qualities & Words unrelated to leadership \\
  4 & Irrational commitment & Words that describe art \\
  \hline
@@ -150,13 +150,158 @@ the first four factors is in Table \ref{tab:2797zscoreinterp}.
 
 \chapter{Discussion}
 
-It seems that a lot of the dimensions are characteristics of the words 
-themselves and not as much characteristics of what the word describes.
+\section{Many ways to approach meaning}
 
-MDS is easier to interpret.
+In the first 14 components of the MDS basis for the 2797 word set, the word
+``sly\_jj'' can be represented in percentiles as (2, 59, 59, 85, 20, 59, 41, 
+53, 36, 81, 46, 25, 68, 40). With a range of 30-70\% for average, this means 
+that sly as an adjective is very non-parliamentary, quite informal, useful in 
+conflict, is seen more often when discussing matters of social allegiance than
+economic, and is characteristic of unsettled exploration. Otherwise, sly is an
+average word. It is hard to deny that these categories capture some 
+understanding of the word sly and how it is used. However, this description of
+the word sly is quite different from it's dictionary definitions: 
+``clever in concealing one's aims or ends,'' ``lacking in straightforwardness 
+and candor,'' and ``lightly mischievous.'' \citep{SlyMerriamWebster2014}
 
+One could approach this result by saying that the computer is wrong, that the
+algorithm has not captured the meaning of the word sly. But this is not very
+attractive because using this same computer definition of the meaning of sly,
+the computer can find other words which everyone would agree have similar 
+meanings to sly and also find words in other languages that by general 
+consensus have the same meaning as sly. To say that it can do this without
+having captured at least the majority of the meaning of sly is a hard claim
+to believe. 
 
+Instead, I propose that the computer is working in an analogous semantic space
+to humans, but it has divided it up differently. A simple version of this 
+happens across different languages. A native Spanish speaker from Colombia calls 
+many things
+``verde'' that I, a native English speaker, call ``blue.'' ``verde'' is usually
+glossed as ``green'' however, the Colombians divide up the color world slightly
+differently, so that although ``verde'' is normally ``green,'' for some things
+it is ``blue.'' Similarly, the process of training the \modelname{} model has
+produced a division of the semantic space focusing on the characteristics of 
+the words and their usage. Humans focus instead on the referents of the words.
+In its training, the computer algorithm did not have access to the embodied
+experiences that humans take for granted and could not take them into account
+in its model. These would have to be additional latent variables of a different
+type.
 
+I see the computer's model in a similar way to the earlier example of PCA in 
+Figure \ref{fig:pcarotation}. The principal components captured very important
+characteristics of the data that was presented. And, provided information in 
+the right 
+form so accurate predictions could be made. However, because it was the wrong
+type of model, it it couldn't capture the clumpiness of the data or the 
+shape of those clumps. Thus it missed many important features of the space. In 
+the same way
+the \modelname{} model captures important features of the lexical semantic space
+in a useful form. However, it is not a human brain and does not have the 
+experiences that affect how a human responds to a given word. As such, it has
+both the wrong model and incomplete input data. However, given those limitations
+it does a remarkable job.
+
+\section{Things captured by \modelname{}}
+
+I think the first six dimensions of the MDS \modelname{} model captured
+ interesting characteristics of personality language in the WMT11 dataset.
+%
+\begin{enumerate}
+ \item Difference in usage for the parliamentary subset
+ \item Negative/positive
+ \item Human/general
+ \item Fighting words
+ \item Group loyalty
+\end{enumerate}
+
+\subsection{Parliamentary usage}
+
+On the one hand, this dimension is an artifact of how the model was trained.
+The parliamentary dataset was not mixed in with the other data but rather was
+first. Since the model has its largest learning rate at the beginning, it moved
+swiftly to represent parliamentary usage. Only words that did not appear often
+in the parliamentary dataset escaped this initial movement. Because the 
+parliamentary records are a small fraction of the entire dataset, if I had 
+shuffled the entire dataset rather than just concatenating the files as they 
+came I believe it would have had much less influence.
+
+On the other hand, the presence of this artifact is another confirmation that
+indeed the model is picking up the nuances of the text. It was able to pick up
+the subtle differences in word sense between news writing and political speech.
+This sort of sensitivity is exactly what makes it such a good tool for exploring
+language and its usage.
+
+It also implies that we might be able to get at usage differences by starting a
+model with a small dataset whose characteristics we are interested in and then
+continuing with a larger dataset. The differences between a dataset trained in
+this way and one trained exclusively with the larger dataset would reflect 
+differences in the usage between them while still taking advantage of the richer
+semantic network available with the larger dataset. It would be interesting to
+compare this procedure with those of: just training one model for each dataset
+and training one model for the smaller dataset and one an equal-sized subset of
+the larger dataset.
+
+\subsection{Negative/Positive}
+
+As was noted earlier, humans have a tendency to rate everything as negative and
+positive \citep{Samsonovich2010}. Thus, its appearance in personality words
+is not surprising. Studies have detected negative and positive factors
+in Hebrew, Spanish, Filipino, and Greek \citep[p. 134]{DeRaad2009}. 
+
+\subsection{Human/General}
+
+The most interesting dimension to come out of the analysis is the third one.
+It seems to measure the degree to which a word is specific to humans rather than
+only being applied to them by analogy. 
+If it indeed measures the degree of polysemy in personality words, we may be 
+able to focus in on just the words that most matter to the study of personality
+and look at their characteristics. Additionally, we may be able to 
+semi-automatically produce a list of candidate words in an objective manner by
+finding other words that are very human specific. This would help make up for
+the original, human word lists' arbitrary exclusion of particular forms of 
+different
+personality words and help make up for the meaning shift that occurs in the 
+natural evolution of language.
+
+\subsection{Formality, Belligerence, and Group devotion}
+
+The final three categories are all related to the social context of speech. In
+American English, it is easy to recognize that many word forms exist to express
+nuances of formality\footnote{To put it less formally: ``We change our
+talk so we can be one of the guys.''}. Conflict and loyalty are also important
+parts of our social lives, so it makes sense that they would be important in
+our description of others.
+
+\section{Superiority of MDS}
+
+These important dimensions only were apparent in the MDS scaled vectors. I think
+it is safe to say that in this case, the Euclidean distance metric was not a
+good enough approximation to the cosine distance. Part of that may be because
+we were not working with unit vectors. If one were to normalize all the vectors 
+to unit length before doing the z-score transformation, it might make the 
+dimensions obtained through standard PCA more usable.
+
+\section{Where are the personality dimensions?}
+
+Even with unit vectors, through, I believe that we will not find the Big Five or 
+another major personality model in this data. First, those models come about 
+because of the covariance structure of personality in single individuals; if an 
+individual is trusting, he is more likely to be altruistic. In the WMT11 
+dataset, there are descriptions of individuals, but they are all mashed up 
+together. Using several adjectives to describe a single individual is not done 
+very often. And when it is done, it is frequently done in different sentences 
+(which will completely remove the connection due to sentence order 
+randomization). Since most occurrences of the trait words are describing 
+different individuals, there is no way for the algorithm to pick up on the 
+commonalities. Second, a less certain reason: as was stated above, the model is 
+looking more at the characteristics of the words rather than at what they refer 
+to. I think that the personality models are more closely related to the referent 
+than to the way in which it is described.
+
+\section{Consistency across different word-sets}
+
+Before doing this experiment, it would have been conceivable that
 
 \section{Not what I expected}
 
