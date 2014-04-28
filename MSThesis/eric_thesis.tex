@@ -9,7 +9,6 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{longtable}
-\usepackage{subfiles}
 \usepackage{subcaption}
 \usepackage[bookmarks]{hyperref}
 \usepackage[round]{natbib}
@@ -29,13 +28,13 @@
 \author{Eric Moyer}
 \title{What Machines Understand about Personality Words after Reading the News}
 \begin{document}
-\subfile{intro+background.tex}
-\subfile{methods.tex}
-\subfile{results.tex}
-\subfile{discussion.tex}
+\include{intro+background}
+\include{methods}
+\include{results}
+\include{discussion}
 
 \bibliography{Thesis}
 
-\subfile{appendix.tex}
+\include{appendix}
 
 \end{document}
