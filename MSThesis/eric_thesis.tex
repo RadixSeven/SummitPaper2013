@@ -23,7 +23,18 @@
 \newcommand{\filename}[1]{\textit{#1}}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
 
-
+% Code to add text to ``blank'' pages inserted to make chapters start on right
+% hand side
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
+%\blankpage
+\vspace*{\fill}
+{\centering This page is filler so that important sections start on the right hand side of the book.}
+\vspace{\fill}
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
 
 \author{Eric Moyer}
 \title{What Machines Understand about Personality Words after Reading the News}
