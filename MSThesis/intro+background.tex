@@ -113,11 +113,11 @@ analysis, and the lexical hypothesis of personality psychology.
 
 \section{Vector-based lexical semantics}
 
-\subsection{LSA}
+\subsection{Latent Semantic Analysis (LSA)}
 
 Vector-based lexical semantics is the study of algorithms that assign vectors to 
 words in a way that reflects the meaning of those words. The first vector-based 
-lexical semantic algorithm was LSA (Latent Semantic Analysis), invented in 
+lexical semantic algorithm was Latent Semantic Analysis (LSA), invented in 
 1988 by a team led by Thomas Landauer \citep{Dumais1988}. LSA employs a bag-of-words model of 
 the source documents. The training documents are tallied to produce a matrix in which each 
 row corresponds to a document, each column to one word in the vocabulary, and 
@@ -162,7 +162,7 @@ in Columbus on Thursday for a special session." would be a good match for the
 query "Ohio capital" because Ohio and capital are both frequently in the same 
 documents with Columbus, legislature, meet, and session.
 
-\subsection{PLSA}
+\subsection{Probabilistic Latent Semantic Analysis (PLSA)}
 
 The next step after LSA was Probabilistic Latent Semantic Analysis (PLSA) 
 \citep{Hofmann1999}. Rather than just a 
@@ -195,13 +195,14 @@ it easy to combine PLSA with other models of other parts of language (like
 Probabilistic Context Free Grammars) to create complex and expressive language
 models for use in machine translation and text understanding tasks.
 
-\subsection{LDA}
+\subsection{Latent Dirichlet Allocation (LDA)}
 
-From PLSA, it was only a short step to LDA which allows sharing parameters over
-documents. In PLSA, documents appear as a set of class-generating probabilities.
-Since the number of parameters grows with the number of documents in the corpus,
-there is a danger of overfitting. \citep{Hofmann1999} addressed the problem of
-overfitting with a Tempered EM model. But it was still a problem.
+From PLSA, it was only a short step to Latent Dirichlet Allocation (LDA) which 
+allows sharing parameters over documents. In PLSA, documents appear as a set of 
+class-generating probabilities. Since the number of parameters grows with the 
+number of documents in the corpus, there is a danger of overfitting. 
+\citep{Hofmann1999} addressed the problem of overfitting with a Tempered EM 
+model. But it was still a problem.
 
 LDA addressed this by eliminating the document as an entity from the training
 set and instead assumed that documents are chosen at random by first choosing
@@ -369,7 +370,7 @@ target word, the algorithm selects a random integer $R$ in the range
 $[1\ldots{}C]$ where $C$ is the maximum context size. Then the context words 
 at distances less than $R$ are used to train that target. 
 
-\section{PCA and Factor analysis}
+\section{Principal Components Analysis (PCA) and Factor analysis}
 
 When studying a system, it is common to believe that the observed
 characteristics of that system are due to a number of unobserved, hidden 
@@ -405,7 +406,7 @@ model is more forgiving with respect to overfitting.
 
 By defining a good summary as ``one which captures most of the variability''
 and deciding to use a linear relationship, if one measures variability as
-variance then the technique starts with Principal Components Analysis (PCA).
+variance then the technique starts with PCA.
 PCA finds a new set of axes for a set of input vectors so that the first
 axis captures the most variance, the second is aligned with the dimension with 
 the second most variance and so forth. These new axes are the principal 
