@@ -331,8 +331,7 @@ given a target word as:
 $$p(c|t)=\prod_{j=1}^{L(c)-1} \sigma\left(sp\left(n_{c,j+1}\right)
 \cdot v_{n_{c,j},\to}^{\quad\top} v_{t,\gets}\right)$$
 %
-It can be verified\footnote{I have not done so; I am trusting in 
-\citep{Mikolov2013c}.} that for all $t$, $\sum_{c\in{}V}p(c|t)=1$. Now, the cost
+It can be verified that for all $t$, $\sum_{c\in{}V}p(c|t)=1$. Now, the cost
 of computing $\log p(c|t)$ and its gradient is proportional to $L(c)$, which, 
 for a reasonably balanced tree is on average no greater than $\log |V|$. Most
 implementations of \modelname{} follow \citep{Mikolov2013c} in using a binary
