@@ -432,23 +432,26 @@ principal components of any transformed dataset.
 
 \section{Sorting words to identify components}
 
-With components chosen, the next 
-step is to identify the meaning associated with each component if I can. This 
-step is necessary to test the hypothesis that the same dimensions show up in 
-word meaning as show up in describing individual personality. For each 
-principal 
-component, I sorted the words by each word's score on that component. Then I 
-listed, in order, the 30 highest and lowest scoring words for each dimension. 
-The intuition is that if a semantic dimension corresponds to some known 
-personality dimension, words positively associated with that dimension will 
-have 
-a high rating and thus appear near the top of the list. On the other hand, 
-words 
-negatively associated with that dimension will appear near the bottom of the 
-list. Words with no association will appear in the middle. Thus, if a dimension 
-corresponds to conscientiousness, I expect ``punctual'' and ``orderly'' to 
-appear near the top, ``irresponsible'' to appear near the bottom, and ``gregarious''
-to appear in the middle.
+With components chosen, the next step is to identify the meaning associated with 
+each component if I can. This step is necessary to test the hypothesis that the 
+same dimensions show up in word meaning as show up in describing individual 
+personality. For each principal component, I sorted the words by each word's 
+score on that component. Then I listed, in order, the 30 highest and lowest 
+scoring words for each dimension. The intuition is that if a semantic dimension 
+corresponds to some known personality dimension, words positively associated 
+with that dimension will have a high rating and thus appear near the top of the 
+list. On the other hand, words negatively associated with that dimension will 
+appear near the bottom of the list. Words with no association will appear in the 
+middle. Thus, if a dimension corresponds to conscientiousness, I expect 
+``punctual'' and ``orderly'' to appear near the top, ``irresponsible'' to appear 
+near the bottom, and ``gregarious'' to appear in the middle.
+
+As is mentioned in Section \ref{sec:bg:factorinterpretation}, it is common to
+perform a rotation like varimax to ease interpretation of the factors. Because
+I was unable to determine the correct number of significant factors, varimax
+rotation could mix the significant components with insignificant ones. Thus, I
+used only the raw factors from the PCA rotation to be more confident that I was
+interpreting the most significant factors.
 
 \section{Matching components}
 \label{sec:matchingcomponents}
