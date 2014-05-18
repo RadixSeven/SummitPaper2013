@@ -265,7 +265,63 @@ Mikolov Word2Vec.
 The two models are referred to as Continuous Bag of Words (CBOW) and 
 Skip-gram. CBOW learns the function to predict a word given its context and
 Skip-gram learns to predict context given a word. I will not cover CBOW because
-I do not use it in this paper. Skip-gram, however, I use extensively. Skip-gram 
+I do not use it in this paper. Skip-gram, however, I use extensively. 
+
+\subsubsubsection{For individual contexts}
+
+For each word, Skip-gram chooses two vectors, one for when the word is used to
+predict other words and one for when the word is one of the words whose
+occurrence is being predicted. These vectors are plugged into an formula (which
+I will cover shortly) that produces a probability. If you treat all words in a
+context as being generated independently from the center word, the probability
+of a particular set of words is the product of the probabilities. So, if $C$ is
+the size of a context and $w_t$ is the center word ($t$ being an index into a
+list of words that forms our training data), we can write the probability of
+the neighborhood around a particular word as:
+%
+$$\prod_{-C \le j \le C, \\ j \ne 0 } p(w_{t+j}|w_t)$$
+%
+So, in the words, ``The fox jumped over the lazy dog,'' the 
+probability of the 2 word context around jumped is:
+%
+$$p(\text{the|jumped})\cdot{}p(\text{fox|jumped})\cdot{}p(\text{over|jumped})\cdot{}p(\text{the|jumped})$$
+
+The procedure of maximum likelihood estimation (MLE) tells us that the best
+probabilities to assign in the model are the ones that maximize the probability
+of the training data. To find that maximum, you take the derivative of the
+probability and set it to 0. However, derivatives of large products are 
+difficult. Fortunately, the logarithm is a function that turns products into
+sums and, because it is strictly increasing, does not change the maximum. The
+maximum of $f(a)\cdot{}g(b)$ is the same as the maximum of
+$\log{f(a)} + \log{f(b)}$. So, we can maximize the following formula for the
+probability of the words in a single context:
+%
+$$\sum_{-C \le j \le C, \\ j \ne 0 } \log{p(w_{t+j}|w_t)}$$
+%
+For ``The fox jumped over the lazy dog,'' this becomes:
+%
+$$2\log{p(\text{the|jumped})}+\log{p(\text{fox|jumped})}+\log{p(\text{over|jumped})}$$
+%
+Maximizing this under the constraints that the probabilities sum to 1 and are
+greater than 0, we get:
+$$p(\text{the|jumped})=0.5 \text{ and } p(\text{fox|jumped}=p(\text{over|jumped})=0.25$$
+
+\subsubsubsection{Combining contexts}
+This gives a probability assignment for each context, but to use the entire
+training corpus, the Skip-gram model needs to combine contexts. If the contexts
+were independent, this could be achieved by just multiplying them together.
+Because of overlap, this independence is obviously impossible. It is more
+plausible (though still wrong) if we imagine the document split into 
+non-overlapping blocks of length $C$. If 
+the training word sequence is $w_1, w_2, \ldots, w_T$, the 
+sum to maximize (after applying the logarithm trick) becomes:
+%
+$$\sum_{1 \le t \le T, t \bmod C = 0 }\sum_{-C \le j \le C, \\ j \ne 0 } \log{p(w_{t+j}|w_t)}$$
+%
+If we normalize for the number of contexts, we are maximizing the average
+probability in each context. From the mathematics, there is no reason to throw
+out the overlapping contexts, so we put them back in to arrive at the equation
+that is used for the skip-gram model. In summary, Skip-gram 
 tries to maximize the average 
 log-probability of the data under the learned probability distribution. Given
 training word sequence $w_1, w_2, \ldots, w_T$, the Skip-gram model maximizes:
@@ -273,15 +329,19 @@ training word sequence $w_1, w_2, \ldots, w_T$, the Skip-gram model maximizes:
 $$\frac{1}{T}\sum_{t=1}^T \; \sum_{-C \le j \le C, \\ j \ne 0 } \log p(w_{t+j}|w_t)$$
 %
 where $C$ is the size of the context used for training (which can optionally 
-change depending on the center word $w_t$).
+change depending on the center word $w_t$). 
 
 \subsubsection{Softmax in Skip-gram}
 
-The Skip-gram model consists of two vectors for each word, an input and an 
-output vector. The output vector is used when a word is the center, target 
-word whose context is being predicted and the input vector is used when a word 
-is a candidate. After training, the input vectors will have the distributed 
-semantic representation seek. During training, the dot-product of these vectors 
+As mentioned above, the Skip-gram model consists of two vectors for each word, 
+an input and an output vector. The output vector is used when a word is the 
+center, target word whose context is being predicted and the input vector is 
+used when a word is a candidate. The probabilities which were used as parameters
+
+
+
+After training, the input vectors will have 
+the distributed semantic representation we seek. During training, the dot-product of these vectors 
 is put into a softmax function to create a conditional probability: 
 %
 $$p(c|t)=\frac{\exp\left(v_{c,\to} ^{\quad\top} v_{t,\gets}\right)}
@@ -307,6 +367,7 @@ needs to be repeated for every word in a several billion word corpus. Thus,
 
 \subsubsection{Hierarchical Softmax}
 
+\todo{rewrite to get rid of the redundancy with the overview section}
 Hierarchical softmax decomposes the output procedure into a binary tree. All
 words are placed as leaves on the tree. Then, rather than each word getting its 
 own output vector, its ancestors on the path to the root hold several output
