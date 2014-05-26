@@ -327,6 +327,7 @@ log-probability of the data under the learned probability distribution. Given
 training word sequence $w_1, w_2, \ldots, w_T$, the Skip-gram model maximizes:
 %
 \begin{equation}
+  \label{eq:skipgramequation}
   \frac{1}{T}\sum_{t=1}^T \; \sum_{-C \le j \le C, \\ j \ne 0 } \log p(w_{t+j}|w_t)
 \end{equation}
 %
@@ -339,11 +340,22 @@ As mentioned above, the Skip-gram model consists of two vectors for each word,
 an input and an output vector. The output vector is used when a word is the 
 center, target word whose context is being predicted and the input vector is 
 used when a word is a candidate. The probabilities which were used as parameters
+in Equation \ref{eq:skipgramequation} are actually functions of these vectors
+and the optimization takes place in the vector space not directly in the space
+of probabilities. These vectors will be the carriers of the distributed semantic
+information. In particular, After training, the input vectors will have 
+the distributed semantic representation we seek. 
 
+The key link between these two worlds of probability and vector-space semantics
+is the softmax function.
+%
+\[f(i, a_1,\dots, a_n)=\frac{\exp\left(a_i\right)}
+{\sum_{j \in 1\dots{}n}\exp\left(a_j\right)}\]
+%
+The softmax function maps n vectors in the real line to an n-dimensional
+probability distribution in which no probability is 0. 
 
-
-After training, the input vectors will have 
-the distributed semantic representation we seek. During training, the dot-product of these vectors 
+During training, the dot-product of these vectors 
 is put into a softmax function to create a conditional probability: 
 %
 \[p(c|t)=\frac{\exp\left(v_{c,\to} ^{\quad\top} v_{t,\gets}\right)}
