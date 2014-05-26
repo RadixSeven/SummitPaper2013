@@ -15,13 +15,30 @@
 
 \bibliographystyle{plainnat}
 
+% Tell where the image files are
 \graphicspath{ {images/} }
 
-\newcommand{\modelname}[0]{MW2V}
-\newcommand{\todo}[1]{\textcolor{red}{\footnote{\textcolor{red}{#1}}}}
+% Make equation numbering use a 2-part chapter.section numbering
+\numberwithin{equation}{section}
+
+
+% A macro to help find where I refer to the mikolov model and to refer to it
+% consistently
+\newcommand{\modelname}[0]{MW2V}  
+
+% Marker for things that I still need to do before the thesis is finished
+\newcommand{\todo}[1]{\textcolor{red}{\footnote{\textcolor{red}{#1}}}} 
+
+% Marker for comments added by reviewers
 \newcommand{\reviewercomment}[1]{\textcolor{blue}{#1}}
+
+% Mark filenames and allow me to format them consistently
 \newcommand{\filename}[1]{\textit{#1}}
+
+% More semantically appropriate name for my lowest level of section numbering
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
+
+
 
 % Code to add text to ``blank'' pages inserted to make chapters start on right
 % hand side
@@ -35,6 +52,12 @@
 \newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \makeatother
+
+
+
+
+
+% Skeleton of the work
 
 \author{Eric Moyer}
 \title{What Machines Understand about Personality Words after Reading the News}
