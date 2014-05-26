@@ -326,7 +326,9 @@ tries to maximize the average
 log-probability of the data under the learned probability distribution. Given
 training word sequence $w_1, w_2, \ldots, w_T$, the Skip-gram model maximizes:
 %
-\[\frac{1}{T}\sum_{t=1}^T \; \sum_{-C \le j \le C, \\ j \ne 0 } \log p(w_{t+j}|w_t)\]
+\begin{equation}
+  \frac{1}{T}\sum_{t=1}^T \; \sum_{-C \le j \le C, \\ j \ne 0 } \log p(w_{t+j}|w_t)
+\end{equation}
 %
 where $C$ is the size of the context used for training (which can optionally 
 change depending on the center word $w_t$). 
