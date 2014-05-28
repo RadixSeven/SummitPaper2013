@@ -1,0 +1,15 @@
+This is a question I didn't ask on Math overflow (math.stackexchange.com) about one way I was thinking of approaching solving the MDS solution of the skip-gram distributed semantic space representation. After I had finished typing the question, it suggested [this link]http://math.stackexchange.com/questions/158318/given-pairwise-distances-of-n-data-points-and-find-the-minimal-dimenion-of-spa) which gave me some pointers to follow down. I wanted to keep the question because it was a nice first attempt in formalizing what I have been thinking about. In particular I realized that the step-wise approach, when there is inconsistency, might have to move some of the points, so it would not necessarily give the global optimum.
+
+Title: Find a point in $d+k$ at specified distances $\delta_i$ to $n$ points in a $d$ dimensional subspace
+
+I am looking for a pointer to the literature for the following problem:
+
+I have a set of $n$ points $p_i$ lying in a $d$ dimensional subspace of a $d+k$ dimensional space where $d \le n$. I want to find a point $p$ whose Euclidean distances to $p_i$ are specified as $\delta_i$. If the distances are consistent, I would like to choose the smallest $k$ for which the constraints will hold. If the distances are not consistent, I would like to choose a solution with the minimum squared error (I'm not sure how to choose $k$ in this case):
+
+$$\underset{k,p} {\mathrm{argmin}}  \sum_{i=1}^n (||p-p_i||-\delta_i)^2$$
+
+This is similar to what was done in [this answer](http://math.stackexchange.com/a/671184/7609) except that I am willing to accept approximations and that $n$ dimensions is an upper bound, not a guarantee.
+
+I could use [multidimensional scaling](http://en.wikipedia.org/wiki/Multidimensional_scaling) (MDS) but, since this is going into a computer algorithm, it seems wasteful to calculate the $n^2$ distances between the existing points in order to add the new one. Additionally, MDS might move the existing points.
+
+I recognize that this is a complicated problem and am not asking someone to spend time to solve it. It just seems the kind of thing that has been studied before but I do not know what to call it.
