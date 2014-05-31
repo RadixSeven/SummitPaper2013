@@ -82,10 +82,10 @@ order=1
 
 [item:intro+background.tex]
 archive=true
-column=55
+column=50
 encoding=UTF-8
 highlight=LaTeX
-line=355
+line=359
 mode=LaTeX
 open=true
 order=0
@@ -117,7 +117,7 @@ JumpList=
 ViMarks=.,20,0,[,20,0,],20,0
 
 [view-settings,view=0,item:intro+background.tex]
-CursorColumn=55
-CursorLine=355
+CursorColumn=50
+CursorLine=359
 JumpList=
-ViMarks=.,355,55,[,355,55,],355,55
+ViMarks=.,357,75,[,357,56,],357,75

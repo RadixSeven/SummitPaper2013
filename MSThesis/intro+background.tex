@@ -352,8 +352,10 @@ is the softmax function.
 \[f(i, a_1,\dots, a_n)=\frac{\exp\left(a_i\right)}
 {\sum_{j \in 1\dots{}n}\exp\left(a_j\right)}\]
 %
-The softmax function maps n vectors in the real line to an n-dimensional
-probability distribution in which no probability is 0. 
+The softmax function maps a real vector to an n-dimensional
+probability distribution in which no probability is 0. This is similar to just
+dividing each item by the sum except that the individual items are transformed
+by an exponential function so that large values have an increased influence.
 
 During training, the dot-product of these vectors 
 is put into a softmax function to create a conditional probability: 
