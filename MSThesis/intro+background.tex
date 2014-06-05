@@ -480,13 +480,15 @@ model is more forgiving with respect to overfitting.
     \label{fig:pcarotation}
 \end{figure}
 
-By defining a good summary as ``one which captures most of the variability''
-and deciding to use a linear relationship, if one measures variability as
-variance then the technique starts with PCA.
+If you define a good summary as ``one which captures most of the variability'',
+use a linear relationship, and measure variability as
+variance then PCA is frequently your first step in factor analysis.
 PCA finds a new set of axes for a set of input vectors so that the first
-axis captures the most variance, the second is aligned with the dimension with 
+axis captures the most variance, the second is aligned with the direction with 
 the second most variance and so forth. These new axes are the principal 
-components of the input dataset. Figure \ref{fig:pcarotation} displays
+components of the input dataset and all of them are perpendicular to each other.
+
+Figure \ref{fig:pcarotation} displays
 graphically the effect of PCA. The upper left shows the original data. The
 lower right shows the principal components derived from that data. Finally,
 the upper right shows the original data after being rotated so the first
@@ -521,9 +523,10 @@ by their standard deviation. In that case the variance of each variable will be
 Because PCA performs a rotation, it can be looked at as a matrix factorization. 
 In particular if we assume that we are performing PCA on a matrix that contains 
 observations (or individuals) in the rows and variables measured in the columns 
-PCA produces two matrices: the loadings matrix which has rows that are 
-factors and columns that correspond to variables and the scores matrix which has 
-columns that are factors and rows that are observations. The scores matrix 
+PCA produces two matrices. The first matrix is the loadings matrix, which has 
+rows that are factors and columns that correspond to variables. The second is
+the scores matrix which has columns that are factors and rows that are 
+observations. The scores matrix 
 represents the observations (or individuals) expressed in terms of the new latent 
 factor variables. The loadings matrix gives the relationship between the 
 original variables and the new factors allowing one to be expressed in terms of
