@@ -508,37 +508,39 @@ parameters. Only two mixing probabilities are needed because the probabilities
 must sum to 1, so the total is 20.}. The model we used is linear but the process 
 generating the data is nonlinear.
 
-A common variation on PCA comes about when one wants to capture the covariance
-of several variables. For example, in a given dataset, one variable may range
-from 0 to 1,000,000 and the rest from 0 to 1. It is easy to see that just 
-choosing the large variable will capture most of the variability. However if
-you are interested in the relationships between the variables, their covariance
-structure, this will be hidden by the poor scaling. The solution to this is to
-z-score normalize all of the variables by subtracting their mean and dividing
-by their standard deviation. In that case the variance of each variable will be
-1 and PCA will pick out the axes with the greatest covariation.
+A common variation on PCA is used to capture the covariance of several 
+variables. To motivate this variation, imagine a dataset where one variable 
+ranges from 0 to 1,000,000 and the rest from 0 to 1. It is easy to see that just 
+choosing the large variable will capture most of the variability. However if you 
+are interested in the relationships between the variables, their covariance 
+structure, this will be hidden by the poor scaling. The solution to this is to 
+z-score normalize all of the variables by subtracting their mean and dividing by 
+their standard deviation. In that case the variance of each variable will be 1 
+and PCA will pick out the axes with the greatest covariation.
 
 \subsection{PCA and Matrices}
 
 Because PCA performs a rotation, it can be looked at as a matrix factorization. 
-In particular if we assume that we are performing PCA on a matrix that contains 
-observations (or individuals) in the rows and variables measured in the columns 
-PCA produces two matrices. The first matrix is the loadings matrix, which has 
-rows that are factors and columns that correspond to variables. The second is
-the scores matrix which has columns that are factors and rows that are 
-observations. The scores matrix 
-represents the observations (or individuals) expressed in terms of the new latent 
-factor variables. The loadings matrix gives the relationship between the 
-original variables and the new factors allowing one to be expressed in terms of
-the other. It is conventional to write the loadings matrix so that the factors
-are unit vectors to make them a unit basis for the new space. This is a matrix
-factorization because if you multiply $scores \times loadings$ you get the
-original matrix back. Further, because the principal components are ordered 
-in terms of variance captured, if you choose the first n rows of the 
-loadings matrix and multiply them by the first n columns of the scores matrix,
-you will recover an approximation to the original matrix that is the best 
-approximation\footnote{The approximation is best in a least-squares sense.} 
-that can be made with n underlying dimensions.
+It produces two matrices. If the input matrix contains observations (or 
+individuals) in the rows and measured variables in the columns, the resulting 
+matrices can be characterized as follows. The first matrix is the loadings 
+matrix, which has rows that are factors and columns that correspond to 
+variables. The second is the scores matrix, which has columns that are factors 
+and rows that are observations. 
+
+The scores matrix represents the observations (or individuals) expressed in 
+terms of the new latent factor variables. The loadings matrix gives the 
+relationship between the original variables and the new factors, allowing one 
+to be expressed in terms of the other. It is conventional to write the loadings 
+matrix so that the factors are unit vectors to make them a unit basis for the 
+new space. The separation into loadings and scores is a matrix factorization 
+because if you multiply $scores \times loadings$ you get the original matrix 
+back. Further, because the principal components are ordered in terms of variance 
+captured, if you choose the first n rows of the loadings matrix and multiply 
+them by the first n columns of the scores matrix, you will recover an 
+approximation to the original matrix that is the best approximation\footnote{The 
+approximation is best in a least-squares sense.} that can be made with n 
+underlying dimensions.
 
 \subsection{Interpreting the factors}
 
@@ -548,18 +550,18 @@ a dimensionality reduction strategy, in the sciences, factors are sought
 because the seeker wishes to understand the system. This requires interpreting
 the factors. Either the scores or the loadings matrices can be used in this 
 interpretation. The loadings matrix relates factors to the original variables
-and the scores matrix relates factors to the original observations. Which
-matrix is chosen for interpretation depends on whether the analyst can extract
-more meaning from the original variables or the original observations. For 
-example if the original experiment matched radio frequency emissions with rats
-from two groups at two different times, ``intensity at 300Hz'' carries less
-semantic information about the question under study than ``rat given placebo 
-at time 2'', so the analyst would
-use the scores matrix. On the other hand if the observations in the experiment
-were of random people and the variables were ``Is gregarious'', ``Is helpful'',
-``Is gregarious'' has more content relating to personality than 
-``random subject 2011 - male,'' so
-the analyst would use the loadings matrix.
+and the scores matrix relates factors to the original observations. 
+
+Which matrix is chosen for interpretation depends on whether the analyst can 
+extract more meaning from the original variables or the original observations. 
+For example if the original experiment matched radio frequency emissions with 
+rats from two groups at two different times, ``intensity at 300Hz'' carries less 
+semantic information about the question under study than ``rat given placebo at 
+time 2'', so the analyst would use the scores matrix. On the other hand, consider 
+the case where the observations in the experiment were of random people and the 
+variables were ``Is gregarious'' and ``Is helpful.'' ``Is gregarious'' has more 
+content relating to personality than ``random subject 2011 - male,'' so the 
+analyst would use the loadings matrix.
 
 \subsubsection{Creating the interpretation}
 
