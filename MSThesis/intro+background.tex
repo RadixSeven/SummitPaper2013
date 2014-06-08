@@ -357,32 +357,95 @@ The softmax function maps a real vector to an n-dimensional
 probability distribution in which no probability is 0. This is similar to just
 dividing each item by the sum except that the individual items are transformed
 by an exponential function so that large values have an increased influence.
+Figure \ref{fig:twovarsoftmax} shows that as one dimension of the vector 
+exceeds the other, its probability quickly rises toward 1.
 
-During training, the dot-product of these vectors 
+\begin{figure}[tbp]
+  \includegraphics[width=0.9\linewidth]{twovarsoftmax}
+  \caption{A visualization of the two variable softmax function. $x$ and $y$
+  are the input variables and the output probability of $x$ is plotted. The
+  probability of $y$ is just $1-x$.}
+  \label{fig:twovarsoftmax}
+\end{figure}
+
+
+During training, the dot-product of the center and target word vectors 
 is put into a softmax function to create a conditional probability: 
 %
-\[p(c|t)=\frac{\exp\left(v_{c,\to} ^{\quad\top} v_{t,\gets}\right)}
-{\sum_{w \in V}\exp\left(v_{w,\to} ^{\quad\top} v_{t,\gets}\right)}\]
+\begin{equation}
+  \label{eq:softmaxwithdotprod}
+  p(c|t)=\frac{\exp\left(v_{c,\to} ^{\quad\top} v_{t,\gets}\right)}
+  {\sum_{w \in V}\exp\left(v_{w,\to} ^{\quad\top} v_{t,\gets}\right)}
+\end{equation}
 %
 where $v_{w,\gets}$ and $v_{w,\to}$ are the input and output vector 
 representations of $w$ and $V$ is the vocabulary. $c$ and $t$ are context word 
 and target word respectively. So, this equation says that we 
-treat the dot-product of two vectors\footnote{in an exponential to make sure 
-that we can't get negative weights} as a weight. The closer together the vectors 
+treat the dot-product of two vectors as a weight\footnote{One function of the 
+exponential in the softmax is to ensure there will not be any negative 
+weights}. The closer together the vectors 
 are and the longer they are, the greater the weight. We divide the weight for 
 the context-target pair by the total weight of any vector with the target vector
 to get the probability of the context word given the target word. In this way
 the probability of any word occurring in the context of any other is encoded
 in their vectors.
 
-The softmax function above would work for training. However, to calculate its 
+\subsubsection{Why Use Softmax}
+
+Mikolov et al.\ do not explain why they chose the softmax function. The softmax
+function comes up naturally in probabilistic classification. As explained in,
+(\citealt{Bishop2006a}, pp. 197-199) for $K$ classes, the probability of 
+class $k$ given an input is:
+%
+\[
+ p(C_k | x) = \frac{p(x | C_k) p(C_k)}{\sum_{j=1}^{K} p(x | C_j)p(C_j)}
+\]
+%%
+If we set $a_k = \log p(x | C_k) p(C_k)$ then the softmax function becomes 
+obvious.
+%
+\[
+ p(C_k | x) = \frac{ \exp(a_k) }{ \sum_{j=1}^{K} \exp(a_j)}
+\]
+$a_k$ has a particular meaning; it is the unconditional probability of both 
+events $C_k$ and $x$. That is, $a_k=p(C_k, x)$.
+
+More can be noted if we recognize the fact that in \modelname{} the $a_k$'s take
+the form of a dot-product. Bishop notes that if you assume that the classes are
+Gaussian distributed with the same shape you get $a_k(x) = w_k^T x + w_{k0}$ where
+$w_k$ is a weight vector for a particular class and $w_{k0}$ is a threshold.
+If $\Sigma$ is the covariance matrix giving the common shape of the 
+distributions and $\mu_k$ is the mean of the Gaussian for the 
+$k$\textsuperscript{th} class,
+%
+\[
+ w_k = \Sigma^{-1}\mu_k
+\]
+\[
+ w_{k0} = ln p(C_k)-\frac{1}{2}\mu_k^T\Sigma^{-1}\mu_k
+\]
+%
+In our case, $w_{k0} = 0$ so the squared length of the vector is related to 
+the probability of the particular class and the weight vector for a class is
+the class mean after it has been transformed into a space where all 
+the class distributions are spherical.\footnote{Technically, where all of the
+class distributions are hyperspherical.}
+
+In \ref{eq:softmaxwithdotprod} the classes are the context words and the
+$x$'s are the target, center words of the context. nt
+
+
+
+
+\subsubsection{Hierarchical Softmax}
+
+The softmax function in Equation \ref{eq:softmaxwithdotprod} above would work 
+for training. However, to calculate its 
 gradient (needed for optimization) you need to evaluate a sum over all words
 in the vocabulary. Since vocabulary sizes are frequently large (on the order of
 tens of thousands to tens of millions of terms) this takes too much time when it
 needs to be repeated for every word in a several billion word corpus. Thus, 
 \modelname{} uses hierarchical softmax.
-
-\subsubsection{Hierarchical Softmax}
 
 \todo{rewrite to get rid of the redundancy with the overview section}
 Hierarchical softmax decomposes the output procedure into a binary tree. All
