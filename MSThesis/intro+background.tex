@@ -292,11 +292,12 @@ of the training data. To find that maximum, you take the derivative of the
 probability and set it to 0. However, derivatives of large products are 
 difficult. Fortunately, the logarithm is a function that turns products into
 sums and, because it is strictly increasing, does not change the maximum. The
-maximum of $f(a)\cdot{}g(b)$ is the same as the maximum of
+the values $a$ and $b$ that give a maximum of $f(a)\cdot{}g(b)$ are the same as 
+the values of $a$ and $b$ that give a maximum of
 $\log{f(a)} + \log{f(b)}$. So, we can maximize the following formula for the
 probability of the words in a single context:
 %
-\[\sum_{-C \le j \le C, \\ j \ne 0 } \log{p(w_{t+j}|w_t)}\]
+\[\sum_{\substack{-C \le j \le C \\ j \ne 0 }} \log{p(w_{t+j}|w_t)}\]
 %
 For ``The fox jumped over the lazy dog,'' this becomes:
 %
@@ -312,11 +313,11 @@ training corpus, the Skip-gram model needs to combine contexts. If the contexts
 were independent, this could be achieved by just multiplying them together.
 Because of overlap, this independence is obviously impossible. It is more
 plausible (though still wrong) if we imagine the document split into 
-non-overlapping blocks of length $C$. If 
+non-overlapping blocks of length $2C+1$. If 
 the training word sequence is $w_1, w_2, \ldots, w_T$, the 
 sum to maximize (after applying the logarithm trick) becomes:
 %
-\[\sum_{1 \le t \le T, t \bmod C = 0 }\sum_{-C \le j \le C, \\ j \ne 0 } \log{p(w_{t+j}|w_t)}\]
+\[\sum_{\substack{1 \le t \le T \\ t \bmod 2C+1 = C+1 }}\sum_{\substack{-C \le j \le C \\ j \ne 0 }} \log{p(w_{t+j}|w_t)}\]
 %
 If we normalize for the number of contexts, we are maximizing the average
 probability in each context. From the mathematics, there is no reason to throw
