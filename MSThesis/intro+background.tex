@@ -392,7 +392,8 @@ in their vectors.
 
 \subsubsection{Why Use Softmax}
 
-Mikolov et al.\ do not explain why they chose the softmax function. The softmax
+Mikolov et al.\ do not explain why they chose the softmax function. However,
+an implicit model can be inferred by observing that the softmax
 function comes up naturally in probabilistic classification. As explained in,
 (\citealt{Bishop2006a}, pp. 197-199) for $K$ classes, the probability of 
 class $k$ given an input is:
@@ -410,7 +411,7 @@ obvious.
 $a_k$ has a particular meaning; it is the unconditional probability of both 
 events $C_k$ and $x$. That is, $a_k=p(C_k, x)$.
 
-More can be noted if we recognize the fact that in \modelname{} the $a_k$'s take
+In \modelname{} the $a_k$'s take
 the form of a dot-product. Bishop notes that if you assume that the classes are
 Gaussian distributed with the same shape you get $a_k(x) = w_k^T x + w_{k0}$ where
 $w_k$ is a weight vector for a particular class and $w_{k0}$ is a threshold.
@@ -431,9 +432,19 @@ the class mean after it has been transformed into a space where all
 the class distributions are spherical.\footnote{Technically, where all of the
 class distributions are hyperspherical.}
 
-In Equation \ref{eq:softmaxwithdotprod} the classes are the context words and 
-the $x$'s are the target, center words of the context. 
+Mapping between Bishop's expressions and Equation \ref{eq:softmaxwithdotprod} 
+gives us an implicit model. In Equation \ref{eq:softmaxwithdotprod} the classes 
+are the context words and the $x$'s are the target, center words of the context.
+So, if we randomly choose a word from the context and it generates an 
+associated meaning-vector from a Gaussian cloud, the expression for determining
+which context word generated that meaning-vector is exactly the probability
+$p(c|t)$ given in Equation \ref{eq:softmaxwithdotprod}.
 
+In other words, underlying \modelname{} there is a kind of continuous topic 
+model where words generate topics in a meaning-vector space and the length of
+a word's vector is related to how often it is chosen to select the topic 
+as compared to other words in a context. \modelname{} selects the vectors for 
+the target words so that they 
 
 
 
