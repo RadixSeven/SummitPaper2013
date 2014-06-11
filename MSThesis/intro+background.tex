@@ -392,11 +392,13 @@ in their vectors.
 
 \subsubsection{Why Use Softmax}
 
-Mikolov et al.\ do not explain why they chose the softmax function. However,
-an implicit model can be inferred by observing that the softmax
-function comes up naturally in probabilistic classification. As explained in,
-(\citealt{Bishop2006a}, pp. 197-199) for $K$ classes, the probability of 
-class $k$ given an input is:
+Mikolov et al.\ do not explain why they chose the softmax function. Their 
+reason could be as simple as a softmax activation function being a standard 
+way to allow neural network outputs to be interpreted as probabilities in 
+categorical estimation. However, an implicit model can be inferred by observing 
+that the softmax function comes up naturally in probabilistic classification. 
+As explained in, (\citealt{Bishop2006a}, pp. 197-199) for $K$ classes, the 
+probability of class $k$ given an input is:
 %
 \[
  p(C_k | x) = \frac{p(x | C_k) p(C_k)}{\sum_{j=1}^{K} p(x | C_j)p(C_j)}
@@ -408,16 +410,15 @@ obvious.
 \[
  p(C_k | x) = \frac{ \exp(a_k) }{ \sum_{j=1}^{K} \exp(a_j)}
 \]
-$a_k$ has a particular meaning; it is the unconditional probability of both 
-events $C_k$ and $x$. That is, $a_k=p(C_k, x)$.
+$a_k$ has a particular meaning; it is the unconditional log probability of both 
+events $C_k$ and $x$. That is, $a_k=\log p(C_k, x)$.
 
-In \modelname{} the $a_k$'s take
-the form of a dot-product. Bishop notes that if you assume that the classes are
-Gaussian distributed with the same shape you get $a_k(x) = w_k^T x + w_{k0}$ where
-$w_k$ is a weight vector for a particular class and $w_{k0}$ is a threshold.
-If $\Sigma$ is the covariance matrix giving the common shape of the 
-distributions and $\mu_k$ is the mean of the Gaussian for the 
-$k$\textsuperscript{th} class,
+In \modelname{} the $a_k$'s take the form of a dot-product. Bishop notes that if 
+you assume that the classes are Gaussian distributed with the same shape you get 
+$a_k(x) = w_k^T x + w_{k0}$ where $w_k$ is a weight vector for a particular 
+class and $w_{k0}$ is a threshold. If $\Sigma$ is the covariance matrix giving 
+the common shape of the distributions and $\mu_k$ is the mean of the Gaussian 
+for the $k$\textsuperscript{th} class,
 %
 \[
  w_k = \Sigma^{-1}\mu_k
@@ -444,8 +445,9 @@ In other words, underlying \modelname{} there is a kind of continuous topic
 model where words generate topics in a meaning-vector space and the length of
 a word's vector is related to how often it is chosen to select the topic 
 as compared to other words in a context. \modelname{} selects the vectors for 
-the target words so that they 
-
+the target words so that the classification probability of which context word's
+distribution generated that point in space matches the probability of that word
+appearing in the target word's context.
 
 
 \subsubsection{Hierarchical Softmax}
