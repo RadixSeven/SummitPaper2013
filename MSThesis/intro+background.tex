@@ -277,7 +277,11 @@ Each word has two vectors, one indicating its meaning as a center, target word
 and the other as a context word. The algorithm starts with random vectors. Then
 each time one word occurs in the context of the other, the context vector and
 target vector are modified so that their projection onto one another is slightly
-longer. This 
+longer. This is achieved by some combination of lengthening them or adjusting 
+their positions to reduce the included angle. These adjustments are made in a
+way that after a long time the mutual projections between a word and a 
+target will be proportional to the probability of that word appearing in the
+context of that target. 
 
 \subsubsubsection{For individual contexts}
 
