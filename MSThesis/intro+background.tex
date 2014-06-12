@@ -273,15 +273,47 @@ accomplished, I would like to present an intuitive overview that sacrifices
 a little accuracy to give a high-level understanding of how the Skip-gram model
 assigns vectors to words.
 
-Each word has two vectors, one indicating its meaning as a center, target word
-and the other as a context word. The algorithm starts with random vectors. Then
-each time one word occurs in the context of the other, the context vector and
-target vector are modified so that their projection onto one another is slightly
-longer. This is achieved by some combination of lengthening them or adjusting 
-their positions to reduce the included angle. These adjustments are made in a
-way that after a long time the mutual projections between a word and a 
-target will be proportional to the probability of that word appearing in the
-context of that target. 
+\begin{figure}[tbp]
+  \includegraphics[width=0.9\linewidth]{dotproductvisualization}
+  \caption{A visualization of the dot product of two vectors $A$ and $B$. The 
+  dot product is the area of the rectangle formed when the projection of $A$
+  onto $B$ is put perpendicular to a copy of $B$.}
+  \label{fig:dotproductvisualization}
+\end{figure}
+
+\begin{figure}[tbp]
+  \includegraphics[width=0.9\linewidth]{dotproductaugmentation}
+  \caption{A visualization of increasing the dot product of two vectors $A$ and 
+  $B$. The red vectors are the initial vectors. The green vectors are the 
+  changes that would be applied in the direction of greatest increase. The blue
+  vectors are the results afterwards. Note that the result vectors have both a 
+  smaller angle between them and also larger projections onto one another.}
+  \label{fig:dotproductaugmentation}
+\end{figure}
+
+Each word has two vectors, one indicating its meaning as a center, target word 
+and the other as a context word. The algorithm starts with random vectors for 
+the context words and zero vectors for the target words. Then 
+each time one word occurs in the context of the other, the context vector and 
+target vector are modified slightly so that their dot product\footnote{Also 
+known as the scalar product} is slightly longer. Figure 
+\ref{fig:dotproductvisualization} shows the dot product of two vectors as the 
+area of a rectangle. It is clear we can increase this area by some combination 
+of lengthening the two vectors or reducing the angle between them. 
+When the fastest route is chosen in the Cartesian coordinate system, it
+increases the component of each vector that is parallel to the other. Thus, the
+angle between the two vectors gets smaller each time
+\footnote{Interestingly, the perpendicular components are not affected; so 
+training to maximize the dot product will not decrease the Euclidean distance
+below a threshold determined by the random initialization even though the
+dot product can be made as great as desired.} (See Figure 
+\ref{fig:dotproductaugmentation}).
+The algorithm 
+makes these adjustments in a way that after a long time the dot product
+between a word and a target will be proportional to the probability of that word 
+appearing in the context of that target when compared to the dot products of
+other words also appearing in that context. This means that words will cluster
+around their most common contexts.
 
 \subsubsubsection{For individual contexts}
 
