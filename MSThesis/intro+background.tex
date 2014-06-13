@@ -315,6 +315,46 @@ appearing in the context of that target when compared to the dot products of
 other words also appearing in that context. This means that words will cluster
 around their most common contexts.
 
+\begin{figure}[tbp]
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_00000}
+    \caption{Initial}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_00100}
+    \caption{100 iterations}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_00200}
+    \caption{200 iterations}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_00800}
+    \caption{800 iterations}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_01600}
+    \caption{1600 iterations}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.49\linewidth}
+    \includegraphics[width=\linewidth]{algorithmvisualization_02300}
+    \caption{2300 iterations}
+  \end{subfigure}
+  
+    \caption{A simplified version of the \modelname{} algorithm running on a
+    synthetic dataset. The filled circles are the topic vectors and the hollow
+    circles are the context vectors. There is a cyclic dependence: red, green,
+    blue, cyan, magenta, red. Each topic vector appears with context vectors of 
+    its own color and the next color. After 2300 co-occurrence presentations,
+    the algorithm has clearly encoded this dependence in the vector locations. 
+    See text for more details.}
+   \label{fig:algorithmvisualization}
+
+\end{figure}
+
+
 \subsubsubsection{For individual contexts}
 
 For each word, Skip-gram chooses two vectors, one for when the word is used to
