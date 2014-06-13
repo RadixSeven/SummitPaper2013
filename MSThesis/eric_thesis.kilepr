@@ -82,10 +82,10 @@ order=1
 
 [item:intro+background.tex]
 archive=true
-column=13
+column=2
 encoding=UTF-8
 highlight=LaTeX
-line=279
+line=399
 mode=LaTeX
 open=true
 order=0
@@ -117,7 +117,7 @@ JumpList=
 ViMarks=.,13,26,[,13,26,],13,26
 
 [view-settings,view=0,item:intro+background.tex]
-CursorColumn=13
-CursorLine=279
+CursorColumn=2
+CursorLine=399
 JumpList=
-ViMarks=.,279,12,[,278,72,],279,12
+ViMarks=.,400,35,[,400,8,],400,35

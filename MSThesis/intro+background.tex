@@ -319,28 +319,34 @@ around their most common contexts.
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_00000}
     \caption{Initial}
+    \label{fig:algorithmvisualization:0000}
   \end{subfigure}
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_00100}
     \caption{100 iterations}
+    \label{fig:algorithmvisualization:0100}
   \end{subfigure}
   \\
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_00200}
     \caption{200 iterations}
+    \label{fig:algorithmvisualization:0200}
   \end{subfigure}
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_00800}
     \caption{800 iterations}
+    \label{fig:algorithmvisualization:0800}
   \end{subfigure}
   \\
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_01600}
     \caption{1600 iterations}
+    \label{fig:algorithmvisualization:1600}
   \end{subfigure}
   \begin{subfigure}[b]{0.49\linewidth}
     \includegraphics[width=\linewidth]{algorithmvisualization_02300}
     \caption{2300 iterations}
+    \label{fig:algorithmvisualization:2300}
   \end{subfigure}
   
     \caption{A simplified version of the \modelname{} algorithm running on a
@@ -351,9 +357,48 @@ around their most common contexts.
     the algorithm has clearly encoded this dependence in the vector locations. 
     See text for more details.}
    \label{fig:algorithmvisualization}
-
 \end{figure}
 
+
+Figure \ref{fig:algorithmvisualization} displays a simplified version of the 
+\modelname{} algorithm running on a synthetic dataset using two-dimensional 
+vectors\footnote{The vectors are plotted as points because vectors and points
+are interchangeable and it is easier to read the plot without all the arrow 
+tails coming from the origin.}. The simplified algorithm
+starts the same as the normal one but does not give its probabilistic 
+guarantees. For each co-occurrence of two words the algorithm increases the dot
+product between the two vectors according to a fixed learning rate. The 
+co-occurrences were synthetically generated to conform to a simple pattern
+that would be easy to observe with the eye. The target vectors (the filled
+circles) have a cyclic ordering red$\rightarrow$green$\rightarrow$blue
+$\rightarrow$cyan$\rightarrow$magenta$\rightarrow$red. The target vectors appear
+with a context vector of the same or next color (chosen uniformly from all
+vectors of that color) and all the target vectors are equally likely to be 
+chosen. This means that if the algorithm is working correctly, you would expect
+the green context vectors to appear between the red and green target vectors and
+the blue context vectors to appear between the green and blue target vectors and
+so forth. Additionally, the different vectors should form some sort of loop
+whose order reflects the main color ordering. This is exactly what Figure 
+\ref{fig:algorithmvisualization:2300} shows.
+
+The algorithm starts in \ref{fig:algorithmvisualization:0000} with random 
+locations for the context vectors and all the target vectors at the origin. 
+Since the greatest movement when maximizing a dot-product through gradient 
+ascent is in the shorter of the two vectors, the initial co-occurrences in 
+\ref{fig:algorithmvisualization:0100}, \ref{fig:algorithmvisualization:0200}
+and \ref{fig:algorithmvisualization:0800} mainly move the target vectors. It is
+only after \ref{fig:algorithmvisualization:0800} that the target and context
+vectors approach the same magnitude that we start to see real movement in the
+context vectors leading to \ref{fig:algorithmvisualization:1600} and finally
+to \ref{fig:algorithmvisualization:2300} where the structure of the training 
+data is clearly reflected in the resulting vectors. However, even as early
+as \ref{fig:algorithmvisualization:0100} it is possible to see the cyclic 
+structure emerging in the target vectors (though magenta and green are 
+hopelessly mixed up at this point) despite the context vectors being still 
+almost unchanged from their initial positions.
+
+\todo{Write transition from overview to details - maybe make promote the 
+overview section to a subsubsection?}
 
 \subsubsubsection{For individual contexts}
 
