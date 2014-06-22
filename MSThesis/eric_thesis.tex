@@ -10,7 +10,12 @@
 \usepackage{graphicx}
 \usepackage{longtable}
 \usepackage{subcaption}
-\usepackage[bookmarks]{hyperref}
+\usepackage[
+   bookmarks,
+   colorlinks, % Turn this off for printing
+   pdftitle={What Machines Understand about Personality Words after Reading the News},
+   pdfauthor={Eric Moyer}
+   ]{hyperref}
 \usepackage[round]{natbib}
 
 \bibliographystyle{plainnat}
@@ -35,7 +40,8 @@
 % More semantically appropriate name for my lowest level of section numbering
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}}
 
-
+% Set the TOC to display up to paragraph headings
+\setcounter{tocdepth}{4}
 
 % Code to add text to ``blank'' pages inserted to make chapters start on right
 % hand side
@@ -57,7 +63,9 @@
 % Skeleton of the work
 
 \author{Eric Moyer}
+% Remember to change the PDF title in hyperref when changing the title
 \title{What Machines Understand about Personality Words after Reading the News}
+% Remember to change the PDF title in hyperref when changing the title
 \begin{document}
 \include{intro+background}
 \include{methods}
