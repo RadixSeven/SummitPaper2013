@@ -260,14 +260,13 @@ technique.
 calling the model \modelname{} to abbreviate 
 Mikolov Word2Vec.
 
-\subsubsection{Skip-gram equation}
-
 The two models are referred to as Continuous Bag of Words (CBOW) and 
 Skip-gram. CBOW learns the function to predict a word given its context and
 Skip-gram learns to predict context given a word. I will not cover CBOW because
 I do not use it in this paper. Skip-gram, however, I use extensively. 
 
-\subsubsubsection{Overview}
+\subsubsection{Skip-gram Overview}
+
 Before getting into the details of how the magic of the algorithm is 
 accomplished, I would like to present an intuitive overview that sacrifices 
 a little accuracy to give a high-level understanding of how the Skip-gram model
@@ -397,10 +396,9 @@ structure emerging in the target vectors (though magenta and green are
 hopelessly mixed up at this point) despite the context vectors being still 
 almost unchanged from their initial positions.
 
-\todo{Write transition from overview to details - maybe make promote the 
-overview section to a subsubsection?}
+\todo{write transition from overview to details}
 
-\subsubsubsection{For individual contexts}
+\subsubsection{Skip-gram Equation for Individual Contexts}
 
 For each word, Skip-gram chooses two vectors, one for when the word is used to
 predict other words and one for when the word is one of the words whose
@@ -440,7 +438,7 @@ Maximizing this under the constraints that the probabilities sum to 1 and are
 greater than 0, we get:
 \[p(\text{the|jumped})=0.5 \text{ and } p(\text{fox|jumped}=p(\text{over|jumped})=0.25\]
 
-\subsubsubsection{Combining contexts}
+\subsubsection{Skip-gram Equation for Combined Contexts}
 This gives a probability assignment for each context, but to use the entire
 training corpus, the Skip-gram model needs to combine contexts. If the contexts
 were independent, this could be achieved by just multiplying them together.
