@@ -396,10 +396,12 @@ structure emerging in the target vectors (though magenta and green are
 hopelessly mixed up at this point) despite the context vectors being still 
 almost unchanged from their initial positions.
 
-\todo{write transition from overview to details}
-
 \subsubsection{Skip-gram Equation for Individual Contexts}
 
+With this overview in mind, we can go on to develop the skip-gram equation that
+gives the precise relationship sought between the context and target vectors
+and the hierarchical softmax function that makes training such a model 
+tractable.
 For each word, Skip-gram chooses two vectors, one for when the word is used to
 predict other words and one for when the word is one of the words whose
 occurrence is being predicted. These vectors are plugged into an formula (which
@@ -591,7 +593,6 @@ tens of thousands to tens of millions of terms) this takes too much time when it
 needs to be repeated for every word in a several billion word corpus. Thus, 
 \modelname{} uses hierarchical softmax.
 
-\todo{rewrite to get rid of the redundancy with the overview section}
 Hierarchical softmax decomposes the output procedure into a binary tree. All
 words are placed as leaves on the tree. Then, rather than each word getting its 
 own output vector, its ancestors on the path to the root hold several output
