@@ -369,7 +369,7 @@ guarantees. For each co-occurrence of two words the algorithm increases the dot
 product between the two vectors according to a fixed learning rate. The 
 co-occurrences were synthetically generated to conform to a simple pattern
 that would be easy to observe with the eye. The target vectors (the filled
-circles) have a cyclic ordering red$\rightarrow$green$\rightarrow$blue
+circles) have a cyclic ordering red$\rightarrow$green$\rightarrow$blue%This comment allows breaking across lines without extraneous space in the formula
 $\rightarrow$cyan$\rightarrow$magenta$\rightarrow$red. The target vectors appear
 with a context vector of the same or next color (chosen uniformly from all
 vectors of that color) and all the target vectors are equally likely to be 
@@ -402,15 +402,16 @@ With this overview in mind, we can go on to develop the skip-gram equation that
 gives the precise relationship sought between the context and target vectors
 and the hierarchical softmax function that makes training such a model 
 tractable.
-For each word, Skip-gram chooses two vectors, one for when the word is used to
-predict other words and one for when the word is one of the words whose
-occurrence is being predicted. These vectors are plugged into an formula (which
-I will cover shortly) that produces a probability. If you treat all words in a
-context as being generated independently from the center word, the probability
-of a particular set of words is the product of the probabilities. So, if $C$ is
-the size of a context and $w_t$ is the center word ($t$ being an index into a
-list of words that forms our training data), we can write the probability of
-the neighborhood around a particular word as:
+
+As mentioned above, Skip-gram chooses two vectors for each word, one for when 
+the word is used to predict other words and one for when the word is one of the 
+words whose occurrence is being predicted. These vectors are plugged into an 
+formula (which I will cover shortly) that produces a probability. If you treat 
+all words in a context as being generated independently from the center word, 
+the probability of a particular set of words is the product of the 
+probabilities. So, if $C$ is the size of a context and $w_t$ is the center word 
+($t$ being an index into a list of words that forms our training data), we can 
+write the probability of the neighborhood        around a particular word as:
 %
 \[\prod_{-C \le j \le C, \\ j \ne 0 } p(w_{t+j}|w_t)\]
 %
@@ -438,7 +439,7 @@ For ``The fox jumped over the lazy dog,'' this becomes:
 %
 Maximizing this under the constraints that the probabilities sum to 1 and are
 greater than 0, we get:
-\[p(\text{the|jumped})=0.5 \text{ and } p(\text{fox|jumped}=p(\text{over|jumped})=0.25\]
+\[p(\text{the|jumped})=0.5 \text{ and } p(\text{fox|jumped})=p(\text{over|jumped})=0.25\]
 
 \subsubsection{Skip-gram Equation for Combined Contexts}
 This gives a probability assignment for each context, but to use the entire
@@ -470,14 +471,14 @@ change depending on the center word $w_t$).
 
 \subsubsection{Softmax in Skip-gram}
 
-As mentioned above, the Skip-gram model consists of two vectors for each word, 
-an input and an output vector. The output vector is used when a word is the 
-center, target word whose context is being predicted and the input vector is 
+In some other publications about \modelname{}, the two vectors for each word are
+called the input and output vectors. The output vector is used when a word is
+the center, target word whose context is being predicted and the input vector is 
 used when a word is a candidate. The probabilities which were used as parameters
 in Equation \ref{eq:skipgramequation} are actually functions of these vectors
-and the optimization takes place in the vector space not directly in the space
+and the optimization takes place in the vector space, not directly in the space
 of probabilities. These vectors will be the carriers of the distributed semantic
-information. In particular, After training, the input vectors will have 
+information. In particular, after training, the input vectors will have 
 the distributed semantic representation we seek. 
 
 The key link between these two worlds of probability and vector-space semantics
@@ -491,7 +492,10 @@ probability distribution in which no probability is 0. This is similar to just
 dividing each item by the sum except that the individual items are transformed
 by an exponential function so that large values have an increased influence.
 Figure \ref{fig:twovarsoftmax} shows that as one dimension of the vector 
-exceeds the other, its probability quickly rises toward 1.
+exceeds the other, its probability quickly rises toward 1. In this way, the
+softmax function is like a smoothed version of the maximum function (which would
+have a 1 in the maximum dimension and zeros elsewhere) and this is the source
+of the name ``softmax.''
 
 \begin{figure}[tbp]
   \includegraphics[width=0.9\linewidth]{twovarsoftmax}
