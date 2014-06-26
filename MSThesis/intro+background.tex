@@ -506,7 +506,7 @@ of the name ``softmax.''
 \end{figure}
 
 
-During training, the dot-product of the center and target word vectors 
+During training, the dot-product of the context and target word vectors 
 is put into a softmax function to create a conditional probability: 
 %
 \begin{equation}
@@ -610,7 +610,7 @@ one of the children of each node as special (it will be given a positive
 weight). For each child node $n$, let $sp(n)$ be 1 if it is the special child
 of its parent and $-1$ otherwise.
 Finally, $\sigma$ will denote the standard logistic sigmoid 
-$\sigma(x)=1/(1+exp(-x))$. Because 
+$\sigma(x)=1/(1+\exp(-x))$. Because 
 the output vectors are associated with the inner nodes and the input vectors 
 with the leaf nodes, it would be possible to dispense with the cumbersome 
 input-output vector notational distinction. However, I keep it for 
