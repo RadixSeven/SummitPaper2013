@@ -411,7 +411,7 @@ all words in a context as being generated independently from the center word,
 the probability of a particular set of words is the product of the 
 probabilities. So, if $C$ is the size of a context and $w_t$ is the center word 
 ($t$ being an index into a list of words that forms our training data), we can 
-write the probability of the neighborhood        around a particular word as:
+write the probability of the neighborhood around a particular word as:
 %
 \[\prod_{-C \le j \le C, \\ j \ne 0 } p(w_{t+j}|w_t)\]
 %
@@ -471,14 +471,13 @@ change depending on the center word $w_t$).
 
 \subsubsection{Softmax in Skip-gram}
 
-In some other publications about \modelname{}, the two vectors for each word are
-called the input and output vectors. The output vector is used when a word is
-the center, target word whose context is being predicted and the input vector is 
-used when a word is a candidate. The probabilities which were used as parameters
+We are not seeking a set of probabilities, however, but a set of vectors 
+encoding the semantics of the co-occurrence relationships in the training set.
+The probabilities which were used as parameters
 in Equation \ref{eq:skipgramequation} are actually functions of these vectors
 and the optimization takes place in the vector space, not directly in the space
 of probabilities. These vectors will be the carriers of the distributed semantic
-information. In particular, after training, the input vectors will have 
+information. In particular, after training, the target vectors will have 
 the distributed semantic representation we seek. 
 
 The key link between these two worlds of probability and vector-space semantics
@@ -511,11 +510,11 @@ is put into a softmax function to create a conditional probability:
 %
 \begin{equation}
   \label{eq:softmaxwithdotprod}
-  p(c|t)=\frac{\exp\left(v_{c,\to} ^{\quad\top} v_{t,\gets}\right)}
-  {\sum_{w \in V}\exp\left(v_{w,\to} ^{\quad\top} v_{t,\gets}\right)}
+  p(c|t)=\frac{\exp\left(v_{c,\context} ^{\quad\top} v_{t,\target}\right)}
+  {\sum_{w \in V}\exp\left(v_{w,\context} ^{\quad\top} v_{t,\target}\right)}
 \end{equation}
 %
-where $v_{w,\gets}$ and $v_{w,\to}$ are the input and output vector 
+where $v_{w,\target}$ and $v_{w,\context}$ are the target and context vector 
 representations of $w$ and $V$ is the vocabulary. $c$ and $t$ are context word 
 and target word respectively. So, this equation says that we 
 treat the dot-product of two vectors as a weight\footnote{One function of the 
@@ -597,9 +596,9 @@ tens of thousands to tens of millions of terms) this takes too much time when it
 needs to be repeated for every word in a several billion word corpus. Thus, 
 \modelname{} uses hierarchical softmax.
 
-Hierarchical softmax decomposes the output procedure into a binary tree. All
+Hierarchical softmax decomposes the context vectors into a binary tree. All
 words are placed as leaves on the tree. Then, rather than each word getting its 
-own output vector, its ancestors on the path to the root hold several output
+own context vector, its ancestors on the path to the root hold several context
 vectors that combine to calculate its probability with any other vector.
 
 To define the equation for hierarchical softmax, we need to introduce some 
@@ -611,15 +610,15 @@ weight). For each child node $n$, let $sp(n)$ be 1 if it is the special child
 of its parent and $-1$ otherwise.
 Finally, $\sigma$ will denote the standard logistic sigmoid 
 $\sigma(x)=1/(1+\exp(-x))$. Because 
-the output vectors are associated with the inner nodes and the input vectors 
-with the leaf nodes, it would be possible to dispense with the cumbersome 
-input-output vector notational distinction. However, I keep it for 
+the context vectors are associated with the inner nodes and the target vectors 
+with the leaf nodes, it would be possible to dispense with the context and 
+target vector notational distinction. However, I keep it for 
 comparison with the non-hierarchical formulation. With
 these definitions, we can write the conditional probability of a context word
 given a target word as:
 %
 \[p(c|t)=\prod_{j=1}^{L(c)-1} \sigma\left(sp\left(n_{c,j+1}\right)
-\cdot v_{n_{c,j},\to}^{\quad\top} v_{t,\gets}\right)\]
+\cdot v_{n_{c,j},\context}^{\quad\top} v_{t,\target}\right)\]
 %
 It can be verified that for all $t$, $\sum_{c\in{}V}p(c|t)=1$. Now, the cost
 of computing $\log p(c|t)$ and its gradient is proportional to $L(c)$, which, 
