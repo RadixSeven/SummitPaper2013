@@ -618,7 +618,7 @@ these definitions, we can write the conditional probability of a context word
 given a target word as:
 %
 \[p(c|t)=\prod_{j=1}^{L(c)-1} \sigma\left(sp\left(n_{c,j+1}\right)
-\cdot v_{n_{c,j},\context}^{\quad\top} v_{t,\target}\right)\]
+\cdot v_{n_{c,j},\context}^{\qquad\top} v_{t,\target}\right)\]
 %
 It can be verified that for all $t$, $\sum_{c\in{}V}p(c|t)=1$. Now, the cost
 of computing $\log p(c|t)$ and its gradient is proportional to $L(c)$, which, 
