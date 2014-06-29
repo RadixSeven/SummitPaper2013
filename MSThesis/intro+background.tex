@@ -879,7 +879,7 @@ After Norman, people continued to produce word lists for trait evaluation. But
 many of them were much smaller \textendash designed for use in direct personality 
 assessment and they are frequently dependent on one of the earlier lists. We
 use two such lists from Goldberg in our later analysis. 
-\citep{Saucler1996,Goldberg1990} 
+\citep{Saucier1996,Goldberg1990} 
 
 \subsection{Factor-analytically derived traits}
 
@@ -1040,40 +1040,38 @@ The majority of papers looking at both vector-space language models and
 personality are attempts to predict personality or some aspect thereof from a 
 body of text.
 
-\todo{cite Shen Brdiczka Liu 2013} build a classifier to predict three levels
+\citep{Shen2013} build a classifier to predict three levels
 (high, medium, and low) of each of the Big Five personality dimensions from
 individual emails using hand-selected features. One of the underlying 
 probabilistic models they reject is an LDA variant. Their final classifier
 achieves around 70\% accuracy.
 
-\todo{cite Hill, Song, Dong 2001} use LSA on a collection of design documents
+\citep{Hill2001} use LSA on a collection of design documents
 to produce vectors which they separate into components one coming from 
 the author's, speaking personality and the other from the topic of the document.
 
-In \todo{cite Gill and French 2007} the authors attempted to predict personality
-using three different vector space lexical semantic models including LSA. These
-models were trained on several standard news and academic corpora. They
-had emails from students who had taken the Eysenck Personality Questionnaire and
-tried to predict their extroversion and neuroticism by looking at the similarity
-of their emails to 10 prototypical words ``defining a trait'' from \todo{cite ref 
-Goldberg 1992 Development of markers for the Big-Five factor structure} and
-by looking at the 7 words that were most frequent in emails from the people who
-were most extreme on the given traits. The semantic models failed on both
-counts while human raters were able to reliably predict both extroversion and
-neuroticism from the same texts. They concluded that topic models do not
-extract the right kind of information to classify personality. An external
-observer, however, might note their unsophisticated use of pre-made topic
-models created in a different domain to examine poorly selected features in 
-a very small list of documents as an alternate explanation for their failure.
+In \citep{Gill2007} the authors attempted to predict personality using three 
+different vector space lexical semantic models including LSA. These models were 
+trained on several standard news and academic corpora. They had emails from 
+students who had taken the Eysenck Personality Questionnaire and tried to 
+predict their extroversion and neuroticism by looking at the similarity of their 
+emails to 10 prototypical words ``defining a trait'' from \citep{Goldberg1992} 
+and by looking at the 7 words that were most frequent in emails from the people 
+who were most extreme on the given traits. The semantic models failed on both 
+counts while human raters were able to reliably predict both extroversion and 
+neuroticism from the same texts. They concluded that topic models do not extract 
+the right kind of information to classify personality. An external observer, 
+however, might note their unsophisticated use of pre-made topic models created 
+in a different domain to examine poorly selected features in a very small list 
+of documents as an alternate explanation for their failure.
 
-In \todo{cite Arvidsson Sikstrom and Werbart 2011} they use LSA to show that 
-psychotherapy causes changes in a self-report-based personality index based 
-on a patient's description of himself, his mother and his father.
-\footnote{I was unable to access the full text of this article before I
-had to submit the thesis but I still felt that the article was likely 
-relevant.}
+In \citep{Arvidsson2011} they use LSA to show that psychotherapy causes changes 
+in a self-report-based personality index based on a patient's description of 
+himself, his mother and his father. \footnote{I was unable to access the full 
+text of this article before I had to submit the thesis but I still felt that the 
+article was likely relevant.}
 
-\todo{cite Pennacchoiotti2011} uses a large number of features including topics
+\citep{Pennacchiotti2011} uses a large number of features including topics
 from different LDA models to predict various features of Twitter users including
 political orientation, which may be considered a correlate of the openness
 personality dimension.
@@ -1081,44 +1079,39 @@ personality dimension.
 \subsection{Questions in the study of personality}
 
 Besides these predictive studies, one article used vector-space lexical 
-semantics as a tool to explore personality. \citep{Schwartz2013a} use a 
-database of 14.3 million posts from 75,000 
-Facebook users who took a Five Factor questionnaire and analyzed their Facebook 
-posts to gain insight into gender, age, and personality. One of the features 
-they examine is topics from an LDA model. Their personality-sorted results
-mainly looked at N-grams (which produced the novel observation that introverts
-like Japanese culture). Their insights from the LDA were mainly about lifespan
-issues. For example, social
-topics increase with age and antisocial topics decrease.
+semantics as a tool to explore personality. \citep{Schwartz2013a} use a database 
+of 14.3 million posts from 75,000 Facebook users who took a Five Factor 
+questionnaire and analyzed their Facebook posts to gain insight into gender, 
+age, and personality. One of the features they examine is topics from an LDA 
+model. Their personality-sorted results mainly looked at N-grams (which produced 
+the novel observation that introverts like Japanese culture). Their insights 
+from the LDA were mainly about lifespan issues. For example, social topics 
+increase with age and antisocial topics decrease.
 
 \subsection{Serendipitously discovered personality factors}
 
-Possibly the most relevant work is \citep{Samsonovich2010} (which is an
-expansion of \citep{Samsonovich2007}). In this work the authors are not
+Possibly the most relevant work is \citep{Samsonovich2010} (which is an 
+expansion of \citep{Samsonovich2007}). In this work the authors are not 
 intending to discover anything about personality, rather they are investigating 
-the semantic structure of language. They
-analyze synonyms and antonyms in English, French, and German. In all three
-languages, they discovered that the first three principal components could be
-summarized as measuring positive/negative (valence), strong/weak 
-(dominance,arousal), and open/closed (freedom). They used a similar criterion
-to Mikolov for constructing the space in that they minimized a cosine distance
-for close words. But because of the presence antonym information, they were
-also able to specify that antonyms should have maximum cosine distance.
-The resulting vector assignments had 4 obvious and strong principal
-components, of which 3 were replicated across languages. Because of the
-underlying human-generated synonym-antonym classification, the generated
-categories better reflect the way humans divide up the world. Additionally,
-the first two categories are similar to several two-factor personality models:
-Morality/Dynamism \todo{ref cite Saucier, Georgiades, Tsaousis, and Goldberg 2005}
-or Virtue/Dynamism \todo{ref cite De Raad and Barelds 2008}. The authors also
-see a similarity between their factors and Communion/Power from the 
-interpersonal Circumplex of Leary \todo{ref cite Leary T (1957) 
-Interpersonal diagnosis of personality. New York: Ronald Press}. This suggests
-the 
-interesting possibility that the great cross-cultural similarity in personality
-factors comes in part from the fact that humans, the main measuring instrument,
-classify \textit{everything} along these two dimensions. It would be a very
-interesting follow-up to look at the portion of semantic space generated
-from these thesauri inhabited by personality words and see what other 
-dimensions are present when the noise of multiple, overlapping topic-areas
-is removed.
+the semantic structure of language. They analyze synonyms and antonyms in 
+English, French, and German. In all three languages, they discovered that the 
+first three principal components could be summarized as measuring 
+positive/negative (valence), strong/weak (dominance,arousal), and open/closed 
+(freedom). They used a similar criterion to Mikolov for constructing the space 
+in that they minimized a cosine distance for close words. But because of the 
+presence antonym information, they were also able to specify that antonyms 
+should have maximum cosine distance. The resulting vector assignments had 4 
+obvious and strong principal components, of which 3 were replicated across 
+languages. Because of the underlying human-generated synonym-antonym 
+classification, the generated categories better reflect the way humans divide up 
+the world. Additionally, the first two categories are similar to several 
+two-factor personality models: Morality/Dynamism \citep{Saucier2005} or 
+Virtue/Dynamism \citep{DeRaad2008}. The authors also see a similarity between 
+their factors and Communion/Power from the interpersonal Circumplex of Leary 
+\citep{Leary1957}. This suggests the interesting possibility that the great 
+cross-cultural similarity in personality factors comes in part from the fact 
+that humans, the main measuring instrument, classify \textit{everything} along 
+these two dimensions. It would be a very interesting follow-up to look at the 
+portion of semantic space generated from these thesauri inhabited by personality 
+words and see what other dimensions are present when the noise of multiple, 
+overlapping topic-areas is removed.
