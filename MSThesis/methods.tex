@@ -301,8 +301,8 @@ American sense in the latter when there was a difference in usage.)
 The meaning vectors are generated so that the semantic distance between two 
 words (the probability of their being used in the same context) is related to 
 their cosine distance - that is, their dot product. However, many analysis 
-algorithms depend on distance being measured through Euclidean space. Principal 
-components analysis (PCA), the algorithm I use, is one of those. It aligns the 
+algorithms depend on distance being measured through Euclidean space. PCA, 
+the algorithm I use, is one of those. It aligns the 
 extracted principal components with the directions of the most variability. The 
 only directions PCA considers is those along straight lines in Euclidean space. 
 So, to use PCA, I need to convert the vectors to make the Euclidean distances 
@@ -336,7 +336,7 @@ source for the number of dimensions produced.\citep{Matlab2012a}
 \end{figure}
 
 
-The paper \citep{Qian2004} may seem to imply that this 
+\citep{Qian2004} may seem to imply that this 
 transformation is unnecessary since their conclusion is that in high-dimensional 
 spaces, the cosine and Euclidean distances can be used interchangeably with 
 little difference. However, they note that the similarity of the two measures 
@@ -408,10 +408,6 @@ the separating line in a scree plot. First, humans try to look for where the
 graph looks like the slope changes abruptly. Second, humans try to look for the 
 left-most point where the graph ceases to appear as an exponential decay.
 
-By choosing numbers of components that match human intuition and also
-examining points suggested by the heuristic algorithms, I can come up
-with a good guess as to how many components I might need to examine.
-
 I entered this experiment assuming a basically linear underlying structure 
 because such a structure exists in the normal personality assay manner of 
 determining personality components. However, the scree plots I generated bear a 
@@ -420,10 +416,8 @@ the basic elbow method and the other heuristics I used perform poorly in
 determining the number of components (the correct number of components was much 
 greater than any number chosen by any of the heuristics).
 
-Because of the strong possibility of nonlinear structure, the number
-of components I examined depended mostly on my time rather than
-criteria in the data. In general I only examined the first 15
-principal components of any transformed dataset.
+Because of the strong possibility of nonlinear structure, I only examined the 
+first 15 principal components of any transformed dataset.
 
 \section{Sorting words to identify components}
 
