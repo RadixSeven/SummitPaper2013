@@ -74,7 +74,7 @@ personality word.
 Part of speech marking misses some subtle distinctions, such as when someone 
 says, ``If <person> would be so kind.'' (a common phrase in the parliamentary 
 notes). However, it is very good at broader meaning differentiation. I looked 
-at the 438 words used in \citep{Saucler1996}. In 
+at the 438 words used in \citep{Saucier1996}. In 
 the vast majority of cases, WordNet had only one definition that had to do with 
 personality and that definition was distinguished from the others by determining 
 whether the part-of-speech was an adjective or not. For 6 words (cunning, 
@@ -82,8 +82,8 @@ daring, faultfinding, quiet, self-pitying, and understanding) both the adjective
 and non-adjective categories had a personality meaning. So, being an adjective 
 correctly distinguished personality word semantics 98.6\% of the time.
 
-After consulting with Dr.\ Katrin Erk, \todo{ref private communication with Dr. 
-Erk} I used TreeTagger \todo{ref tree tagger paper} as my basic part-of-speech 
+After consulting with Dr.\ Katrin Erk, (private communication, October 2013),
+I used TreeTagger \citep{Schmid1994} as my basic part-of-speech 
 tagging engine. Because TreeTagger must load all sentences to be tagged into 
 memory, it cannot deal with the entire corpus at once. So, I split the corpus 
 into 14 files of 10,000,000 lines each (the last being smaller). TreeTagger 
@@ -99,9 +99,9 @@ generation software. So, I wrote another script (\filename{reassemble\_tags.pl}
 Appendix \ref{app:reassembletags}) which took the 14 files, used the sentence 
 ending tags to detect line ends and output only the original words except in the 
 case of adjectives. Adjectives were output with an underscore and the tag JJ 
-(which is the tag for an adjective used in the Penn Treebank \todo{ref penn 
-treebank paper and paper giving the penn treebank tags if it is different}). So 
-the word ``kind'' was output as ``kind\_JJ'' if it was an adjective.
+(which is the tag for an adjective used in the Penn Treebank 
+\citep{Marcus1993}). So the word ``kind'' was output as ``kind\_JJ'' if it was 
+an adjective.
 
 Late in the research, I realized that \filename{reassemble\_tags.pl} did not 
 put a newline at the end of the last sentence in its input file. Thus when the 
@@ -143,15 +143,14 @@ so I left that for later work.
 Once I had the preprocessing done, the next step was to choose the number of 
 dimensions in the vectors. The the vector dimensionality is an important 
 parameter for any vector-based lexical semantics algorithm. For LSA, the number 
-of vectors has a curvilinear relationship to meaning captured. In \todo{ref 
-landauer and dumais 1987 see also handbook of LSA p.59}, performance on the 
-synonym section of the TOEFL \todo{ref toefl} increased with number of 
-dimensions up to about 300 and then decreased as more dimensions were added. In 
-my case, I chose 800 dimensions because that was the best number of dimensions 
-found for converting English to the similar language Spanish \todo{ref skip-gram 
-translation paper} on the assumption that sufficient meaning to convert between 
-those two languages would also be sufficient for capturing the most important 
-personality dimensions.
+of vectors has a curvilinear relationship to meaning captured. In \citep[p. 
+220]{Landauer1997}, performance on the synonym section of the TOEFL \citep{ETS} 
+increased with number of dimensions up to about 300 and then decreased as more 
+dimensions were added. In my case, I chose 800 dimensions because that was the 
+best number of dimensions found for converting English to the similar language 
+Spanish \citep{Mikolov2013a} on the assumption that sufficient meaning to convert 
+between those two languages would also be sufficient for capturing the most 
+important personality dimensions.
 
 \section{Create vectors and select words to PCA}
 
@@ -165,9 +164,9 @@ vectors so that the table fit in main memory. Thus, all words with less than
 the vocabulary.
 
 Number of dimensions in hand, I generated the meaning vectors using the 
-skip-gram implementation in gensim. \todo{ref gensim} Then I selected the 
+skip-gram implementation in gensim \citep{Rehurek2010}. Then I selected the 
 meaning vectors (model.syn0) for my wordlists from the generated model using 
-the script included as \filename{extract\_vectors.py} from 
+the script included as \filename{extract\_vectors.py} from Appendix
 \ref{app:extractvectors}. The lists of words were taken from three sets of 
 personality words. 
 
@@ -179,18 +178,18 @@ because the spelling ``extaverted'', which was in the original list, did not
 appear in the WMT11 corpus. To match the words in the tagged corpus, all of the 
 words had the characters ``\_jj'' appended because the list was intended as a 
 list of adjectives and JJ is the standard suffix for adjective used in the Penn 
-Treebank \todo{ref cite penn treebank} and thus is the suffix used by my 
+Treebank \citep{Marcus1993} and thus is the suffix used by my 
 part-of-speech tagging software.
 
 \subsection{438 word list}
 
 The second set had 438 words and was 
-taken from \citep{Saucler1996}\footnote{This paper is what I have down as 
+taken from \citep{Saucier1996}\footnote{This paper is what I have down as 
 the source for this list. However, on inspection, it has 435 words not either
 439 or 438. It also lacks the word cunning twice. Thus, I believe it is the 
 wrong paper. However, I reference it because it is the closest thing I have
 to the correct one.}. There were 439 
-entries in the list in \citep{Saucler1996}, however, the word ``cunning'' 
+entries in the list in \citep{Saucier1996}, however, the word ``cunning'' 
 appeared twice. Because there were some words in the 101 word list that were 
 absent in the 438 words list, I did another run with the two lists combined.
 
@@ -224,7 +223,7 @@ Next, I used a standard spell-checker to highlight
 possible typos up to the word ``debarbarized.'' However, that had a high 
 false-positive rate. So, I downloaded
 a dictionary based the largest list (size 95) in Kevin Atkinson's Spell 
-Checking Oriented Word Lists project \todo{ref cite Atkinson's SCOWL}. I 
+Checking Oriented Word Lists project \citep{Atkinson2014}. I 
 manually checked every word not present in that dictionary.
 
 Finally, to test my work, I chose one column of the original (excluding the 
@@ -317,7 +316,7 @@ perform MDS, I used the Matlab command mdscale using the metricstress
 criterion\footnote{The metricstress criterion minimizes the squared error 
 between the resulting distances and the desired distances} and using the 
 solution to classical MDS as the starting point for optimization and as the 
-source for the number of dimensions produced.\todo{ref cite matlab}
+source for the number of dimensions produced.\citep{Matlab2012a}
 
 \begin{figure}[tbp]
     \begin{subfigure}{.5\textwidth}
@@ -354,11 +353,11 @@ Euclidean distance seems important.
 
 \section{PCA}
 
-Once the vectors were rearranged in a Euclidean topology, I could perform PCA. 
-I performed PCA in two ways, both using the princomp tool in Matlab \todo{ref 
-matlab citation}\footnote{Any other tool (R for example) would give the same 
-results}. The first was the standard, mean-centered rotation where I subtracted 
-the column mean from each dimension in the meaning vectors before extracting the 
+Once the vectors were rearranged in a Euclidean topology, I could perform PCA. I 
+performed PCA in two ways, both using the princomp tool in Matlab\footnote{Any 
+other tool (R for example) would give the same results} \citep{Matlab2012a}. The 
+first was the standard, mean-centered rotation where I subtracted the column 
+mean from each dimension in the meaning vectors before extracting the 
 components. The second way both subtracted the mean and divided the columns by 
 their standard deviation before performing the rotation. This second way is 
 similar to the approach taken in exploratory factor analysis. 
@@ -396,9 +395,7 @@ scree-plot\footnote{A scree plot plots the component index in the
 looking for where the slope changes from steeply decreasing to
 shallowly decreasing. Although subjective, in Monte Carlo studies this
 ``Scree test'' identifies the correct number of factors 42\% of the
-time. \todo{ref Zwick \& Velicer 1986 ``Comparison of five rules for
-  determining the number of components to retain'' Psychological
-  Bulletin, 99, 432-442}.
+time. \citep{Zwick1986}.
 
 To help guide my intuition, I also threw together a few ad-hoc algorithms that 
 did what I thought I was doing in choosing the number of factors. I called 
@@ -415,15 +412,13 @@ By choosing numbers of components that match human intuition and also
 examining points suggested by the heuristic algorithms, I can come up
 with a good guess as to how many components I might need to examine.
 
-I entered this experiment assuming a basically linear underlying
-structure because such a structure exists in the normal personality
-assay manner of determining personality components. However, the scree
-plots I generated bear a broad resemblance to those in \todo{cite my
-  blog post on the shifted 1's problem} where a nonlinear structure
-made the basic elbow method and the other heuristics I used perform
-poorly in determining the number of components (the correct number of
-components was much greater than any number chosen by any of the
-heuristics).
+I entered this experiment assuming a basically linear underlying structure 
+because such a structure exists in the normal personality assay manner of 
+determining personality components. However, the scree plots I generated bear a 
+broad resemblance to those in \citep{Moyer2014} where a nonlinear structure made 
+the basic elbow method and the other heuristics I used perform poorly in 
+determining the number of components (the correct number of components was much 
+greater than any number chosen by any of the heuristics).
 
 Because of the strong possibility of nonlinear structure, the number
 of components I examined depended mostly on my time rather than
@@ -469,19 +464,14 @@ Spearman correlation to determine significance.
 
 Once I had the correlations and the associated p-values between all pairs of
 components, I controlled the false discovery rate at 1\% using the procedure
-from \todo{ref cite Benjamini, Y. \& Yekutieli, D. (2001) The control of 
-the false discovery rate in multiple testing under dependency. 
-The Annals of Statistics. 29(4), 1165-1188}. I chose to control false discovery 
+from \citep{Benjamini2001}. I chose to control false discovery 
 rate rather than
 family-wise error rate because decisions about this data depend mainly on the
 individual component pair matches rather than on the whole collection being 
 right or wrong. I used Benjamini and Yekutieli rather than the more common
 Benjamini and Hochberg because it is possible that my data violates the 
 positive dependence assumption in 
-\todo{ref cite Benjamini, Y. \& Hochberg, Y. (1995) Controlling the false 
-discovery rate: A practical and powerful approach to multiple testing. Journal
-of the Royal Statistical Society, Series B (Methodological). 57(1),
-289-300.}. Benjamini and Yekutieli does not have this restriction, thus it was
+\citep{Benjamini1995}. Benjamini and Yekutieli does not have this restriction, thus it was
 more appropriate.
 
 Multiple test correction trades off Type I error (false matches in this case) 
