@@ -918,30 +918,29 @@ standard reference to which the performance of other algorithms is compared.
 
 \citep{Mikolov2013c} tested alternative training procedures. They tested an 
 alternative to the hierarchical softmax used in the \modelname{} model called 
-negative 
-sampling. The also tested a way of giving less weight to frequent words
+negative sampling. The also tested a way of giving less weight to frequent words
 which speeds up training. The weight adjustment improved the resulting vectors
 more than negative sampling. They also demonstrated a simple method
 of extracting phrases whose meanings were not simple compositions of their
 component part meanings and extended their semantic test suite to use some
 of these phrases.
 
-\citep{Faruqui2014} created a method using CCA (Canonical Correlation Analysis) 
-to take vectors generated on
-monolingual corpora for different languages and combine them to create new sets
-of vectors utilizing the semantic information from both. They then compared the
-semantic distance mappings thus obtained to several sets of human-labeled 
-semantic distances. They also used the analogy tasks from \citep{Mikolov2013a}.
-With LSA as the source for the original vectors, they were
-able to uniformly improve performance on all measures. Similarly, with a
-Recursive Neural Network (RNN) as the source of the vectors, there was less
-improvement, but still only a loss on one task. Vectors from \modelname{} 
-however had no detectable change in most cases but their performance decreased
-on the same task as the RNN\footnote{The authors do not mention having done
-multiple test correction, so their significance values may be invalid.}.
+\citep{Faruqui2014} created a method using Canonical Correlation Analysis (CCA) 
+to take vectors generated on monolingual corpora for different languages and 
+combine them to create new sets of vectors utilizing the semantic information 
+from both. They then compared the semantic distance mappings thus obtained to 
+several sets of human-labeled semantic distances. They also used the analogy 
+tasks from \citep{Mikolov2013a}. With LSA as the source for the original 
+vectors, they were able to uniformly improve performance on all measures. 
+Similarly, with a Recursive Neural Network (RNN) as the source of the vectors, 
+there was less improvement, but still only a loss on one task. Vectors from 
+\modelname{} however had no detectable change in most cases but their 
+performance decreased on the same task as the RNN\footnote{The authors do not 
+mention having done multiple test correction, so their significance values may 
+be invalid.}.
 
 \citep{Wolf} also created an extension of \modelname{}\footnote{They use the
-Continuous Bag-of-words architecture rather than the Skip-gram variation I
+CBOW architecture rather than the Skip-gram variation I
 use.} that takes advantage of
 bilingual information to to improve vector quality. They believe it works 
 because it deals better with polysemy, since it is rare that homographs of 
