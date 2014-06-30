@@ -1,62 +1,62 @@
 \chapter{Factor Interpretation}
 
-As I performed the component extractions, I examined the sorted word-lists, 
-which meant that I saw them in approximate numerical order according to the size 
-of the list. As I examined the components for the smaller word lists, I had 
-trouble coming up with coherent explanations. Some of the first few components 
-seemed related to a good/bad trait listing but the rest of the components will 
-be difficult to figure out. For example, components 1 and 2 of the unnormalized 
-101 word set seem to be more-or-less good/bad. This is a rough characterization. 
-Component 1 includes both extroverted and bashful on the ``bad'' side and 
-component 2 includes prompt on its bad side. But the rest of the components are 
-hard to describe. Even in the smaller lists, the MDS transform makes them much 
-more interpretable. In the first two components, there are many fewer strange 
-entries at the ends than when using the other two normalization methods. The 
-rest of the components are still hard to interpret though this is more from a 
-lack of vocabulary than from no sense in the ordering. In hindsight, having seen 
-the larger MDS set, it is clear that the third component is sorted on formality 
-and the fourth is related to how often the word is used to describe nonhuman 
-versus human characteristics. Based on Figure 
-\ref{fig:100vs2797First22} I believe that dimensions 6, 7, 8, 9 and 11
-would also be interpretable in hindsight.
+\section{Why this chapter}
 
-\section{2797 Word with MDS}
+Factor interpretation is a difficult and subjective process. Yet it forms a key
+link between the objective, uninterpreted results reported in the previous 
+section and the conclusions and observations in the discussion chapter. So, I
+have written this chapter to report the interpretation process as fully as 
+possible.
 
-Once I reached the 2797 word list based on \citep{Norman1967}, interpretation 
-became much easier. I think more than 14 components might be interpretable, 
-however, I only examined 14. Several of those need some improvement. 
-My interpretations are in Table
+\section{Smaller Word Lists}
+
+The factors of the smaller word-lists are, at best, only interpretable in 
+hindsight. I looked at them first in isolation and was unable to
+come up with coherent descriptions. Even after seeing components generated from
+the larger lists, only the components from MDS-transformed smaller lists have 
+a recognizable organizing principle. For example, it is clear that the third 
+component is sorted on formality and the fourth is related to how often the 
+word is used to describe nonhuman versus human characteristics. Based on Figure 
+\ref{fig:100vs2797First22} I believe that dimensions 1, 2, 6, 7, 8, 9 and 11
+are also be interpretable in hindsight.
+
+\section{Interpreting 2797 Word with MDS}
+
+The first straightforwardly interpretable set of components came from the 2797 
+word list based on \citep{Norman1967}. I think more than the 14 components I 
+examined might be interpretable. My interpretations are in Table
 \ref{tab:2797mdsinterp}.
 
-\subsection{Component 1}
+\subsection{Component 1 (Parliament usage)}
 
-The first dimension needs a bit of explanation. In the corpus, the 10 highest 
-ranked words appear in 526,515/117,296,559 sentences (0.4\%), the 10 lowest 
-ranked words appear in only 5,871 (0.005\%). This is even more pronounced in the 
-minutes of the European parliament where the highly ranked words appear in 
-19,196/2,015,440 sentences (1\%) but the lowest ranked words appear in 14 
-(0.0006\%) (And, in all of those sentences, the only word appearing is 
-sly\_jj - the highest ranked word among the lowest 10). Thus, it may not be 
-just that these words are more common, but that they are more common in 
-political speech.
+How I came to interpret the first dimension as being related to parliamentary 
+usage needs a bit of explanation. First, I observed that the dimension was 
+related to word frequency. In the corpus, the 10 highest ranked words appear in 
+526,515/117,296,559 sentences (0.4\%), the 10 lowest ranked words appear in only 
+5,871 (0.005\%). This relationship is even more pronounced in the minutes of the 
+European parliament where the highly ranked words appear in 19,196/2,015,440 
+sentences (1\%) but the lowest ranked words appear in 14 (0.0006\%) (And, in all 
+of those sentences, the only word appearing is sly\_jj - the highest ranked word 
+among the lowest 10). Thus, it seemed that these words are not just more common, 
+but that they are more common in political speech.
 
-I looked at the Spearman correlation between number of occurrences of the words 
-in the entire corpus and the values on the first dimension. It was 0.5739 
-(which gives a $p$ value of $1.9120 \times 10^{-163}$ against the null hypothesis 
-that there is no relationship). There is no other component which is so 
-strongly correlated with word frequency. However, the correlation is not 
-perfect. For example, the most frequent word in the list has a rank of 204 when 
-you look at its score on the first dimension.
+To further investigate what I had observed, I went from using ranked frequencies 
+to using full correlations. I looked at the Spearman correlation between number 
+of occurrences of the words in the entire corpus and the values on the first 
+dimension. It was 0.5739 (which gives a $p$ value of $1.9120 \times 10^{-163}$ 
+against the null hypothesis that there is no relationship). There is no other 
+component which is so strongly correlated with word frequency. However, the 
+correlation is not perfect. For example, the most frequent word in the list has 
+a rank of 204 when you look at its score on the first dimension.
 
-To investigate the hypothesis that these words are not just more common but 
-more common in political speech, I also looked at the correlation with 
-frequency in the European parliament records. The correlation between this 
-component and parliamentary frequency is 0.6881 
-($p=3.8268 \times 10^{-261}$).  It rises even farther to 0.7027 when looking 
-at only words that appear in the 
-parliamentary records. That it is not a perfect correlation indicates that 
-there are still things I am overlooking. However, describing this dimension as 
-``uncommon in parliament vs common'' seems to have some explanatory power.
+To investigate the hypothesis that these words are not just more common but more 
+common in political speech, I also looked at the correlation with frequency in 
+the European parliament records. The correlation between this component and 
+parliamentary frequency is 0.6881 ($p=3.8268 \times 10^{-261}$).  It rises even 
+farther to 0.7027 when looking at only words that appear in the parliamentary 
+records. That it is not a perfect correlation indicates that there are still 
+things I am overlooking. However, describing this dimension as ``uncommon in 
+parliament vs common'' seems to have some explanatory power.
 
 \begin{table}[tbp]
 \begin{tabular}{ | l |p{2in}|p{2in}|}
@@ -167,19 +167,18 @@ consensus have the same meaning as sly. To say that it can do this without
 having captured at least the majority of the meaning of sly is a hard claim
 to believe. 
 
-Instead, I propose that the computer is working in an analogous semantic space
+Instead, I propose that the computer is working in an analogous semantic space 
 to humans, but it has divided it up differently. A simple version of this 
 happens across different languages. A native Spanish speaker from Colombia calls 
-many things
-``verde'' that I, a native English speaker, call ``blue.'' ``verde'' is usually
-glossed as ``green'' however, the Colombians divide up the color world slightly
-differently, so that although ``verde'' is normally ``green,'' for some things
-it is ``blue.'' Similarly, the process of training the \modelname{} model has
-produced a division of the semantic space focusing on the characteristics of 
-the words and their usage. Humans focus instead on the referents of the words.
-In its training, the computer algorithm did not have access to the embodied
-experiences that humans take for granted and could not take them into account
-in its model. These would have to be additional latent variables of a different
+many things ``verde'' that I, a native English speaker, call ``blue.'' ``verde'' 
+is usually glossed as ``green.'' The Colombians divide up the color world 
+slightly differently, so that although ``verde'' is normally ``green,'' for some 
+things it is ``blue.'' Similarly, the process of training the \modelname{} model 
+has produced a division of the semantic space focusing on the characteristics of 
+the words and their usage. Humans focus instead on the referents of the words. 
+In its training, the computer algorithm did not have access to the embodied 
+experiences that humans take for granted and could not take them into account in 
+its model. These would have to be additional latent variables of a different 
 type.
 
 I see the computer's model in a similar way to the earlier example of PCA in 
