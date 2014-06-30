@@ -334,9 +334,9 @@ that this will eliminate some of the odder dimensions like ``restaurant'' and
 
 \section{Redo with improved procedure}
 
-There are a number of minor problems with this work that I did not have time to
-fix: no clear number of personality factors, no good way of choosing how many 
-dimensions the original model should have, the parliament dimension, the 
+There are a number of minor problems with this work that I would like to 
+improve: no clear number of personality factors, no good way of choosing how 
+many dimensions the original model should have, the parliament dimension, the 
 MDS analysis lacks any analog to z-score scaling, the covariance PCA is not
 preceded by normalizing the vectors to unit length, and the dimensions might
 be more interpretable with varimax rotation.
@@ -375,19 +375,19 @@ So, it would be nice to enact the following procedure:
  then take the transpose of that matrix (so we have a matrix in which the 
  columns are the words and the rows are the \modelname{} dimensions)
  \item Perform PCA on that matrix. 
- \item Take the loadings matrix (which will be factors x items) and performe
+ \item Take the loadings matrix (which will be factors x items) and perform
  varimax rotation to enhance interpretability
  \item Look at the words with $|\text{loading}| \ge 0.4$ on a particular 
  dimension to characterize that dimension.
 \end{enumerate}
 
 
-\section{Look at Samsonovich embedding from }
+\section{Look at Samsonovich embedding}
 
 \citep{Samsonovich2010} only found 4 dimensions. However, I think that may have been 
-because he had too many semantic categories in his model. I would like to
-write to him and ask for his trained vectors to see if more dimensions come out
-when only a semantically coherent subset of the words are used. Because his
-data are based on direct human meaning assertions (synonym and antonym 
+because they had too many semantic categories in their model. I would like to
+write to them and ask for their trained vectors to see if more dimensions come out
+when only a semantically coherent subset of the words are used. Because their
+data is based on direct human meaning assertions (synonym and antonym 
 relations) it should better reflect the human concept of meaning. I am 
 curious whether it thus will reflect the human concept of personality.
