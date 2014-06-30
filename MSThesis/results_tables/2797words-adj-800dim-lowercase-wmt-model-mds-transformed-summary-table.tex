@@ -1,8 +1,8 @@
-\begin{longtable}[tbp]{| rllll |}
+\begin{table}[tbp]
+    \begin{tabular}{| rllll |}
     \hline
       & \multicolumn{4}{c|}{\textbf{Component}} \\
     \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-    \endhead
     \hline
     1 & gamin  & bigoted\_jj  & thoughtful\_jj  & fan \\
     2 & coquettish\_jj  & unethical\_jj  & honest\_jj  & lucky\_jj \\
@@ -20,8 +20,6 @@
     1859 & stringent\_jj  & graceful\_jj  & pixy  & undogmatic\_jj \\
     1860 & beneficial\_jj  & lively\_jj  & soft-shelled\_jj  & abstract\_jj \\
     \hline
-    \caption{The highest and lowest ranking words on the first 4
-      components derived from performing MDS on the 1860 word vectors
-      derived from the 2797 word list.} 
-    \label{tab:2797wordsRankingsMDS}
-\end{longtable}
+    \end{tabular}
+    \input{results_tables/2797words-adj-800dim-lowercase-wmt-model-mds-transformed-summary-table.epilogue.tex}
+\end{table}

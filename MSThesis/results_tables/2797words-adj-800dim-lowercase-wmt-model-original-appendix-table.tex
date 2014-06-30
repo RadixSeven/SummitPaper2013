@@ -1,1020 +1,600 @@
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & stringent\_jj & -1 & -6632 \\
-    2 & beneficial\_jj & -1 & -5634 \\
-    3 & indirect\_jj & -1 & -5575 \\
-    4 & contentious\_jj & -1 & -5114 \\
-    5 & prudent\_jj & -1 & -4918 \\
-    6 & dependent\_jj & -1 & -4899 \\
-    7 & lax\_jj & -1 & -4735 \\
-    8 & corrective\_jj & -1 & -4600 \\
-    9 & reasonable\_jj & -1 & -4582 \\
-    10 & volatile\_jj & -1 & -4504 \\
-    11 & discretionary\_jj & -1 & -4425 \\
-    12 & autonomous\_jj & -1 & -4388 \\
-    13 & drastic\_jj & -1 & -4301 \\
-    14 & affected\_jj & -1 & -4080 \\
-    15 & fraudulent\_jj & -1 & -4038 \\
-    16 & systematic\_jj & -1 & -4027 \\
-    17 & indefinite\_jj & -1 & -3976 \\
-    18 & confidential\_jj & -1 & -3951 \\
-    19 & exclusive\_jj & -1 & -3916 \\
-    20 & unfair\_jj & -1 & -3896 \\
-    21 & inaccurate\_jj & -1 & -3610 \\
-    22 & rigorous\_jj & -1 & -3588 \\
-    23 & stable\_jj & -1 & -3564 \\
-    24 & expeditious\_jj & -1 & -3392 \\
-    25 & critical\_jj & -1 & -3378 \\
-    26 & forward-looking\_jj & -1 & -3306 \\
-    27 & arbitrary\_jj & -1 & -3195 \\
-    28 & severe\_jj & -1 & -3183 \\
-    29 & productive\_jj & -1 & -3155 \\
-    30 & consistent\_jj & -1 & -3132 \\
-    1831 & wry\_jj & 1 & 1954 \\
-    1832 & brassy\_jj & 1 & 2037 \\
-    1833 & improviser & 1 & 2078 \\
-    1834 & shrewish\_jj & 1 & 2180 \\
-    1835 & poised\_jj & 1 & 2204 \\
-    1836 & pert\_jj & 1 & 2204 \\
-    1837 & rakish\_jj & 1 & 2242 \\
-    1838 & suave\_jj & 1 & 2313 \\
-    1839 & roguish\_jj & 1 & 2485 \\
-    1840 & misanthropic\_jj & 1 & 2545 \\
-    1841 & flirtatious\_jj & 1 & 2613 \\
-    1842 & beatific\_jj & 1 & 2681 \\
-    1843 & witty\_jj & 1 & 2726 \\
-    1844 & bubbly\_jj & 1 & 2736 \\
-    1845 & debonair\_jj & 1 & 2837 \\
-    1846 & puckish\_jj & 1 & 2916 \\
-    1847 & boyish\_jj & 1 & 3072 \\
-    1848 & stoic & 1 & 3330 \\
-    1849 & coquettish\_jj & 1 & 3606 \\
-    1850 & impish\_jj & 1 & 3651 \\
-    1851 & sassy\_jj & 1 & 3745 \\
-    1852 & coquette & 1 & 3749 \\
-    1853 & tomboy & 1 & 3780 \\
-    1854 & sardonic\_jj & 1 & 3874 \\
-    1855 & guileless\_jj & 1 & 3911 \\
-    1856 & go-getter & 1 & 4159 \\
-    1857 & self-possessed\_jj & 1 & 4207 \\
-    1858 & girlish\_jj & 1 & 4221 \\
-    1859 & vivacious\_jj & 1 & 5495 \\
-    1860 & mousy\_jj & 1 & 6471 \\
+    1 & stringent\_jj & -1 & 6632    &    1860 & mousy\_jj & 1 & 6471 \\
+    2 & beneficial\_jj & -1 & 5634    &    1859 & vivacious\_jj & 1 & 5495 \\
+    3 & indirect\_jj & -1 & 5575    &    1858 & girlish\_jj & 1 & 4221 \\
+    4 & contentious\_jj & -1 & 5114    &    1857 & self-possessed\_jj & 1 & 4207 \\
+    5 & prudent\_jj & -1 & 4918    &    1856 & go-getter & 1 & 4159 \\
+    6 & dependent\_jj & -1 & 4899    &    1855 & guileless\_jj & 1 & 3911 \\
+    7 & lax\_jj & -1 & 4735    &    1854 & sardonic\_jj & 1 & 3874 \\
+    8 & corrective\_jj & -1 & 4600    &    1853 & tomboy & 1 & 3780 \\
+    9 & reasonable\_jj & -1 & 4582    &    1852 & coquette & 1 & 3749 \\
+    10 & volatile\_jj & -1 & 4504    &    1851 & sassy\_jj & 1 & 3745 \\
+    11 & discretionary\_jj & -1 & 4425    &    1850 & impish\_jj & 1 & 3651 \\
+    12 & autonomous\_jj & -1 & 4388    &    1849 & coquettish\_jj & 1 & 3606 \\
+    13 & drastic\_jj & -1 & 4301    &    1848 & stoic & 1 & 3330 \\
+    14 & affected\_jj & -1 & 4080    &    1847 & boyish\_jj & 1 & 3072 \\
+    15 & fraudulent\_jj & -1 & 4038    &    1846 & puckish\_jj & 1 & 2916 \\
+    16 & systematic\_jj & -1 & 4027    &    1845 & debonair\_jj & 1 & 2837 \\
+    17 & indefinite\_jj & -1 & 3976    &    1844 & bubbly\_jj & 1 & 2736 \\
+    18 & confidential\_jj & -1 & 3951    &    1843 & witty\_jj & 1 & 2726 \\
+    19 & exclusive\_jj & -1 & 3916    &    1842 & beatific\_jj & 1 & 2681 \\
+    20 & unfair\_jj & -1 & 3896    &    1841 & flirtatious\_jj & 1 & 2613 \\
+    21 & inaccurate\_jj & -1 & 3610    &    1840 & misanthropic\_jj & 1 & 2545 \\
+    22 & rigorous\_jj & -1 & 3588    &    1839 & roguish\_jj & 1 & 2485 \\
+    23 & stable\_jj & -1 & 3564    &    1838 & suave\_jj & 1 & 2313 \\
+    24 & expeditious\_jj & -1 & 3392    &    1837 & rakish\_jj & 1 & 2242 \\
+    25 & critical\_jj & -1 & 3378    &    1836 & pert\_jj & 1 & 2204 \\
+    26 & forward-looking\_jj & -1 & 3306    &    1835 & poised\_jj & 1 & 2204 \\
+    27 & arbitrary\_jj & -1 & 3195    &    1834 & shrewish\_jj & 1 & 2180 \\
+    28 & severe\_jj & -1 & 3183    &    1833 & improviser & 1 & 2078 \\
+    29 & productive\_jj & -1 & 3155    &    1832 & brassy\_jj & 1 & 2037 \\
+    30 & consistent\_jj & -1 & 3132    &    1831 & wry\_jj & 1 & 1954 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#1} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#1} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & warm\_jj & -1 & -5098 \\
-    2 & elegant\_jj & -1 & -4327 \\
-    3 & vibrant\_jj & -1 & -3495 \\
-    4 & savant & -1 & -3309 \\
-    5 & sparkling\_jj & -1 & -3174 \\
-    6 & luxurious\_jj & -1 & -2799 \\
-    7 & graceful\_jj & -1 & -2748 \\
-    8 & airy\_jj & -1 & -2745 \\
-    9 & buttery\_jj & -1 & -2416 \\
-    10 & polished\_jj & -1 & -2154 \\
-    11 & sunny\_jj & -1 & -2040 \\
-    12 & sultry\_jj & -1 & -1748 \\
-    13 & vivacious\_jj & -1 & -1657 \\
-    14 & versatile\_jj & -1 & -1600 \\
-    15 & lively\_jj & -1 & -1394 \\
-    16 & sociable\_jj & -1 & -1333 \\
-    17 & intuitive\_jj & -1 & -1201 \\
-    18 & rugged\_jj & -1 & -1118 \\
-    19 & brisk\_jj & -1 & -1003 \\
-    20 & bright\_jj & -1 & -895 \\
-    21 & dainty\_jj & -1 & -856 \\
-    22 & sensual\_jj & -1 & -794 \\
-    23 & musical\_jj & -1 & -739 \\
-    24 & ethereal\_jj & -1 & -692 \\
-    25 & calm\_jj & -1 & -683 \\
-    26 & serene\_jj & -1 & -573 \\
-    27 & breezy\_jj & -1 & -496 \\
-    28 & outdoor\_jj & -1 & -407 \\
-    29 & tender\_jj & -1 & -399 \\
-    30 & gingery\_jj & -1 & -380 \\
-    1831 & boorish\_jj & 1 & 3654 \\
-    1832 & inhumane\_jj & 1 & 3687 \\
-    1833 & discourteous\_jj & 1 & 3715 \\
-    1834 & unprincipled\_jj & 1 & 3858 \\
-    1835 & unintelligent\_jj & 1 & 4069 \\
-    1836 & ignorant\_jj & 1 & 4169 \\
-    1837 & intolerant\_jj & 1 & 4180 \\
-    1838 & unfeeling\_jj & 1 & 4299 \\
-    1839 & polemic\_jj & 1 & 4445 \\
-    1840 & inconsiderate\_jj & 1 & 4581 \\
-    1841 & insensitive\_jj & 1 & 4592 \\
-    1842 & narrow-minded\_jj & 1 & 4639 \\
-    1843 & callous\_jj & 1 & 4654 \\
-    1844 & godless\_jj & 1 & 4676 \\
-    1845 & mendacious\_jj & 1 & 4831 \\
-    1846 & unethical\_jj & 1 & 5369 \\
-    1847 & thoughtless\_jj & 1 & 5376 \\
-    1848 & disrespectful\_jj & 1 & 5392 \\
-    1849 & dishonest\_jj & 1 & 5493 \\
-    1850 & vindictive\_jj & 1 & 5512 \\
-    1851 & irresponsible\_jj & 1 & 6140 \\
-    1852 & hypocritical\_jj & 1 & 6213 \\
-    1853 & inhuman\_jj & 1 & 6835 \\
-    1854 & slanderous\_jj & 1 & 6950 \\
-    1855 & selfish\_jj & 1 & 7218 \\
-    1856 & cowardly\_jj & 1 & 7461 \\
-    1857 & deceitful\_jj & 1 & 7643 \\
-    1858 & untruthful\_jj & 1 & 7759 \\
-    1859 & bigoted\_jj & 1 & 8854 \\
-    1860 & defamatory\_jj & 1 & 9503 \\
+    1 & warm\_jj & -1 & 5098    &    1860 & defamatory\_jj & 1 & 9503 \\
+    2 & elegant\_jj & -1 & 4327    &    1859 & bigoted\_jj & 1 & 8854 \\
+    3 & vibrant\_jj & -1 & 3495    &    1858 & untruthful\_jj & 1 & 7759 \\
+    4 & savant & -1 & 3309    &    1857 & deceitful\_jj & 1 & 7643 \\
+    5 & sparkling\_jj & -1 & 3174    &    1856 & cowardly\_jj & 1 & 7461 \\
+    6 & luxurious\_jj & -1 & 2799    &    1855 & selfish\_jj & 1 & 7218 \\
+    7 & graceful\_jj & -1 & 2748    &    1854 & slanderous\_jj & 1 & 6950 \\
+    8 & airy\_jj & -1 & 2745    &    1853 & inhuman\_jj & 1 & 6835 \\
+    9 & buttery\_jj & -1 & 2416    &    1852 & hypocritical\_jj & 1 & 6213 \\
+    10 & polished\_jj & -1 & 2154    &    1851 & irresponsible\_jj & 1 & 6140 \\
+    11 & sunny\_jj & -1 & 2040    &    1850 & vindictive\_jj & 1 & 5512 \\
+    12 & sultry\_jj & -1 & 1748    &    1849 & dishonest\_jj & 1 & 5493 \\
+    13 & vivacious\_jj & -1 & 1657    &    1848 & disrespectful\_jj & 1 & 5392 \\
+    14 & versatile\_jj & -1 & 1600    &    1847 & thoughtless\_jj & 1 & 5376 \\
+    15 & lively\_jj & -1 & 1394    &    1846 & unethical\_jj & 1 & 5369 \\
+    16 & sociable\_jj & -1 & 1333    &    1845 & mendacious\_jj & 1 & 4831 \\
+    17 & intuitive\_jj & -1 & 1201    &    1844 & godless\_jj & 1 & 4676 \\
+    18 & rugged\_jj & -1 & 1118    &    1843 & callous\_jj & 1 & 4654 \\
+    19 & brisk\_jj & -1 & 1003    &    1842 & narrow-minded\_jj & 1 & 4639 \\
+    20 & bright\_jj & -1 & 895    &    1841 & insensitive\_jj & 1 & 4592 \\
+    21 & dainty\_jj & -1 & 856    &    1840 & inconsiderate\_jj & 1 & 4581 \\
+    22 & sensual\_jj & -1 & 794    &    1839 & polemic\_jj & 1 & 4445 \\
+    23 & musical\_jj & -1 & 739    &    1838 & unfeeling\_jj & 1 & 4299 \\
+    24 & ethereal\_jj & -1 & 692    &    1837 & intolerant\_jj & 1 & 4180 \\
+    25 & calm\_jj & -1 & 683    &    1836 & ignorant\_jj & 1 & 4169 \\
+    26 & serene\_jj & -1 & 573    &    1835 & unintelligent\_jj & 1 & 4069 \\
+    27 & breezy\_jj & -1 & 496    &    1834 & unprincipled\_jj & 1 & 3858 \\
+    28 & outdoor\_jj & -1 & 407    &    1833 & discourteous\_jj & 1 & 3715 \\
+    29 & tender\_jj & -1 & 399    &    1832 & inhumane\_jj & 1 & 3687 \\
+    30 & gingery\_jj & -1 & 380    &    1831 & boorish\_jj & 1 & 3654 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#2} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#2} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & considerate\_jj & -2 & -5489 \\
-    2 & sociable\_jj & -2 & -1856 \\
-    3 & courteous\_jj & -2 & -245 \\
-    4 & trustworthy\_jj & -1 & -8932 \\
-    5 & articulate\_jj & -1 & -8701 \\
-    6 & open-minded\_jj & -1 & -7427 \\
-    7 & approachable\_jj & -1 & -6488 \\
-    8 & kind\_jj & -1 & -6478 \\
-    9 & respectful\_jj & -1 & -6144 \\
-    10 & thoughtful\_jj & -1 & -5968 \\
-    11 & self-confident\_jj & -1 & -5586 \\
-    12 & easy-going\_jj & -1 & -5185 \\
-    13 & level-headed\_jj & -1 & -4879 \\
-    14 & honest\_jj & -1 & -4660 \\
-    15 & down-to-earth\_jj & -1 & -4561 \\
-    16 & talkative\_jj & -1 & -4395 \\
-    17 & circumspect\_jj & -1 & -4125 \\
-    18 & intelligent\_jj & -1 & -3709 \\
-    19 & perceptive\_jj & -1 & -3562 \\
-    20 & sincere\_jj & -1 & -3528 \\
-    21 & pragmatic\_jj & -1 & -3465 \\
-    22 & cordial\_jj & -1 & -3340 \\
-    23 & accommodating\_jj & -1 & -3258 \\
-    24 & opinionated\_jj & -1 & -3191 \\
-    25 & affectionate\_jj & -1 & -2924 \\
-    26 & gregarious\_jj & -1 & -2923 \\
-    27 & knowledgeable\_jj & -1 & -2813 \\
-    28 & deferential\_jj & -1 & -2766 \\
-    29 & fair-minded\_jj & -1 & -2745 \\
-    30 & adaptable\_jj & -1 & -2720 \\
-    1831 & magnetic\_jj & 0 & 9136 \\
-    1832 & cry-baby & 0 & 9185 \\
-    1833 & fossil & 0 & 9201 \\
-    1834 & satanic\_jj & 0 & 9209 \\
-    1835 & plastic\_jj & 0 & 9279 \\
-    1836 & dare-devil & 0 & 9332 \\
-    1837 & high-hat & 0 & 9373 \\
-    1838 & bristly\_jj & 0 & 9379 \\
-    1839 & gooey\_jj & 0 & 9500 \\
-    1840 & driftless\_jj & 0 & 9538 \\
-    1841 & unmanly\_jj & 0 & 9560 \\
-    1842 & gourmand & 0 & 9703 \\
-    1843 & croaking & 0 & 9774 \\
-    1844 & acrid\_jj & 0 & 9855 \\
-    1845 & aplastic\_jj & 0 & 9918 \\
-    1846 & clam & 1 & 52 \\
-    1847 & hard-shell\_jj & 1 & 224 \\
-    1848 & wildcat\_jj & 1 & 294 \\
-    1849 & yellow\_jj & 1 & 346 \\
-    1850 & baneful\_jj & 1 & 522 \\
-    1851 & vinegary\_jj & 1 & 534 \\
-    1852 & low-pressure\_jj & 1 & 1118 \\
-    1853 & boneless\_jj & 1 & 1360 \\
-    1854 & broiler & 1 & 1602 \\
-    1855 & soft-shelled\_jj & 1 & 1617 \\
-    1856 & bendable\_jj & 1 & 1698 \\
-    1857 & pixy & 1 & 2802 \\
-    1858 & butterfly & 1 & 2879 \\
-    1859 & gingery\_jj & 1 & 3287 \\
-    1860 & comforter & 1 & 3462 \\
+    1 & considerate\_jj & -2 & 5489    &    1860 & comforter & 1 & 3462 \\
+    2 & sociable\_jj & -2 & 1856    &    1859 & gingery\_jj & 1 & 3287 \\
+    3 & courteous\_jj & -2 & 245    &    1858 & butterfly & 1 & 2879 \\
+    4 & trustworthy\_jj & -1 & 8932    &    1857 & pixy & 1 & 2802 \\
+    5 & articulate\_jj & -1 & 8701    &    1856 & bendable\_jj & 1 & 1698 \\
+    6 & open-minded\_jj & -1 & 7427    &    1855 & soft-shelled\_jj & 1 & 1617 \\
+    7 & approachable\_jj & -1 & 6488    &    1854 & broiler & 1 & 1602 \\
+    8 & kind\_jj & -1 & 6478    &    1853 & boneless\_jj & 1 & 1360 \\
+    9 & respectful\_jj & -1 & 6144    &    1852 & low-pressure\_jj & 1 & 1118 \\
+    10 & thoughtful\_jj & -1 & 5968    &    1851 & vinegary\_jj & 1 & 534 \\
+    11 & self-confident\_jj & -1 & 5586    &    1850 & baneful\_jj & 1 & 522 \\
+    12 & easy-going\_jj & -1 & 5185    &    1849 & yellow\_jj & 1 & 346 \\
+    13 & level-headed\_jj & -1 & 4879    &    1848 & wildcat\_jj & 1 & 294 \\
+    14 & honest\_jj & -1 & 4660    &    1847 & hard-shell\_jj & 1 & 224 \\
+    15 & down-to-earth\_jj & -1 & 4561    &    1846 & clam & 1 & 52 \\
+    16 & talkative\_jj & -1 & 4395    &    1845 & aplastic\_jj & 0 & 9918 \\
+    17 & circumspect\_jj & -1 & 4125    &    1844 & acrid\_jj & 0 & 9855 \\
+    18 & intelligent\_jj & -1 & 3709    &    1843 & croaking & 0 & 9774 \\
+    19 & perceptive\_jj & -1 & 3562    &    1842 & gourmand & 0 & 9703 \\
+    20 & sincere\_jj & -1 & 3528    &    1841 & unmanly\_jj & 0 & 9560 \\
+    21 & pragmatic\_jj & -1 & 3465    &    1840 & driftless\_jj & 0 & 9538 \\
+    22 & cordial\_jj & -1 & 3340    &    1839 & gooey\_jj & 0 & 9500 \\
+    23 & accommodating\_jj & -1 & 3258    &    1838 & bristly\_jj & 0 & 9379 \\
+    24 & opinionated\_jj & -1 & 3191    &    1837 & high-hat & 0 & 9373 \\
+    25 & affectionate\_jj & -1 & 2924    &    1836 & dare-devil & 0 & 9332 \\
+    26 & gregarious\_jj & -1 & 2923    &    1835 & plastic\_jj & 0 & 9279 \\
+    27 & knowledgeable\_jj & -1 & 2813    &    1834 & satanic\_jj & 0 & 9209 \\
+    28 & deferential\_jj & -1 & 2766    &    1833 & fossil & 0 & 9201 \\
+    29 & fair-minded\_jj & -1 & 2745    &    1832 & cry-baby & 0 & 9185 \\
+    30 & adaptable\_jj & -1 & 2720    &    1831 & magnetic\_jj & 0 & 9136 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#3} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#3} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & loyal\_jj & -1 & -2946 \\
-    2 & objector & -1 & -2704 \\
-    3 & staunch\_jj & -1 & -2414 \\
-    4 & devout\_jj & -1 & -2340 \\
-    5 & sociable\_jj & -1 & -2258 \\
-    6 & alcoholic & -1 & -1930 \\
-    7 & avid\_jj & -1 & -1584 \\
-    8 & cheater & -1 & -1427 \\
-    9 & kind-hearted\_jj & -1 & -1377 \\
-    10 & stalwart & -1 & -1214 \\
-    11 & gambler & -1 & -1095 \\
-    12 & stay-at-home\_jj & -1 & -1086 \\
-    13 & disciplinarian & -1 & -985 \\
-    14 & angler & -1 & -716 \\
-    15 & teetotaler & -1 & -589 \\
-    16 & intrepid\_jj & -1 & -579 \\
-    17 & loving\_jj & -1 & -455 \\
-    18 & samaritan & -1 & -428 \\
-    19 & visionary & -1 & -387 \\
-    20 & gregarious\_jj & -1 & -374 \\
-    21 & fan & -1 & -254 \\
-    22 & go-getter & -1 & -141 \\
-    23 & outgoing\_jj & 0 & -9961 \\
-    24 & has-been & 0 & -9890 \\
-    25 & brat & 0 & -9625 \\
-    26 & lucky\_jj & 0 & -9602 \\
-    27 & brahmin & 0 & -9473 \\
-    28 & bulldog & 0 & -9427 \\
-    29 & proud\_jj & 0 & -9236 \\
-    30 & dissident & 0 & -9218 \\
-    1831 & literal\_jj & 0 & 9216 \\
-    1832 & intricate\_jj & 0 & 9335 \\
-    1833 & declamatory\_jj & 0 & 9448 \\
-    1834 & economical\_jj & 0 & 9497 \\
-    1835 & discordant\_jj & 0 & 9599 \\
-    1836 & nonsensical\_jj & 0 & 9686 \\
-    1837 & ethereal\_jj & 0 & 9816 \\
-    1838 & tasteless\_jj & 0 & 9852 \\
-    1839 & mawkish\_jj & 0 & 9893 \\
-    1840 & pithy\_jj & 1 & 80 \\
-    1841 & morbid\_jj & 1 & 126 \\
-    1842 & abstract\_jj & 1 & 267 \\
-    1843 & subjective\_jj & 1 & 282 \\
-    1844 & melodramatic\_jj & 1 & 468 \\
-    1845 & deterministic\_jj & 1 & 721 \\
-    1846 & astringent\_jj & 1 & 1108 \\
-    1847 & stilted\_jj & 1 & 1209 \\
-    1848 & meditative\_jj & 1 & 1290 \\
-    1849 & lyrical\_jj & 1 & 1296 \\
-    1850 & abstruse\_jj & 1 & 1321 \\
-    1851 & discursive\_jj & 1 & 1497 \\
-    1852 & poetic\_jj & 1 & 1614 \\
-    1853 & oblique\_jj & 1 & 1784 \\
-    1854 & contrived\_jj & 1 & 1803 \\
-    1855 & didactic\_jj & 1 & 1859 \\
-    1856 & defamatory\_jj & 1 & 1977 \\
-    1857 & imprecise\_jj & 1 & 2080 \\
-    1858 & dissonant\_jj & 1 & 2230 \\
-    1859 & limpid\_jj & 1 & 2827 \\
-    1860 & unvarying\_jj & 1 & 3880 \\
+    1 & loyal\_jj & -1 & 2946    &    1860 & unvarying\_jj & 1 & 3880 \\
+    2 & objector & -1 & 2704    &    1859 & limpid\_jj & 1 & 2827 \\
+    3 & staunch\_jj & -1 & 2414    &    1858 & dissonant\_jj & 1 & 2230 \\
+    4 & devout\_jj & -1 & 2340    &    1857 & imprecise\_jj & 1 & 2080 \\
+    5 & sociable\_jj & -1 & 2258    &    1856 & defamatory\_jj & 1 & 1977 \\
+    6 & alcoholic & -1 & 1930    &    1855 & didactic\_jj & 1 & 1859 \\
+    7 & avid\_jj & -1 & 1584    &    1854 & contrived\_jj & 1 & 1803 \\
+    8 & cheater & -1 & 1427    &    1853 & oblique\_jj & 1 & 1784 \\
+    9 & kind-hearted\_jj & -1 & 1377    &    1852 & poetic\_jj & 1 & 1614 \\
+    10 & stalwart & -1 & 1214    &    1851 & discursive\_jj & 1 & 1497 \\
+    11 & gambler & -1 & 1095    &    1850 & abstruse\_jj & 1 & 1321 \\
+    12 & stay-at-home\_jj & -1 & 1086    &    1849 & lyrical\_jj & 1 & 1296 \\
+    13 & disciplinarian & -1 & 985    &    1848 & meditative\_jj & 1 & 1290 \\
+    14 & angler & -1 & 716    &    1847 & stilted\_jj & 1 & 1209 \\
+    15 & teetotaler & -1 & 589    &    1846 & astringent\_jj & 1 & 1108 \\
+    16 & intrepid\_jj & -1 & 579    &    1845 & deterministic\_jj & 1 & 721 \\
+    17 & loving\_jj & -1 & 455    &    1844 & melodramatic\_jj & 1 & 468 \\
+    18 & samaritan & -1 & 428    &    1843 & subjective\_jj & 1 & 282 \\
+    19 & visionary & -1 & 387    &    1842 & abstract\_jj & 1 & 267 \\
+    20 & gregarious\_jj & -1 & 374    &    1841 & morbid\_jj & 1 & 126 \\
+    21 & fan & -1 & 254    &    1840 & pithy\_jj & 1 & 80 \\
+    22 & go-getter & -1 & 141    &    1839 & mawkish\_jj & 0 & 9893 \\
+    23 & outgoing\_jj & 0 & 9961    &    1838 & tasteless\_jj & 0 & 9852 \\
+    24 & has-been & 0 & 9890    &    1837 & ethereal\_jj & 0 & 9816 \\
+    25 & brat & 0 & 9625    &    1836 & nonsensical\_jj & 0 & 9686 \\
+    26 & lucky\_jj & 0 & 9602    &    1835 & discordant\_jj & 0 & 9599 \\
+    27 & brahmin & 0 & 9473    &    1834 & economical\_jj & 0 & 9497 \\
+    28 & bulldog & 0 & 9427    &    1833 & declamatory\_jj & 0 & 9448 \\
+    29 & proud\_jj & 0 & 9236    &    1832 & intricate\_jj & 0 & 9335 \\
+    30 & dissident & 0 & 9218    &    1831 & literal\_jj & 0 & 9216 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#4} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#4} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & deterministic\_jj & -1 & -3347 \\
-    2 & self-reliant\_jj & -1 & -2717 \\
-    3 & adaptable\_jj & -1 & -2382 \\
-    4 & theistic\_jj & -1 & -1938 \\
-    5 & mutable\_jj & -1 & -1543 \\
-    6 & educated\_jj & -1 & -1473 \\
-    7 & unchangeable\_jj & -1 & -1213 \\
-    8 & closed-minded\_jj & -1 & -1175 \\
-    9 & individualistic\_jj & -1 & -1115 \\
-    10 & open-minded\_jj & -1 & -850 \\
-    11 & conformist\_jj & -1 & -520 \\
-    12 & self-sufficient\_jj & -1 & -477 \\
-    13 & modifiable\_jj & -1 & -204 \\
-    14 & materialistic\_jj & -1 & -140 \\
-    15 & equitable\_jj & -1 & -15 \\
-    16 & intelligent\_jj & 0 & -9669 \\
-    17 & unchanging\_jj & 0 & -9554 \\
-    18 & considerate\_jj & 0 & -9539 \\
-    19 & perspicuous\_jj & 0 & -9437 \\
-    20 & altruistic\_jj & 0 & -9322 \\
-    21 & enlightened\_jj & 0 & -9314 \\
-    22 & intuitive\_jj & 0 & -9281 \\
-    23 & irreligious\_jj & 0 & -8973 \\
-    24 & celibate & 0 & -8957 \\
-    25 & utopian\_jj & 0 & -8913 \\
-    26 & immutable\_jj & 0 & -8864 \\
-    27 & ethnocentric\_jj & 0 & -8841 \\
-    28 & sociable\_jj & 0 & -8814 \\
-    29 & imitative\_jj & 0 & -8807 \\
-    30 & variant\_jj & 0 & -8788 \\
-    1831 & foul-mouthed\_jj & 0 & 9727 \\
-    1832 & derogatory\_jj & 0 & 9997 \\
-    1833 & curt\_jj & 1 & 76 \\
-    1834 & bitter\_jj & 1 & 121 \\
-    1835 & torrid\_jj & 1 & 249 \\
-    1836 & obscene\_jj & 1 & 331 \\
-    1837 & lascivious\_jj & 1 & 357 \\
-    1838 & lukewarm\_jj & 1 & 389 \\
-    1839 & verbal\_jj & 1 & 491 \\
-    1840 & frosty\_jj & 1 & 576 \\
-    1841 & raucous\_jj & 1 & 657 \\
-    1842 & loud\_jj & 1 & 1102 \\
-    1843 & defamatory\_jj & 1 & 1208 \\
-    1844 & stern\_jj & 1 & 1220 \\
-    1845 & stormy\_jj & 1 & 1290 \\
-    1846 & rancorous\_jj & 1 & 1356 \\
-    1847 & caustic\_jj & 1 & 1590 \\
-    1848 & thunderous\_jj & 1 & 1593 \\
-    1849 & acrimonious\_jj & 1 & 1677 \\
-    1850 & risqué\_jj & 1 & 1716 \\
-    1851 & congratulatory\_jj & 1 & 1838 \\
-    1852 & vitriolic\_jj & 1 & 2016 \\
-    1853 & derisive\_jj & 1 & 2149 \\
-    1854 & rowdy\_jj & 1 & 2165 \\
-    1855 & defiant\_jj & 1 & 2281 \\
-    1856 & unsportsmanlike\_jj & 1 & 2691 \\
-    1857 & disorderly\_jj & 1 & 2755 \\
-    1858 & conciliatory\_jj & 1 & 3503 \\
-    1859 & lewd\_jj & 1 & 5434 \\
-    1860 & testy\_jj & 1 & 5996 \\
+    1 & deterministic\_jj & -1 & 3347    &    1860 & testy\_jj & 1 & 5996 \\
+    2 & self-reliant\_jj & -1 & 2717    &    1859 & lewd\_jj & 1 & 5434 \\
+    3 & adaptable\_jj & -1 & 2382    &    1858 & conciliatory\_jj & 1 & 3503 \\
+    4 & theistic\_jj & -1 & 1938    &    1857 & disorderly\_jj & 1 & 2755 \\
+    5 & mutable\_jj & -1 & 1543    &    1856 & unsportsmanlike\_jj & 1 & 2691 \\
+    6 & educated\_jj & -1 & 1473    &    1855 & defiant\_jj & 1 & 2281 \\
+    7 & unchangeable\_jj & -1 & 1213    &    1854 & rowdy\_jj & 1 & 2165 \\
+    8 & closed-minded\_jj & -1 & 1175    &    1853 & derisive\_jj & 1 & 2149 \\
+    9 & individualistic\_jj & -1 & 1115    &    1852 & vitriolic\_jj & 1 & 2016 \\
+    10 & open-minded\_jj & -1 & 850    &    1851 & congratulatory\_jj & 1 & 1838 \\
+    11 & conformist\_jj & -1 & 520    &    1850 & risqué\_jj & 1 & 1716 \\
+    12 & self-sufficient\_jj & -1 & 477    &    1849 & acrimonious\_jj & 1 & 1677 \\
+    13 & modifiable\_jj & -1 & 204    &    1848 & thunderous\_jj & 1 & 1593 \\
+    14 & materialistic\_jj & -1 & 140    &    1847 & caustic\_jj & 1 & 1590 \\
+    15 & equitable\_jj & -1 & 15    &    1846 & rancorous\_jj & 1 & 1356 \\
+    16 & intelligent\_jj & 0 & 9669    &    1845 & stormy\_jj & 1 & 1290 \\
+    17 & unchanging\_jj & 0 & 9554    &    1844 & stern\_jj & 1 & 1220 \\
+    18 & considerate\_jj & 0 & 9539    &    1843 & defamatory\_jj & 1 & 1208 \\
+    19 & perspicuous\_jj & 0 & 9437    &    1842 & loud\_jj & 1 & 1102 \\
+    20 & altruistic\_jj & 0 & 9322    &    1841 & raucous\_jj & 1 & 657 \\
+    21 & enlightened\_jj & 0 & 9314    &    1840 & frosty\_jj & 1 & 576 \\
+    22 & intuitive\_jj & 0 & 9281    &    1839 & verbal\_jj & 1 & 491 \\
+    23 & irreligious\_jj & 0 & 8973    &    1838 & lukewarm\_jj & 1 & 389 \\
+    24 & celibate & 0 & 8957    &    1837 & lascivious\_jj & 1 & 357 \\
+    25 & utopian\_jj & 0 & 8913    &    1836 & obscene\_jj & 1 & 331 \\
+    26 & immutable\_jj & 0 & 8864    &    1835 & torrid\_jj & 1 & 249 \\
+    27 & ethnocentric\_jj & 0 & 8841    &    1834 & bitter\_jj & 1 & 121 \\
+    28 & sociable\_jj & 0 & 8814    &    1833 & curt\_jj & 1 & 76 \\
+    29 & imitative\_jj & 0 & 8807    &    1832 & derogatory\_jj & 0 & 9997 \\
+    30 & variant\_jj & 0 & 8788    &    1831 & foul-mouthed\_jj & 0 & 9727 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#5} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#5} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & unbending\_jj & -1 & -4267 \\
-    2 & unswerving\_jj & -1 & -4115 \\
-    3 & ultraconservative\_jj & -1 & -3240 \\
-    4 & unfailing\_jj & -1 & -3170 \\
-    5 & unflagging\_jj & -1 & -3101 \\
-    6 & unshakable\_jj & -1 & -3083 \\
-    7 & firebrand & -1 & -2413 \\
-    8 & steadfast\_jj & -1 & -2163 \\
-    9 & untiring\_jj & -1 & -1629 \\
-    10 & unflinching\_jj & -1 & -1620 \\
-    11 & uncompromising\_jj & -1 & -1535 \\
-    12 & unquestioning\_jj & -1 & -1397 \\
-    13 & secular\_jj & -1 & -1332 \\
-    14 & dissident & -1 & -1248 \\
-    15 & unyielding\_jj & -1 & -1186 \\
-    16 & trenchant\_jj & -1 & -1019 \\
-    17 & oratorical\_jj & -1 & -948 \\
-    18 & staunch\_jj & -1 & -900 \\
-    19 & imperturbable\_jj & -1 & -731 \\
-    20 & fervent\_jj & -1 & -248 \\
-    21 & doctrinaire\_jj & 0 & -9908 \\
-    22 & outspoken\_jj & 0 & -9887 \\
-    23 & autocratic\_jj & 0 & -9848 \\
-    24 & unerring\_jj & 0 & -9832 \\
-    25 & magisterial\_jj & 0 & -9767 \\
-    26 & militant & 0 & -9683 \\
-    27 & scholarly\_jj & 0 & -9305 \\
-    28 & dogged\_jj & 0 & -9246 \\
-    29 & religious\_jj & 0 & -9162 \\
-    30 & ascendant\_jj & 0 & -9142 \\
-    1831 & bitch & 0 & 9026 \\
-    1832 & buttery\_jj & 0 & 9075 \\
-    1833 & tasteful\_jj & 0 & 9120 \\
-    1834 & autistic\_jj & 0 & 9188 \\
-    1835 & considerate\_jj & 0 & 9252 \\
-    1836 & kind\_jj & 0 & 9276 \\
-    1837 & distractible\_jj & 0 & 9377 \\
-    1838 & addicted\_jj & 0 & 9571 \\
-    1839 & risqué\_jj & 0 & 9620 \\
-    1840 & oily\_jj & 0 & 9748 \\
-    1841 & choosy\_jj & 0 & 9801 \\
-    1842 & sedentary\_jj & 0 & 9859 \\
-    1843 & disorderly\_jj & 0 & 9945 \\
-    1844 & bubbly\_jj & 0 & 9948 \\
-    1845 & talkative\_jj & 1 & 128 \\
-    1846 & frisky\_jj & 1 & 351 \\
-    1847 & lascivious\_jj & 1 & 419 \\
-    1848 & gooey\_jj & 1 & 683 \\
-    1849 & defamatory\_jj & 1 & 711 \\
-    1850 & sexy\_jj & 1 & 813 \\
-    1851 & rude\_jj & 1 & 1224 \\
-    1852 & fussy\_jj & 1 & 1435 \\
-    1853 & clingy\_jj & 1 & 1464 \\
-    1854 & abusive\_jj & 1 & 1609 \\
-    1855 & lewd\_jj & 1 & 2187 \\
-    1856 & inconsiderate\_jj & 1 & 2263 \\
-    1857 & lazy\_jj & 1 & 2923 \\
-    1858 & irritable\_jj & 1 & 3734 \\
-    1859 & picky\_jj & 1 & 4147 \\
-    1860 & sociable\_jj & 1 & 4490 \\
+    1 & unbending\_jj & -1 & 4267    &    1860 & sociable\_jj & 1 & 4490 \\
+    2 & unswerving\_jj & -1 & 4115    &    1859 & picky\_jj & 1 & 4147 \\
+    3 & ultraconservative\_jj & -1 & 3240    &    1858 & irritable\_jj & 1 & 3734 \\
+    4 & unfailing\_jj & -1 & 3170    &    1857 & lazy\_jj & 1 & 2923 \\
+    5 & unflagging\_jj & -1 & 3101    &    1856 & inconsiderate\_jj & 1 & 2263 \\
+    6 & unshakable\_jj & -1 & 3083    &    1855 & lewd\_jj & 1 & 2187 \\
+    7 & firebrand & -1 & 2413    &    1854 & abusive\_jj & 1 & 1609 \\
+    8 & steadfast\_jj & -1 & 2163    &    1853 & clingy\_jj & 1 & 1464 \\
+    9 & untiring\_jj & -1 & 1629    &    1852 & fussy\_jj & 1 & 1435 \\
+    10 & unflinching\_jj & -1 & 1620    &    1851 & rude\_jj & 1 & 1224 \\
+    11 & uncompromising\_jj & -1 & 1535    &    1850 & sexy\_jj & 1 & 813 \\
+    12 & unquestioning\_jj & -1 & 1397    &    1849 & defamatory\_jj & 1 & 711 \\
+    13 & secular\_jj & -1 & 1332    &    1848 & gooey\_jj & 1 & 683 \\
+    14 & dissident & -1 & 1248    &    1847 & lascivious\_jj & 1 & 419 \\
+    15 & unyielding\_jj & -1 & 1186    &    1846 & frisky\_jj & 1 & 351 \\
+    16 & trenchant\_jj & -1 & 1019    &    1845 & talkative\_jj & 1 & 128 \\
+    17 & oratorical\_jj & -1 & 948    &    1844 & bubbly\_jj & 0 & 9948 \\
+    18 & staunch\_jj & -1 & 900    &    1843 & disorderly\_jj & 0 & 9945 \\
+    19 & imperturbable\_jj & -1 & 731    &    1842 & sedentary\_jj & 0 & 9859 \\
+    20 & fervent\_jj & -1 & 248    &    1841 & choosy\_jj & 0 & 9801 \\
+    21 & doctrinaire\_jj & 0 & 9908    &    1840 & oily\_jj & 0 & 9748 \\
+    22 & outspoken\_jj & 0 & 9887    &    1839 & risqué\_jj & 0 & 9620 \\
+    23 & autocratic\_jj & 0 & 9848    &    1838 & addicted\_jj & 0 & 9571 \\
+    24 & unerring\_jj & 0 & 9832    &    1837 & distractible\_jj & 0 & 9377 \\
+    25 & magisterial\_jj & 0 & 9767    &    1836 & kind\_jj & 0 & 9276 \\
+    26 & militant & 0 & 9683    &    1835 & considerate\_jj & 0 & 9252 \\
+    27 & scholarly\_jj & 0 & 9305    &    1834 & autistic\_jj & 0 & 9188 \\
+    28 & dogged\_jj & 0 & 9246    &    1833 & tasteful\_jj & 0 & 9120 \\
+    29 & religious\_jj & 0 & 9162    &    1832 & buttery\_jj & 0 & 9075 \\
+    30 & ascendant\_jj & 0 & 9142    &    1831 & bitch & 0 & 9026 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#6} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#6} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & assertive\_jj & -1 & -1824 \\
-    2 & inhospitable\_jj & -1 & -1821 \\
-    3 & stagnant\_jj & -1 & -1554 \\
-    4 & distrustful\_jj & -1 & -1357 \\
-    5 & impervious\_jj & -1 & -1018 \\
-    6 & conformist\_jj & -1 & -731 \\
-    7 & mistrustful\_jj & -1 & -276 \\
-    8 & fractious\_jj & -1 & -233 \\
-    9 & apathetic\_jj & -1 & -231 \\
-    10 & blase\_jj & -1 & -63 \\
-    11 & autocratic\_jj & 0 & -9912 \\
-    12 & docile\_jj & 0 & -9729 \\
-    13 & laggard\_jj & 0 & -9629 \\
-    14 & reliant\_jj & 0 & -9578 \\
-    15 & sanguine\_jj & 0 & -9468 \\
-    16 & spendthrift\_jj & 0 & -9458 \\
-    17 & intransigent\_jj & 0 & -8998 \\
-    18 & inclement\_jj & 0 & -8975 \\
-    19 & pliable\_jj & 0 & -8870 \\
-    20 & treacherous\_jj & 0 & -8806 \\
-    21 & clement\_jj & 0 & -8784 \\
-    22 & fickle\_jj & 0 & -8779 \\
-    23 & hospitable\_jj & 0 & -8732 \\
-    24 & icy\_jj & 0 & -8685 \\
-    25 & choosy\_jj & 0 & -8662 \\
-    26 & rapacious\_jj & 0 & -8605 \\
-    27 & wary\_jj & 0 & -8535 \\
-    28 & clannish\_jj & 0 & -8527 \\
-    29 & indecisive\_jj & 0 & -8501 \\
-    30 & sluggish\_jj & 0 & -8383 \\
-    1831 & fraudulent\_jj & 0 & 8802 \\
-    1832 & systematic\_jj & 0 & 8882 \\
-    1833 & disorderly\_jj & 0 & 8961 \\
-    1834 & negligent\_jj & 0 & 9016 \\
-    1835 & insightful\_jj & 0 & 9115 \\
-    1836 & retrospective\_jj & 0 & 9142 \\
-    1837 & objector & 0 & 9198 \\
-    1838 & thorough\_jj & 0 & 9224 \\
-    1839 & considerate\_jj & 0 & 9255 \\
-    1840 & objective\_jj & 0 & 9401 \\
-    1841 & derogatory\_jj & 0 & 9458 \\
-    1842 & unreserved\_jj & 0 & 9754 \\
-    1843 & malicious\_jj & 0 & 9812 \\
-    1844 & concise\_jj & 1 & 22 \\
-    1845 & quitter & 1 & 43 \\
-    1846 & cognitive\_jj & 1 & 79 \\
-    1847 & autistic\_jj & 1 & 87 \\
-    1848 & cry-baby & 1 & 88 \\
-    1849 & teachable\_jj & 1 & 205 \\
-    1850 & comedian & 1 & 212 \\
-    1851 & liar & 1 & 222 \\
-    1852 & obscene\_jj & 1 & 225 \\
-    1853 & musical\_jj & 1 & 364 \\
-    1854 & unbiased\_jj & 1 & 495 \\
-    1855 & sincere\_jj & 1 & 503 \\
-    1856 & slanderous\_jj & 1 & 1310 \\
-    1857 & lascivious\_jj & 1 & 3840 \\
-    1858 & defamatory\_jj & 1 & 4234 \\
-    1859 & lewd\_jj & 1 & 4703 \\
-    1860 & savant & 2 & 2627 \\
+    1 & assertive\_jj & -1 & 1824    &    1860 & savant & 2 & 2627 \\
+    2 & inhospitable\_jj & -1 & 1821    &    1859 & lewd\_jj & 1 & 4703 \\
+    3 & stagnant\_jj & -1 & 1554    &    1858 & defamatory\_jj & 1 & 4234 \\
+    4 & distrustful\_jj & -1 & 1357    &    1857 & lascivious\_jj & 1 & 3840 \\
+    5 & impervious\_jj & -1 & 1018    &    1856 & slanderous\_jj & 1 & 1310 \\
+    6 & conformist\_jj & -1 & 731    &    1855 & sincere\_jj & 1 & 503 \\
+    7 & mistrustful\_jj & -1 & 276    &    1854 & unbiased\_jj & 1 & 495 \\
+    8 & fractious\_jj & -1 & 233    &    1853 & musical\_jj & 1 & 364 \\
+    9 & apathetic\_jj & -1 & 231    &    1852 & obscene\_jj & 1 & 225 \\
+    10 & blase\_jj & -1 & 63    &    1851 & liar & 1 & 222 \\
+    11 & autocratic\_jj & 0 & 9912    &    1850 & comedian & 1 & 212 \\
+    12 & docile\_jj & 0 & 9729    &    1849 & teachable\_jj & 1 & 205 \\
+    13 & laggard\_jj & 0 & 9629    &    1848 & cry-baby & 1 & 88 \\
+    14 & reliant\_jj & 0 & 9578    &    1847 & autistic\_jj & 1 & 87 \\
+    15 & sanguine\_jj & 0 & 9468    &    1846 & cognitive\_jj & 1 & 79 \\
+    16 & spendthrift\_jj & 0 & 9458    &    1845 & quitter & 1 & 43 \\
+    17 & intransigent\_jj & 0 & 8998    &    1844 & concise\_jj & 1 & 22 \\
+    18 & inclement\_jj & 0 & 8975    &    1843 & malicious\_jj & 0 & 9812 \\
+    19 & pliable\_jj & 0 & 8870    &    1842 & unreserved\_jj & 0 & 9754 \\
+    20 & treacherous\_jj & 0 & 8806    &    1841 & derogatory\_jj & 0 & 9458 \\
+    21 & clement\_jj & 0 & 8784    &    1840 & objective\_jj & 0 & 9401 \\
+    22 & fickle\_jj & 0 & 8779    &    1839 & considerate\_jj & 0 & 9255 \\
+    23 & hospitable\_jj & 0 & 8732    &    1838 & thorough\_jj & 0 & 9224 \\
+    24 & icy\_jj & 0 & 8685    &    1837 & objector & 0 & 9198 \\
+    25 & choosy\_jj & 0 & 8662    &    1836 & retrospective\_jj & 0 & 9142 \\
+    26 & rapacious\_jj & 0 & 8605    &    1835 & insightful\_jj & 0 & 9115 \\
+    27 & wary\_jj & 0 & 8535    &    1834 & negligent\_jj & 0 & 9016 \\
+    28 & clannish\_jj & 0 & 8527    &    1833 & disorderly\_jj & 0 & 8961 \\
+    29 & indecisive\_jj & 0 & 8501    &    1832 & systematic\_jj & 0 & 8882 \\
+    30 & sluggish\_jj & 0 & 8383    &    1831 & fraudulent\_jj & 0 & 8802 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#7} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#7} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & inhuman\_jj & -1 & -6995 \\
-    2 & savant & -1 & -4788 \\
-    3 & lascivious\_jj & -1 & -4545 \\
-    4 & inhumane\_jj & -1 & -2918 \\
-    5 & disorderly\_jj & -1 & -2663 \\
-    6 & forcible\_jj & -1 & -2618 \\
-    7 & wanton\_jj & -1 & -1721 \\
-    8 & abusive\_jj & -1 & -1437 \\
-    9 & libidinous\_jj & -1 & -1321 \\
-    10 & impulsive\_jj & -1 & -1157 \\
-    11 & obstructive\_jj & -1 & -1018 \\
-    12 & autistic\_jj & -1 & -635 \\
-    13 & lewd\_jj & -1 & -630 \\
-    14 & sadistic\_jj & -1 & -524 \\
-    15 & unstable\_jj & -1 & -179 \\
-    16 & overactive\_jj & 0 & -9890 \\
-    17 & antisocial\_jj & 0 & -9544 \\
-    18 & manipulative\_jj & 0 & -9451 \\
-    19 & uncontrolled\_jj & 0 & -9132 \\
-    20 & expressive\_jj & 0 & -9043 \\
-    21 & unpredictable\_jj & 0 & -9000 \\
-    22 & brutal\_jj & 0 & -8906 \\
-    23 & uncooperative\_jj & 0 & -8654 \\
-    24 & violent\_jj & 0 & -8641 \\
-    25 & illiterate\_jj & 0 & -8525 \\
-    26 & unruly\_jj & 0 & -8512 \\
-    27 & acute\_jj & 0 & -8349 \\
-    28 & aplastic\_jj & 0 & -8269 \\
-    29 & possessive\_jj & 0 & -8163 \\
-    30 & cerebral\_jj & 0 & -8072 \\
-    1831 & carper & 0 & 8002 \\
-    1832 & cautious\_jj & 0 & 8035 \\
-    1833 & highfalutin\_jj & 0 & 8134 \\
-    1834 & skeptical\_jj & 0 & 8138 \\
-    1835 & presumptuous\_jj & 0 & 8203 \\
-    1836 & unenthusiastic\_jj & 0 & 8284 \\
-    1837 & concise\_jj & 0 & 8451 \\
-    1838 & cogent\_jj & 0 & 8485 \\
-    1839 & gun-shy\_jj & 0 & 8489 \\
-    1840 & wishful\_jj & 0 & 8601 \\
-    1841 & churlish\_jj & 0 & 8749 \\
-    1842 & preachy\_jj & 0 & 9001 \\
-    1843 & choosy\_jj & 0 & 9044 \\
-    1844 & picky\_jj & 0 & 9193 \\
-    1845 & sophistic\_jj & 0 & 9251 \\
-    1846 & do-nothing & 0 & 9310 \\
-    1847 & cautionary\_jj & 0 & 9445 \\
-    1848 & pessimist & 0 & 9527 \\
-    1849 & circumspect\_jj & 0 & 9767 \\
-    1850 & coy\_jj & 0 & 9788 \\
-    1851 & sanguine\_jj & 0 & 9816 \\
-    1852 & pessimistic\_jj & 0 & 9911 \\
-    1853 & squeamish\_jj & 1 & 49 \\
-    1854 & facetious\_jj & 1 & 80 \\
-    1855 & wishy-washy\_jj & 1 & 101 \\
-    1856 & lukewarm\_jj & 1 & 180 \\
-    1857 & tightwad & 1 & 371 \\
-    1858 & quitter & 1 & 1649 \\
-    1859 & remiss\_jj & 1 & 4284 \\
-    1860 & spendthrift & 1 & 5559 \\
+    1 & inhuman\_jj & -1 & 6995    &    1860 & spendthrift & 1 & 5559 \\
+    2 & savant & -1 & 4788    &    1859 & remiss\_jj & 1 & 4284 \\
+    3 & lascivious\_jj & -1 & 4545    &    1858 & quitter & 1 & 1649 \\
+    4 & inhumane\_jj & -1 & 2918    &    1857 & tightwad & 1 & 371 \\
+    5 & disorderly\_jj & -1 & 2663    &    1856 & lukewarm\_jj & 1 & 180 \\
+    6 & forcible\_jj & -1 & 2618    &    1855 & wishy-washy\_jj & 1 & 101 \\
+    7 & wanton\_jj & -1 & 1721    &    1854 & facetious\_jj & 1 & 80 \\
+    8 & abusive\_jj & -1 & 1437    &    1853 & squeamish\_jj & 1 & 49 \\
+    9 & libidinous\_jj & -1 & 1321    &    1852 & pessimistic\_jj & 0 & 9911 \\
+    10 & impulsive\_jj & -1 & 1157    &    1851 & sanguine\_jj & 0 & 9816 \\
+    11 & obstructive\_jj & -1 & 1018    &    1850 & coy\_jj & 0 & 9788 \\
+    12 & autistic\_jj & -1 & 635    &    1849 & circumspect\_jj & 0 & 9767 \\
+    13 & lewd\_jj & -1 & 630    &    1848 & pessimist & 0 & 9527 \\
+    14 & sadistic\_jj & -1 & 524    &    1847 & cautionary\_jj & 0 & 9445 \\
+    15 & unstable\_jj & -1 & 179    &    1846 & do-nothing & 0 & 9310 \\
+    16 & overactive\_jj & 0 & 9890    &    1845 & sophistic\_jj & 0 & 9251 \\
+    17 & antisocial\_jj & 0 & 9544    &    1844 & picky\_jj & 0 & 9193 \\
+    18 & manipulative\_jj & 0 & 9451    &    1843 & choosy\_jj & 0 & 9044 \\
+    19 & uncontrolled\_jj & 0 & 9132    &    1842 & preachy\_jj & 0 & 9001 \\
+    20 & expressive\_jj & 0 & 9043    &    1841 & churlish\_jj & 0 & 8749 \\
+    21 & unpredictable\_jj & 0 & 9000    &    1840 & wishful\_jj & 0 & 8601 \\
+    22 & brutal\_jj & 0 & 8906    &    1839 & gun-shy\_jj & 0 & 8489 \\
+    23 & uncooperative\_jj & 0 & 8654    &    1838 & cogent\_jj & 0 & 8485 \\
+    24 & violent\_jj & 0 & 8641    &    1837 & concise\_jj & 0 & 8451 \\
+    25 & illiterate\_jj & 0 & 8525    &    1836 & unenthusiastic\_jj & 0 & 8284 \\
+    26 & unruly\_jj & 0 & 8512    &    1835 & presumptuous\_jj & 0 & 8203 \\
+    27 & acute\_jj & 0 & 8349    &    1834 & skeptical\_jj & 0 & 8138 \\
+    28 & aplastic\_jj & 0 & 8269    &    1833 & highfalutin\_jj & 0 & 8134 \\
+    29 & possessive\_jj & 0 & 8163    &    1832 & cautious\_jj & 0 & 8035 \\
+    30 & cerebral\_jj & 0 & 8072    &    1831 & carper & 0 & 8002 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#8} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#8} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & vegetative\_jj & -1 & -8537 \\
-    2 & irritable\_jj & -1 & -8318 \\
-    3 & abstinent\_jj & -1 & -7522 \\
-    4 & aplastic\_jj & -1 & -7437 \\
-    5 & overactive\_jj & -1 & -6945 \\
-    6 & obstructive\_jj & -1 & -4896 \\
-    7 & autistic\_jj & -1 & -4887 \\
-    8 & cognitive\_jj & -1 & -4731 \\
-    9 & refractory\_jj & -1 & -4541 \\
-    10 & affective\_jj & -1 & -4177 \\
-    11 & malignant\_jj & -1 & -3867 \\
-    12 & modifiable\_jj & -1 & -1457 \\
-    13 & cerebral\_jj & -1 & -463 \\
-    14 & acute\_jj & -1 & -224 \\
-    15 & hypersensitive\_jj & -1 & -178 \\
-    16 & testy\_jj & -1 & -47 \\
-    17 & unemotional\_jj & 0 & -9772 \\
-    18 & maternal\_jj & 0 & -9332 \\
-    19 & extroverted\_jj & 0 & -9247 \\
-    20 & nonconforming\_jj & 0 & -8947 \\
-    21 & mild\_jj & 0 & -8858 \\
-    22 & impulsive\_jj & 0 & -8739 \\
-    23 & unfaithful\_jj & 0 & -8728 \\
-    24 & questioning\_jj & 0 & -8721 \\
-    25 & distractible\_jj & 0 & -8606 \\
-    26 & obsessive & 0 & -8579 \\
-    27 & possessive\_jj & 0 & -8566 \\
-    28 & objector & 0 & -8541 \\
-    29 & unresponsive\_jj & 0 & -8530 \\
-    30 & compulsive & 0 & -8378 \\
-    1831 & unscrupulous\_jj & 0 & 7314 \\
-    1832 & ostentatious\_jj & 0 & 7340 \\
-    1833 & quirky\_jj & 0 & 7418 \\
-    1834 & gullible\_jj & 0 & 7456 \\
-    1835 & lavish\_jj & 0 & 7460 \\
-    1836 & fanciful\_jj & 0 & 7584 \\
-    1837 & undemocratic\_jj & 0 & 7594 \\
-    1838 & witch & 0 & 7650 \\
-    1839 & sophisticated\_jj & 0 & 7673 \\
-    1840 & clown & 0 & 7732 \\
-    1841 & devious\_jj & 0 & 7774 \\
-    1842 & greedy\_jj & 0 & 7813 \\
-    1843 & cosmopolitan\_jj & 0 & 7833 \\
-    1844 & ruthless\_jj & 0 & 7896 \\
-    1845 & extravagant\_jj & 0 & 7968 \\
-    1846 & homespun\_jj & 0 & 7997 \\
-    1847 & clever\_jj & 0 & 8038 \\
-    1848 & wasteful\_jj & 0 & 8310 \\
-    1849 & sexy\_jj & 0 & 8378 \\
-    1850 & barbarous\_jj & 0 & 8561 \\
-    1851 & downright\_jj & 0 & 8782 \\
-    1852 & risque\_jj & 0 & 8820 \\
-    1853 & gourmet & 0 & 8824 \\
-    1854 & luxurious\_jj & 0 & 8877 \\
-    1855 & brazen\_jj & 0 & 8982 \\
-    1856 & flashy\_jj & 0 & 9420 \\
-    1857 & cunning\_jj & 0 & 9793 \\
-    1858 & elegant\_jj & 1 & 471 \\
-    1859 & cowardly\_jj & 1 & 1353 \\
-    1860 & chic\_jj & 1 & 2239 \\
+    1 & vegetative\_jj & -1 & 8537    &    1860 & chic\_jj & 1 & 2239 \\
+    2 & irritable\_jj & -1 & 8318    &    1859 & cowardly\_jj & 1 & 1353 \\
+    3 & abstinent\_jj & -1 & 7522    &    1858 & elegant\_jj & 1 & 471 \\
+    4 & aplastic\_jj & -1 & 7437    &    1857 & cunning\_jj & 0 & 9793 \\
+    5 & overactive\_jj & -1 & 6945    &    1856 & flashy\_jj & 0 & 9420 \\
+    6 & obstructive\_jj & -1 & 4896    &    1855 & brazen\_jj & 0 & 8982 \\
+    7 & autistic\_jj & -1 & 4887    &    1854 & luxurious\_jj & 0 & 8877 \\
+    8 & cognitive\_jj & -1 & 4731    &    1853 & gourmet & 0 & 8824 \\
+    9 & refractory\_jj & -1 & 4541    &    1852 & risque\_jj & 0 & 8820 \\
+    10 & affective\_jj & -1 & 4177    &    1851 & downright\_jj & 0 & 8782 \\
+    11 & malignant\_jj & -1 & 3867    &    1850 & barbarous\_jj & 0 & 8561 \\
+    12 & modifiable\_jj & -1 & 1457    &    1849 & sexy\_jj & 0 & 8378 \\
+    13 & cerebral\_jj & -1 & 463    &    1848 & wasteful\_jj & 0 & 8310 \\
+    14 & acute\_jj & -1 & 224    &    1847 & clever\_jj & 0 & 8038 \\
+    15 & hypersensitive\_jj & -1 & 178    &    1846 & homespun\_jj & 0 & 7997 \\
+    16 & testy\_jj & -1 & 47    &    1845 & extravagant\_jj & 0 & 7968 \\
+    17 & unemotional\_jj & 0 & 9772    &    1844 & ruthless\_jj & 0 & 7896 \\
+    18 & maternal\_jj & 0 & 9332    &    1843 & cosmopolitan\_jj & 0 & 7833 \\
+    19 & extroverted\_jj & 0 & 9247    &    1842 & greedy\_jj & 0 & 7813 \\
+    20 & nonconforming\_jj & 0 & 8947    &    1841 & devious\_jj & 0 & 7774 \\
+    21 & mild\_jj & 0 & 8858    &    1840 & clown & 0 & 7732 \\
+    22 & impulsive\_jj & 0 & 8739    &    1839 & sophisticated\_jj & 0 & 7673 \\
+    23 & unfaithful\_jj & 0 & 8728    &    1838 & witch & 0 & 7650 \\
+    24 & questioning\_jj & 0 & 8721    &    1837 & undemocratic\_jj & 0 & 7594 \\
+    25 & distractible\_jj & 0 & 8606    &    1836 & fanciful\_jj & 0 & 7584 \\
+    26 & obsessive & 0 & 8579    &    1835 & lavish\_jj & 0 & 7460 \\
+    27 & possessive\_jj & 0 & 8566    &    1834 & gullible\_jj & 0 & 7456 \\
+    28 & objector & 0 & 8541    &    1833 & quirky\_jj & 0 & 7418 \\
+    29 & unresponsive\_jj & 0 & 8530    &    1832 & ostentatious\_jj & 0 & 7340 \\
+    30 & compulsive & 0 & 8378    &    1831 & unscrupulous\_jj & 0 & 7314 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#9} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#9} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & lascivious\_jj & -1 & -5148 \\
-    2 & secular\_jj & -1 & -5081 \\
-    3 & religious\_jj & -1 & -3663 \\
-    4 & devout\_jj & -1 & -2977 \\
-    5 & celibate & -1 & -2739 \\
-    6 & defamatory\_jj & -1 & -2712 \\
-    7 & forcible\_jj & -1 & -2430 \\
-    8 & blasphemous\_jj & -1 & -1629 \\
-    9 & nonreligious\_jj & -1 & -1517 \\
-    10 & peaceful\_jj & -1 & -1458 \\
-    11 & prayerful\_jj & -1 & -1260 \\
-    12 & buttery\_jj & -1 & -809 \\
-    13 & ultraconservative\_jj & -1 & -731 \\
-    14 & inhuman\_jj & -1 & -502 \\
-    15 & heretical\_jj & -1 & -403 \\
-    16 & solemn\_jj & -1 & -381 \\
-    17 & warm\_jj & -1 & -282 \\
-    18 & lewd\_jj & -1 & -152 \\
-    19 & respectful\_jj & -1 & -150 \\
-    20 & tolerant\_jj & -1 & -114 \\
-    21 & pious\_jj & 0 & -9930 \\
-    22 & cordial\_jj & 0 & -9863 \\
-    23 & loving\_jj & 0 & -9840 \\
-    24 & hearty\_jj & 0 & -9840 \\
-    25 & monastic\_jj & 0 & -9796 \\
-    26 & peppery\_jj & 0 & -9776 \\
-    27 & sincere\_jj & 0 & -9762 \\
-    28 & satanic\_jj & 0 & -9354 \\
-    29 & godless\_jj & 0 & -9313 \\
-    30 & puritanical\_jj & 0 & -9165 \\
-    1831 & abrupt\_jj & 0 & 6842 \\
-    1832 & improviser & 0 & 6895 \\
-    1833 & introvert & 0 & 6947 \\
-    1834 & hard-nosed\_jj & 0 & 6980 \\
-    1835 & upstart\_jj & 0 & 7052 \\
-    1836 & opportunist & 0 & 7139 \\
-    1837 & absent-minded\_jj & 0 & 7194 \\
-    1838 & iffy\_jj & 0 & 7251 \\
-    1839 & irascible\_jj & 0 & 7299 \\
-    1840 & accurate\_jj & 0 & 7355 \\
-    1841 & overconfident\_jj & 0 & 7478 \\
-    1842 & assured\_jj & 0 & 7517 \\
-    1843 & unerring\_jj & 0 & 7560 \\
-    1844 & audacious\_jj & 0 & 7580 \\
-    1845 & cunning & 0 & 7622 \\
-    1846 & astute\_jj & 0 & 7693 \\
-    1847 & canny\_jj & 0 & 7703 \\
-    1848 & overactive\_jj & 0 & 7749 \\
-    1849 & inexperienced\_jj & 0 & 8148 \\
-    1850 & imperturbable\_jj & 0 & 8552 \\
-    1851 & egghead & 0 & 8721 \\
-    1852 & balky\_jj & 0 & 8771 \\
-    1853 & unreliable\_jj & 0 & 8882 \\
-    1854 & adroit\_jj & 0 & 8891 \\
-    1855 & accomplished\_jj & 0 & 9246 \\
-    1856 & indestructible\_jj & 0 & 9625 \\
-    1857 & mathematical\_jj & 0 & 9971 \\
-    1858 & unguarded\_jj & 1 & 152 \\
-    1859 & inexact\_jj & 1 & 1317 \\
-    1860 & savant & 1 & 1857 \\
+    1 & lascivious\_jj & -1 & 5148    &    1860 & savant & 1 & 1857 \\
+    2 & secular\_jj & -1 & 5081    &    1859 & inexact\_jj & 1 & 1317 \\
+    3 & religious\_jj & -1 & 3663    &    1858 & unguarded\_jj & 1 & 152 \\
+    4 & devout\_jj & -1 & 2977    &    1857 & mathematical\_jj & 0 & 9971 \\
+    5 & celibate & -1 & 2739    &    1856 & indestructible\_jj & 0 & 9625 \\
+    6 & defamatory\_jj & -1 & 2712    &    1855 & accomplished\_jj & 0 & 9246 \\
+    7 & forcible\_jj & -1 & 2430    &    1854 & adroit\_jj & 0 & 8891 \\
+    8 & blasphemous\_jj & -1 & 1629    &    1853 & unreliable\_jj & 0 & 8882 \\
+    9 & nonreligious\_jj & -1 & 1517    &    1852 & balky\_jj & 0 & 8771 \\
+    10 & peaceful\_jj & -1 & 1458    &    1851 & egghead & 0 & 8721 \\
+    11 & prayerful\_jj & -1 & 1260    &    1850 & imperturbable\_jj & 0 & 8552 \\
+    12 & buttery\_jj & -1 & 809    &    1849 & inexperienced\_jj & 0 & 8148 \\
+    13 & ultraconservative\_jj & -1 & 731    &    1848 & overactive\_jj & 0 & 7749 \\
+    14 & inhuman\_jj & -1 & 502    &    1847 & canny\_jj & 0 & 7703 \\
+    15 & heretical\_jj & -1 & 403    &    1846 & astute\_jj & 0 & 7693 \\
+    16 & solemn\_jj & -1 & 381    &    1845 & cunning & 0 & 7622 \\
+    17 & warm\_jj & -1 & 282    &    1844 & audacious\_jj & 0 & 7580 \\
+    18 & lewd\_jj & -1 & 152    &    1843 & unerring\_jj & 0 & 7560 \\
+    19 & respectful\_jj & -1 & 150    &    1842 & assured\_jj & 0 & 7517 \\
+    20 & tolerant\_jj & -1 & 114    &    1841 & overconfident\_jj & 0 & 7478 \\
+    21 & pious\_jj & 0 & 9930    &    1840 & accurate\_jj & 0 & 7355 \\
+    22 & cordial\_jj & 0 & 9863    &    1839 & irascible\_jj & 0 & 7299 \\
+    23 & loving\_jj & 0 & 9840    &    1838 & iffy\_jj & 0 & 7251 \\
+    24 & hearty\_jj & 0 & 9840    &    1837 & absent-minded\_jj & 0 & 7194 \\
+    25 & monastic\_jj & 0 & 9796    &    1836 & opportunist & 0 & 7139 \\
+    26 & peppery\_jj & 0 & 9776    &    1835 & upstart\_jj & 0 & 7052 \\
+    27 & sincere\_jj & 0 & 9762    &    1834 & hard-nosed\_jj & 0 & 6980 \\
+    28 & satanic\_jj & 0 & 9354    &    1833 & introvert & 0 & 6947 \\
+    29 & godless\_jj & 0 & 9313    &    1832 & improviser & 0 & 6895 \\
+    30 & puritanical\_jj & 0 & 9165    &    1831 & abrupt\_jj & 0 & 6842 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#10} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#10} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & ultraconservative\_jj & -1 & -7353 \\
-    2 & exclusive\_jj & -1 & -5433 \\
-    3 & eclectic\_jj & -1 & -3794 \\
-    4 & defamatory\_jj & -1 & -3677 \\
-    5 & savant & -1 & -3523 \\
-    6 & outspoken\_jj & -1 & -2438 \\
-    7 & risqué\_jj & -1 & -2410 \\
-    8 & avid\_jj & -1 & -2098 \\
-    9 & unguarded\_jj & -1 & -1173 \\
-    10 & obscene\_jj & -1 & -1100 \\
-    11 & risque\_jj & -1 & -335 \\
-    12 & acrimonious\_jj & -1 & -166 \\
-    13 & explicit\_jj & 0 & -9539 \\
-    14 & irreverent\_jj & 0 & -9051 \\
-    15 & observant\_jj & 0 & -8950 \\
-    16 & outdoor\_jj & 0 & -8868 \\
-    17 & derogatory\_jj & 0 & -8657 \\
-    18 & abusive\_jj & 0 & -8484 \\
-    19 & immodest\_jj & 0 & -8444 \\
-    20 & uncooperative\_jj & 0 & -8321 \\
-    21 & animated\_jj & 0 & -8283 \\
-    22 & encyclopedic\_jj & 0 & -8267 \\
-    23 & highbrow\_jj & 0 & -8191 \\
-    24 & itinerant & 0 & -8188 \\
-    25 & independent\_jj & 0 & -8115 \\
-    26 & unruly\_jj & 0 & -8057 \\
-    27 & lewd\_jj & 0 & -8030 \\
-    28 & intellectual & 0 & -8021 \\
-    29 & blasphemous\_jj & 0 & -7827 \\
-    30 & informal\_jj & 0 & -7746 \\
-    1831 & quitter & 0 & 7081 \\
-    1832 & precipitous\_jj & 0 & 7143 \\
-    1833 & thorough\_jj & 0 & 7179 \\
-    1834 & brave\_jj & 0 & 7261 \\
-    1835 & heroic\_jj & 0 & 7329 \\
-    1836 & sadistic\_jj & 0 & 7479 \\
-    1837 & devious\_jj & 0 & 7537 \\
-    1838 & inhuman\_jj & 0 & 7574 \\
-    1839 & deliberative\_jj & 0 & 7629 \\
-    1840 & barbarous\_jj & 0 & 7743 \\
-    1841 & vegetative\_jj & 0 & 7769 \\
-    1842 & valiant\_jj & 0 & 7816 \\
-    1843 & selfless\_jj & 0 & 7881 \\
-    1844 & ruthless\_jj & 0 & 7935 \\
-    1845 & speedy\_jj & 0 & 7968 \\
-    1846 & brute\_jj & 0 & 7998 \\
-    1847 & humane\_jj & 0 & 8036 \\
-    1848 & cunning\_jj & 0 & 8216 \\
-    1849 & merciful\_jj & 0 & 8255 \\
-    1850 & cunning & 0 & 8478 \\
-    1851 & remorseless\_jj & 0 & 8611 \\
-    1852 & calculating\_jj & 0 & 8655 \\
-    1853 & doer & 0 & 8722 \\
-    1854 & callous\_jj & 0 & 9480 \\
-    1855 & deliberate\_jj & 0 & 9892 \\
-    1856 & cold-blooded\_jj & 1 & 467 \\
-    1857 & merciless\_jj & 1 & 547 \\
-    1858 & methodical\_jj & 1 & 1111 \\
-    1859 & cowardly\_jj & 1 & 1531 \\
-    1860 & cheater & 1 & 2231 \\
+    1 & ultraconservative\_jj & -1 & 7353    &    1860 & cheater & 1 & 2231 \\
+    2 & exclusive\_jj & -1 & 5433    &    1859 & cowardly\_jj & 1 & 1531 \\
+    3 & eclectic\_jj & -1 & 3794    &    1858 & methodical\_jj & 1 & 1111 \\
+    4 & defamatory\_jj & -1 & 3677    &    1857 & merciless\_jj & 1 & 547 \\
+    5 & savant & -1 & 3523    &    1856 & cold-blooded\_jj & 1 & 467 \\
+    6 & outspoken\_jj & -1 & 2438    &    1855 & deliberate\_jj & 0 & 9892 \\
+    7 & risqué\_jj & -1 & 2410    &    1854 & callous\_jj & 0 & 9480 \\
+    8 & avid\_jj & -1 & 2098    &    1853 & doer & 0 & 8722 \\
+    9 & unguarded\_jj & -1 & 1173    &    1852 & calculating\_jj & 0 & 8655 \\
+    10 & obscene\_jj & -1 & 1100    &    1851 & remorseless\_jj & 0 & 8611 \\
+    11 & risque\_jj & -1 & 335    &    1850 & cunning & 0 & 8478 \\
+    12 & acrimonious\_jj & -1 & 166    &    1849 & merciful\_jj & 0 & 8255 \\
+    13 & explicit\_jj & 0 & 9539    &    1848 & cunning\_jj & 0 & 8216 \\
+    14 & irreverent\_jj & 0 & 9051    &    1847 & humane\_jj & 0 & 8036 \\
+    15 & observant\_jj & 0 & 8950    &    1846 & brute\_jj & 0 & 7998 \\
+    16 & outdoor\_jj & 0 & 8868    &    1845 & speedy\_jj & 0 & 7968 \\
+    17 & derogatory\_jj & 0 & 8657    &    1844 & ruthless\_jj & 0 & 7935 \\
+    18 & abusive\_jj & 0 & 8484    &    1843 & selfless\_jj & 0 & 7881 \\
+    19 & immodest\_jj & 0 & 8444    &    1842 & valiant\_jj & 0 & 7816 \\
+    20 & uncooperative\_jj & 0 & 8321    &    1841 & vegetative\_jj & 0 & 7769 \\
+    21 & animated\_jj & 0 & 8283    &    1840 & barbarous\_jj & 0 & 7743 \\
+    22 & encyclopedic\_jj & 0 & 8267    &    1839 & deliberative\_jj & 0 & 7629 \\
+    23 & highbrow\_jj & 0 & 8191    &    1838 & inhuman\_jj & 0 & 7574 \\
+    24 & itinerant & 0 & 8188    &    1837 & devious\_jj & 0 & 7537 \\
+    25 & independent\_jj & 0 & 8115    &    1836 & sadistic\_jj & 0 & 7479 \\
+    26 & unruly\_jj & 0 & 8057    &    1835 & heroic\_jj & 0 & 7329 \\
+    27 & lewd\_jj & 0 & 8030    &    1834 & brave\_jj & 0 & 7261 \\
+    28 & intellectual & 0 & 8021    &    1833 & thorough\_jj & 0 & 7179 \\
+    29 & blasphemous\_jj & 0 & 7827    &    1832 & precipitous\_jj & 0 & 7143 \\
+    30 & informal\_jj & 0 & 7746    &    1831 & quitter & 0 & 7081 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#11} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#11} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & morbid\_jj & -1 & -2780 \\
-    2 & rebellious\_jj & -1 & -491 \\
-    3 & macabre\_jj & -1 & -446 \\
-    4 & celibate & -1 & -342 \\
-    5 & mystical\_jj & -1 & -148 \\
-    6 & chaste\_jj & 0 & -9332 \\
-    7 & nomadic\_jj & 0 & -9185 \\
-    8 & bleak\_jj & 0 & -9126 \\
-    9 & materialistic\_jj & 0 & -8713 \\
-    10 & dispiriting\_jj & 0 & -8597 \\
-    11 & satanic\_jj & 0 & -8502 \\
-    12 & risqué\_jj & 0 & -8414 \\
-    13 & lawless\_jj & 0 & -8357 \\
-    14 & violent\_jj & 0 & -8272 \\
-    15 & fatalistic\_jj & 0 & -8195 \\
-    16 & cry-baby & 0 & -8139 \\
-    17 & cautionary\_jj & 0 & -7811 \\
-    18 & curious\_jj & 0 & -7664 \\
-    19 & mundane\_jj & 0 & -7623 \\
-    20 & raunchy\_jj & 0 & -7483 \\
-    21 & bloodthirsty\_jj & 0 & -7459 \\
-    22 & hectic\_jj & 0 & -7379 \\
-    23 & distant\_jj & 0 & -7351 \\
-    24 & autistic\_jj & 0 & -7307 \\
-    25 & mawkish\_jj & 0 & -7295 \\
-    26 & profound\_jj & 0 & -7290 \\
-    27 & otherworldly\_jj & 0 & -7210 \\
-    28 & rootless\_jj & 0 & -7030 \\
-    29 & self-conscious\_jj & 0 & -7017 \\
-    30 & chaotic\_jj & 0 & -6983 \\
-    1831 & comforter & 0 & 7721 \\
-    1832 & uncooperative\_jj & 0 & 7734 \\
-    1833 & unbiased\_jj & 0 & 7757 \\
-    1834 & pert\_jj & 0 & 7846 \\
-    1835 & crusty\_jj & 0 & 7851 \\
-    1836 & hearty\_jj & 0 & 7995 \\
-    1837 & unbending\_jj & 0 & 8300 \\
-    1838 & ungracious\_jj & 0 & 8501 \\
-    1839 & unreserved\_jj & 0 & 8521 \\
-    1840 & prompt\_jj & 0 & 8637 \\
-    1841 & clam & 0 & 8708 \\
-    1842 & earthy\_jj & 0 & 8766 \\
-    1843 & ham & 0 & 8862 \\
-    1844 & pungent\_jj & 0 & 8865 \\
-    1845 & absent-minded\_jj & 0 & 8866 \\
-    1846 & expeditious\_jj & 0 & 8947 \\
-    1847 & fruit & 0 & 8959 \\
-    1848 & imperturbable\_jj & 0 & 9296 \\
-    1849 & gooey\_jj & 0 & 9535 \\
-    1850 & unrefined\_jj & 1 & 156 \\
-    1851 & impartial\_jj & 1 & 1892 \\
-    1852 & boneless\_jj & 1 & 2097 \\
-    1853 & unsportsmanlike\_jj & 1 & 2420 \\
-    1854 & unctuous\_jj & 1 & 2890 \\
-    1855 & oily\_jj & 1 & 3574 \\
-    1856 & buttery\_jj & 1 & 4437 \\
-    1857 & broiler & 1 & 4573 \\
-    1858 & gingery\_jj & 1 & 4939 \\
-    1859 & peppery\_jj & 1 & 5106 \\
-    1860 & vinegary\_jj & 1 & 7602 \\
+    1 & morbid\_jj & -1 & 2780    &    1860 & vinegary\_jj & 1 & 7602 \\
+    2 & rebellious\_jj & -1 & 491    &    1859 & peppery\_jj & 1 & 5106 \\
+    3 & macabre\_jj & -1 & 446    &    1858 & gingery\_jj & 1 & 4939 \\
+    4 & celibate & -1 & 342    &    1857 & broiler & 1 & 4573 \\
+    5 & mystical\_jj & -1 & 148    &    1856 & buttery\_jj & 1 & 4437 \\
+    6 & chaste\_jj & 0 & 9332    &    1855 & oily\_jj & 1 & 3574 \\
+    7 & nomadic\_jj & 0 & 9185    &    1854 & unctuous\_jj & 1 & 2890 \\
+    8 & bleak\_jj & 0 & 9126    &    1853 & unsportsmanlike\_jj & 1 & 2420 \\
+    9 & materialistic\_jj & 0 & 8713    &    1852 & boneless\_jj & 1 & 2097 \\
+    10 & dispiriting\_jj & 0 & 8597    &    1851 & impartial\_jj & 1 & 1892 \\
+    11 & satanic\_jj & 0 & 8502    &    1850 & unrefined\_jj & 1 & 156 \\
+    12 & risqué\_jj & 0 & 8414    &    1849 & gooey\_jj & 0 & 9535 \\
+    13 & lawless\_jj & 0 & 8357    &    1848 & imperturbable\_jj & 0 & 9296 \\
+    14 & violent\_jj & 0 & 8272    &    1847 & fruit & 0 & 8959 \\
+    15 & fatalistic\_jj & 0 & 8195    &    1846 & expeditious\_jj & 0 & 8947 \\
+    16 & cry-baby & 0 & 8139    &    1845 & absent-minded\_jj & 0 & 8866 \\
+    17 & cautionary\_jj & 0 & 7811    &    1844 & pungent\_jj & 0 & 8865 \\
+    18 & curious\_jj & 0 & 7664    &    1843 & ham & 0 & 8862 \\
+    19 & mundane\_jj & 0 & 7623    &    1842 & earthy\_jj & 0 & 8766 \\
+    20 & raunchy\_jj & 0 & 7483    &    1841 & clam & 0 & 8708 \\
+    21 & bloodthirsty\_jj & 0 & 7459    &    1840 & prompt\_jj & 0 & 8637 \\
+    22 & hectic\_jj & 0 & 7379    &    1839 & unreserved\_jj & 0 & 8521 \\
+    23 & distant\_jj & 0 & 7351    &    1838 & ungracious\_jj & 0 & 8501 \\
+    24 & autistic\_jj & 0 & 7307    &    1837 & unbending\_jj & 0 & 8300 \\
+    25 & mawkish\_jj & 0 & 7295    &    1836 & hearty\_jj & 0 & 7995 \\
+    26 & profound\_jj & 0 & 7290    &    1835 & crusty\_jj & 0 & 7851 \\
+    27 & otherworldly\_jj & 0 & 7210    &    1834 & pert\_jj & 0 & 7846 \\
+    28 & rootless\_jj & 0 & 7030    &    1833 & unbiased\_jj & 0 & 7757 \\
+    29 & self-conscious\_jj & 0 & 7017    &    1832 & uncooperative\_jj & 0 & 7734 \\
+    30 & chaotic\_jj & 0 & 6983    &    1831 & comforter & 0 & 7721 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#12} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#12} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & lenient\_jj & -1 & -1034 \\
-    2 & coquette & -1 & -665 \\
-    3 & corrective\_jj & -1 & -528 \\
-    4 & stringent\_jj & -1 & -341 \\
-    5 & expeditious\_jj & 0 & -9692 \\
-    6 & lascivious\_jj & 0 & -9657 \\
-    7 & uncooperative\_jj & 0 & -9410 \\
-    8 & equitable\_jj & 0 & -9127 \\
-    9 & demure\_jj & 0 & -9115 \\
-    10 & ladylike\_jj & 0 & -9023 \\
-    11 & disciplinarian & 0 & -8786 \\
-    12 & prim\_jj & 0 & -8737 \\
-    13 & lewd\_jj & 0 & -8720 \\
-    14 & libidinous\_jj & 0 & -8425 \\
-    15 & transparent\_jj & 0 & -8360 \\
-    16 & playboy & 0 & -8111 \\
-    17 & flirtatious\_jj & 0 & -8104 \\
-    18 & insubordinate\_jj & 0 & -8085 \\
-    19 & risqué\_jj & 0 & -7881 \\
-    20 & mousy\_jj & 0 & -7877 \\
-    21 & rigorous\_jj & 0 & -7768 \\
-    22 & intrusive\_jj & 0 & -7763 \\
-    23 & lax\_jj & 0 & -7747 \\
-    24 & rakish\_jj & 0 & -7688 \\
-    25 & unsportsmanlike\_jj & 0 & -7572 \\
-    26 & forcible\_jj & 0 & -7451 \\
-    27 & strict\_jj & 0 & -7398 \\
-    28 & monopolistic\_jj & 0 & -7360 \\
-    29 & disorderly\_jj & 0 & -7351 \\
-    30 & submissive\_jj & 0 & -7308 \\
-    1831 & crusty\_jj & 0 & 7612 \\
-    1832 & insightful\_jj & 0 & 7642 \\
-    1833 & erudite\_jj & 0 & 7693 \\
-    1834 & clam & 0 & 7703 \\
-    1835 & ham & 0 & 7793 \\
-    1836 & pundit & 0 & 7939 \\
-    1837 & bitter\_jj & 0 & 8035 \\
-    1838 & uneducated\_jj & 0 & 8288 \\
-    1839 & ignorant\_jj & 0 & 8385 \\
-    1840 & tasteless\_jj & 0 & 8446 \\
-    1841 & gooey\_jj & 0 & 8474 \\
-    1842 & hearty\_jj & 0 & 8707 \\
-    1843 & hard-boiled\_jj & 0 & 8940 \\
-    1844 & buttery\_jj & 0 & 9169 \\
-    1845 & vinegary\_jj & 0 & 9230 \\
-    1846 & mushy\_jj & 0 & 9324 \\
-    1847 & venomous\_jj & 0 & 9379 \\
-    1848 & oily\_jj & 0 & 9441 \\
-    1849 & fruit & 0 & 9458 \\
-    1850 & fiery\_jj & 0 & 9484 \\
-    1851 & downright\_jj & 0 & 9615 \\
-    1852 & boneless\_jj & 0 & 9875 \\
-    1853 & sour\_jj & 0 & 9939 \\
-    1854 & poisonous\_jj & 1 & 239 \\
-    1855 & gingery\_jj & 1 & 384 \\
-    1856 & acrid\_jj & 1 & 675 \\
-    1857 & tender\_jj & 1 & 1424 \\
-    1858 & broiler & 1 & 1920 \\
-    1859 & pungent\_jj & 1 & 2129 \\
-    1860 & peppery\_jj & 1 & 4891 \\
+    1 & lenient\_jj & -1 & 1034    &    1860 & peppery\_jj & 1 & 4891 \\
+    2 & coquette & -1 & 665    &    1859 & pungent\_jj & 1 & 2129 \\
+    3 & corrective\_jj & -1 & 528    &    1858 & broiler & 1 & 1920 \\
+    4 & stringent\_jj & -1 & 341    &    1857 & tender\_jj & 1 & 1424 \\
+    5 & expeditious\_jj & 0 & 9692    &    1856 & acrid\_jj & 1 & 675 \\
+    6 & lascivious\_jj & 0 & 9657    &    1855 & gingery\_jj & 1 & 384 \\
+    7 & uncooperative\_jj & 0 & 9410    &    1854 & poisonous\_jj & 1 & 239 \\
+    8 & equitable\_jj & 0 & 9127    &    1853 & sour\_jj & 0 & 9939 \\
+    9 & demure\_jj & 0 & 9115    &    1852 & boneless\_jj & 0 & 9875 \\
+    10 & ladylike\_jj & 0 & 9023    &    1851 & downright\_jj & 0 & 9615 \\
+    11 & disciplinarian & 0 & 8786    &    1850 & fiery\_jj & 0 & 9484 \\
+    12 & prim\_jj & 0 & 8737    &    1849 & fruit & 0 & 9458 \\
+    13 & lewd\_jj & 0 & 8720    &    1848 & oily\_jj & 0 & 9441 \\
+    14 & libidinous\_jj & 0 & 8425    &    1847 & venomous\_jj & 0 & 9379 \\
+    15 & transparent\_jj & 0 & 8360    &    1846 & mushy\_jj & 0 & 9324 \\
+    16 & playboy & 0 & 8111    &    1845 & vinegary\_jj & 0 & 9230 \\
+    17 & flirtatious\_jj & 0 & 8104    &    1844 & buttery\_jj & 0 & 9169 \\
+    18 & insubordinate\_jj & 0 & 8085    &    1843 & hard-boiled\_jj & 0 & 8940 \\
+    19 & risqué\_jj & 0 & 7881    &    1842 & hearty\_jj & 0 & 8707 \\
+    20 & mousy\_jj & 0 & 7877    &    1841 & gooey\_jj & 0 & 8474 \\
+    21 & rigorous\_jj & 0 & 7768    &    1840 & tasteless\_jj & 0 & 8446 \\
+    22 & intrusive\_jj & 0 & 7763    &    1839 & ignorant\_jj & 0 & 8385 \\
+    23 & lax\_jj & 0 & 7747    &    1838 & uneducated\_jj & 0 & 8288 \\
+    24 & rakish\_jj & 0 & 7688    &    1837 & bitter\_jj & 0 & 8035 \\
+    25 & unsportsmanlike\_jj & 0 & 7572    &    1836 & pundit & 0 & 7939 \\
+    26 & forcible\_jj & 0 & 7451    &    1835 & ham & 0 & 7793 \\
+    27 & strict\_jj & 0 & 7398    &    1834 & clam & 0 & 7703 \\
+    28 & monopolistic\_jj & 0 & 7360    &    1833 & erudite\_jj & 0 & 7693 \\
+    29 & disorderly\_jj & 0 & 7351    &    1832 & insightful\_jj & 0 & 7642 \\
+    30 & submissive\_jj & 0 & 7308    &    1831 & crusty\_jj & 0 & 7612 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#13} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#13} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & unreserved\_jj & -1 & -2678 \\
-    2 & indeterminate\_jj & -1 & -1912 \\
-    3 & amicable\_jj & -1 & -1681 \\
-    4 & indefinite\_jj & -1 & -1471 \\
-    5 & remiss\_jj & -1 & -427 \\
-    6 & unfailing\_jj & -1 & -131 \\
-    7 & unguarded\_jj & -1 & -125 \\
-    8 & imprudent\_jj & 0 & -9914 \\
-    9 & indomitable\_jj & 0 & -9457 \\
-    10 & unsportsmanlike\_jj & 0 & -8840 \\
-    11 & abject\_jj & 0 & -8769 \\
-    12 & unfaithful\_jj & 0 & -8734 \\
-    13 & unselfish\_jj & 0 & -8595 \\
-    14 & intrepid\_jj & 0 & -8449 \\
-    15 & immovable\_jj & 0 & -8375 \\
-    16 & sincere\_jj & 0 & -8227 \\
-    17 & unshakable\_jj & 0 & -8180 \\
-    18 & unreasonable\_jj & 0 & -8174 \\
-    19 & unequivocal\_jj & 0 & -8169 \\
-    20 & selfless\_jj & 0 & -8016 \\
-    21 & emphatic\_jj & 0 & -7944 \\
-    22 & orderly\_jj & 0 & -7935 \\
-    23 & prayerful\_jj & 0 & -7748 \\
-    24 & indulgent\_jj & 0 & -7743 \\
-    25 & do-or-die\_jj & 0 & -7653 \\
-    26 & inhuman\_jj & 0 & -7651 \\
-    27 & unswerving\_jj & 0 & -7518 \\
-    28 & immutable\_jj & 0 & -7491 \\
-    29 & fortunate\_jj & 0 & -7449 \\
-    30 & unflagging\_jj & 0 & -7263 \\
-    1831 & sharp-tongued\_jj & 0 & 6623 \\
-    1832 & modifiable\_jj & 0 & 6664 \\
-    1833 & clownish\_jj & 0 & 6805 \\
-    1834 & generalist & 0 & 6846 \\
-    1835 & staunch\_jj & 0 & 6991 \\
-    1836 & stringent\_jj & 0 & 7131 \\
-    1837 & magnetic\_jj & 0 & 7228 \\
-    1838 & combative\_jj & 0 & 7254 \\
-    1839 & deterministic\_jj & 0 & 7273 \\
-    1840 & strident\_jj & 0 & 7342 \\
-    1841 & refined\_jj & 0 & 7403 \\
-    1842 & rigorous\_jj & 0 & 7417 \\
-    1843 & nonvolatile\_jj & 0 & 7545 \\
-    1844 & pundit & 0 & 7614 \\
-    1845 & analytical\_jj & 0 & 7678 \\
-    1846 & secular\_jj & 0 & 7768 \\
-    1847 & affective\_jj & 0 & 7813 \\
-    1848 & folksy\_jj & 0 & 8054 \\
-    1849 & obstructive\_jj & 0 & 8157 \\
-    1850 & moderate\_jj & 0 & 8544 \\
-    1851 & sophisticated\_jj & 0 & 8808 \\
-    1852 & malignant\_jj & 0 & 9167 \\
-    1853 & cognitive\_jj & 0 & 9364 \\
-    1854 & aplastic\_jj & 0 & 9457 \\
-    1855 & resistive\_jj & 0 & 9732 \\
-    1856 & refractory\_jj & 0 & 9841 \\
-    1857 & firebrand & 0 & 9969 \\
-    1858 & mathematical\_jj & 1 & 176 \\
-    1859 & variant\_jj & 1 & 229 \\
-    1860 & cerebral\_jj & 1 & 1148 \\
+    1 & unreserved\_jj & -1 & 2678    &    1860 & cerebral\_jj & 1 & 1148 \\
+    2 & indeterminate\_jj & -1 & 1912    &    1859 & variant\_jj & 1 & 229 \\
+    3 & amicable\_jj & -1 & 1681    &    1858 & mathematical\_jj & 1 & 176 \\
+    4 & indefinite\_jj & -1 & 1471    &    1857 & firebrand & 0 & 9969 \\
+    5 & remiss\_jj & -1 & 427    &    1856 & refractory\_jj & 0 & 9841 \\
+    6 & unfailing\_jj & -1 & 131    &    1855 & resistive\_jj & 0 & 9732 \\
+    7 & unguarded\_jj & -1 & 125    &    1854 & aplastic\_jj & 0 & 9457 \\
+    8 & imprudent\_jj & 0 & 9914    &    1853 & cognitive\_jj & 0 & 9364 \\
+    9 & indomitable\_jj & 0 & 9457    &    1852 & malignant\_jj & 0 & 9167 \\
+    10 & unsportsmanlike\_jj & 0 & 8840    &    1851 & sophisticated\_jj & 0 & 8808 \\
+    11 & abject\_jj & 0 & 8769    &    1850 & moderate\_jj & 0 & 8544 \\
+    12 & unfaithful\_jj & 0 & 8734    &    1849 & obstructive\_jj & 0 & 8157 \\
+    13 & unselfish\_jj & 0 & 8595    &    1848 & folksy\_jj & 0 & 8054 \\
+    14 & intrepid\_jj & 0 & 8449    &    1847 & affective\_jj & 0 & 7813 \\
+    15 & immovable\_jj & 0 & 8375    &    1846 & secular\_jj & 0 & 7768 \\
+    16 & sincere\_jj & 0 & 8227    &    1845 & analytical\_jj & 0 & 7678 \\
+    17 & unshakable\_jj & 0 & 8180    &    1844 & pundit & 0 & 7614 \\
+    18 & unreasonable\_jj & 0 & 8174    &    1843 & nonvolatile\_jj & 0 & 7545 \\
+    19 & unequivocal\_jj & 0 & 8169    &    1842 & rigorous\_jj & 0 & 7417 \\
+    20 & selfless\_jj & 0 & 8016    &    1841 & refined\_jj & 0 & 7403 \\
+    21 & emphatic\_jj & 0 & 7944    &    1840 & strident\_jj & 0 & 7342 \\
+    22 & orderly\_jj & 0 & 7935    &    1839 & deterministic\_jj & 0 & 7273 \\
+    23 & prayerful\_jj & 0 & 7748    &    1838 & combative\_jj & 0 & 7254 \\
+    24 & indulgent\_jj & 0 & 7743    &    1837 & magnetic\_jj & 0 & 7228 \\
+    25 & do-or-die\_jj & 0 & 7653    &    1836 & stringent\_jj & 0 & 7131 \\
+    26 & inhuman\_jj & 0 & 7651    &    1835 & staunch\_jj & 0 & 6991 \\
+    27 & unswerving\_jj & 0 & 7518    &    1834 & generalist & 0 & 6846 \\
+    28 & immutable\_jj & 0 & 7491    &    1833 & clownish\_jj & 0 & 6805 \\
+    29 & fortunate\_jj & 0 & 7449    &    1832 & modifiable\_jj & 0 & 6664 \\
+    30 & unflagging\_jj & 0 & 7263    &    1831 & sharp-tongued\_jj & 0 & 6623 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#14} \\
-\end{longtable}
-\begin{longtable}[!htbp]{| rlr@{.}l |}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#14} 
+\end{table}
+\clearpage
+\begin{table}[tbp]
+    \begin{tabular}{| rlr@{.}l | rlr@{.}l |}
     \hline
-    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
+    \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} & \textbf{Rank} & \textbf{Word} & \multicolumn{2}{c|}{\textbf{Score}} \\
     \hline
-    \endhead
-    1 & convivial\_jj & -1 & -1526 \\
-    2 & rowdy\_jj & -1 & -800 \\
-    3 & leisurely\_jj & -1 & -211 \\
-    4 & lewd\_jj & 0 & -9453 \\
-    5 & lascivious\_jj & 0 & -9143 \\
-    6 & courteous\_jj & 0 & -8724 \\
-    7 & testy\_jj & 0 & -8688 \\
-    8 & considerate\_jj & 0 & -8530 \\
-    9 & low-pressure\_jj & 0 & -8272 \\
-    10 & expeditious\_jj & 0 & -8175 \\
-    11 & mannerly\_jj & 0 & -8135 \\
-    12 & sociable\_jj & 0 & -8049 \\
-    13 & hectic\_jj & 0 & -7840 \\
-    14 & gourmet & 0 & -7687 \\
-    15 & unsociable\_jj & 0 & -7674 \\
-    16 & unhurried\_jj & 0 & -7658 \\
-    17 & raucous\_jj & 0 & -7520 \\
-    18 & rancorous\_jj & 0 & -7464 \\
-    19 & epicurean\_jj & 0 & -7318 \\
-    20 & circuitous\_jj & 0 & -6984 \\
-    21 & congenial\_jj & 0 & -6931 \\
-    22 & wildcat\_jj & 0 & -6851 \\
-    23 & unsportsmanlike\_jj & 0 & -6807 \\
-    24 & buzzy\_jj & 0 & -6775 \\
-    25 & outdoor\_jj & 0 & -6753 \\
-    26 & risqué\_jj & 0 & -6563 \\
-    27 & boisterous\_jj & 0 & -6352 \\
-    28 & sedate\_jj & 0 & -6300 \\
-    29 & frenetic\_jj & 0 & -6279 \\
-    30 & hit-or-miss\_jj & 0 & -6276 \\
-    1831 & feminine\_jj & 0 & 7501 \\
-    1832 & complacent\_jj & 0 & 7571 \\
-    1833 & cautionary\_jj & 0 & 7604 \\
-    1834 & voluptuous\_jj & 0 & 7634 \\
-    1835 & bullish\_jj & 0 & 7638 \\
-    1836 & ethereal\_jj & 0 & 7781 \\
-    1837 & benign\_jj & 0 & 7795 \\
-    1838 & forward-looking\_jj & 0 & 7797 \\
-    1839 & acute\_jj & 0 & 7925 \\
-    1840 & piercing\_jj & 0 & 7988 \\
-    1841 & clingy\_jj & 0 & 8102 \\
-    1842 & vegetative\_jj & 0 & 8114 \\
-    1843 & overactive\_jj & 0 & 8189 \\
-    1844 & wishful\_jj & 0 & 8282 \\
-    1845 & unsure\_jj & 0 & 8327 \\
-    1846 & double-faced\_jj & 0 & 8353 \\
-    1847 & womanly\_jj & 0 & 8496 \\
-    1848 & bright\_jj & 0 & 8534 \\
-    1849 & sexy\_jj & 0 & 8708 \\
-    1850 & pessimistic\_jj & 0 & 8933 \\
-    1851 & fluttery\_jj & 0 & 8985 \\
-    1852 & beatific\_jj & 0 & 9077 \\
-    1853 & lifeless\_jj & 0 & 9260 \\
-    1854 & demure\_jj & 0 & 9342 \\
-    1855 & girlish\_jj & 0 & 9435 \\
-    1856 & quitter & 0 & 9515 \\
-    1857 & impassive\_jj & 0 & 9774 \\
-    1858 & cherubic\_jj & 0 & 9884 \\
-    1859 & optimistic\_jj & 1 & 112 \\
-    1860 & angelic\_jj & 1 & 2483 \\
+    1 & convivial\_jj & -1 & 1526    &    1860 & angelic\_jj & 1 & 2483 \\
+    2 & rowdy\_jj & -1 & 800    &    1859 & optimistic\_jj & 1 & 112 \\
+    3 & leisurely\_jj & -1 & 211    &    1858 & cherubic\_jj & 0 & 9884 \\
+    4 & lewd\_jj & 0 & 9453    &    1857 & impassive\_jj & 0 & 9774 \\
+    5 & lascivious\_jj & 0 & 9143    &    1856 & quitter & 0 & 9515 \\
+    6 & courteous\_jj & 0 & 8724    &    1855 & girlish\_jj & 0 & 9435 \\
+    7 & testy\_jj & 0 & 8688    &    1854 & demure\_jj & 0 & 9342 \\
+    8 & considerate\_jj & 0 & 8530    &    1853 & lifeless\_jj & 0 & 9260 \\
+    9 & low-pressure\_jj & 0 & 8272    &    1852 & beatific\_jj & 0 & 9077 \\
+    10 & expeditious\_jj & 0 & 8175    &    1851 & fluttery\_jj & 0 & 8985 \\
+    11 & mannerly\_jj & 0 & 8135    &    1850 & pessimistic\_jj & 0 & 8933 \\
+    12 & sociable\_jj & 0 & 8049    &    1849 & sexy\_jj & 0 & 8708 \\
+    13 & hectic\_jj & 0 & 7840    &    1848 & bright\_jj & 0 & 8534 \\
+    14 & gourmet & 0 & 7687    &    1847 & womanly\_jj & 0 & 8496 \\
+    15 & unsociable\_jj & 0 & 7674    &    1846 & double-faced\_jj & 0 & 8353 \\
+    16 & unhurried\_jj & 0 & 7658    &    1845 & unsure\_jj & 0 & 8327 \\
+    17 & raucous\_jj & 0 & 7520    &    1844 & wishful\_jj & 0 & 8282 \\
+    18 & rancorous\_jj & 0 & 7464    &    1843 & overactive\_jj & 0 & 8189 \\
+    19 & epicurean\_jj & 0 & 7318    &    1842 & vegetative\_jj & 0 & 8114 \\
+    20 & circuitous\_jj & 0 & 6984    &    1841 & clingy\_jj & 0 & 8102 \\
+    21 & congenial\_jj & 0 & 6931    &    1840 & piercing\_jj & 0 & 7988 \\
+    22 & wildcat\_jj & 0 & 6851    &    1839 & acute\_jj & 0 & 7925 \\
+    23 & unsportsmanlike\_jj & 0 & 6807    &    1838 & forward-looking\_jj & 0 & 7797 \\
+    24 & buzzy\_jj & 0 & 6775    &    1837 & benign\_jj & 0 & 7795 \\
+    25 & outdoor\_jj & 0 & 6753    &    1836 & ethereal\_jj & 0 & 7781 \\
+    26 & risqué\_jj & 0 & 6563    &    1835 & bullish\_jj & 0 & 7638 \\
+    27 & boisterous\_jj & 0 & 6352    &    1834 & voluptuous\_jj & 0 & 7634 \\
+    28 & sedate\_jj & 0 & 6300    &    1833 & cautionary\_jj & 0 & 7604 \\
+    29 & frenetic\_jj & 0 & 6279    &    1832 & complacent\_jj & 0 & 7571 \\
+    30 & hit-or-miss\_jj & 0 & 6276    &    1831 & feminine\_jj & 0 & 7501 \\
     \hline
-    \caption{Scores and rankings for most extreme 30 words in component \#15} \\
-\end{longtable}
+    \end{tabular}
+    \caption{Scores and rankings for most extreme 30 words in component \#15} 
+\end{table}
+\clearpage

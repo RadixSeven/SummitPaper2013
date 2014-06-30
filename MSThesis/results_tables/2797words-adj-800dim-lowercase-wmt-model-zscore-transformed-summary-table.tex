@@ -1,8 +1,8 @@
-\begin{longtable}[tbp]{| rllll |}
+\begin{table}[tbp]
+    \begin{tabular}{| rllll |}
     \hline
       & \multicolumn{4}{c|}{\textbf{Component}} \\
     \textbf{Rank} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} \\
-    \endhead
     \hline
     1 & stringent\_jj  & warm\_jj  & considerate\_jj  & objector \\
     2 & beneficial\_jj  & elegant\_jj  & sociable\_jj  & loyal\_jj \\
@@ -20,8 +20,6 @@
     1859 & vivacious\_jj  & bigoted\_jj  & comforter  & limpid\_jj \\
     1860 & mousy\_jj  & defamatory\_jj  & gingery\_jj  & unvarying\_jj \\
     \hline
-    \caption{The highest and lowest ranking words on the first 4 components 
-    derived from normalized PCA of the 1860 word vectors 
-    derived from the 2797 word list.} 
-    \label{tab:2797wordsRankingsNormalizedPCA}
-\end{longtable}
+    \end{tabular}
+    \input{results_tables/2797words-adj-800dim-lowercase-wmt-model-zscore-transformed-summary-table.epilogue.tex}
+\end{table}
