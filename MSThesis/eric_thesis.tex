@@ -1,6 +1,8 @@
-\documentclass[10pt,letterpaper]{book}
+\documentclass[10pt,letterpaper,onepage,openany]{book}
+\usepackage[top=1.25in,bottom=1.25in,left=1.5in,right=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{setspace}
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -57,7 +59,7 @@
 \renewcommand*{\cleardoublepage}{\clearpage\if@twoside \ifodd\c@page\else
 %\blankpage
 \vspace*{\fill}
-{\centering This page is filler so that important sections start on the right hand side of the book.}
+{\centering This page is filler so that important sections start in the correct place.}
 \vspace{\fill}
 \thispagestyle{empty}
 \newpage
@@ -65,8 +67,7 @@
 \makeatother
 
 
-
-
+\doublespacing
 
 % Skeleton of the work
 
@@ -76,7 +77,6 @@
 % Remember to change the PDF title in hyperref when changing the title
 \date{7 July 2014}
 \begin{document}
-\maketitle
 \include{intro+background}
 \include{methods}
 \include{results}
