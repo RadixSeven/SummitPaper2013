@@ -100,20 +100,20 @@ order=-1
 
 [item:eric_thesis.tex]
 archive=true
-column=0
+column=44
 encoding=UTF-8
 highlight=LaTeX
-line=16
+line=91
 mode=LaTeX
 open=true
 order=0
 
 [item:intro+background.tex]
 archive=true
-column=8
+column=12
 encoding=UTF-8
 highlight=LaTeX
-line=6
+line=123
 mode=LaTeX
 open=true
 order=1
@@ -151,16 +151,16 @@ JumpList=
 ViMarks=.,206,15,[,206,0,],206,15
 
 [view-settings,view=0,item:eric_thesis.tex]
-CursorColumn=0
-CursorLine=16
+CursorColumn=44
+CursorLine=91
 JumpList=
-ViMarks=.,15,17,[,15,0,],-1,-1
+ViMarks=.,91,28,[,91,22,],91,28
 
 [view-settings,view=0,item:intro+background.tex]
-CursorColumn=8
-CursorLine=6
+CursorColumn=12
+CursorLine=123
 JumpList=
-ViMarks=.,6,2,[,6,2,],6,7
+ViMarks=.,119,0,[,119,0,],119,9
 
 [view-settings,view=0,item:methods.tex]
 CursorColumn=39
